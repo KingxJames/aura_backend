@@ -19,6 +19,7 @@ class User extends Authenticatable
         'email_verified_at',
         'username',
         'current_grade_level',
+        'profile_picture',
     ];
 
     public function progress(): HasMany

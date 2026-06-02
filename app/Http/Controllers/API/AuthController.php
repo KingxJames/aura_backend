@@ -124,7 +124,7 @@ class AuthController extends Controller
         return response()->json([
             'success' => true,
             'token'   => $token,
-            'user'    => $user
+            'user'    => $this->serializeUser($user),
         ], 201);
     }
 
@@ -155,7 +155,7 @@ class AuthController extends Controller
         return response()->json([
             'success' => true,
             'token'   => $token,
-            'user'    => $user
+            'user'    => $this->serializeUser($user),
         ]);
     }
 
@@ -180,6 +180,9 @@ class AuthController extends Controller
                 ], 422);
             }
 
+            $avatarUrl = $googleUser->getAvatar();
+            $avatarUrl = is_string($avatarUrl) && $avatarUrl !== '' ? $avatarUrl : null;
+
             // Provision a user record dynamically in PostgreSQL if it's their first time logging in
             $user = User::firstOrCreate(
                 ['email' => $googleUser->getEmail()],
@@ -187,8 +190,14 @@ class AuthController extends Controller
                     'name'              => $googleUser->getName() ?? 'Aura Scholar',
                     'password'          => Hash::make(Str::random(24)), // Random string since they log in via Google
                     'email_verified_at' => now(),
+                    'profile_picture'   => $avatarUrl,
                 ]
             );
+
+            if ($avatarUrl !== null && $user->profile_picture !== $avatarUrl) {
+                $user->profile_picture = $avatarUrl;
+                $user->save();
+            }
 
             $user->tokens()->delete();
             $token = $user->createToken('aura_mobile_device')->plainTextToken;
@@ -197,7 +206,7 @@ class AuthController extends Controller
                 'success' => true,
                 'message' => 'Gmail identity confirmed.',
                 'token'   => $token,
-                'user'    => $user
+                'user'    => $this->serializeUser($user),
             ]);
 
         } catch (\Exception $e) {
@@ -246,5 +255,19 @@ class AuthController extends Controller
         $driver = Socialite::driver('google');
 
         return $driver;
+    }
+
+    private function serializeUser(User $user): array
+    {
+        return [
+            'id' => $user->id,
+            'name' => $user->name,
+            'email' => $user->email,
+            'username' => $user->username,
+            'current_grade_level' => $user->current_grade_level,
+            'profile_picture' => $user->profile_picture,
+            'created_at' => $user->created_at,
+            'updated_at' => $user->updated_at,
+        ];
     }
 }
