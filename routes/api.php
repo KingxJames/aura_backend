@@ -49,8 +49,11 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // --- AI Chat Tutor (Tutor Tab) ---
     Route::post('/v1/tutor/chat', [TutorController::class, 'chat']);         // Ask Gemini a question and store log
+    Route::get('/v1/tutor/conversations', [TutorController::class, 'conversations']); // List saved chat threads
+    Route::delete('/v1/tutor/conversations', [TutorController::class, 'clearConversations']); // Clear all chat threads for a user
+    Route::delete('/v1/tutor/conversations/{conversationId}', [TutorController::class, 'deleteConversation']); // Delete one specific chat thread
     Route::get('/v1/tutor/history', [TutorController::class, 'history']);     // Sync chat bubble histories
-    Route::delete('/v1/tutor/history', [TutorController::class, 'clearHistory']); // Clear user conversation row logs
+    Route::delete('/v1/tutor/history', [TutorController::class, 'clearHistory']); // Backward-compatible clear endpoint
 
     // --- Optical Sheet Music Transcription (Transcriber Tab) ---
     Route::post('/v1/transcribe/upload', [TranscriptionController::class, 'upload']); // Upload score image for OMR output
