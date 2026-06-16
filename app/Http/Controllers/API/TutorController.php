@@ -4,7 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\TutorConversation; // Manages the 'tutor_conversations' table
+use App\Models\TutorConversation;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Str;
@@ -12,13 +12,11 @@ use Illuminate\Support\Str;
 class TutorController extends Controller
 {
     /**
-     * 1. CREATE (Store Chat & Fetch AI Response)
-     * Target Frontend: Tutor Chat Interface (Submits a new question)
+     * 1. CREATE (Store Chat, Fetch AI Response with full Thread History)
      * POST /api/v1/tutor/chat
      */
     public function chat(Request $request): JsonResponse
     {
-        // Guard rails to make sure we have a valid student and string content
         $request->validate([
             'user_id' => 'required|integer|exists:users,id',
             'message' => 'required|string|max:5000',
@@ -29,7 +27,7 @@ class TutorController extends Controller
         $userMessage = $request->input('message');
         $conversationId = $request->input('conversation_id') ?? (string) Str::uuid();
 
-        // STEP 1: Log the user's incoming message to PostgreSQL
+        // STEP 1: Log the user's incoming message
         $userConversationLog = TutorConversation::create([
             'user_id' => $userId,
             'conversation_id' => $conversationId,
@@ -37,9 +35,7 @@ class TutorController extends Controller
             'content' => $userMessage
         ]);
 
-        // STEP 2: Establish the AI's pedagogical constraints (System Prompt)
         $apiKey = env('GEMINI_API_KEY');
-
         if (empty($apiKey)) {
             return response()->json([
                 'success' => false,
@@ -47,24 +43,41 @@ class TutorController extends Controller
             ], 500);
         }
 
-        $systemPrompt = "You are Aura, an elite AI Music Professor specializing in the ABRSM music theory curriculum. "
-            . "Your job is to answer music theory questions clearly, concisely, and accurately. "
-            . "Use markdown bullet points and visual text formatting where possible. "
-            . "If a student asks something completely unrelated to music or audio, gently steer them back to music theory.";
+        // STEP 2: Fetch last 10 messages of history to provide full conversational context
+        $historyLogs = TutorConversation::where('conversation_id', $conversationId)
+            ->where('user_id', $userId)
+            ->orderBy('created_at', 'asc')
+            ->take(11) // Includes the message we just saved
+            ->get();
+
+        // Format history into Gemini's expected contents structure
+        $contents = [];
+        foreach ($historyLogs as $log) {
+            $contents[] = [
+                // Gemini looks for 'user' and 'model' roles
+                'role' => $log->message_type === 'ai' ? 'model' : 'user',
+                'parts' => [
+                    ['text' => $log->content]
+                ]
+            ];
+        }
+
+        // STEP 3: Define the Pedagogical System Constraints
+        $systemPrompt = "You are Aura, an elite AI Music Professor specializing in the ABRSM music theory curriculum, western music history, and musicology. "
+            . "Your job is to answer music questions clearly, concisely, and accurately. "
+            . "Use markdown bullet points, bold headers, and structural formatting. "
+            . "If a student asks something completely unrelated to music, art history, or audio, gently steer them back to music theory.";
 
         try {
-            // STEP 3: Dispatch HTTP request to Google Gemini Gateway API
-            // We inject the system persona right alongside the user's input question
+            // STEP 4: Dispatch payload to Gemini API (Passing System Instructions cleanly)
             $response = Http::timeout(25)
                 ->acceptJson()
                 ->withHeaders(['Content-Type' => 'application/json'])
                 ->post("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={$apiKey}", [
-                    'contents' => [
-                        [
-                            'role' => 'user',
-                            'parts' => [
-                                ['text' => "System Context / Instructions:\n{$systemPrompt}\n\nStudent Question:\n{$userMessage}"]
-                            ]
+                    'contents' => $contents,
+                    'systemInstruction' => [
+                        'parts' => [
+                            ['text' => $systemPrompt]
                         ]
                     ]
                 ]);
@@ -76,25 +89,20 @@ class TutorController extends Controller
             ], 502);
         }
 
-        // Error handling if the external AI gateway fails
         if ($response->failed()) {
-            $upstreamError = $response->json('error.message')
-                ?? $response->json('error.status')
-                ?? 'Unknown upstream error.';
-
+            $upstreamError = $response->json('error.message') ?? 'Unknown upstream error.';
             return response()->json([
                 'success' => false,
-                'message' => 'The AI Core Engine is temporarily unreachable. Please try again shortly.',
-                'upstream_status' => app()->isLocal() ? $response->status() : null,
+                'message' => 'The AI Core Engine is temporarily unreachable.',
                 'upstream_error' => app()->isLocal() ? $upstreamError : null,
             ], 502);
         }
 
-        // Parse out the nested string reply from the Gemini API response structure
+        // Parse out the text reply safely
         $aiOutput = $response->json('candidates.0.content.parts.0.text')
             ?? "I am having trouble computing that musical structure right now.";
 
-        // STEP 4: Log the AI's generated answer to PostgreSQL for long-term thread memory
+        // STEP 5: Log the AI's response to DB for long-term memory
         $aiConversationLog = TutorConversation::create([
             'user_id' => $userId,
             'conversation_id' => $conversationId,
@@ -112,8 +120,7 @@ class TutorController extends Controller
     }
 
     /**
-     * 2. READ (Conversation Index) - List saved chat threads for the tutor screen.
-     * Target Frontend: Tutor Screen conversation picker.
+     * 2. READ (Conversation Index) - Optimized to fix N+1 Database Query Bug
      * GET /api/v1/tutor/conversations?user_id={id}
      */
     public function conversations(Request $request): JsonResponse
@@ -122,23 +129,29 @@ class TutorController extends Controller
             'user_id' => 'required|integer|exists:users,id'
         ]);
 
+        $userId = $request->query('user_id');
+
+        // We run a single, fast SQL query to group and find the original prompt title
         $conversations = TutorConversation::query()
-            ->where('user_id', $request->query('user_id'))
+            ->where('user_id', $userId)
             ->whereNotNull('conversation_id')
-            ->selectRaw('conversation_id, MIN(created_at) as created_at, MAX(created_at) as updated_at, COUNT(*) as message_count')
+            ->selectRaw('
+                conversation_id, 
+                MIN(created_at) as created_at, 
+                MAX(created_at) as updated_at, 
+                COUNT(*) as message_count,
+                (SELECT content FROM tutor_conversations as tc2 
+                 WHERE tc2.conversation_id = tutor_conversations.conversation_id 
+                 AND tc2.user_id = ? 
+                 ORDER BY tc2.created_at ASC LIMIT 1) as first_message
+            ', [$userId])
             ->groupBy('conversation_id')
             ->orderByDesc('updated_at')
             ->get()
-            ->map(function ($conversation) use ($request) {
-                $firstMessage = TutorConversation::query()
-                    ->where('user_id', $request->query('user_id'))
-                    ->where('conversation_id', $conversation->conversation_id)
-                    ->orderBy('created_at', 'asc')
-                    ->value('content');
-
+            ->map(function ($conversation) {
                 return [
                     'conversation_id' => $conversation->conversation_id,
-                    'title' => Str::limit($firstMessage ?? 'New conversation', 80),
+                    'title' => Str::limit($conversation->first_message ?? 'New conversation', 80),
                     'message_count' => (int) $conversation->message_count,
                     'created_at' => $conversation->created_at,
                     'updated_at' => $conversation->updated_at,
@@ -153,8 +166,7 @@ class TutorController extends Controller
     }
 
     /**
-     * 2. READ (Index / History) - Pull past chat logs for a clean messaging screen.
-     * Target Frontend: Tutor Screen (Loads existing thread history when opened)
+     * 2. READ (History) - Pull past chat logs chronologically
      * GET /api/v1/tutor/history?user_id={id}&conversation_id={uuid}
      */
     public function history(Request $request): JsonResponse
@@ -170,10 +182,7 @@ class TutorController extends Controller
             $query->where('conversation_id', $request->query('conversation_id'));
         }
 
-        // Fetch logs sorted chronologically so the oldest messages appear at the top
-        $logs = $query
-            ->orderBy('created_at', 'asc')
-            ->get();
+        $logs = $query->orderBy('created_at', 'asc')->get();
 
         return response()->json([
             'success' => true,
@@ -183,9 +192,7 @@ class TutorController extends Controller
     }
 
     /**
-     * 3. DELETE (Destroy Thread) - Delete one saved conversation by ID.
-     * Target Frontend: Chat history list item delete action.
-     * DELETE /api/v1/tutor/conversations/{conversationId}?user_id={id}
+     * 3. DELETE (Destroy Single Thread)
      */
     public function deleteConversation(Request $request, string $conversationId): JsonResponse
     {
@@ -194,10 +201,7 @@ class TutorController extends Controller
         ]);
 
         if (!Str::isUuid($conversationId)) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Invalid conversation identifier format.'
-            ], 422);
+            return response()->json(['success' => false, 'message' => 'Invalid UUID format.'], 422);
         }
 
         $deleted = TutorConversation::query()
@@ -206,24 +210,18 @@ class TutorController extends Controller
             ->delete();
 
         if ($deleted === 0) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Conversation not found for this user.'
-            ], 404);
+            return response()->json(['success' => false, 'message' => 'Conversation not found.'], 404);
         }
 
         return response()->json([
             'success' => true,
             'message' => 'Conversation deleted successfully.',
-            'deleted_count' => $deleted,
             'conversation_id' => $conversationId,
         ]);
     }
 
     /**
-     * 4. DELETE (Destroy All Threads) - Clear all conversation logs for a user.
-     * Target Frontend: Settings Panel / "Clear all chats" action.
-     * DELETE /api/v1/tutor/conversations?user_id={id}
+     * 4. DELETE (Destroy All Threads)
      */
     public function clearConversations(Request $request): JsonResponse
     {
@@ -237,14 +235,13 @@ class TutorController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Conversation data securely cleared from relational logs.',
+            'message' => 'All conversation records cleared.',
             'deleted_count' => $deleted,
         ]);
     }
 
     /**
-     * Backward-compatible alias for existing frontend clients.
-     * DELETE /api/v1/tutor/history?user_id={id}&conversation_id={uuid}
+     * Backward-compatible alias.
      */
     public function clearHistory(Request $request): JsonResponse
     {

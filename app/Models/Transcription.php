@@ -10,6 +10,11 @@ class Transcription extends Model
 {
     use HasUuids;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
     protected $fillable = [
         'user_id',
         'uploaded_image_url',
@@ -17,6 +22,9 @@ class Transcription extends Model
         'generated_midi',
     ];
 
+    /**
+     * Get the user that owns the transcription history record.
+     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

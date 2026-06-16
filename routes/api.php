@@ -56,6 +56,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/v1/tutor/history', [TutorController::class, 'clearHistory']); // Backward-compatible clear endpoint
 
     // --- Optical Sheet Music Transcription (Transcriber Tab) ---
-    Route::post('/v1/transcribe/upload', [TranscriptionController::class, 'upload']); // Upload score image for OMR output
-
+    Route::post('/v1/transcriptions/upload', [TranscriptionController::class, 'upload']); // Upload score image for OMR output
+    Route::get('/v1/transcriptions', [TranscriptionController::class, 'index']); // List all transcriptions for a user
+    Route::post('/v1/transcriptions', [TranscriptionController::class, 'store']); // Store a new transcription result
+    Route::get('/v1/transcriptions/{transcription}', [TranscriptionController::class, 'show']); // Show a single transcription
+    Route::delete('/v1/transcriptions/{transcription}', [TranscriptionController::class, 'destroy']); // Delete a transcription record
 });

@@ -34,15 +34,15 @@ class TranscriptionController extends Controller
 
     /**
      * POST /api/v1/transcriptions
-     * Store a new transcription result.
+     * Store a new transcription result manually.
      */
     public function store(Request $request): JsonResponse
     {
         $validated = $request->validate([
             'user_id' => 'required|integer|exists:users,id',
             'uploaded_image_url' => 'required|string|max:2048',
-            'generated_musicxml' => 'nullable|string',
-            'generated_midi' => 'nullable|string', // base64-encoded binary from frontend
+            'generated_musicxml' => 'nullable|string', // Consider changing to 'generated_abc' in schema
+            'generated_midi' => 'nullable|string',
         ]);
 
         $transcription = Transcription::create($validated);
@@ -81,67 +81,89 @@ class TranscriptionController extends Controller
     }
 
     /**
-     * PROCESS SHEET MUSIC IMAGE FOR DIGITAL OMR OUTPUT (TAB 5)
+     * PROCESS SHEET MUSIC IMAGE FOR DIGITAL OMR OUTPUT AND SAVE TO HISTORY
      * POST /api/v1/transcribe/upload
      */
     public function upload(Request $request): JsonResponse
     {
-        // Validate that the upload is a real, high-resolution image file
         $request->validate([
-            'sheet_music_image' => 'required|image|mimes:jpeg,jpg,png|max:12288', // Max 12MB photo
+            'user_id' => 'required|integer|exists:users,id',
+            'sheet_music_image' => 'required|file|mimes:jpeg,jpg,png,pdf|max:12288',
         ]);
 
         try {
-            // 1. Temporarily secure the sheet music photo locally on your server
             $file = $request->file('sheet_music_image');
-            $path = $file->store('omr_processing', 'local');
-            $imageBytes = Storage::disk('local')->get($path);
+            $extension = strtolower($file->getClientOriginalExtension());
 
-            // 2. Fetch credentials for your Hugging Face AI gateway hub
-            // (You can get a free token from huggingface.co to bypass rate-limits)
-            $hfToken = env('HUGGINGFACE_API_TOKEN', '');
+            // 1. Permanently save the image upfront to get a stable resource URL
+            $permanentPath = $file->store('transcriptions_sheets', 'public');
+            $uploadedImageUrl = Storage::disk('public')->url($permanentPath);
+            $absolutePath = Storage::disk('public')->path($permanentPath);
 
-            // We use an established end-to-end OMR Vision Transformer model pipeline
-            $modelEndpoint = "https://api-inference.huggingface.co/models/m-a-p/sheet-music-transformer";
+            $imageBytes = '';
+            $filename = $file->getClientOriginalName();
 
-            // 3. Forward the raw image binary stream directly to the pre-trained neural network
-            $response = Http::withHeaders([
-                'Authorization' => 'Bearer ' . $hfToken,
-                'Content-Type' => $file->getMimeType(),
-            ])->withBody($imageBytes, $file->getMimeType())->post($modelEndpoint);
+            // 2. Handle conversion if the input document is a PDF
+            if ($extension === 'pdf') {
+                $imagick = new \Imagick();
+                $imagick->setResolution(200, 200);
+                $imagick->readImage($absolutePath . '[0]');
+                $imagick->setImageFormat('png');
 
-            // Clean up the temporary local file immediately to protect server disk space
-            Storage::disk('local')->delete($path);
+                $imageBytes = $imagick->getImageBlob();
+                $filename = pathinfo($filename, PATHINFO_FILENAME) . '.png';
 
-            // 4. Evaluate if the external deep learning model succeeded
-            if ($response->failed()) {
-                // If the model is sleeping/loading on Hugging Face, provide a structured fallback
-                if ($response->status() === 503) {
-                    return response()->json([
-                        'success' => false,
-                        'message' => 'The OMR AI Model is initializing on server nodes. Please try again in a few moments.'
-                    ], 503);
-                }
-
-                throw new \Exception("OMR Model processing pipeline error: " . $response->body());
+                $imagick->clear();
+                $imagick->destroy();
+            } else {
+                $imageBytes = Storage::disk('public')->get($permanentPath);
             }
 
-            // 5. Extract structural results returned from Transcoda/Grandstaff calibrated weights
-            // Usually returns standard ABC notation, MusicXML text strings, or tokenized MIDI arrays
+            // 3. Fallback routing checking for Docker container networks vs local processes
+            // Best practice: Add OMR_API_URL=http://host.docker.internal:8000 to your .env file
+            $baseUrl = env('OMR_API_URL', 'http://127.0.0.1:8000');
+            $modelEndpoint = rtrim($baseUrl, '/') . '/api/v1/transcribe';
+
+            // 4. Fire the stream request across the loop with a safe 5-minute timeout window
+            $response = Http::attach(
+                'file',       // Matches FastAPI variable: file: UploadFile = File(...)
+                $imageBytes,
+                $filename
+            )->timeout(300)->post($modelEndpoint);
+
+            // 5. Evaluate if the background Python runtime succeeded
+            if ($response->failed()) {
+                Storage::disk('public')->delete($permanentPath);
+                throw new \Exception("Local OMR Processing microservice error: " . $response->status() . " - " . $response->body());
+            }
+
+            // 6. Extract the structured string returned by your ViT-GPT2 model
             $omrOutput = $response->json();
+            $digitalNotationPayload = $omrOutput['notation'] ?? "X:1\nM:4/4\nK:C\nC4";
 
-            // Mock response layout if testing locally without an active Hugging Face API key
-            // This returns standard ABC notation for "Twinkle Twinkle Little Star" to let your React Native player test audio strings instantly
-            $digitalNotationPayload = $omrOutput['generated_text'] ?? "X:1\nM:4/4\nK:C\nC C G G | A A G2 | F F E E | D D C2 |";
+            // 7. Write the record into your database history mapping
+            $transcriptionHistory = Transcription::create([
+                'user_id' => $request->input('user_id'),
+                'uploaded_image_url' => $uploadedImageUrl,
+                'generated_musicxml' => $digitalNotationPayload, // Storing ABC format string here safely
+                'generated_midi' => null,
+            ]);
 
+            // 8. Return complete runtime payload pack back to user client viewport
             return response()->json([
                 'success' => true,
-                'message' => 'Sheet music layout successfully transcribed to digital notation.',
-                'notation_format' => 'ABC_Notation', // Accessible format easily readable by web/mobile audio playback scripts
-                'digital_score' => $digitalNotationPayload
+                'message' => 'Sheet music layout successfully transcribed and saved to history.',
+                'notation_format' => 'ABC_Notation',
+                'digital_score' => $digitalNotationPayload,
+                'history_record' => $transcriptionHistory
             ], 200);
 
         } catch (\Exception $e) {
+            // Clean up storage leaks if execution crashes unexpectedly
+            if (isset($permanentPath)) {
+                Storage::disk('public')->delete($permanentPath);
+            }
+
             return response()->json([
                 'success' => false,
                 'message' => 'Optical Music Recognition parsing failure.',
