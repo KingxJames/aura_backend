@@ -63,9 +63,10 @@ class TutorController extends Controller
         }
 
         // STEP 3: Define the Pedagogical System Constraints
-        $systemPrompt = "You are Aura, an elite AI Music Professor specializing in the ABRSM music theory curriculum, western music history, and musicology. "
+        $systemPrompt = "You are Aura, an elite AI Music Professor specializing in the music theory curriculum, western music history, and musicology. "
             . "Your job is to answer music questions clearly, concisely, and accurately. "
             . "Use markdown bullet points, bold headers, and structural formatting. "
+            . "CRITICAL FOR VISUALS: Whenever a user asks to see a visual concept (like a treble clef, bass clef, staff, or note values), you MUST embed a high-quality, clear, publicly available online image URL using standard Markdown image syntax: ![Description](https://url/image.png). "
             . "If a student asks something completely unrelated to music, art history, or audio, gently steer them back to music theory.";
 
         try {
