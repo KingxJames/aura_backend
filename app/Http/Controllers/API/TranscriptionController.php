@@ -17,19 +17,27 @@ class TranscriptionController extends Controller
      */
     public function index(Request $request): JsonResponse
     {
+        // 1. Enforce strict validation on user checking
         $request->validate([
             'user_id' => 'required|integer|exists:users,id',
         ]);
 
+        // 2. Fetch records efficiently
         $transcriptions = Transcription::where('user_id', $request->query('user_id'))
             ->orderBy('created_at', 'desc')
-            ->get();
+            ->get()
+            ->map(function ($item) {
+                // Ensure front-end friendly readable date values are appended
+                $item->formatted_date = $item->created_at->format('M d, Y • g:i A');
+                return $item;
+            });
 
+        // 3. Return payload structure tailored for a clean history listing screen
         return response()->json([
             'success' => true,
             'count' => $transcriptions->count(),
             'data' => $transcriptions,
-        ]);
+        ], 200);
     }
 
     /**
@@ -95,15 +103,15 @@ class TranscriptionController extends Controller
             $file = $request->file('sheet_music_image');
             $extension = strtolower($file->getClientOriginalExtension());
 
-            // 1. Permanently save the image upfront to get a stable resource URL
+            // Save the image upfront to get a stable resource URL
             $permanentPath = $file->store('transcriptions_sheets', 'public');
-            $uploadedImageUrl = Storage::disk('public')->url($permanentPath);
+            $uploadedImageUrl = Storage::url($permanentPath);
             $absolutePath = Storage::disk('public')->path($permanentPath);
 
             $imageBytes = '';
             $filename = $file->getClientOriginalName();
 
-            // 2. Handle conversion if the input document is a PDF
+            // Handle PDF conversion layout
             if ($extension === 'pdf') {
                 $imagick = new \Imagick();
                 $imagick->setResolution(200, 200);
@@ -119,47 +127,37 @@ class TranscriptionController extends Controller
                 $imageBytes = Storage::disk('public')->get($permanentPath);
             }
 
-            // 3. Fallback routing checking for Docker container networks vs local processes
-            // Best practice: Add OMR_API_URL=http://host.docker.internal:8000 to your .env file
             $baseUrl = env('OMR_API_URL', 'http://127.0.0.1:8000');
             $modelEndpoint = rtrim($baseUrl, '/') . '/api/v1/transcribe';
 
-            // 4. Fire the stream request across the loop with a safe 5-minute timeout window
             $response = Http::attach(
-                'file',       // Matches FastAPI variable: file: UploadFile = File(...)
+                'file',
                 $imageBytes,
                 $filename
             )->timeout(300)->post($modelEndpoint);
 
-            // 5. Evaluate if the background Python runtime succeeded
             if ($response->failed()) {
                 Storage::disk('public')->delete($permanentPath);
-                throw new \Exception("Local OMR Processing microservice error: " . $response->status() . " - " . $response->body());
+                throw new \Exception("OMR microservice error: " . $response->status());
             }
 
-            // 6. Extract the structured string returned by your ViT-GPT2 model
             $omrOutput = $response->json();
             $digitalNotationPayload = $omrOutput['notation'] ?? "X:1\nM:4/4\nK:C\nC4";
 
-            // 7. Write the record into your database history mapping
+            // Save straight to your DB schema logs
             $transcriptionHistory = Transcription::create([
                 'user_id' => $request->input('user_id'),
                 'uploaded_image_url' => $uploadedImageUrl,
-                'generated_musicxml' => $digitalNotationPayload, // Storing ABC format string here safely
+                'generated_musicxml' => $digitalNotationPayload,
                 'generated_midi' => null,
             ]);
 
-            // 8. Return complete runtime payload pack back to user client viewport
             return response()->json([
                 'success' => true,
-                'message' => 'Sheet music layout successfully transcribed and saved to history.',
-                'notation_format' => 'ABC_Notation',
-                'digital_score' => $digitalNotationPayload,
-                'history_record' => $transcriptionHistory
+                'message' => 'Sheet music transcribed and saved to history.',
+                'data' => $transcriptionHistory
             ], 200);
-
         } catch (\Exception $e) {
-            // Clean up storage leaks if execution crashes unexpectedly
             if (isset($permanentPath)) {
                 Storage::disk('public')->delete($permanentPath);
             }
