@@ -11,21 +11,20 @@ return new class extends Migration {
         // Enable pgvector extension inside your PostgreSQL container instance
         DB::statement('CREATE EXTENSION IF NOT EXISTS vector;');
 
-        // 1. CORE USER MANAGEMENT
-        // Note: Laravel includes a default 'users' migration. Ensure its 'id' is changed to uuid or update it here.
-        if (!Schema::hasTable('users')) {
-            Schema::create('users', function (Blueprint $table) {
-                $table->uuid('id')->primary();
-                $table->string('email')->unique();
-                $table->string('username');
-                $table->string('current_grade_level')->default('Grade 1');
-                $table->timestamps(); // Handles created_at and updated_at
-            });
-        }
+        // // 1. CORE USER MANAGEMENT
+        // if (!Schema::hasTable('users')) {
+        //     Schema::create('users', function (Blueprint $table) {
+        //         $table->id(); // Standard Auto-Incrementing BigInteger Primary Key (id)
+        //         $table->string('email')->unique();
+        //         $table->string('username');
+        //         $table->string('current_grade_level')->default('Grade 1');
+        //         $table->timestamps();
+        //     });
+        // }
 
         // 2. CURRICULUM & THEORY (Grades & Quizzes Tabs)
         Schema::create('grades', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->id(); // Standard Auto-Incrementing BigInteger Primary Key
             $table->string('title');
             $table->integer('level_number')->unique();
             $table->text('description');
@@ -34,26 +33,26 @@ return new class extends Migration {
         });
 
         Schema::create('quizzes', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->foreignUuid('grade_id')->constrained('grades')->onDelete('cascade');
+            $table->id(); // Standard Auto-Incrementing BigInteger Primary Key
+            $table->foreignId('grade_id')->constrained('grades')->onDelete('cascade'); // Clean Integer Foreign Key link
             $table->string('title');
             $table->text('description');
-            $table->jsonb('content_jsonb'); // Native JSON storage for structural dynamic test engine
+            $table->jsonb('content_jsonb');
             $table->timestamps();
         });
 
         // 3. RESEARCH TRACKING (Home & Progress Analytics)
         Schema::create('user_progress', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->foreignUuid('quiz_id')->constrained('quizzes')->onDelete('cascade');
+            $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade'); // Matches perfectly now
+            $table->foreignId('quiz_id')->constrained('quizzes')->onDelete('cascade');
             $table->decimal('score', 5, 2);
             $table->timestamps();
         });
 
         // 4. AURAL ANALYSIS ENGINE (Aural Tab)
         Schema::create('aural_attempts', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('target_note');
             $table->decimal('detected_frequency', 10, 2);
@@ -65,22 +64,21 @@ return new class extends Migration {
 
         // 5. TUTOR INTERACTION LOGS (Tutor Tab)
         Schema::create('tutor_conversations', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->string('message_type'); // 'user' or 'ai'
+            $table->string('message_type');
             $table->text('content');
-            // Raw SQL statement execution to add pgvector standard mapping safely
             $table->timestamps();
         });
         DB::statement('ALTER TABLE tutor_conversations ADD COLUMN embedding_vector vector(1536);');
 
         // 6. OPTICAL TRANSCRIPTION DATA (Transcriber Tab)
         Schema::create('transcriptions', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->id(); // Standard Auto-Incrementing BigInteger Primary Key
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('uploaded_image_url');
             $table->text('generated_musicxml')->nullable();
-            $table->binary('generated_midi')->nullable(); // Maps to PostgreSQL bytea blob for raw playback streams
+            $table->binary('generated_midi')->nullable();
             $table->timestamps();
         });
     }

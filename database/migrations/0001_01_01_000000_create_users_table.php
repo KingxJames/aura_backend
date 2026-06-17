@@ -12,11 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
+            $table->id(); // Standard Auto-Incrementing BigInteger Primary Key
+            $table->string('name'); // From Laravel default auth
+            $table->string('username'); // From your application schema
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('current_grade_level')->default('Grade 1'); // Your application profile tracker
             $table->rememberToken();
             $table->timestamps();
         });

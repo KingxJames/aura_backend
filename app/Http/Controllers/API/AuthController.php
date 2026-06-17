@@ -106,16 +106,20 @@ class AuthController extends Controller
      */
     public function register(Request $request): JsonResponse
     {
+        // 1. Force strict validation rules on the custom username field
         $request->validate([
             'name'     => 'required|string|max:255',
-            'email'    => 'required|string|email|max:255|unique:users',
+            'username' => 'required|string|alpha_dash|max:50|unique:users,username', // 👈 Required & Unique
+            'email'    => 'required|string|email|max:255|unique:users,email',
             'password' => 'required|string|min:8',
         ]);
 
+        // 2. Persist the record directly using your customized values
         $user = User::create([
             'name'     => $request->name,
+            'username' => $request->username, // 👈 Saves your custom input
             'email'    => $request->email,
-            'password' => Hash::make($request->password), // Encrypts the password securely
+            'password' => Hash::make($request->password),
         ]);
 
         // Issue standard mobile access token
@@ -127,7 +131,7 @@ class AuthController extends Controller
             'user'    => $this->serializeUser($user),
         ], 201);
     }
-
+    
     /**
      * TRACK A: TRADITIONAL EMAIL LOGIN
      * POST /api/v1/auth/login
@@ -172,7 +176,7 @@ class AuthController extends Controller
         try {
             // Direct handshake with Google using Socialite to extract verified user data
             $googleUser = $this->googleDriver()->userFromToken($request->input('google_token'));
-            
+
             if (!$googleUser || !$googleUser->getEmail()) {
                 return response()->json([
                     'success' => false,
@@ -208,7 +212,6 @@ class AuthController extends Controller
                 'token'   => $token,
                 'user'    => $this->serializeUser($user),
             ]);
-
         } catch (\Exception $e) {
             return response()->json([
                 'success' => false,

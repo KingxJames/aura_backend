@@ -14,7 +14,6 @@ class CurriculumSeeder extends Seeder
         // GRADE 1: FOUNDATION STAGE
         // ==========================================
         $grade1 = Grade::create([
-            'id' => '11111111-1111-1111-1111-111111111111',
             'title' => 'Grade 1 Theory Foundation',
             'level_number' => 1,
             'description' => 'Introduction to basic music notation, clefs, and fundamental rhythmic math values.',
@@ -22,8 +21,7 @@ class CurriculumSeeder extends Seeder
         ]);
 
         Quiz::create([
-            'id' => '99999999-1111-1111-1111-111111111111',
-            'grade_id' => $grade1->id,
+            'grade_id' => $grade1->id, // Captures auto-incremented integer ID dynamically
             'title' => 'Treble Clef Pitch Recognition',
             'description' => 'Identify absolute pitches sitting cleanly on the lines and spaces within the treble staff.',
             'content_jsonb' => [
@@ -73,8 +71,7 @@ class CurriculumSeeder extends Seeder
         ]);
 
         Quiz::create([
-            'id' => '99999999-1111-1111-1111-222222222222',
-            'grade_id' => $grade1->id,
+            'grade_id' => $grade1->id, // Captures auto-incremented integer ID dynamically
             'title' => 'Time Signatures & Rhythmic Beats',
             'description' => 'Master basic measure math configurations and note structural durations.',
             'content_jsonb' => [
@@ -111,7 +108,6 @@ class CurriculumSeeder extends Seeder
         // GRADE 2: EXPANDED SCALES & KEY SIGNATURES
         // ==========================================
         $grade2 = Grade::create([
-            'id' => '22222222-2222-2222-2222-222222222222',
             'title' => 'Grade 2 Notation Progression',
             'level_number' => 2,
             'description' => 'Exploring complex key signatures, triplets, and basic minor scale structures.',
@@ -119,8 +115,7 @@ class CurriculumSeeder extends Seeder
         ]);
 
         Quiz::create([
-            'id' => '99999999-2222-2222-2222-111111111111',
-            'grade_id' => $grade2->id,
+            'grade_id' => $grade2->id, // Captures auto-incremented integer ID dynamically
             'title' => 'Major Key Signatures Explorer',
             'description' => 'Test your operational knowledge of sharps and flats up to three accidentals.',
             'content_jsonb' => [
