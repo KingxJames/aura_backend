@@ -103,7 +103,7 @@ class TranscriptionController extends Controller
             $file = $request->file('sheet_music_image');
             $extension = strtolower($file->getClientOriginalExtension());
 
-            // Save the image upfront to get a stable resource URL
+            // 1. Save the image upfront to get a stable resource URL
             $permanentPath = $file->store('transcriptions_sheets', 'public');
             $uploadedImageUrl = Storage::url($permanentPath);
             $absolutePath = Storage::disk('public')->path($permanentPath);
@@ -111,11 +111,11 @@ class TranscriptionController extends Controller
             $imageBytes = '';
             $filename = $file->getClientOriginalName();
 
-            // Handle PDF conversion layout
+            // 2. Handle PDF conversion layout via Imagick
             if ($extension === 'pdf') {
                 $imagick = new \Imagick();
                 $imagick->setResolution(200, 200);
-                $imagick->readImage($absolutePath . '[0]');
+                $imagick->readImage($absolutePath . '[0]'); // Processes first page
                 $imagick->setImageFormat('png');
 
                 $imageBytes = $imagick->getImageBlob();
@@ -127,6 +127,7 @@ class TranscriptionController extends Controller
                 $imageBytes = Storage::disk('public')->get($permanentPath);
             }
 
+            // 3. Forward the image directly to your Python OMR Microservice
             $baseUrl = env('OMR_API_URL', 'http://127.0.0.1:8000');
             $modelEndpoint = rtrim($baseUrl, '/') . '/api/v1/transcribe';
 
@@ -142,14 +143,16 @@ class TranscriptionController extends Controller
             }
 
             $omrOutput = $response->json();
-            $digitalNotationPayload = $omrOutput['notation'] ?? "X:1\nM:4/4\nK:C\nC4";
 
-            // Save straight to your DB schema logs
+            // We assume your Python microservice formats multi-voice ABC string text
+            $digitalNotationPayload = $omrOutput['notation'] ?? "X:1\nM:4/4\nK:C\nV:1 clef=treble\nC4\nV:2 clef=bass\nC,4";
+
+            // 4. Save straight to your DB schema logs
             $transcriptionHistory = Transcription::create([
                 'user_id' => $request->input('user_id'),
                 'uploaded_image_url' => $uploadedImageUrl,
-                'generated_musicxml' => $digitalNotationPayload,
-                'generated_midi' => null,
+                'generated_abc' => $digitalNotationPayload, // Use plain-text ABC format
+                'generated_midi' => $omrOutput['midi_base64'] ?? null, // Optional base64 midi for playing audio playback
             ]);
 
             return response()->json([
@@ -157,6 +160,7 @@ class TranscriptionController extends Controller
                 'message' => 'Sheet music transcribed and saved to history.',
                 'data' => $transcriptionHistory
             ], 200);
+
         } catch (\Exception $e) {
             if (isset($permanentPath)) {
                 Storage::disk('public')->delete($permanentPath);
