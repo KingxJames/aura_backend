@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             CoreUserSeeder::class,
             CurriculumSeeder::class,
             ActivityLogSeeder::class,
+            GradeOneQuizSeeder::class,
         ]);
     }
 }

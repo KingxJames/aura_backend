@@ -8,7 +8,7 @@ from transformers import VisionEncoderDecoderModel, ViTImageProcessor, AutoToken
 app = FastAPI(title="Laravel OMR Translation Engine")
 
 # 1. Establish hardware fallback globally before running initialization
-device = "cuda" if torch.cuda.is_available() else "cpu"
+device = "cuda" if torch.torch.cuda.is_available() else "cpu"
 
 # ==============================================================================
 # INITIALIZE HUGGING FACE TARGET VARIABLES
@@ -20,6 +20,9 @@ try:
     # Load the corresponding image processors and tokenizers
     image_processor = ViTImageProcessor.from_pretrained("google/vit-base-patch16-224-in21k")
     tokenizer = AutoTokenizer.from_pretrained("gpt2")
+    
+    # 🚨 FIX: Explicitly assign a padding token to the GPT2 tokenizer object instance
+    tokenizer.pad_token = tokenizer.eos_token 
     
     # Download and assemble your trained network weights
     model = VisionEncoderDecoderModel.from_pretrained(MODEL_NAME)

@@ -7,10 +7,13 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Grade extends Model
 {
-
     protected $fillable = [
         'level_number',
         'syllabus_focus',
+    ];
+
+    protected $casts = [
+        'level_number' => 'integer', // Ensures strict type matching works flawlessly
     ];
 
     public function quizzes(): HasMany

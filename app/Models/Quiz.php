@@ -8,14 +8,12 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Quiz extends Model
 {
-
     protected $fillable = [
         'grade_id',
         'title',
         'content_jsonb',
     ];
 
-    // Automatically converts PostgreSQL JSONB format back into a clean PHP Array
     protected $casts = [
         'content_jsonb' => 'array',
     ];
@@ -28,5 +26,13 @@ class Quiz extends Model
     public function progressRecords(): HasMany
     {
         return $this->hasMany(UserProgress::class);
+    }
+
+    /**
+     * Helper to instantly fetch the questions array as a Laravel Collection
+     */
+    public function getQuestionsCollection()
+    {
+        return collect($this->content_jsonb ?? []);
     }
 }

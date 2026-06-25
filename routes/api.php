@@ -8,6 +8,7 @@ use App\Http\Controllers\API\AuralController;
 use App\Http\Controllers\API\QuizController;
 use App\Http\Controllers\API\TutorController;
 use App\Http\Controllers\API\TranscriptionController;
+use App\Http\Controllers\API\GradeTheoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,13 +40,17 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/v1/aural/{id}', [AuralController::class, 'update']);     // Edit notes/comments on an attempt
     Route::delete('/v1/aural/{id}', [AuralController::class, 'destroy']); // Delete an attempt record
 
-    // --- Curriculum, Theory, & Progress (Grades & Quizzes Tabs) ---
-    Route::get('/v1/curriculum', [QuizController::class, 'index']);                        // Fetch Grades 1-5 syllabus layout
-    Route::get('/v1/curriculum/quiz/{id}', [QuizController::class, 'showQuiz']);           // Fetch quiz question sets
-    Route::post('/v1/curriculum/quiz/submit', [QuizController::class, 'submitQuiz']);       // Log a fresh quiz score
-    Route::get('/v1/curriculum/progress', [QuizController::class, 'studentProgress']);     // Fetch user grade book / charts data
-    Route::delete('/v1/curriculum/progress/{id}', [QuizController::class, 'destroyProgress']); // Reset a score history record
+    // --- Curriculum, Theory, & Progress ---
+    Route::get('/v1/curriculum', [QuizController::class, 'index']);
+    Route::get('/v1/curriculum/quiz/{id}', [QuizController::class, 'showQuiz']);
+    Route::post('/v1/curriculum/quiz/submit', [QuizController::class, 'submitQuiz']);
+    Route::get('/v1/curriculum/progress', [QuizController::class, 'studentProgress']);
+    Route::delete('/v1/curriculum/progress/{id}', [QuizController::class, 'destroyProgress']);
     Route::get('/v1/curriculum/dashboard-recommendations', [QuizController::class, 'getDashboardRecommendations']);
+
+    // 2. ADD YOUR NEW THEORY ENDPOINTS HERE
+    Route::get('/v1/theory/questions', [GradeTheoryController::class, 'getQuestions']);
+    Route::post('/v1/theory/evaluate', [GradeTheoryController::class, 'evaluateAnswers']);
 
     // --- AI Chat Tutor (Tutor Tab) ---
     Route::post('/v1/tutor/chat', [TutorController::class, 'chat']);         // Ask Gemini a question and store log
