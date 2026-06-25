@@ -9,6 +9,7 @@ use App\Http\Controllers\API\QuizController;
 use App\Http\Controllers\API\TutorController;
 use App\Http\Controllers\API\TranscriptionController;
 use App\Http\Controllers\API\GradeTheoryController;
+use App\Http\Controllers\API\QuizSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,10 @@ Route::middleware('auth:sanctum')->group(function () {
     // 2. ADD YOUR NEW THEORY ENDPOINTS HERE
     Route::get('/v1/theory/questions', [GradeTheoryController::class, 'getQuestions']);
     Route::post('/v1/theory/evaluate', [GradeTheoryController::class, 'evaluateAnswers']);
+    // Gamified Adaptive Quiz Session Routes
+    Route::post('/quiz/session/start', [QuizSessionController::class, 'start']);
+    Route::post('/quiz/session/step', [QuizSessionController::class, 'step']);
+    Route::post('/quiz/session/finalize', [QuizSessionController::class, 'finalize']);
 
     // --- AI Chat Tutor (Tutor Tab) ---
     Route::post('/v1/tutor/chat', [TutorController::class, 'chat']);         // Ask Gemini a question and store log

@@ -10,10 +10,14 @@ class GradeOneQuizSeeder extends Seeder
 {
     public function run(): void
     {
-        // 1. Ensure Grade 1 exists in the database
+        // 1. Ensure Grade 1 exists in the database with its required Title and Description
         $grade = Grade::firstOrCreate(
             ['level_number' => 1],
-            ['syllabus_focus' => 'Basic notation, major scales, time signatures, and common musical terms.']
+            [
+                'title' => 'Grade 1 Theory',
+                'description' => 'Syllabus foundations covering the basics of pitch, rhythm, and introductory scales.', // 🧠 FIX: Added missing description field
+                'syllabus_focus' => 'Basic notation, major scales, time signatures, and common musical terms.'
+            ]
         );
 
         // 2. Read your custom JSON file using an absolute disk path
@@ -39,10 +43,7 @@ class GradeOneQuizSeeder extends Seeder
                 'title' => 'Grade 1 Music Theory Complete Question Bank',
             ],
             [
-                // FIX: Added the description field to satisfy your database constraint
                 'description' => 'Comprehensive question bank covering all core syllabus topics for Grade 1 Music Theory.',
-
-                // Automatically converts to jsonb format due to your Quiz model casting
                 'content_jsonb' => $questionsArray,
             ]
         );

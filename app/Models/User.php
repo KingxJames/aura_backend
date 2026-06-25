@@ -41,4 +41,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Transcription::class);
     }
+
+    public function quizSessions()
+    {
+        return $this->hasMany(QuizSession::class);
+    }
+
+    public function sessions()
+    {
+        return $this->hasMany(QuizSession::class);
+    }
 }

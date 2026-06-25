@@ -14,7 +14,6 @@ class DatabaseSeeder extends Seeder
         // Sequence Order is Critical: Users and Curriculum must exist before logging activities!
         $this->call([
             CoreUserSeeder::class,
-            CurriculumSeeder::class,
             ActivityLogSeeder::class,
             GradeOneQuizSeeder::class,
         ]);
