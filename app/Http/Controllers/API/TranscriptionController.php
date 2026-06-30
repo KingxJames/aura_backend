@@ -12,27 +12,19 @@ use Illuminate\Support\Facades\Http;
 class TranscriptionController extends Controller
 {
     /**
-     * GET /api/v1/transcriptions?user_id={id}
-     * List all transcriptions for a user, newest first.
+     * GET /api/v1/transcriptions
+     * List all transcriptions for the authenticated user, newest first.
      */
     public function index(Request $request): JsonResponse
     {
-        // 1. Enforce strict validation on user checking
-        $request->validate([
-            'user_id' => 'required|integer|exists:users,id',
-        ]);
-
-        // 2. Fetch records efficiently
-        $transcriptions = Transcription::where('user_id', $request->query('user_id'))
+        $transcriptions = Transcription::where('user_id', auth()->id())
             ->orderBy('created_at', 'desc')
             ->get()
             ->map(function ($item) {
-                // Ensure front-end friendly readable date values are appended
                 $item->formatted_date = $item->created_at->format('M d, Y • g:i A');
                 return $item;
             });
 
-        // 3. Return payload structure tailored for a clean history listing screen
         return response()->json([
             'success' => true,
             'count' => $transcriptions->count(),
@@ -49,7 +41,8 @@ class TranscriptionController extends Controller
         $validated = $request->validate([
             'user_id' => 'required|integer|exists:users,id',
             'uploaded_image_url' => 'required|string|max:2048',
-            'generated_musicxml' => 'nullable|string', // Consider changing to 'generated_abc' in schema
+            'generated_abc' => 'nullable|string',
+            'generated_musicxml' => 'nullable|string',
             'generated_midi' => 'nullable|string',
         ]);
 
@@ -90,12 +83,11 @@ class TranscriptionController extends Controller
 
     /**
      * PROCESS SHEET MUSIC IMAGE FOR DIGITAL OMR OUTPUT AND SAVE TO HISTORY
-     * POST /api/v1/transcribe/upload
+     * POST /api/v1/transcriptions/upload
      */
     public function upload(Request $request): JsonResponse
     {
         $request->validate([
-            'user_id' => 'required|integer|exists:users,id',
             'sheet_music_image' => 'required|file|mimes:jpeg,jpg,png,pdf|max:12288',
         ]);
 
@@ -111,11 +103,11 @@ class TranscriptionController extends Controller
             $imageBytes = '';
             $filename = $file->getClientOriginalName();
 
-            // 2. Handle PDF conversion layout via Imagick
+            // 2. Handle PDF conversion via Imagick
             if ($extension === 'pdf') {
                 $imagick = new \Imagick();
                 $imagick->setResolution(200, 200);
-                $imagick->readImage($absolutePath . '[0]'); // Processes first page
+                $imagick->readImage($absolutePath . '[0]');
                 $imagick->setImageFormat('png');
 
                 $imageBytes = $imagick->getImageBlob();
@@ -127,7 +119,7 @@ class TranscriptionController extends Controller
                 $imageBytes = Storage::disk('public')->get($permanentPath);
             }
 
-            // 3. Forward the image directly to your Python OMR Microservice
+            // 3. Forward the image to the Python OMR microservice
             $baseUrl = env('OMR_API_URL', 'http://127.0.0.1:8000');
             $modelEndpoint = rtrim($baseUrl, '/') . '/api/v1/transcribe';
 
@@ -144,21 +136,21 @@ class TranscriptionController extends Controller
 
             $omrOutput = $response->json();
 
-            // We assume your Python microservice formats multi-voice ABC string text
-            $digitalNotationPayload = $omrOutput['notation'] ?? "X:1\nM:4/4\nK:C\nV:1 clef=treble\nC4\nV:2 clef=bass\nC,4";
+            $abcNotation = $omrOutput['notation'] ?? "X:1\nM:4/4\nK:C\nV:1 clef=treble\nC4\nV:2 clef=bass\nC,4";
+            $midiBase64 = $omrOutput['midi_base64'] ?? null;
 
-            // 4. Save straight to your DB schema logs
+            // 4. Save to transcription history
             $transcriptionHistory = Transcription::create([
-                'user_id' => $request->input('user_id'),
+                'user_id' => auth()->id(),
                 'uploaded_image_url' => $uploadedImageUrl,
-                'generated_abc' => $digitalNotationPayload, // Use plain-text ABC format
-                'generated_midi' => $omrOutput['midi_base64'] ?? null, // Optional base64 midi for playing audio playback
+                'generated_abc' => $abcNotation,
+                'generated_midi' => $midiBase64,
             ]);
 
             return response()->json([
                 'success' => true,
                 'message' => 'Sheet music transcribed and saved to history.',
-                'data' => $transcriptionHistory
+                'data' => $transcriptionHistory,
             ], 200);
 
         } catch (\Exception $e) {

@@ -1,0 +1,1472 @@
+[
+    {
+        "id": 1,
+        "question": "🎼 Look at the lines on the treble staff. What note name is sitting on the very bottom line (Line 1)?",
+        "options": ["E", "G", "F", "D"],
+        "ground_truth": "E",
+        "hint": "Think of the very first word in the treble line phrase: 'Every Good Boy Does Fine'!",
+        "explanation": "🎵 Fun Trick: Remember the lines from bottom to top using 'Every Good Boy Does Fine'. The first word is 'Every', so line 1 is E!",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/11/Grand_staff_labeled_notes.svg",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 2,
+        "question": "🎼 What note name is sitting on the middle line (Line 3) of the treble staff?",
+        "options": ["B", "D", "G", "A"],
+        "ground_truth": "B",
+        "hint": "Count up three words using 'Every Good Boy Does Fine'. What letter does that third word start with?",
+        "explanation": "🎵 Fun Trick: Count the words up from the bottom line: Every (1), Good (2), Boy (3). Line 3 is B!",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/11/Grand_staff_labeled_notes.svg",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 3,
+        "question": "🎈 Notes love to hide in the spaces too! What note name lives in the first space at the very bottom of the treble staff?",
+        "options": ["F", "A", "C", "E"],
+        "ground_truth": "F",
+        "hint": "The treble spaces spell out a word that rhymes with 'place'. What is the very first letter of that word?",
+        "explanation": "🎵 Fun Trick: The spaces of the treble staff spell out the word F-A-C-E from bottom to top. Space 1 is F!",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/11/Grand_staff_labeled_notes.svg",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 4,
+        "question": "🎈 What note name is hiding in the second space from the bottom of the treble staff?",
+        "options": ["A", "F", "C", "E"],
+        "ground_truth": "A",
+        "hint": "Spell out 'F-A-C-E' space by space. Which letter lands exactly on the second space?",
+        "explanation": "🎵 Fun Trick: The spaces spell out F-A-C-E from bottom to top. The second letter is A!",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/11/Grand_staff_labeled_notes.svg",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 5,
+        "question": "🎼 Let's jump down to the low notes! What note name sits on the very bottom line (Line 1) of the bass staff?",
+        "options": ["G", "B", "D", "F"],
+        "ground_truth": "G",
+        "hint": "Switch your brain to the bass staff phrase: 'Good Boys Do Fine Always'. What is the very first letter?",
+        "explanation": "🐻 Fun Trick: To read the bass staff lines from bottom to top, remember: 'Good Boys Do Fine Always'. Line 1 is G!",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/11/Grand_staff_labeled_notes.svg",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 6,
+        "question": "🎼 What note name sits right on the middle line (Line 3) of the bass staff?",
+        "options": ["D", "B", "F", "G"],
+        "ground_truth": "D",
+        "hint": "Count up three lines on the bass staff using: 'Good Boys Do Fine Always'. What word do you land on?",
+        "explanation": "🐻 Fun Trick: Count up the lines using 'Good Boys Do Fine Always': Good (1), Boys (2), Do (3). Line 3 is D!",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/11/Grand_staff_labeled_notes.svg",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 7,
+        "question": "🐮 What note name is sitting in the very bottom space (Space 1) of the bass staff?",
+        "options": ["A", "C", "E", "G"],
+        "ground_truth": "A",
+        "hint": "Use the bass space animal phrase: 'All Cows Eat Grass'. What is the first letter of the first word?",
+        "explanation": "🐻 Fun Trick: To read the bass spaces from bottom to top, remember: 'All Cows Eat Grass'. Space 1 is A!",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/11/Grand_staff_labeled_notes.svg",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 8,
+        "question": "🐮 What note name sits in the second space from the bottom of the bass staff?",
+        "options": ["C", "A", "E", "G"],
+        "ground_truth": "C",
+        "hint": "Think of 'All Cows Eat Grass'. Which farm animal belongs in the second space from the bottom?",
+        "explanation": "🐻 Fun Trick: Use your 'All Cows Eat Grass' memory rule. The second word is 'Cows', so Space 2 is C!",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/11/Grand_staff_labeled_notes.svg",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 9,
+        "question": "⚡ If you see a Sharp sign (♯) standing right in front of a note, what does it tell you to do?",
+        "options": [
+            "Make the note sound a little bit higher!",
+            "Make the note sound a little bit lower!",
+            "Erase the note completely!",
+            "Play the note super loud!"
+        ],
+        "ground_truth": "Make the note sound a little bit higher!",
+        "hint": "Ouch! Imagine stepping on a sharp tack. Would you jump UP or fall DOWN?",
+        "explanation": "💡 Fun Trick: Imagine sitting on a sharp tack—you would jump UP! A sharp pushes a note up by one tiny step (a semitone).",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Sharp.svg",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 10,
+        "question": "❄️ If you see a Flat sign (♭) sitting next to a note, what is its magic power?",
+        "options": [
+            "It makes the note sound a little bit lower!",
+            "It makes the note sound a little bit higher!",
+            "It makes the note play twice as fast!",
+            "It tells you to take a break!"
+        ],
+        "ground_truth": "It makes the note sound a little bit lower!",
+        "hint": "Think about what happens to a bicycle tire when it goes flat. Does it go UP or flat DOWN?",
+        "explanation": "💡 Fun Trick: Think of a flat tire. When a tire goes flat, it goes DOWN! A flat sign drops a note down by one tiny step.",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Flat.svg",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 11,
+        "question": "🔗 What special note sits on its own miniature line right below the treble staff, acting like a bridge to the bass staff?",
+        "options": ["Middle C", "Low D", "High B", "Low A"],
+        "ground_truth": "Middle C",
+        "hint": "This letter note is famous for being stuck right in the center of your entire piano keyboard layout!",
+        "explanation": "🎹 Middle C is super special! It lives right in the middle between the high treble notes and the low bass notes on its own little ledger line.",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 12,
+        "question": "🪜 What note is hanging out in the empty space directly beneath the bottom line of the treble staff?",
+        "options": ["D", "C", "B", "F"],
+        "ground_truth": "D",
+        "hint": "The bottom line of the treble staff is E. If you take one step backward in the alphabet, where do you land?",
+        "explanation": "The bottom line of the treble staff is E. If you step one note down into the space right underneath it, you find D!",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 13,
+        "question": "🪜 What note sits on the very top line (Line 5) of the treble staff?",
+        "options": ["F", "E", "G", "D"],
+        "ground_truth": "F",
+        "hint": "Finish the sentence: 'Every Good Boy Does _____'!",
+        "explanation": "🎵 Fun Trick: Let's use 'Every Good Boy Does Fine'. The last word is 'Fine', so the top line is F!",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 14,
+        "question": "🧗 What note is sitting proudly on top of the fifth (highest) line of the treble staff?",
+        "options": ["G", "F", "A", "E"],
+        "ground_truth": "G",
+        "hint": "The top line of the treble staff is F. Step one note higher in your basic musical alphabet scale!",
+        "explanation": "The top line is F. If you climb one step higher into the space resting on top of the staff, you reach G!",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 15,
+        "question": "🧱 What note sits on the very top line (Line 5) of the bass staff?",
+        "options": ["A", "G", "F", "B"],
+        "ground_truth": "A",
+        "hint": "Finish the bass lines phrase for the absolute highest line: 'Good Boys Do Fine _____'!",
+        "explanation": "🐻 Fun Trick: Let's use 'Good Boys Do Fine Always'. The very last word is 'Always', so the highest line on the bass staff is A!",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 16,
+        "question": "🧱 What note is sitting in the top space (Space 4) of the bass staff?",
+        "options": ["G", "E", "C", "F"],
+        "ground_truth": "G",
+        "hint": "Think of the absolute last word in the bass space rhyme: 'All Cows Eat _____'!",
+        "explanation": "🐻 Fun Trick: Remember 'All Cows Eat Grass'. The fourth and highest space is 'Grass', which stands for G!",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 17,
+        "question": "🧼 If a note has been changed by a sharp or flat, which symbol resets it back to its normal, clean self?",
+        "options": ["Natural (♮)", "Sharp (♯)", "Flat (♭)", "Repeat Mark"],
+        "ground_truth": "Natural (♮)",
+        "hint": "This symbol sounds like the opposite of artificial or altered—it keeps things completely raw and unchanged!",
+        "explanation": "🍃 The Natural sign is like a reset button! It wipes away any sharps or flats and makes the note completely natural again.",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 18,
+        "question": "⏳ If you draw a sharp sign next to a note, how long does its spell last inside the music?",
+        "options": [
+            "Until the end of the bar line",
+            "Only for that single note",
+            "For the whole song",
+            "For exactly 4 beats"
+        ],
+        "ground_truth": "Until the end of the bar line",
+        "hint": "The magic spell stays trapped inside the individual measure box, but what vertical wall stops it?",
+        "explanation": "🚪 Accidentals are sticky! They stay active for every matching note in that measure, but as soon as you cross a vertical bar line, the spell is broken.",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 19,
+        "question": "🕵️‍♂️ Let's look closely at a note. When you read music on a page, where should an accidental sign (like a sharp or flat) be drawn?",
+        "options": [
+            "Directly BEFORE the note head",
+            "Directly AFTER the note head",
+            "On top of the note stick",
+            "Underneath the staff"
+        ],
+        "ground_truth": "Directly BEFORE the note head",
+        "hint": "The performer needs to see if a note is modified *ahead* of time so they can prepare their fingers!",
+        "explanation": "👀 Even though we say the name after (like 'F-sharp'), we always write the symbol BEFORE the note head so the musician gets an early warning!",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 20,
+        "question": "🚀 Let's look way down low! What note sits on the line directly BELOW Middle C's ledger line under the treble staff?",
+        "options": ["B", "A", "D", "G"],
+        "ground_truth": "B",
+        "hint": "Start on Middle C and take exactly one step down into the alphabet. What letter comes just before C?",
+        "explanation": "Middle C sits on its own line. If you jump down into the space right underneath that line, you find B!",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 21,
+        "question": "🚀 What note lives on the line directly ABOVE Middle C's ledger line over the bass staff?",
+        "options": ["D", "E", "B", "F"],
+        "ground_truth": "D",
+        "hint": "Start on Middle C and climb one step higher up the musical ladder. What note is next?",
+        "explanation": "Middle C sits on the ledger line above the bass staff. If you climb up into the space right above it, you find D!",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 22,
+        "question": "📏 An 'interval' is the distance between two notes. If you start on Middle C and count up steps to G, what size interval is that?",
+        "options": ["A 5th", "A 3rd", "A 4th", "An Octave"],
+        "ground_truth": "A 5th",
+        "hint": "Count every single line and space from C to G, starting with C as number 1: C, D, E, F, G!",
+        "explanation": "Let's count our way up starting on C as number 1: C(1), D(2), E(3), F(4), G(5). It is a 5th!",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 23,
+        "question": "📏 Let's count another interval! What is the distance from Middle C up to the note F on the treble staff?",
+        "options": ["A 4th", "A 2nd", "A 3rd", "A 5th"],
+        "ground_truth": "A 4th",
+        "hint": "Count your steps out loud using your fingers: C is 1, D is 2, E is 3, F is...",
+        "explanation": "Let's count our steps from C to F: C(1), D(2), E(3), F(4). That is an interval of a 4th!",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 24,
+        "question": "🧩 Word Puzzle! If a composer writes three notes in a row using Treble Spaces 1, 2, and 3, what word do those notes spell?",
+        "options": ["FAC", "ACE", "CAB", "BED"],
+        "ground_truth": "FAC",
+        "hint": "Spell out the treble space rhyme word 'F-A-C-E' and stop right after the third letter!",
+        "explanation": "The spaces spell out F-A-C-E. Space 1 is F, Space 2 is A, and Space 3 is C. Together they spell FAC!",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 25,
+        "question": "🧩 Word Puzzle! If you play Treble Space 2, Treble Line 4, and Treble Line 1, what English word did you just perform?",
+        "options": ["ADE", "AGE", "BAG", "FED"],
+        "ground_truth": "ADE",
+        "hint": "Decode each note head: Space 2 is from FACE, Line 4 is 'Does' from the lines phrase, and Line 1 is 'Every'!",
+        "explanation": "Let's decode them: Treble Space 2 is A. Treble Line 4 (Every Good Boy Does) is D. Treble Line 1 is E. Together they spell ADE!",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 26,
+        "question": "⏱️ Meet the Crotchet note! It looks like a solid black circle with a straight stick. How many beats does it get?",
+        "options": ["1 beat", "2 beats", "4 beats", "Half a beat"],
+        "ground_truth": "1 beat",
+        "hint": "Think of the crotchet like a normal, steady walking step. How many counts does one regular step get?",
+        "explanation": "👏 A crotchet gets exactly 1 beat. Think of it like a steady, walking footprint: Step, Step, Step!",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 27,
+        "question": "🥛 This empty, hollow note with a stick is a Minim. How many beats do you hold it for?",
+        "options": ["2 beats", "1 beat", "4 beats", "Half a beat"],
+        "ground_truth": "2 beats",
+        "hint": "Since the note head is hollow, it's lighter and lasts longer than a crotchet. You count it by saying: 'Hold-on'!",
+        "explanation": "🌟 A minim gets 2 beats. You can count it out loud like: 'Hold-on' or 'Ta-a'!",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 28,
+        "question": "🍩 This giant note looks like an empty circle or a donut. It is called a Semibreve! How many counts do we hold it?",
+        "options": ["4 beats", "2 beats", "1 beat", "3 beats"],
+        "ground_truth": "4 beats",
+        "hint": "This is the longest base note you'll learn in Grade 1. It is a giant whole note that fills a standard 4/4 bar completely!",
+        "explanation": "🐳 A semibreve is a whole note, holding a long, sustained 4 beats. It takes up a whole standard box of music!",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 29,
+        "question": "RUN This note looks like a crotchet but has a cute little flag waving on its stick. It is a Quaver! What is its time value?",
+        "options": ["Half a beat", "1 beat", "2 beats", "4 beats"],
+        "ground_truth": "Half a beat",
+        "hint": "This note is a fast runner! It splits a regular single walking beat exactly into two equal pieces.",
+        "explanation": "⚡ A quaver is super fast! It represents an eighth note, splitting a standard single beat exactly in half.",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 30,
+        "question": "🤫 Shh! Music needs silence too. What do we call a symbol that tells us to be completely quiet and not play?",
+        "options": ["A Rest", "A Note", "A Clef", "A Bar Line"],
+        "ground_truth": "A Rest",
+        "hint": "What do you do when you are tired and need to stop running to recharge your batteries in silence?",
+        "explanation": "💤 Every note has a matching 'quiet friend' symbol called a rest. It tells you to stop making sound for that exact amount of time.",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 31,
+        "question": "👒 Which rest symbol looks like a small hat sitting perfectly flat on top of the middle line?",
+        "options": [
+            "A Minim rest",
+            "A Semibreve rest",
+            "A Crotchet rest",
+            "A Quaver rest"
+        ],
+        "ground_truth": "A Minim rest",
+        "hint": "This rest looks like a formal top hat. It is worth the exact same amount of beats as a hollow minim note!",
+        "explanation": "🎩 A minim rest lasts for 2 quiet beats. It looks like a top hat sitting nicely on a line!",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 32,
+        "question": "⚓ Which rest symbol looks like a heavy anchor or an upside-down hat hanging down underneath the line?",
+        "options": [
+            "A Semibreve rest",
+            "A Minim rest",
+            "A Crotchet rest",
+            "A Quaver rest"
+        ],
+        "ground_truth": "A Semibreve rest",
+        "hint": "This rest is so heavy with 4 full beats of silence that it falls upside down beneath the staff line!",
+        "explanation": "⚓ Because a semibreve rest is heavy (worth 4 long quiet beats), it hangs downwards from the line like a weight!",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 33,
+        "question": "⚡ Which rest symbol looks like a squiggly, lightning bolt shape standing upright in the middle of the staff?",
+        "options": [
+            "A Crotchet rest",
+            "A Quaver rest",
+            "A Minim rest",
+            "A Semibreve rest"
+        ],
+        "ground_truth": "A Crotchet rest",
+        "hint": "This squiggly lightning bolt matches the value of our standard 1-beat walking note.",
+        "explanation": "⚡ A crotchet rest stands upright and is worth 1 single beat of pure silence.",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 34,
+        "question": "🎨 When two fast quavers are next to each other, they like to hold hands! What is the horizontal bar called that links their sticks together?",
+        "options": ["A Beam", "A Tie", "A Slur", "A Ledger Line"],
+        "ground_truth": "A Beam",
+        "hint": "Think of a strong wooden or metal support bar running across the ceiling of a house!",
+        "explanation": "🤝 When eighth notes group together, a thick horizontal line called a beam links their stems to make them easier to read.",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 35,
+        "question": "🏁 Look at the very end of a piece of music. What tells you the whole song is officially finished?",
+        "options": [
+            "A double bar line with one thick line",
+            "A single thin bar line",
+            "A sharp sign",
+            "A treble clef"
+        ],
+        "ground_truth": "A double bar line with one thick line",
+        "hint": "Ordinary fences are just single lines, but the grand finale gate uses two lines side by side, and the last one is thick!",
+        "explanation": "🏁 A special double bar line (one thin line and one thick line) acts like a finish line at the very end of a song.",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 36,
+        "question": "🧮 Let's do some musical math! What note value do you get if you join two single Quaver notes together?",
+        "options": ["A Crotchet", "A Minim", "A Semibreve", "A Semiquaver"],
+        "ground_truth": "A Crotchet",
+        "hint": "If you take half an apple ($\frac{1}{2}$) and add another half apple ($\frac{1}{2}$), what do you get?",
+        "explanation": "🍎 Half a beat plus half a beat combines to make 1 full beat, which matches a crotchet!",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 37,
+        "question": "🧮 Add them up: What is the total beat count of One Crotchet note plus One Minim note?",
+        "options": ["3 beats", "2 beats", "4 beats", "5 beats"],
+        "ground_truth": "3 beats",
+        "hint": "A crotchet is worth 1 beat, and a hollow minim is worth 2 beats. What is 1 + 2?",
+        "explanation": "🔢 1 beat (crotchet) + 2 beats (minim) = 3 beats total!",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 38,
+        "question": "🧮 Add them up: What is the total beat count of Two Crotchets plus One Semibreve?",
+        "options": ["6 beats", "4 beats", "5 beats", "8 beats"],
+        "ground_truth": "6 beats",
+        "hint": "Two crotchets make 2 beats altogether. Add that to a giant donut semibreve, which is worth 4 beats: 2 + 4!",
+        "explanation": "🔢 1 + 1 (two crotchets) + 4 (semibreve) = 6 beats total!",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 39,
+        "question": "🧮 Let's group them up: How many single Quaver notes do you need to equal the length of one single Minim?",
+        "options": ["4 quavers", "2 quavers", "3 quavers", "8 quavers"],
+        "ground_truth": "4 quavers",
+        "hint": "A minim has a total value of 2 beats. Since quavers are only half-beats, how many halves do you need to make 2 whole units?",
+        "explanation": "🔢 Since a quaver is half a beat, you need two to make 1 beat, and four to reach 2 beats (a minim)!",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 40,
+        "question": "📦 If a measure has a 2/4 time signature at the start, what single note fits perfectly to fill up the entire box?",
+        "options": ["One Minim", "One Semibreve", "One Crotchet", "One Quaver"],
+        "ground_truth": "One Minim",
+        "hint": "2/4 time means the box can hold exactly 2 beats. Which note value is worth exactly 2 beats on its own?",
+        "explanation": "📦 2/4 time means each box can hold exactly 2 beats. A minim is worth exactly 2 beats, filling it perfectly!",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 41,
+        "question": "📦 If a measure has a 4/4 time signature, which note fits perfectly to fill up the whole box by itself?",
+        "options": ["One Semibreve", "One Minim", "One Crotchet", "One Quaver"],
+        "ground_truth": "One Semibreve",
+        "hint": "The top number says 4 beats are allowed. Look for the big whole note that eats up 4 counts all by itself.",
+        "explanation": "📦 4/4 time means each box needs 4 full beats. A semibreve is worth exactly 4 beats!",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 42,
+        "question": "📦 What does the letter 'C' stand for when it is drawn at the very beginning of a music piece instead of numbers?",
+        "options": [
+            "Common time (4/4)",
+            "C Major",
+            "Crotchet beat",
+            "Count faster"
+        ],
+        "ground_truth": "Common time (4/4)",
+        "hint": "The letter C stands for something that is very 'frequent' or popular in musical meter—4/4 time!",
+        "explanation": "🕒 The letter C stands for Common Time, which is just a classic, old-school way of writing a 4/4 time signature.",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 43,
+        "question": "🧮 Let's count some tiny notes! How many Semiquavers (quarter-beat notes with two flags) fit into one single crotchet beat?",
+        "options": ["4", "2", "8", "16"],
+        "ground_truth": "4",
+        "hint": "A semiquaver is only worth $\frac{1}{4}$ of a beat. How many quarters do you need to add together to make 1 whole?",
+        "explanation": "🐥 A semiquaver is a quarter-beat note. It takes 4 of them working together to fill up 1 regular crotchet beat.",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 44,
+        "question": "🔮 Magic Dot! What happens to a note value when a small dot is drawn directly to the right side of its head?",
+        "options": [
+            "It gets half of its original value added to it!",
+            "It doubles its value completely!",
+            "It cuts its value in half!",
+            "It tells you to play the note super short!"
+        ],
+        "ground_truth": "It gets half of its original value added to it!",
+        "hint": "The dot acts like a mini helper. It measures the note, takes exactly half of its value, and grows the note bigger by that amount.",
+        "explanation": "🧙‍♂️ A rhythm dot is like a multiplier! It looks at the note, calculates half of its value, and sticks that extra length onto it.",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 45,
+        "question": "🔮 Let's apply the rule: How many total beats is a Dotted Minim note worth?",
+        "options": ["3 beats", "4 beats", "2.5 beats", "6 beats"],
+        "ground_truth": "3 beats",
+        "hint": "A regular minim is 2 beats. The magic dot adds half of that value (1 extra beat). What is 2 + 1?",
+        "explanation": "🔢 A minim is 2 beats. Half of 2 is 1. When you add that together (2 + 1), your dotted minim lasts for 3 counts!",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 46,
+        "question": "🔮 Let's try another one: What is the total beat value of a Dotted Crotchet note?",
+        "options": ["1.5 beats", "2 beats", "2.5 beats", "3 beats"],
+        "ground_truth": "1.5 beats",
+        "hint": "A crotchet is worth 1 beat. The dot adds half of that value (0.5). Combine them together!",
+        "explanation": "🔢 A crotchet is 1 beat. Half of 1 is 0.5. Add them up (1 + 0.5), and a dotted crotchet equals 1 and a half beats!",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 47,
+        "question": "📦 Look at a box of music in 3/4 time. Which value combination completely fills one empty measure perfectly?",
+        "options": [
+            "A dotted minim",
+            "A semibreve",
+            "Two crotchets",
+            "Four quavers"
+        ],
+        "ground_truth": "A dotted minim",
+        "hint": "3/4 time means the measure wants exactly 3 beats. Which item in the list equals a total of 3 beats?",
+        "explanation": "📦 3/4 time needs exactly 3 beats per box. A dotted minim equals 3 beats, filling the entire measure by itself!",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 48,
+        "question": "🧮 Ultimate Math Challenge: What is the total count of One Dotted Minim plus Two Quavers?",
+        "options": ["4 beats", "3 beats", "5 beats", "3.5 beats"],
+        "ground_truth": "4 beats",
+        "hint": "A dotted minim is 3 beats. Two quavers holding hands make 1 full beat. What is 3 + 1?",
+        "explanation": "🧠 Let's break it down: A dotted minim is 3 beats. Two quavers combined equal 1 beat. 3 + 1 = 4 beats total!",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 49,
+        "question": "🧮 What is the total count of One Dotted Crotchet plus One single Quaver note?",
+        "options": ["2 beats", "1.5 beats", "3 beats", "2.5 beats"],
+        "ground_truth": "2 beats",
+        "hint": "A dotted crotchet is 1.5 beats, and a fast single quaver is 0.5 beats. Add 1.5 and 0.5 together!",
+        "explanation": "🧠 A dotted crotchet is 1.5 beats. A single quaver is 0.5 beats. 1.5 + 0.5 = 2 full beats!",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 50,
+        "question": "🤫 Silence Challenge: How many total beats of quiet do you get if you see One Crotchet Rest plus One Minim Rest?",
+        "options": ["3 beats", "2 beats", "4 beats", "1 beat"],
+        "ground_truth": "3 beats",
+        "hint": "The lightning bolt (crotchet rest) is worth 1 beat of silence, and the top hat (minim rest) is worth 2. What is 1 + 2?",
+        "explanation": "🔢 1 beat of silence (crotchet rest) + 2 beats of silence (minim rest) = 3 total beats of quiet!",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 51,
+        "question": "📦 Music likes to be tidy! What are the vertical straight lines called that chop a musical staff into neat boxes?",
+        "options": [
+            "Bar lines",
+            "Ledger lines",
+            "Clef lines",
+            "Time signatures"
+        ],
+        "ground_truth": "Bar lines",
+        "hint": "Think of long straight rails or dividing gates. They split up the staff to create separate units called bars!",
+        "explanation": "🧱 Bar lines act like wooden fences that divide our music into equal boxes so it's clean and easy to count!",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 52,
+        "question": "📦 What do we call an individual box of music trapped between two vertical bar lines?",
+        "options": ["A Bar (or Measure)", "A Clef", "A Scale", "A Rest"],
+        "ground_truth": "A Bar (or Measure)",
+        "hint": "It shares its name with a solid piece of chocolate or a unit of soap!",
+        "explanation": "📦 Each box is called a bar or a measure, and it holds a specific number of beats inside its walls.",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 53,
+        "question": "🕒 Look at the two numbers stacked on top of each other at the very start of a song. What is this symbol called?",
+        "options": [
+            "A Time Signature",
+            "A Key Signature",
+            "A Double Bar Line",
+            "A Note Value"
+        ],
+        "ground_truth": "A Time Signature",
+        "hint": "This tells you the 'clockwork' settings or rhythm code of the song. It signs off on how time flows!",
+        "explanation": "🕒 That is a Time Signature! It acts like a rule book telling you exactly how many beats fit into each bar.",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 54,
+        "question": "🧮 When you look at a time signature, what does the TOP number tell you to do?",
+        "options": [
+            "Count how many beats are inside each bar!",
+            "Find out what note gets one beat",
+            "Play the music faster",
+            "Count how many strings are on a guitar"
+        ],
+        "ground_truth": "Count how many beats are inside each bar!",
+        "hint": "The number on high is the 'counter' number. It directly tells you the total amount of counts inside one fence.",
+        "explanation": "☝️ The top number looks up! It tells you the exact count of beats you need to pack into each box.",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 55,
+        "question": "🧮 In Grade 1 music, the BOTTOM number of a time signature is always 4. What does this bottom 4 stand for?",
+        "options": [
+            "Crotchet beats (Quarter notes get 1 beat!)",
+            "Minim beats",
+            "Four total measures",
+            "Four musical clefs"
+        ],
+        "ground_truth": "Crotchet beats (Quarter notes get 1 beat!)",
+        "hint": "Think of a fraction like a quarter ($\frac{1}{4}$). A quarter note is another word for our 1-beat walking note!",
+        "explanation": "👇 The bottom 4 is a code for Crotchets! It means we measure our bar counts using 1-beat walking crotchets.",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 56,
+        "question": "🥁 If you see a 2/4 time signature, how many beats must live inside each box?",
+        "options": ["2 beats", "4 beats", "3 beats", "1 beat"],
+        "ground_truth": "2 beats",
+        "hint": "Always check the top number of the fraction to know the maximum number of beats allowed!",
+        "explanation": "🦕 The top number is 2, so you count: One, Two, One, Two! Just like a marching band left-right-left-right.",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 57,
+        "question": "💃 If a piece of music is written in 3/4 time, how many beats are in each measure?",
+        "options": ["3 beats", "2 beats", "4 beats", "6 beats"],
+        "ground_truth": "3 beats",
+        "hint": "Look closely at the number sitting upstairs. It matches a triangular shape's corner count!",
+        "explanation": "🎂 The top number is 3! This is a waltz rhythm, counting: Boom-chick-chick, 1-2-3!",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 58,
+        "question": "👑 If a piece of music is in 4/4 time, how many total beats can fit into one single bar?",
+        "options": ["4 beats", "2 beats", "3 beats", "8 beats"],
+        "ground_truth": "4 beats",
+        "hint": "The top number gives away the secret immediately. It's the number of legs on a standard chair!",
+        "explanation": "🚀 The top number is 4, which means each box can hold a maximum of 4 crotchet beats before you need a bar line.",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 59,
+        "question": "🕵️‍♂️ Where should a time signature be written on a musical staff?",
+        "options": [
+            "At the very beginning of the piece, right after the clef",
+            "At the very end of the song",
+            "Above every single note",
+            "Underneath the bar lines"
+        ],
+        "ground_truth": "At the very beginning of the piece, right after the clef",
+        "hint": "You need to know the rhythm rules before you play! It sets up camp right at the front doorway.",
+        "explanation": "🚩 It always goes right at the front gate next to the clef so the musician knows the counting rules before playing a single note!",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 60,
+        "question": "🛑 Does a time signature get drawn again on every single line of music?",
+        "options": [
+            "No, it only appears at the very beginning of the song!",
+            "Yes, it must be drawn on every single line",
+            "Yes, it goes at the end of every line",
+            "Only when the music gets loud"
+        ],
+        "ground_truth": "No, it only appears at the very beginning of the song!",
+        "hint": "Once you make a rule in a game, you don't keep repeating it on every turn unless the rule changes!",
+        "explanation": "🤫 A time signature is a set-and-forget rule. You only draw it at the very start unless you want to change the rules mid-song!",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 61,
+        "question": "🧱 If a measure in 2/4 time has one single crotchet note inside it, how many more crotchet notes do you need to complete the bar?",
+        "options": [
+            "1 more crotchet",
+            "2 more crotchets",
+            "0 more crotchets",
+            "3 more crotchets"
+        ],
+        "ground_truth": "1 more crotchet",
+        "hint": "The bar wants a total of 2 beats. You already have 1 beat from the first crotchet. Do the simple math: $2 - 1 = ?$",
+        "explanation": "🧮 A 2/4 bar needs 2 beats. You have 1 beat already, so 2 - 1 = 1 more crotchet beat needed!",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 62,
+        "question": "🧱 A bar in 3/4 time has one minim note sitting inside it. What single note value can you add to finish the measure?",
+        "options": [
+            "One Crotchet note",
+            "One Minim note",
+            "One Quaver note",
+            "One Semibreve note"
+        ],
+        "ground_truth": "One Crotchet note",
+        "hint": "The bar needs 3 beats. A minim fills up 2 beats. What note is worth exactly 1 beat to fill the last spot?",
+        "explanation": "🧮 3/4 needs 3 beats. A minim is worth 2 beats. You just need 1 more beat to make 3, which is a crotchet!",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 63,
+        "question": "🧱 A bar in 4/4 time contains two crotchet notes. What single note value can you insert to fill up the remaining space perfectly?",
+        "options": [
+            "One Minim note",
+            "One Semibreve note",
+            "One Quaver note",
+            "One Crotchet note"
+        ],
+        "ground_truth": "One Minim note",
+        "hint": "The bar wants 4 beats total. Two crotchets account for 2 beats ($1 + 1$). Find a single note worth the remaining 2 counts.",
+        "explanation": "🧮 4/4 needs 4 beats. You have two crotchets (2 beats). You need 2 more beats, which matches a minim perfectly!",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 64,
+        "question": "📦 Look at this pattern inside a 2/4 measure: Two Quavers followed by One Crotchet. Is this bar completely full?",
+        "options": [
+            "Yes, it has exactly 2 beats!",
+            "No, it needs one more beat",
+            "No, it is way too full",
+            "No, it needs a rest"
+        ],
+        "ground_truth": "Yes, it has exactly 2 beats!",
+        "hint": "Two quavers equal $\frac{1}{2} + \frac{1}{2} = 1$ beat. Add that to the 1-beat crotchet. Does it reach the target top number?",
+        "explanation": "🧮 Two quavers make 1 beat. One crotchet makes 1 beat. 1 + 1 = 2 beats. It's a perfect fit!",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 65,
+        "question": "📦 Look at this pattern inside a 3/4 measure: One Crotchet note and One Crotchet Rest. How many beats are missing?",
+        "options": ["1 beat", "2 beats", "0 beats", "3 beats"],
+        "ground_truth": "1 beat",
+        "hint": "A crotchet note (1 beat) plus a crotchet rest (1 beat) gives you 2 beats present. Squeeze up to the goal of 3!",
+        "explanation": "🧮 1 note (1) + 1 rest (1) = 2 beats. Since a 3/4 bar needs 3 beats, you are missing exactly 1 beat!",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 66,
+        "question": "🚨 Uh oh! A composer made a mistake. They wrote a Semibreve note inside a 3/4 bar. Why is this wrong?",
+        "options": [
+            "A semibreve is 4 beats, which is too big for a 3-beat bar!",
+            "Semibreves are only allowed in bass clef",
+            "A semibreve is 2 beats, which is too small",
+            "It isn't wrong, it fits perfectly"
+        ],
+        "ground_truth": "A semibreve is 4 beats, which is too big for a 3-beat bar!",
+        "hint": "A 3/4 bar can only fit a maximum of 3 counts. How many counts does that giant donut semibreve note hold?",
+        "explanation": "🐳 A semibreve is a 4-beat giant! Trying to squeeze it into a 3-beat bar will overflow the box.",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 67,
+        "question": "🛒 If a bar line is placed right after four single crotchet notes, what time signature must be at the front of the song?",
+        "options": ["4/4", "2/4", "3/4", "3/2"],
+        "ground_truth": "4/4",
+        "hint": "Count the items: 1, 2, 3, 4 crotchets. This means the fence closed right when it reached 4 counts!",
+        "explanation": "🧮 Four crotchets equal 4 beats. Since the bar line closed right after them, the box rule must be 4/4 time!",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 68,
+        "question": "🛒 A bar line is placed right after a single Crotchet note and a single Minim note. What time signature is this?",
+        "options": ["3/4", "2/4", "4/4", "C"],
+        "ground_truth": "3/4",
+        "hint": "Calculate the beat weight: 1 count (crotchet) + 2 counts (minim). What top number matches that sum?",
+        "explanation": "🧮 1 beat (crotchet) + 2 beats (minim) = 3 beats total before the fence closed. That is a 3/4 time signature!",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 69,
+        "question": "🧐 True or False: The number of notes in a bar must always equal the top number of the time signature.",
+        "options": [
+            "False! The notes can be different shapes as long as their BEATS add up correctly",
+            "True! If it says 4/4, there must be exactly 4 notes",
+            "True! If it says 2/4, you can only write 2 notes",
+            "False! Time signatures only count the number of rests"
+        ],
+        "ground_truth": "False! The notes can be different shapes as long as their BEATS add up correctly",
+        "hint": "Think about it: Can you have four half-beat quavers inside a 2/4 bar? Yes! Because it's about the total math value, not the count of symbols.",
+        "explanation": "🧩 You can have lots of fast notes or one big slow note! It's the total beat weight that counts, not the number of noteheads.",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 70,
+        "question": "🔮 Complete the puzzle: A 4/4 bar contains One Dotted Minim note. What single note value do you need to complete the bar?",
+        "options": [
+            "One Crotchet note",
+            "One Quaver note",
+            "One Minim note",
+            "One Crotchet rest"
+        ],
+        "ground_truth": "One Crotchet note",
+        "hint": "A dotted minim is worth 3 full beats. The bar wants 4 beats altogether. What *note* symbol equals the remaining 1 beat?",
+        "explanation": "🧮 A dotted minim is worth 3 beats. A 4/4 bar needs 4 beats. 4 - 3 = 1 beat, which means you need a crotchet note!",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 71,
+        "question": "🔮 Complete the puzzle: A 3/4 bar contains One Dotted Crotchet note followed by One Quaver note. How many beats are left?",
+        "options": ["1 beat", "2 beats", "0.5 beats", "0 beats"],
+        "ground_truth": "1 beat",
+        "hint": "Let's do the math: $1.5$ (dotted crotchet) + $0.5$ (quaver) = 2 beats used. Squeeze your way up to 3!",
+        "explanation": "🧮 A dotted crotchet (1.5) + a quaver (0.5) = 2 beats. A 3/4 bar needs 3 beats. 3 - 2 = 1 beat left!",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 72,
+        "question": "🕵️‍♂️ Look closely at an incomplete 4/4 bar. It has two beamed quavers and a crotchet note. What single rest can fill the gap?",
+        "options": [
+            "A Minim rest",
+            "A Crotchet rest",
+            "A Semibreve rest",
+            "A Quaver rest"
+        ],
+        "ground_truth": "A Minim rest",
+        "hint": "Two quavers = 1 beat. A crotchet = 1 beat. Total used = 2 beats. The bar needs 4. Find the quiet rest worth exactly 2 beats!",
+        "explanation": "🧮 Two quavers (1) + a crotchet (1) = 2 beats. The bar needs 4 beats, so 2 beats are empty. A minim rest brings 2 beats of quiet!",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 73,
+        "question": "🧮 Advanced Math: If a composer writes three bars of 2/4 time in a row, how many total crotchet beats did they write across the whole section?",
+        "options": ["6 beats", "4 beats", "8 beats", "5 beats"],
+        "ground_truth": "6 beats",
+        "hint": "Each bar has exactly 2 beats inside its fences. Multiply the beat room by the number of bars: $2 \times 3 = ?$",
+        "explanation": "🧠 Each bar contains 2 beats. 2 beats x 3 bars = 6 total beats across the line!",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 74,
+        "question": "🧮 Advanced Math: If you have a section containing two bars of 3/4 time, how many total beats of sound can it hold?",
+        "options": ["6 beats", "3 beats", "4 beats", "9 beats"],
+        "ground_truth": "6 beats",
+        "hint": "There are 3 beats in the first box and 3 beats in the second box. Add them up or calculate $3 \times 2$!",
+        "explanation": "🧠 3 beats per box x 2 boxes = 6 total beats!",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 75,
+        "question": "🤫 Silence Master: An entire bar in 4/4 time is completely silent. What is the name of the special rest that blanks out an entire measure?",
+        "options": [
+            "A Semibreve rest (Whole rest)",
+            "A Minim rest",
+            "A Crotchet rest",
+            "A Quaver rest"
+        ],
+        "ground_truth": "A Semibreve rest (Whole rest)",
+        "hint": "This heavy-hanging upside-down hat rest doubles as a total-measure cleanup crew, wiping out a whole bar with quiet no matter the rule!",
+        "explanation": "🧼 A semibreve rest is magical! Even if a time signature changes, a standalone semibreve rest is used to show a whole bar of silence.",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 76,
+        "question": "🪜 What do we call a family of notes that climb straight up or down like a musical ladder?",
+        "options": ["A Scale", "A Rest", "A Clef", "A Bar Line"],
+        "ground_truth": "A Scale",
+        "hint": "Its name sounds like the device you step on to measure your weight, but here it's a step-by-step climb up or down in pitch!",
+        "explanation": "🧗 The word scale comes from a word meaning ladder! Notes step up or down in order from lowest to highest.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 77,
+        "question": "🎹 Let's look at the C Major scale family. How many sharps or flats live inside the C Major scale?",
+        "options": ["0 sharps and 0 flats", "1 sharp", "1 flat", "2 sharps"],
+        "ground_truth": "0 sharps and 0 flats",
+        "hint": "C Major is completely natural and organic! It takes a smooth ride only on the white piano keys.",
+        "explanation": "🍃 C Major is the cleanest scale of all! It uses only the white keys on a piano, with absolutely zero sharps or flats.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 78,
+        "question": "👑 Every scale has a leader note! What do we call the very first, foundational note that a scale begins on?",
+        "options": [
+            "The Keynote (or Tonic)",
+            "The Sharp note",
+            "The Clef note",
+            "The Ledger note"
+        ],
+        "ground_truth": "The Keynote (or Tonic)",
+        "hint": "Think of it like a sparkling, refreshing 'Tonic' water drink that restores you back to your home base!",
+        "explanation": "🏠 The first note is called the Tonic or Keynote. It feels like 'home' for the scale, and the scale is named after it!",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 79,
+        "question": "🌲 What is the tonic (the home note) of a G Major scale?",
+        "options": ["G", "C", "F", "D"],
+        "ground_truth": "G",
+        "hint": "Scales are friendly and name themselves directly after their starting leader note!",
+        "explanation": "🏠 A G Major scale always begins its ladder right on the note G!",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 80,
+        "question": "⛵ What is the tonic (the starting note) of an F Major scale?",
+        "options": ["F", "G", "C", "B"],
+        "ground_truth": "F",
+        "hint": "Just like G Major starts on G, this scale points out its own home note right in its title!",
+        "explanation": "🏠 An F Major scale starts its climb on the note F!",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 81,
+        "question": "🚂 What is the tonic (the base note) of a D Major scale?",
+        "options": ["D", "A", "C", "E"],
+        "ground_truth": "D",
+        "hint": "Check the very first letter of the scale's name to unlock its foundational tonic home.",
+        "explanation": "🏠 A D Major scale sets up its ladder starting directly on the note D!",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 82,
+        "question": "🌟 Meet the Key Signature! This is a shortcut block of sharps or flats drawn at the beginning of a line. Where does it sit?",
+        "options": [
+            "Right between the Clef and the Time Signature",
+            "At the very end of the line",
+            "Underneath the first note",
+            "Inside the time signature numbers"
+        ],
+        "ground_truth": "Right between the Clef and the Time Signature",
+        "hint": "It slips neatly into the middle slots at the front gate: right after the big fancy Clef symbol, but just before the Time Signature numbers!",
+        "explanation": "🚦 The Key Signature stands between the clef guard and the time signature numbers, warming up the notes for the whole song.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 83,
+        "question": "🕵️‍♂️ If you are playing a song in the key of G Major, what single note must be sharped throughout the music?",
+        "options": ["F sharp", "C sharp", "B flat", "G sharp"],
+        "ground_truth": "F sharp",
+        "hint": "G Major has one sharp badge. It sits high up on the top line of the treble staff, right on the note that comes just before G!",
+        "explanation": "🦜 G Major has a single sharp in its family, and that sharp note is always F sharp (F♯)!",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 84,
+        "question": "🕵️‍♂️ If a piece of music is written in F Major, what note gets a flat symbol attached to it?",
+        "options": ["B flat", "F flat", "E flat", "C flat"],
+        "ground_truth": "B flat",
+        "hint": "F Major loves a single flat note. Think of the musical alphabet note that looks like a lowercase letter 'b' itself!",
+        "explanation": "🦅 F Major has one flat in its family shortcut, and that flat note is always B flat (B♭)!",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 85,
+        "question": "🕵️‍♂️ D Major is a fancy key! How many sharps are inside the D Major key signature?",
+        "options": ["2 sharps", "1 sharp", "0 sharps", "1 flat"],
+        "ground_truth": "2 sharps",
+        "hint": "It has twice as many sharps as a G Major scale! It keeps both F sharp and C sharp close by.",
+        "explanation": "✨ D Major has two sharps in its family club: F sharp (F♯) and C sharp (C♯)!",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 86,
+        "question": "📏 Let's talk about scale steps. A 'Semitone' is the smallest possible distance between two notes. What do we call a standard step that is equal to TWO semitones combined?",
+        "options": [
+            "A Tone (or Whole Step)",
+            "An Interval",
+            "A Triad",
+            "A Degree"
+        ],
+        "ground_truth": "A Tone (or Whole Step)",
+        "hint": "Drop the 'semi-' prefix (which means half) to discover the name for a full, whole musical step!",
+        "explanation": "Sneak preview: Two tiny semitones make up one whole Tone step!",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 87,
+        "question": "🎹 Look at a piano keyboard. What note distance do you find when you move from white key E to white key F with no black key in between?",
+        "options": ["A Semitone", "A Tone", "A Third", "An Octave"],
+        "ground_truth": "A Semitone",
+        "hint": "Since there is no black key dividing them, they are as close as can be! This is the micro-step distance.",
+        "explanation": "👀 E and F are neighbors with no black key dividing them, making them a natural semitone apart!",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 88,
+        "question": "🎹 Look at the piano keys again. What note distance do you find when you step from white key C to white key D (skipping the black key in between)?",
+        "options": ["A Tone", "A Semitone", "A Fourth", "A Rest"],
+        "ground_truth": "A Tone",
+        "hint": "You have traveled two small keys total (C → C♯ → D). Two semitones combined create a whole step!",
+        "explanation": "👟 Because you stepped over a black key, you traveled two small steps, which equals one whole Tone!",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 89,
+        "question": "🪜 Major scales climb up in a strict pattern of Tones (T) and Semitones (S). What is the golden pattern for any Major scale?",
+        "options": [
+            "T - T - S - T - T - T - S",
+            "T - S - T - S - T - S - T",
+            "S - S - T - T - S - S - T",
+            "T - T - T - S - T - T - S"
+        ],
+        "ground_truth": "T - T - S - T - T - T - S",
+        "hint": "Remember the formula like a rhythm: 'Two Tones and a Step, Three Tones and a Step'!",
+        "explanation": "🪜 Every major scale uses the formula: Tone, Tone, Semitone, Tone, Tone, Tone, Semitone. Remember it like a phone number!",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 90,
+        "question": "🧗 Let's trace a C Major scale ladder going upwards: C, D, E, F, G, A, B, C. What is the distance between note number 3 (E) and note number 4 (F)?",
+        "options": ["A Semitone", "A Tone", "A Third", "An Octave"],
+        "ground_truth": "A Semitone",
+        "hint": "These are the white keys on a piano that huddle up close together without any black key sitting between them!",
+        "explanation": "🧮 In a major scale pattern, the step between degrees 3 and 4 is always a narrow Semitone step!",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 91,
+        "question": "🧗 Let's look at the top of the C Major scale: C, D, E, F, G, A, B, C. What is the distance between note number 7 (B) and the final high note number 8 (C)?",
+        "options": ["A Semitone", "A Tone", "A Fifth", "A Second"],
+        "ground_truth": "A Semitone",
+        "hint": "The last step of the major scale pattern always uses a close half-step to pull you tightly back onto the main tonic note.",
+        "explanation": "🧮 The final step of a major scale (degrees 7 to 8) is always a close Semitone step to make it feel like you've landed home safely.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 92,
+        "question": "🏰 If you build a 3-note chord pyramid on top of the first note of a scale, it's called a Tonic Triad. What scale numbers make up this triad?",
+        "options": [
+            "1st, 3rd, and 5th notes",
+            "1st, 2nd, and 3rd notes",
+            "2nd, 4th, and 6th notes",
+            "1st, 4th, and 8th notes"
+        ],
+        "ground_truth": "1st, 3rd, and 5th notes",
+        "hint": "Think of leap-frogging over notes! You start on 1, skip 2, land on 3, skip 4, and finish on 5.",
+        "explanation": "🏰 A tonic triad is built like a stack of blocks using the 1st (bottom), 3rd (middle), and 5th (top) notes of the scale family.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 93,
+        "question": "🏰 Let's build a Tonic Triad for C Major! If you take notes 1, 3, and 5 from the C scale, what notes are you holding?",
+        "options": ["C - E - G", "C - D - E", "C - F - A", "C - E - B"],
+        "ground_truth": "C - E - G",
+        "hint": "Count up the C scale using white keys: C (1), skip D, E (3), skip F, G (5)!",
+        "explanation": "🎹 Note 1 is C, Note 3 is E, and Note 5 is G. Stack them together to hear a happy C Major triad chord!",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 94,
+        "question": "🏰 Let's build a Tonic Triad for G Major! What three notes make up the G Major triad chord?",
+        "options": ["G - B - D", "G - C - E", "G - A - B", "G - B - F sharp"],
+        "ground_truth": "G - B - D",
+        "hint": "Start on G (1), count up three letters to B (3), and jump to the 5th letter, D (5)!",
+        "explanation": "🎹 Climb the G ladder: 1 is G, 3 is B, and 5 is D. Stacked up, they form the G Major tonic triad!",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 95,
+        "question": "🧗 Let's check the G Major scale notes: G, A, B, C, D, E, F♯, G. Why do we need that F sharp at the end?",
+        "options": [
+            "To make the step from E to F♯ a full Tone, and F♯ to G a Semitone!",
+            "Because composers think sharps look pretty",
+            "To make the scale sound lower",
+            "To turn the scale into F Major"
+        ],
+        "ground_truth": "To make the step from E to F♯ a full Tone, and F♯ to G a Semitone!",
+        "hint": "The golden major scale rule requires a small Semitone step right between the 7th and 8th notes to safely pull you back home to G!",
+        "explanation": "🧮 Without the F♯, the major scale step formula would break! The sharp expands the distance to keep the intervals perfect.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 96,
+        "question": "🧗 Let's look at an F Major scale: F, G, A, B♭, C, D, E, F. What scale degree numbers are the notes A and B♭?",
+        "options": [
+            "Degrees 3 and 4",
+            "Degrees 1 and 2",
+            "Degrees 7 and 8",
+            "Degrees 5 and 6"
+        ],
+        "ground_truth": "Degrees 3 and 4",
+        "hint": "Count up from the beginning: F is 1, G is 2, A is... continue the count to find the numbers for A and B flat!",
+        "explanation": "🧮 F(1), G(2), A(3), B♭(4). The flat squishes the space between A and B♭ to create the required Semitone between degrees 3 and 4!",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 97,
+        "question": "🏰 Let's try a tricky one! What three notes form the Tonic Triad chord for the key of D Major?",
+        "options": [
+            "D - F sharp - A",
+            "D - F - A",
+            "D - G - B",
+            "D - F sharp - C sharp"
+        ],
+        "ground_truth": "D - F sharp - A",
+        "hint": "Start on D (1). Remember that the key of D Major always carries a sharp symbol on its 3rd note (F)!",
+        "explanation": "🧠 Note 1 is D. Note 3 is F sharp (remember the D Major sharp rule!). Note 5 is A. Together they form D - F♯ - A!",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 98,
+        "question": "🏰 What three notes form the Tonic Triad chord for the key of F Major?",
+        "options": ["F - A - C", "F - B flat - D", "F - A - E", "F - G - A"],
+        "ground_truth": "F - A - C",
+        "hint": "Grab degrees 1, 3, and 5 of the F ladder. The 3rd note is completely natural, while the 4th note (B flat) gets skipped over!",
+        "explanation": "🧠 Note 1 is F, Note 3 is A, and Note 5 is C. None of these are flat, so the triad is simply F - A - C!",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 99,
+        "question": "🎼 Imagine you see a sheet of music with a key signature showing TWO sharps at the front, but there are no notes written yet. What scale family is this song preparing to use?",
+        "options": ["D Major", "G Major", "C Major", "F Major"],
+        "ground_truth": "D Major",
+        "hint": "This scale family is famous for having both F sharp and C sharp on its team rosters!",
+        "explanation": "✨ Two sharps (F♯ and C♯) is the exclusive signature stamp of the D Major scale family!",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 100,
+        "question": "🎼 You see a piece of music in Bass Clef. The key signature has ONE flat symbol sitting on the middle B line. What key family are you playing in?",
+        "options": ["F Major", "C Major", "G Major", "D Major"],
+        "ground_truth": "F Major",
+        "hint": "Which scale family uses exactly one flat (B flat) in its signature club?",
+        "explanation": "⚓ One single flat symbol on the B line is the signature shortcut for the F Major scale family!",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 3
+        }
+    }
+]

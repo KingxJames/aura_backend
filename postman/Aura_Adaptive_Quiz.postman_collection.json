@@ -1,0 +1,223 @@
+{
+  "info": {
+    "name": "Aura - Adaptive Quiz (Elo + BKT + Embeddings)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:8080" },
+    { "key": "token", "value": "" },
+    { "key": "quiz_id", "value": "1" },
+    { "key": "session_id", "value": "" },
+    { "key": "question_id", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "1. Register (one-time throwaway user)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Accept", "value": "application/json" }
+        ],
+        "url": "{{base_url}}/api/v1/auth/register",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Postman Tester\",\n  \"username\": \"postman_tester\",\n  \"email\": \"postman_tester@example.com\",\n  \"password\": \"password123\"\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "if (pm.response.code === 201) {",
+              "    pm.collectionVariables.set('token', pm.response.json().token);",
+              "    console.log('Token saved:', pm.response.json().token);",
+              "} else {",
+              "    console.log('Register failed (probably already exists) - use the Login request instead:', pm.response.text());",
+              "}"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "1b. Login (if user already exists)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Accept", "value": "application/json" }
+        ],
+        "url": "{{base_url}}/api/v1/auth/login",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"postman_tester@example.com\",\n  \"password\": \"password123\"\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.collectionVariables.set('token', pm.response.json().token);",
+              "console.log('Token saved:', pm.response.json().token);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Start adaptive session",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Accept", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": "{{base_url}}/api/quiz/session/start",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"quiz_id\": {{quiz_id}}\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const data = pm.response.json();",
+              "pm.collectionVariables.set('session_id', data.session_id);",
+              "pm.collectionVariables.set('question_id', data.question.id);",
+              "console.log('session_id:', data.session_id, 'question_id:', data.question.id);",
+              "console.log('Question:', data.question.question);",
+              "console.log('Options:', JSON.stringify(data.question.options));",
+              "console.log('topic_mastery:', JSON.stringify(data.topic_mastery));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Answer current question (step)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Accept", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": "{{base_url}}/api/quiz/session/step",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"session_id\": {{session_id}},\n  \"question_id\": {{question_id}},\n  \"selected_option\": \"A\"\n}"
+        },
+        "description": "selected_option is intentionally a guess - the API never reveals ground_truth in the question payload (sanitizeQuestion strips it), exactly like a real student answering blind. Copy one of the values from the previous response's question.options array."
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const data = pm.response.json();",
+              "console.log('is_correct:', data.is_correct, 'student_rating:', data.student_rating, 'difficulty_tier:', data.difficulty_tier, 'lives_remaining:', data.lives_remaining);",
+              "console.log('topic_mastery:', JSON.stringify(data.topic_mastery));",
+              "if (data.related_practice && data.related_practice.length) {",
+              "    console.log('related_practice (shown because you missed it):', JSON.stringify(data.related_practice, null, 2));",
+              "}",
+              "if (data.status === 'failed') {",
+              "    console.log('GAME OVER - start a new session to continue testing.');",
+              "} else if (data.next_question) {",
+              "    pm.collectionVariables.set('question_id', data.next_question.id);",
+              "    console.log('Next question:', data.next_question.question);",
+              "    console.log('Next options:', JSON.stringify(data.next_question.options));",
+              "}"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "5. AI Challenge - generate question (Gemini)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Accept", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": "{{base_url}}/api/quiz/session/ai-challenge",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"session_id\": {{session_id}}\n}"
+        },
+        "description": "Generates a brand-new question (not from the static bank) targeting the student's weakest BKT topic, via Gemini structured output. Requires an active session (run request 2 first)."
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const data = pm.response.json();",
+              "if (pm.response.code === 201) {",
+              "    console.log('AI question topic:', data.topic, 'difficulty:', data.difficulty);",
+              "    console.log('Question:', data.question.question);",
+              "    console.log('Options:', JSON.stringify(data.question.options));",
+              "    console.log('(ground_truth/hint/explanation intentionally withheld until you answer)');",
+              "} else {",
+              "    console.log('AI challenge generation failed:', pm.response.text());",
+              "}"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "6. AI Challenge - answer",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Accept", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": "{{base_url}}/api/quiz/session/ai-challenge/answer",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"session_id\": {{session_id}},\n  \"selected_option\": \"REPLACE_WITH_ONE_OF_THE_OPTIONS_ABOVE\"\n}"
+        },
+        "description": "Edit selected_option to one of the exact strings from request 5's question.options array, then send."
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const data = pm.response.json();",
+              "console.log('is_correct:', data.is_correct, 'correct_answer:', data.correct_answer);",
+              "console.log('explanation:', data.explanation);",
+              "console.log('topic_mastery:', JSON.stringify(data.topic_mastery));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "7. Finalize session",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Accept", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": "{{base_url}}/api/quiz/session/finalize",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"session_id\": {{session_id}}\n}"
+        }
+      }
+    }
+  ]
+}

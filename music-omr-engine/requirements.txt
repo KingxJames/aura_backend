@@ -1,0 +1,9 @@
+fastapi>=0.111.0
+uvicorn[standard]>=0.29.0
+python-multipart>=0.0.9
+music21>=9.1.0
+oemer>=0.1.8
+# oemer pulls in onnxruntime-gpu by default, which requires CUDA libs.
+# On a CPU-only host, run this after installing:
+#   pip uninstall -y onnxruntime-gpu && pip install onnxruntime
+onnxruntime>=1.20.0

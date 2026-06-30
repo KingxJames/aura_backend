@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Grade extends Model
 {
     protected $fillable = [
+        'title',
         'level_number',
+        'description',
         'syllabus_focus',
     ];
 

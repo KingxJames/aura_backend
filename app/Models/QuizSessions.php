@@ -22,6 +22,13 @@ class QuizSessions extends Model
         'status',
         'total_questions_answered',
         'total_correct_answers',
+        'asked_question_ids',
+        'pending_ai_question',
+    ];
+
+    protected $casts = [
+        'asked_question_ids' => 'array',
+        'pending_ai_question' => 'array',
     ];
 
     /**

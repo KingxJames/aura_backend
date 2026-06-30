@@ -43,6 +43,7 @@ return [
 
     'huggingface' => [
         'token' => env('HUGGINGFACE_API_TOKEN'),
+        'embedding_model' => env('HUGGINGFACE_EMBEDDING_MODEL', 'sentence-transformers/all-MiniLM-L6-v2'),
     ],
 
 ];

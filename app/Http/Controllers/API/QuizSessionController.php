@@ -5,11 +5,23 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Quiz;
 use App\Models\QuizSessions;
+use App\Services\AdaptiveEloService;
+use App\Services\EmbeddingService;
+use App\Services\GeminiQuestionGeneratorService;
+use App\Services\KnowledgeTracingService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class QuizSessionController extends Controller
 {
+    public function __construct(
+        private AdaptiveEloService $elo,
+        private KnowledgeTracingService $knowledgeTracing,
+        private EmbeddingService $embeddings,
+        private GeminiQuestionGeneratorService $questionGenerator
+    ) {
+    }
+
     /**
      * Endpoint A: Initialize a fresh adaptive quiz session
      */
@@ -27,29 +39,26 @@ class QuizSessionController extends Controller
             ->where('status', 'active')
             ->update(['status' => 'failed']);
 
-        // Create a fresh live track profile (Difficulty Tier 2 = Medium)
+        $quiz = Quiz::findOrFail($request->quiz_id);
+        $questionsPool = $quiz->content_jsonb;
+        $availableTopics = collect($questionsPool)->pluck('metadata.topic')->unique()->values()->all();
+
+        // Two-stage adaptive selection: knowledge tracing picks the weakest topic to probe,
+        // Elo picks the right difficulty within that topic.
+        $targetTopic = $this->knowledgeTracing->pickWeightedTopic($user->id, $availableTopics);
+        $firstQuestion = $this->elo->pickNextQuestion($quiz->id, $questionsPool, $user->elo_rating, [], $targetTopic);
+
         $session = QuizSessions::create([
             'user_id' => $user->id,
             'quiz_id' => $request->quiz_id,
             'current_streak' => 0,
             'lives_remaining' => 3,
-            'difficulty_tier' => 2, 
+            'difficulty_tier' => $this->tierForRating($user->elo_rating),
             'status' => 'active',
             'total_questions_answered' => 0,
             'total_correct_answers' => 0,
+            'asked_question_ids' => $firstQuestion ? [$firstQuestion['id']] : [],
         ]);
-
-        // Extract the JSON pool from the Quiz template
-        $quiz = Quiz::findOrFail($request->quiz_id);
-        $questionsPool = $quiz->content_jsonb;
-
-        // Backend Adaptive Selection: Find the first Medium question
-        $firstQuestion = collect($questionsPool)->first(function ($q) {
-            return data_get($q, 'metadata.difficulty') == 2;
-        });
-
-        // Strip ground truth before sending to frontend to prevent console cheating
-        $cleanedQuestion = $this->sanitizeQuestion($firstQuestion);
 
         return response()->json([
             'message' => 'Adaptive quiz session initialized.',
@@ -57,7 +66,9 @@ class QuizSessionController extends Controller
             'lives_remaining' => $session->lives_remaining,
             'difficulty_tier' => $session->difficulty_tier,
             'current_streak' => $session->current_streak,
-            'question' => $cleanedQuestion
+            'student_rating' => round($user->elo_rating, 2),
+            'topic_mastery' => $this->knowledgeTracing->getMasteryMap($user->id, $availableTopics),
+            'question' => $this->sanitizeQuestion($firstQuestion)
         ], 201);
     }
 
@@ -79,6 +90,7 @@ class QuizSessionController extends Controller
 
         $quiz = Quiz::findOrFail($session->quiz_id);
         $questionsPool = $quiz->content_jsonb;
+        $availableTopics = collect($questionsPool)->pluck('metadata.topic')->unique()->values()->all();
 
         // Find the specific question evaluated in this step
         $currentQuestion = collect($questionsPool)->firstWhere('id', $request->question_id);
@@ -88,27 +100,38 @@ class QuizSessionController extends Controller
         }
 
         $isCorrect = ($currentQuestion['ground_truth'] === $request->selected_option);
-        
+
+        $user = Auth::user();
+        $questionRating = $this->elo->getOrCreateQuestionRating($quiz->id, $currentQuestion);
+
+        [$newStudentRating, $newQuestionRating] = $this->elo->updateRatings(
+            $user->elo_rating,
+            $questionRating->rating,
+            $isCorrect
+        );
+
+        $user->elo_rating = $newStudentRating;
+        $user->save();
+
+        $questionRating->rating = $newQuestionRating;
+        $questionRating->attempts += 1;
+        $questionRating->save();
+
+        $topic = data_get($currentQuestion, 'metadata.topic');
+        if ($topic) {
+            $this->knowledgeTracing->recordAttempt($user->id, $topic, $isCorrect);
+        }
+
         // Track analytics totals
         $session->total_questions_answered += 1;
+        $session->difficulty_tier = $this->tierForRating($newStudentRating);
 
         if ($isCorrect) {
             $session->total_correct_answers += 1;
             $session->current_streak += 1;
-
-            // ADAPTIVE LOGIC: Hit a 3-correct streak? Scale Up Difficulty!
-            if ($session->current_streak >= 3 && $session->difficulty_tier < 3) {
-                $session->difficulty_tier += 1;
-                $session->current_streak = 0; // Reset streak calculator for the next tier challenge
-            }
         } else {
             $session->lives_remaining -= 1;
-            
-            // ADAPTIVE LOGIC: Missed a question? Break streak and drop difficulty tier back down
             $session->current_streak = 0;
-            if ($session->difficulty_tier > 1) {
-                $session->difficulty_tier -= 1;
-            }
 
             // Game Over Hook: Check if the user ran out of heart lives
             if ($session->lives_remaining <= 0) {
@@ -121,32 +144,38 @@ class QuizSessionController extends Controller
                     'explanation' => $currentQuestion['explanation'],
                     'lives_remaining' => 0,
                     'status' => 'failed',
+                    'student_rating' => round($newStudentRating, 2),
+                    'topic_mastery' => $this->knowledgeTracing->getMasteryMap($user->id, $availableTopics),
+                    'related_practice' => $this->getRelatedPractice($quiz->id, $questionsPool, $currentQuestion),
                     'message' => 'Game Over! You ran out of hearts. ❤️❌'
                 ]);
             }
         }
 
-        $session->save();
+        // Two-stage adaptive selection: knowledge tracing picks the weakest topic to probe,
+        // Elo picks the right difficulty within that topic.
+        $askedIds = $session->asked_question_ids ?? [];
+        $targetTopic = $this->knowledgeTracing->pickWeightedTopic($user->id, $availableTopics);
+        $nextQuestion = $this->elo->pickNextQuestion($quiz->id, $questionsPool, $newStudentRating, $askedIds, $targetTopic);
 
-        // Pick the next best question matching the updated difficulty tier
-        $nextQuestion = collect($questionsPool)
-            ->where('metadata.difficulty', $session->difficulty_tier)
-            ->shuffle() // Add variety
-            ->first();
-
-        // Fallback safety if specific pool runs empty
-        if (!$nextQuestion) {
-            $nextQuestion = collect($questionsPool)->random();
+        if ($nextQuestion) {
+            $askedIds[] = $nextQuestion['id'];
         }
+        $session->asked_question_ids = $askedIds;
+
+        $session->save();
 
         return response()->json([
             'is_correct' => $isCorrect,
             'correct_answer' => $currentQuestion['ground_truth'],
             'hint' => $isCorrect ? null : $currentQuestion['hint'],
             'explanation' => $isCorrect ? null : $currentQuestion['explanation'],
+            'related_practice' => $isCorrect ? [] : $this->getRelatedPractice($quiz->id, $questionsPool, $currentQuestion, $askedIds),
             'lives_remaining' => $session->lives_remaining,
             'difficulty_tier' => $session->difficulty_tier,
             'current_streak' => $session->current_streak,
+            'student_rating' => round($newStudentRating, 2),
+            'topic_mastery' => $this->knowledgeTracing->getMasteryMap($user->id, $availableTopics),
             'status' => 'active',
             'next_question' => $this->sanitizeQuestion($nextQuestion)
         ]);
@@ -176,28 +205,164 @@ class QuizSessionController extends Controller
 
         // Hooks can go here to update main curriculum maps or unlock badges if score > 80%
 
+        $quiz = Quiz::findOrFail($session->quiz_id);
+        $availableTopics = collect($quiz->content_jsonb)->pluck('metadata.topic')->unique()->values()->all();
+
         return response()->json([
             'message' => 'Quiz session finalized successfully.',
             'status' => 'completed',
             'total_answered' => $session->total_questions_answered,
             'total_correct' => $session->total_correct_answers,
             'final_score_percentage' => $scorePercentage,
+            'student_rating' => round(Auth::user()->elo_rating, 2),
+            'topic_mastery' => $this->knowledgeTracing->getMasteryMap(Auth::id(), $availableTopics),
             'unlocked_next' => ($scorePercentage >= 80.00)
+        ]);
+    }
+
+    /**
+     * Endpoint D: Generate a brand-new practice question (via Gemini) targeting
+     * the student's weakest BKT topic, instead of only pulling from the static bank.
+     */
+    public function aiChallenge(Request $request)
+    {
+        $request->validate([
+            'session_id' => 'required|exists:quiz_sessions,id',
+        ]);
+
+        $session = QuizSessions::where('id', $request->session_id)
+            ->where('user_id', Auth::id())
+            ->where('status', 'active')
+            ->firstOrFail();
+
+        $user = Auth::user();
+        $quiz = Quiz::findOrFail($session->quiz_id);
+        $availableTopics = collect($quiz->content_jsonb)->pluck('metadata.topic')->unique()->values()->all();
+
+        $masteryMap = $this->knowledgeTracing->getMasteryMap($user->id, $availableTopics);
+        $weakestTopic = collect($masteryMap)->sort()->keys()->first();
+        $difficulty = $this->tierForRating($user->elo_rating);
+
+        try {
+            $generated = $this->questionGenerator->generate($weakestTopic, $difficulty);
+        } catch (\Throwable $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'The AI question generator is temporarily unreachable.',
+                'error' => app()->isLocal() ? $e->getMessage() : null,
+            ], 502);
+        }
+
+        $session->pending_ai_question = array_merge($generated, [
+            'topic' => $weakestTopic,
+            'difficulty' => $difficulty,
+        ]);
+        $session->save();
+
+        return response()->json([
+            'source' => 'ai_generated',
+            'topic' => $weakestTopic,
+            'difficulty' => $difficulty,
+            'topic_mastery' => $masteryMap,
+            'question' => [
+                'question' => $generated['question'],
+                'options' => $generated['options'],
+            ],
+        ], 201);
+    }
+
+    /**
+     * Endpoint E: Evaluate the answer to the session's pending AI-generated question.
+     */
+    public function aiChallengeAnswer(Request $request)
+    {
+        $request->validate([
+            'session_id' => 'required|exists:quiz_sessions,id',
+            'selected_option' => 'required|string',
+        ]);
+
+        $session = QuizSessions::where('id', $request->session_id)
+            ->where('user_id', Auth::id())
+            ->where('status', 'active')
+            ->firstOrFail();
+
+        $pending = $session->pending_ai_question;
+        if (!$pending) {
+            return response()->json(['error' => 'No active AI challenge for this session. Call ai-challenge first.'], 404);
+        }
+
+        $user = Auth::user();
+        $isCorrect = trim($pending['ground_truth']) === trim($request->selected_option);
+
+        $this->knowledgeTracing->recordAttempt($user->id, $pending['topic'], $isCorrect);
+
+        $session->pending_ai_question = null;
+        $session->save();
+
+        $quiz = Quiz::findOrFail($session->quiz_id);
+        $availableTopics = collect($quiz->content_jsonb)->pluck('metadata.topic')->unique()->values()->all();
+
+        return response()->json([
+            'is_correct' => $isCorrect,
+            'correct_answer' => $pending['ground_truth'],
+            'hint' => $isCorrect ? null : $pending['hint'],
+            'explanation' => $pending['explanation'],
+            'topic' => $pending['topic'],
+            'topic_mastery' => $this->knowledgeTracing->getMasteryMap($user->id, $availableTopics),
         ]);
     }
 
     /**
      * Helper to keep students from inspecting network requests to see the correct answer
      */
-    private function sanitizeQuestion($question)
+    private function sanitizeQuestion(?array $question): ?array
     {
         if (!$question) return null;
-        
+
         return [
             'id' => $question['id'],
             'question' => $question['question'],
             'options' => $question['options'],
             'metadata' => $question['metadata']
         ];
+    }
+
+    /**
+     * Maps a continuous Elo rating onto the 1-3 tier band used for display/gamification.
+     */
+    private function tierForRating(float $rating): int
+    {
+        if ($rating < 950) return 1;
+        if ($rating > 1050) return 3;
+        return 2;
+    }
+
+    /**
+     * Semantically similar questions to review after a miss, via Hugging Face
+     * embeddings + pgvector nearest-neighbor search. Never breaks the quiz
+     * flow if the embedding backend is unavailable.
+     */
+    private function getRelatedPractice(int $quizId, array $questionsPool, array $missedQuestion, array $excludeIds = []): array
+    {
+        try {
+            $this->embeddings->ensureEmbeddingsExist($quizId, $questionsPool);
+            $similarIds = $this->embeddings->findSimilarQuestionIds($quizId, $missedQuestion['id'], 2, $excludeIds);
+        } catch (\Throwable) {
+            return [];
+        }
+
+        $byId = collect($questionsPool)->keyBy('id');
+
+        return collect($similarIds)
+            ->map(fn ($id) => $byId->get($id))
+            ->filter()
+            ->map(fn ($q) => [
+                'id' => $q['id'],
+                'question' => $q['question'],
+                'explanation' => $q['explanation'],
+                'topic' => data_get($q, 'metadata.topic'),
+            ])
+            ->values()
+            ->all();
     }
 }

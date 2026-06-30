@@ -56,6 +56,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/quiz/session/start', [QuizSessionController::class, 'start']);
     Route::post('/quiz/session/step', [QuizSessionController::class, 'step']);
     Route::post('/quiz/session/finalize', [QuizSessionController::class, 'finalize']);
+    Route::post('/quiz/session/ai-challenge', [QuizSessionController::class, 'aiChallenge']);
+    Route::post('/quiz/session/ai-challenge/answer', [QuizSessionController::class, 'aiChallengeAnswer']);
 
     // --- AI Chat Tutor (Tutor Tab) ---
     Route::post('/v1/tutor/chat', [TutorController::class, 'chat']);         // Ask Gemini a question and store log

@@ -16,6 +16,7 @@ class Transcription extends Model
     protected $fillable = [
         'user_id',
         'uploaded_image_url',
+        'generated_abc',
         'generated_musicxml',
         'generated_midi',
     ];

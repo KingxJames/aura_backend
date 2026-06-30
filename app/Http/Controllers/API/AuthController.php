@@ -188,11 +188,19 @@ class AuthController extends Controller
             $avatarUrl = is_string($avatarUrl) && $avatarUrl !== '' ? $avatarUrl : null;
 
             // Provision a user record dynamically in PostgreSQL if it's their first time logging in
+            $baseUsername = Str::slug(Str::before($googleUser->getEmail(), '@'), '_');
+            $username = $baseUsername;
+            $suffix = 1;
+            while (User::where('username', $username)->exists()) {
+                $username = $baseUsername . '_' . $suffix++;
+            }
+
             $user = User::firstOrCreate(
                 ['email' => $googleUser->getEmail()],
                 [
                     'name'              => $googleUser->getName() ?? 'Aura Scholar',
-                    'password'          => Hash::make(Str::random(24)), // Random string since they log in via Google
+                    'username'          => $username,
+                    'password'          => Hash::make(Str::random(24)),
                     'email_verified_at' => now(),
                     'profile_picture'   => $avatarUrl,
                 ]

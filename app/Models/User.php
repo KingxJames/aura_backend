@@ -20,6 +20,11 @@ class User extends Authenticatable
         'username',
         'current_grade_level',
         'profile_picture',
+        'elo_rating',
+    ];
+
+    protected $casts = [
+        'elo_rating' => 'float',
     ];
 
     public function progress(): HasMany
@@ -44,11 +49,11 @@ class User extends Authenticatable
 
     public function quizSessions()
     {
-        return $this->hasMany(QuizSession::class);
+        return $this->hasMany(QuizSessions::class);
     }
 
     public function sessions()
     {
-        return $this->hasMany(QuizSession::class);
+        return $this->hasMany(QuizSessions::class);
     }
 }
