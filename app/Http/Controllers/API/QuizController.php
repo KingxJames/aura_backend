@@ -67,8 +67,8 @@ class QuizController extends Controller
     public function submitQuiz(Request $request): JsonResponse
     {
         $request->validate([
-            'quiz_id' => 'required|uuid|exists:quizzes,id',
-            'question_id' => 'required|string',
+            'quiz_id' => 'required|integer|exists:quizzes,id',
+            'question_id' => 'required',
             'user_answer' => 'required|string',
         ]);
 
@@ -78,15 +78,16 @@ class QuizController extends Controller
         $quiz = Quiz::findOrFail($request->quiz_id);
 
         // Find the specific question item within our JSONB curriculum payload
+        // (seeded question objects key the prompt as 'id'/'question'/'ground_truth', not 'question_id'/'prompt'/'correct_answer')
         $questions = collect($quiz->content_jsonb);
-        $question = $questions->firstWhere('question_id', $request->question_id);
+        $question = $questions->firstWhere('id', $request->question_id);
 
         if (!$question) {
             return response()->json(['message' => 'Target question tracking identifier not found.'], 404);
         }
 
         // 1. Verify if the user's answer matches the correct answer string key
-        $isCorrect = (trim($user_answer) === trim($question['correct_answer']));
+        $isCorrect = (trim($user_answer) === trim($question['ground_truth']));
 
         // 2. Fetch or create the active tracking session record for this user and quiz
         $progress = UserProgress::firstOrCreate(
@@ -121,11 +122,13 @@ class QuizController extends Controller
         $progress->save();
 
         // 5. Select the next question candidate belonging exclusively to the student's current difficulty tier
-        $nextQuestionPool = $questions->where('difficulty', $progress->current_tier);
+        // Seeded questions carry a numeric metadata.difficulty (1-3); map that onto the standard/advanced tiers.
+        $tierFor = fn (array $q) => ($q['metadata']['difficulty'] ?? 1) >= 2 ? 'advanced' : 'standard';
+        $nextQuestionPool = $questions->filter(fn ($q) => $tierFor($q) === $progress->current_tier);
 
         // Exclude the current question so they don't get it immediately back-to-back
-        $tierExcludingCurrent = $nextQuestionPool->where('question_id', '!=', $request->question_id);
-        $allExcludingCurrent = $questions->where('question_id', '!=', $request->question_id);
+        $tierExcludingCurrent = $nextQuestionPool->where('id', '!=', $request->question_id);
+        $allExcludingCurrent = $questions->where('id', '!=', $request->question_id);
 
         if ($tierExcludingCurrent->isNotEmpty()) {
             $nextQuestion = $tierExcludingCurrent->random();
@@ -139,18 +142,19 @@ class QuizController extends Controller
         return response()->json([
             'success' => true,
             'is_correct' => $isCorrect,
-            'correct_answer' => $question['correct_answer'],
+            'correct_answer' => $question['ground_truth'],
             'current_streak' => $progress->current_streak,
             'allocated_tier' => $progress->current_tier,
             'message' => $progress->current_tier === 'advanced'
                 ? 'Excellent pace! Advanced MusicTheoryBench criteria unlocked.'
                 : 'Response recorded.',
             'next_question' => [
-                'question_id' => $nextQuestion['question_id'],
-                'type' => $nextQuestion['type'],
-                'prompt' => $nextQuestion['prompt'],
+                'question_id' => $nextQuestion['id'],
+                'type' => 'multiple_choice',
+                'prompt' => $nextQuestion['question'],
+                'hint' => $nextQuestion['hint'] ?? null,
                 'options' => $nextQuestion['options']
-                // Notice we drop 'correct_answer' so the frontend client cannot see it in network requests!
+                // Notice we drop 'ground_truth' so the frontend client cannot see it in network requests!
             ]
         ], 200);
     }
@@ -283,5 +287,112 @@ class QuizController extends Controller
                 'recommendation' => 'Continue reviewing your lowest scoring grade modules to stabilize your overall syllabus track profile.'
             ], 500);
         }
+    }
+
+    /**
+     * POST-TOPIC AI DEBRIEF (Grades > Topic Path > Quiz Results)
+     * POST /api/v1/curriculum/topic-debrief
+     *
+     * Topic-level scoring only exists on the client (a single quiz row spans
+     * several topics), so the session stats are supplied in the request body
+     * rather than looked up from UserProgress.
+     */
+    public function topicDebrief(Request $request): JsonResponse
+    {
+        $request->validate([
+            'quiz_id' => 'required|integer|exists:quizzes,id',
+            'topic' => 'required|string',
+            'correct_count' => 'required|integer|min:0',
+            'total_questions' => 'required|integer|min:1',
+            'current_streak' => 'required|integer|min:0',
+            'tier' => 'required|string|in:standard,advanced',
+        ]);
+
+        $topicLabel = $this->humanizeTopic($request->topic);
+        $prompt = "You are Aura, an elite AI Music Professor. A student just finished a practice round on the topic "
+            . "'{$topicLabel}': {$request->correct_count}/{$request->total_questions} correct, best streak "
+            . "{$request->current_streak}, reached the {$request->tier} difficulty tier. "
+            . "Write a short, warm, exactly 2-sentence note reacting to this specific result and giving one concrete "
+            . "next step for '{$topicLabel}'. Do not use markdown formatting or bullet points. Respond strictly in "
+            . "clean JSON with a single key 'message' containing the note text.";
+
+        return $this->generateAuraNote($prompt, 'Nice work — keep practicing this topic to build your streak further.');
+    }
+
+    /**
+     * "ASK AURA" HELP FOR A STRUGGLING TOPIC (Grades > Topic Path)
+     * POST /api/v1/curriculum/topic-help
+     */
+    public function topicHelp(Request $request): JsonResponse
+    {
+        $request->validate([
+            'quiz_id' => 'required|integer|exists:quizzes,id',
+            'topic' => 'required|string',
+            'attempts' => 'required|integer|min:1',
+            'best_score_percent' => 'required|integer|min:0|max:100',
+        ]);
+
+        $topicLabel = $this->humanizeTopic($request->topic);
+        $prompt = "You are Aura, an elite AI Music Professor. A student is struggling with the topic '{$topicLabel}': "
+            . "{$request->attempts} attempts so far, best score {$request->best_score_percent}%. "
+            . "Write a short, encouraging, exactly 2-sentence study tip focused specifically on what to review in "
+            . "'{$topicLabel}' before they try again. Do not use markdown formatting or bullet points. Respond "
+            . "strictly in clean JSON with a single key 'message' containing the tip text.";
+
+        return $this->generateAuraNote($prompt, "Take a moment to review {$topicLabel} fundamentals before your next attempt — you've got this.");
+    }
+
+    /**
+     * Shared Gemini call for the two short single-note Aura endpoints above.
+     */
+    private function generateAuraNote(string $prompt, string $fallbackMessage): JsonResponse
+    {
+        try {
+            $apiKey = env('GEMINI_API_KEY');
+            $response = Http::withHeaders([
+                'Content-Type' => 'application/json'
+            ])->post("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={$apiKey}", [
+                        'contents' => [
+                            ['parts' => [['text' => $prompt]]]
+                        ],
+                        'generationConfig' => [
+                            'responseMimeType' => 'application/json'
+                        ]
+                    ]);
+
+            if ($response->failed()) {
+                throw new \Exception("Gemini API communication dropped.");
+            }
+
+            $resultText = $response->json()['candidates'][0]['content']['parts'][0]['text'];
+            $data = json_decode($resultText, true);
+
+            return response()->json([
+                'success' => true,
+                'message' => $data['message'] ?? $fallbackMessage,
+            ], 200);
+
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => $fallbackMessage,
+            ], 500);
+        }
+    }
+
+    /**
+     * Mirrors the frontend's humanizeTopic() so Gemini prompts read naturally
+     * (e.g. 'time_signatures' -> 'Time Signatures') instead of raw snake_case keys.
+     */
+    private function humanizeTopic(string $topic): string
+    {
+        $labels = [
+            'pitch' => 'Pitch',
+            'rhythm' => 'Rhythm',
+            'time_signatures' => 'Time Signatures',
+            'scales' => 'Scales',
+        ];
+
+        return $labels[$topic] ?? ucwords(str_replace('_', ' ', $topic));
     }
 }

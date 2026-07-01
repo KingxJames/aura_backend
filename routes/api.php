@@ -48,6 +48,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/v1/curriculum/progress', [QuizController::class, 'studentProgress']);
     Route::delete('/v1/curriculum/progress/{id}', [QuizController::class, 'destroyProgress']);
     Route::get('/v1/curriculum/dashboard-recommendations', [QuizController::class, 'getDashboardRecommendations']);
+    Route::post('/v1/curriculum/topic-debrief', [QuizController::class, 'topicDebrief']);
+    Route::post('/v1/curriculum/topic-help', [QuizController::class, 'topicHelp']);
 
     // 2. ADD YOUR NEW THEORY ENDPOINTS HERE
     Route::get('/v1/theory/questions', [GradeTheoryController::class, 'getQuestions']);

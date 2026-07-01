@@ -1,0 +1,2477 @@
+[
+    {
+        "id": 1,
+        "question": "🅿️ What are the extra little lines called that let notes sit above or below the 5 main lines of a staff?",
+        "options": ["Ledger lines", "Bar lines", "Beam lines", "Slur lines"],
+        "ground_truth": "Ledger lines",
+        "hint": "These lines look like tiny extra parking spots for notes that don't fit on the regular street of 5 lines!",
+        "explanation": "🅿️ Ledger lines are tiny extra lines added above or below the staff so very high or very low notes have somewhere to sit.",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 2,
+        "question": "🪜 In Grade 2, how many ledger lines might you now see stacked above or below the staff?",
+        "options": ["Up to two ledger lines", "Only one ledger line", "Unlimited ledger lines", "Zero ledger lines"],
+        "ground_truth": "Up to two ledger lines",
+        "hint": "Grade 1 only used one extra line (like Middle C). Grade 2 adds one more level higher or lower!",
+        "explanation": "🪜 Grade 2 notes can now climb or dive down onto a second ledger line, giving you access to even higher and lower notes.",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 3,
+        "question": "🔤 We know Middle C sits on the first ledger line below the treble staff. What note sits in the space just below that ledger line?",
+        "options": ["B", "A", "D", "G"],
+        "ground_truth": "B",
+        "hint": "Step one letter down from C. What comes right before C in the alphabet?",
+        "explanation": "🔤 Stepping down from Middle C by one letter takes you to B, sitting in the space right underneath the first ledger line.",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 4,
+        "question": "🪜 What note sits on the SECOND ledger line below the treble staff?",
+        "options": ["A", "G", "B", "D"],
+        "ground_truth": "A",
+        "hint": "Start on Middle C (first ledger line) and count two letters down: C, B, A...",
+        "explanation": "🪜 Counting down from Middle C: B (space), then A lands right on the second ledger line below the treble staff.",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 5,
+        "question": "🚀 What note sits on the first ledger line ABOVE the treble staff?",
+        "options": ["A", "G", "B", "C"],
+        "ground_truth": "A",
+        "hint": "The top line of the treble staff is F. Step one letter higher into the space (G), then one more onto the ledger line.",
+        "explanation": "🚀 Above the treble staff: the space is G, and the very next ledger line up is A.",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 6,
+        "question": "🚀 What note sits on the SECOND ledger line above the treble staff?",
+        "options": ["C", "B", "D", "A"],
+        "ground_truth": "C",
+        "hint": "From the first ledger line (A), count two more letters up: A, B, C...",
+        "explanation": "🚀 Continuing up from A: B sits in the space, and C lands on the second ledger line above the treble staff.",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 7,
+        "question": "🎹 In the bass clef, the first ledger line ABOVE the staff is Middle C. What note sits on the SECOND ledger line above the bass staff?",
+        "options": ["E", "D", "F", "C"],
+        "ground_truth": "E",
+        "hint": "Start on Middle C and count two letters up: C, D, E...",
+        "explanation": "🚀 From Middle C: D sits in the space above, and E lands on the second ledger line above the bass staff.",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 8,
+        "question": "🐻 What note sits on the first ledger line BELOW the bass staff?",
+        "options": ["E", "D", "F", "G"],
+        "ground_truth": "E",
+        "hint": "The bottom line of the bass staff is G. Step one letter down into the space (F), then one more onto the ledger line.",
+        "explanation": "🐻 Below the bass staff: the space is F, and the very next ledger line down is E.",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 9,
+        "question": "🐻 What note sits on the SECOND ledger line below the bass staff?",
+        "options": ["C", "B", "D", "A"],
+        "ground_truth": "C",
+        "hint": "From the first ledger line below (E), count two more letters down: E, D, C...",
+        "explanation": "🐻 Continuing down from E: D sits in the space, and C lands on the second ledger line below the bass staff.",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 10,
+        "question": "🐙 The word 'octave' comes from the Latin word for which number?",
+        "options": ["8", "4", "6", "10"],
+        "ground_truth": "8",
+        "hint": "Think of an octopus - how many legs does it have?",
+        "explanation": "🐙 'Octave' comes from 'octo,' meaning 8! An octave spans 8 letter-name steps, like C up to the next C.",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 11,
+        "question": "🏠 What does it mean to move a note 'up an octave'?",
+        "options": [
+            "Play the same letter name, but higher in pitch",
+            "Play a completely different note",
+            "Play the note twice as fast",
+            "Play the note one line higher only"
+        ],
+        "ground_truth": "Play the same letter name, but higher in pitch",
+        "hint": "Think of two friends both named 'C' - one lives upstairs, one lives downstairs. They share a name but not a height!",
+        "explanation": "🏠 An octave keeps the same letter name (like C to C) but moves to a higher or lower version of that pitch.",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 12,
+        "question": "🎈 The bottom line of the treble staff is E. What note is exactly one octave HIGHER (the next E up)?",
+        "options": ["E (top space)", "D", "F", "G"],
+        "ground_truth": "E (top space)",
+        "hint": "Keep the same letter name! Climb up until you land on another E.",
+        "explanation": "🎈 The next E above the bottom line lands neatly in the top space (Space 4) of the treble staff - same letter, higher pitch!",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 13,
+        "question": "🎈 The bottom line of the bass staff is G. What note is exactly one octave HIGHER?",
+        "options": ["G (top space)", "F", "A", "B"],
+        "ground_truth": "G (top space)",
+        "hint": "Keep the same letter name! Climb up until you land on another G.",
+        "explanation": "🎈 The next G above the bottom line lands in the top space (Space 4) of the bass staff - same letter, higher pitch!",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 14,
+        "question": "👀 Why do composers often switch a very low treble melody into the bass clef instead of stacking up lots of ledger lines?",
+        "options": [
+            "Because the low notes fit neatly inside the bass staff, making it easier to read",
+            "Because ledger lines are against the rules",
+            "Because the bass clef changes the note names",
+            "Because bass clef notes are always louder"
+        ],
+        "ground_truth": "Because the low notes fit neatly inside the bass staff, making it easier to read",
+        "hint": "Imagine writing a really low note with FIVE ledger lines under the treble staff - wouldn't it be easier to just switch clefs?",
+        "explanation": "👀 Too many ledger lines get hard to count quickly! Switching to bass clef lets low notes sit comfortably inside the 5 main lines instead.",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 15,
+        "question": "🔁 A note written on the top line of the treble staff is F. If you moved that same letter name DOWN one octave into the bass clef, which note would you be looking for?",
+        "options": ["F (one octave lower)", "G", "E", "C"],
+        "ground_truth": "F (one octave lower)",
+        "hint": "Octave jumps always keep the same letter name - only the height changes!",
+        "explanation": "🔁 Moving down an octave keeps the letter the same. You'd look for the F that sits inside the bass staff, one octave below the treble F.",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 16,
+        "question": "🔍 The note A sits on which ledger line position below the treble staff?",
+        "options": [
+            "The second ledger line below",
+            "The first ledger line below",
+            "The third ledger line below",
+            "In the space below the first ledger line"
+        ],
+        "ground_truth": "The second ledger line below",
+        "hint": "Remember: the first ledger line below treble is Middle C. Count down one more letter-line to find A!",
+        "explanation": "🔍 Since Middle C is the first ledger line below, A (two letters down) lands on the second ledger line below the treble staff.",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 17,
+        "question": "🔍 The note C (an octave above the treble staff, sometimes called C6) sits on which ledger line position above the treble staff?",
+        "options": [
+            "The second ledger line above",
+            "The first ledger line above",
+            "The third ledger line above",
+            "In the space above the first ledger line"
+        ],
+        "ground_truth": "The second ledger line above",
+        "hint": "The first ledger line above treble is A. Count up one more letter-line to find C!",
+        "explanation": "🔍 Since A is the first ledger line above, C (two letters up) lands on the second ledger line above the treble staff.",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 18,
+        "question": "🎹 Does Middle C need any ledger lines when written on its own, either above the bass staff or below the treble staff?",
+        "options": ["Yes, one ledger line", "No ledger lines needed", "Yes, two ledger lines", "Yes, three ledger lines"],
+        "ground_truth": "Yes, one ledger line",
+        "hint": "Middle C sits exactly halfway between the two staves, needing just a single little line to rest on!",
+        "explanation": "🎹 Middle C always needs exactly one ledger line, whether you're reaching down from the treble staff or up from the bass staff.",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 19,
+        "question": "🔍 The note E sits on which ledger line position above the bass staff?",
+        "options": [
+            "The second ledger line above",
+            "The first ledger line above",
+            "The third ledger line above",
+            "In the space above the first ledger line"
+        ],
+        "ground_truth": "The second ledger line above",
+        "hint": "The first ledger line above bass is Middle C. Count up one more letter-line to find E!",
+        "explanation": "🔍 Since Middle C is the first ledger line above, E (two letters up) lands on the second ledger line above the bass staff.",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 20,
+        "question": "🔍 The note C (two octaves below Middle C, sometimes called C2) sits on which ledger line position below the bass staff?",
+        "options": [
+            "The second ledger line below",
+            "The first ledger line below",
+            "The third ledger line below",
+            "In the space below the first ledger line"
+        ],
+        "ground_truth": "The second ledger line below",
+        "hint": "The first ledger line below bass is E. Count down one more letter-line to find C!",
+        "explanation": "🔍 Since E is the first ledger line below, C (two letters down) lands on the second ledger line below the bass staff.",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 21,
+        "question": "🎈 A note is written on the second space of the treble staff (C5). What note is exactly one octave LOWER?",
+        "options": ["Middle C (C4)", "B3", "D4", "C6"],
+        "ground_truth": "Middle C (C4)",
+        "hint": "Keep the letter name C, but travel down to the very next lower C, which happens to be a very famous note!",
+        "explanation": "🎈 One octave below the C in the treble staff's second space is Middle C, sitting on its own ledger line.",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 22,
+        "question": "🎈 A note is written on the second line of the bass staff (B2). What note is exactly one octave HIGHER?",
+        "options": [
+            "The space just above the bass staff (B3)",
+            "The top line of the bass staff",
+            "D3",
+            "G3"
+        ],
+        "ground_truth": "The space just above the bass staff (B3)",
+        "hint": "Keep the same letter name B, and climb up until you land on the next B, which sits just above the staff!",
+        "explanation": "🎈 One octave above the B on the second line lands in the space just above the top line of the bass staff.",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 23,
+        "question": "👀 A melody's lowest note is written on the second ledger line below the treble staff (A3). Why might a composer switch this passage into the bass clef instead?",
+        "options": [
+            "To keep the notes closer to the middle of the staff, making it easier to read quickly",
+            "Because ledger lines are not allowed in melodies",
+            "To make the note sound louder",
+            "Because the note would change its letter name"
+        ],
+        "ground_truth": "To keep the notes closer to the middle of the staff, making it easier to read quickly",
+        "hint": "Reading two stacked ledger lines takes extra counting time - wouldn't it be quicker if the note just sat inside the staff instead?",
+        "explanation": "👀 Notes buried under multiple ledger lines are slower to read. Switching clefs brings them back inside the comfortable 5 lines.",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 24,
+        "question": "🔁 A note appears on the second ledger line above the bass staff (E4). If you switched this same pitch into treble clef, where would it sit?",
+        "options": [
+            "On the bottom line of the treble staff",
+            "On the top line of the treble staff",
+            "One ledger line above the treble staff",
+            "In the middle of the treble staff (Line 3)"
+        ],
+        "ground_truth": "On the bottom line of the treble staff",
+        "hint": "This note, E4, is a very familiar note in the treble clef - it's the very first line you learned!",
+        "explanation": "🔁 E4 is the bottom line of the treble staff (from 'Every Good Boy Does Fine'), so it needs no ledger lines at all once switched to treble.",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 25,
+        "question": "🧗 Which note sits exactly TWO octaves above Middle C?",
+        "options": [
+            "C6 (the second ledger line above the treble staff)",
+            "C5",
+            "B5",
+            "D6"
+        ],
+        "ground_truth": "C6 (the second ledger line above the treble staff)",
+        "hint": "One octave above Middle C is C5 (second space of treble). Climb one more octave to find the next C!",
+        "explanation": "🧗 Middle C (C4) + one octave = C5. Add another octave and you land on C6, the second ledger line above the treble staff.",
+        "metadata": {
+            "topic": "pitch",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 26,
+        "question": "🎵 What is another name for a 'Dotted Crotchet'?",
+        "options": ["A Dotted Quarter Note", "A Dotted Eighth Note", "A Dotted Half Note", "A Dotted Whole Note"],
+        "ground_truth": "A Dotted Quarter Note",
+        "hint": "Remember, a Crotchet is the same thing as a Quarter Note - just a different name from a different country!",
+        "explanation": "🎵 Crotchet and Quarter Note are two names for the same 1-beat note, so a Dotted Crotchet is a Dotted Quarter Note!",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 27,
+        "question": "🔢 A Crotchet is worth 1 beat. How many EXTRA beats does a dot add to make it a Dotted Crotchet?",
+        "options": ["0.5 extra beats", "1 extra beat", "2 extra beats", "0.25 extra beats"],
+        "ground_truth": "0.5 extra beats",
+        "hint": "A dot always adds HALF of the note's original value. Half of 1 beat is...?",
+        "explanation": "🔢 The dot adds half of the Crotchet's value (0.5). So 1 + 0.5 = 1.5 beats total for a Dotted Crotchet!",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 28,
+        "question": "🚩 What symbol appears on the stem of a single Quaver that a Crotchet does NOT have?",
+        "options": ["A flag", "A dot", "A beam", "A tie"],
+        "ground_truth": "A flag",
+        "hint": "This little curl waves proudly off the top of the stem, like a tiny pirate flag!",
+        "explanation": "🚩 A single Quaver has one flag curling off its stem. That flag is what makes it worth half a beat instead of a whole one.",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 29,
+        "question": "🐥 A Semiquaver (Sixteenth Note) is even faster than a Quaver. How many flags does its stem have?",
+        "options": ["2 flags", "1 flag", "3 flags", "0 flags"],
+        "ground_truth": "2 flags",
+        "hint": "Semiquavers are TWICE as fast as quavers, so they need TWICE as many flags!",
+        "explanation": "🐥 A Semiquaver has 2 flags on its stem, making it worth just a quarter of a beat.",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 30,
+        "question": "🧮 How many Semiquavers fit perfectly into the space of one Crotchet beat?",
+        "options": ["4", "2", "8", "3"],
+        "ground_truth": "4",
+        "hint": "Each Semiquaver is a quarter of a beat. How many quarters do you need to build one whole beat?",
+        "explanation": "🧮 Since a Semiquaver is a quarter-beat note, it takes exactly 4 of them to fill one full Crotchet beat.",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 31,
+        "question": "🤝 When four Semiquavers are grouped together under one beat, how many beams (thick connecting bars) join their stems?",
+        "options": ["2 beams", "1 beam", "3 beams", "4 beams"],
+        "ground_truth": "2 beams",
+        "hint": "One flag becomes one beam. Since a Semiquaver has 2 flags, it needs 2 beams when grouped!",
+        "explanation": "🤝 Semiquavers get a double beam (2 thick lines) connecting their stems, matching their 2 flags.",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 32,
+        "question": "📦 In 4/4 time, Semiquavers are usually beamed together in neat clusters of how many notes, matching each quarter-note beat?",
+        "options": ["4", "2", "8", "3"],
+        "ground_truth": "4",
+        "hint": "Since 4 semiquavers equal exactly 1 beat, it makes sense to bundle them in groups that match each beat!",
+        "explanation": "📦 Grouping semiquavers in clusters of 4 keeps the beat crystal clear and super easy to read at a glance.",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 33,
+        "question": "🧮 If you see 2 Semiquavers followed by 1 Quaver, all joined under one beam, how many total beats do they add up to?",
+        "options": ["1 beat", "1.5 beats", "2 beats", "0.5 beat"],
+        "ground_truth": "1 beat",
+        "hint": "Two semiquavers = 0.25 + 0.25 = 0.5 beat. Add the quaver's 0.5 beat on top!",
+        "explanation": "🧮 0.25 + 0.25 (two semiquavers) + 0.5 (quaver) = 1 full beat!",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 34,
+        "question": "🧮 If you see 1 Quaver followed by 2 Semiquavers, all joined under one beam, how many total beats do they add up to?",
+        "options": ["1 beat", "1.5 beats", "0.75 beats", "0.5 beat"],
+        "ground_truth": "1 beat",
+        "hint": "It doesn't matter which order they come in! 0.5 (quaver) + 0.25 + 0.25 (two semiquavers) still equals the same total.",
+        "explanation": "🧮 0.5 (quaver) + 0.25 + 0.25 (two semiquavers) = 1 full beat, no matter the order!",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 35,
+        "question": "🔮 A dot placed after a Quaver adds half of the Quaver's value. What is the total beat value of a Dotted Quaver?",
+        "options": ["0.75 beats", "1 beat", "0.5 beats", "1.25 beats"],
+        "ground_truth": "0.75 beats",
+        "hint": "A Quaver is 0.5 beats. Half of 0.5 is 0.25. Add them together: 0.5 + 0.25!",
+        "explanation": "🔮 A Quaver is 0.5 beats, and its dot adds half of that (0.25). Together: 0.5 + 0.25 = 0.75 beats!",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 36,
+        "question": "🧩 A Dotted Quaver (0.75 beats) is often paired with a tiny Semiquaver to complete exactly one full beat. How many beats must that Semiquaver be worth?",
+        "options": ["0.25 beats", "0.5 beats", "0.75 beats", "1 beat"],
+        "ground_truth": "0.25 beats",
+        "hint": "The whole beat needs to equal 1. If the dotted quaver already takes up 0.75, how much space is left?",
+        "explanation": "🧩 1 whole beat minus the dotted quaver's 0.75 beats leaves exactly 0.25 beats - a perfect match for one Semiquaver!",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 37,
+        "question": "🌉 What symbol is a curved line connecting two notes of the SAME pitch, telling you to hold them as one long sound instead of replaying the second one?",
+        "options": ["A Tie", "A Slur", "A Beam", "A Dot"],
+        "ground_truth": "A Tie",
+        "hint": "This symbol acts like a shoelace, tying two identical notes together into one continuous sound!",
+        "explanation": "🌉 A Tie links two notes of the same pitch so you hold the sound through both note values without replaying it.",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 38,
+        "question": "🧮 If a Crotchet is tied to another Crotchet, how many total beats do you hold the note?",
+        "options": ["2 beats", "1 beat", "3 beats", "4 beats"],
+        "ground_truth": "2 beats",
+        "hint": "Just add the two note values together, since the tie means you keep the sound going without a break: 1 + 1!",
+        "explanation": "🧮 1 beat (first crotchet) + 1 beat (tied crotchet) = 2 beats held as one continuous sound!",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 39,
+        "question": "🧮 If a Minim is tied to a Crotchet, how many total beats do you hold the note?",
+        "options": ["3 beats", "2 beats", "4 beats", "1.5 beats"],
+        "ground_truth": "3 beats",
+        "hint": "A minim is worth 2 beats, and a crotchet is worth 1 beat. Add the tied values together: 2 + 1!",
+        "explanation": "🧮 2 beats (minim) + 1 beat (tied crotchet) = 3 beats held as one continuous sound!",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 40,
+        "question": "🎪 A Triplet squeezes three notes into the time normally taken up by how many notes of the same value?",
+        "options": ["2 notes", "3 notes", "4 notes", "1 note"],
+        "ground_truth": "2 notes",
+        "hint": "Think of three friends squeezing onto a bench that was only built for two people!",
+        "explanation": "🎪 A triplet takes three notes and squishes them neatly into the space normally used by just two of that same note value.",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 41,
+        "question": "🎪 A Crotchet Triplet fits three notes into the time normally used by two Crotchets. How many total beats does the whole triplet group last?",
+        "options": ["2 beats", "3 beats", "1 beat", "1.5 beats"],
+        "ground_truth": "2 beats",
+        "hint": "Two Crotchets normally take up 1 + 1 beats. The triplet just squeezes 3 notes into that SAME total space!",
+        "explanation": "🎪 Even though there are 3 notes, the whole triplet group still only takes up the same 2 beats that two crotchets would use.",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 42,
+        "question": "⏱️ In a Quaver Triplet (three quavers squeezed into the space of just one beat), how long does each individual quaver note last?",
+        "options": ["One third of a beat", "Half a beat", "A quarter of a beat", "A whole beat"],
+        "ground_truth": "One third of a beat",
+        "hint": "Three equal notes are sharing just 1 whole beat between them. Split the beat into three equal pieces!",
+        "explanation": "⏱️ Since all 3 notes must fit inside 1 beat, each one only gets a third of that beat's length.",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 43,
+        "question": "🔢 How do composers mark a triplet on the page so performers instantly know three notes are squeezed in together?",
+        "options": [
+            "A small number 3 written above or below the group",
+            "A dot above the notes",
+            "A double beam",
+            "A star symbol"
+        ],
+        "ground_truth": "A small number 3 written above or below the group",
+        "hint": "Look for a tiny digit hovering near the beam - it's the same number as how many notes are in the group!",
+        "explanation": "🔢 A small '3' above or below the beamed group is the universal signal for a triplet.",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 44,
+        "question": "🧮 Three Quavers in a NORMAL (non-triplet) beamed group last a total of how many beats?",
+        "options": ["1.5 beats", "1 beat", "2 beats", "3 beats"],
+        "ground_truth": "1.5 beats",
+        "hint": "Each ordinary quaver is worth 0.5 beats. Three of them: 0.5 + 0.5 + 0.5!",
+        "explanation": "🧮 0.5 + 0.5 + 0.5 = 1.5 beats for three ordinary (non-triplet) quavers - notice how that's MORE than the 1 beat a triplet would take!",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 45,
+        "question": "🧠 Ultimate Math Challenge: What is the total beat value of One Dotted Crotchet PLUS One Quaver Triplet (three quavers squeezed into 1 beat)?",
+        "options": ["2.5 beats", "2 beats", "3 beats", "1.5 beats"],
+        "ground_truth": "2.5 beats",
+        "hint": "A dotted crotchet is 1.5 beats. A quaver triplet group always totals 1 beat, no matter how many notes are squeezed in. Add them: 1.5 + 1!",
+        "explanation": "🧠 A dotted crotchet is 1.5 beats. A quaver triplet always equals 1 beat total. 1.5 + 1 = 2.5 beats!",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 46,
+        "question": "🧮 What is the total beat value of One Semiquaver PLUS One Dotted Quaver?",
+        "options": ["1 beat", "0.5 beat", "1.5 beats", "0.75 beat"],
+        "ground_truth": "1 beat",
+        "hint": "A semiquaver is 0.25 beats, and a dotted quaver is 0.75 beats. Add them: 0.25 + 0.75!",
+        "explanation": "🧮 0.25 (semiquaver) + 0.75 (dotted quaver) = 1 full beat!",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 47,
+        "question": "🌉 If a Quaver is tied to a Semiquaver, how many total beats do you hold the note?",
+        "options": ["0.75 beats", "1 beat", "0.5 beats", "1.25 beats"],
+        "ground_truth": "0.75 beats",
+        "hint": "A quaver is 0.5 beats, and a semiquaver is 0.25 beats. Add the tied values together!",
+        "explanation": "🌉 0.5 (quaver) + 0.25 (tied semiquaver) = 0.75 beats held as one continuous sound!",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 48,
+        "question": "🧠 A bar contains a Quaver Triplet (three notes squeezed into 1 beat) followed by a Dotted Crotchet. What is the total beat count of the whole bar?",
+        "options": ["2.5 beats", "2 beats", "3 beats", "1.5 beats"],
+        "ground_truth": "2.5 beats",
+        "hint": "The whole triplet group always equals 1 beat total. The dotted crotchet is 1.5 beats. Add them: 1 + 1.5!",
+        "explanation": "🧠 1 beat (quaver triplet) + 1.5 beats (dotted crotchet) = 2.5 beats total!",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 49,
+        "question": "⏱️ In a Crotchet Triplet (three notes squeezed into the time of two crotchets = 2 beats total), how long does each individual note last?",
+        "options": ["Two-thirds of a beat", "One beat", "Half a beat", "One-third of a beat"],
+        "ground_truth": "Two-thirds of a beat",
+        "hint": "Three equal notes are sharing 2 whole beats between them. Split 2 beats into three equal pieces!",
+        "explanation": "⏱️ Since all 3 notes share 2 beats equally, each one lasts two-thirds of a beat.",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 50,
+        "question": "⚡ A Semiquaver Rest looks like a Quaver Rest's squiggle but with an extra hook. How many beats of silence is it worth?",
+        "options": [
+            "0.25 beats of silence",
+            "0.5 beats of silence",
+            "1 beat of silence",
+            "2 beats of silence"
+        ],
+        "ground_truth": "0.25 beats of silence",
+        "hint": "This rest matches the value of a Semiquaver note - a quarter of a beat!",
+        "explanation": "⚡ Just like its note counterpart, a Semiquaver Rest is worth a quarter of a beat (0.25) of pure silence.",
+        "metadata": {
+            "topic": "rhythm",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 51,
+        "question": "✂️ The time signature 2/2 is also known as 'Cut Time' or 'Alla Breve'. What does it tell you about each bar?",
+        "options": [
+            "2 half-note (minim) beats per bar",
+            "2 quarter-note beats per bar",
+            "2 whole-note beats per bar",
+            "2 eighth-note beats per bar"
+        ],
+        "ground_truth": "2 half-note (minim) beats per bar",
+        "hint": "The bottom number 2 stands for a minim getting the beat this time, not a crotchet!",
+        "explanation": "✂️ In 2/2 time, the bottom '2' means a Minim (half note) gets one beat, and the top '2' means there are 2 of those beats per bar.",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 52,
+        "question": "✂️ What is the nickname for 2/2 time, often shown as a capital 'C' with a vertical line slashed through it?",
+        "options": ["Cut Time (Alla Breve)", "Common Time", "Waltz Time", "March Time"],
+        "ground_truth": "Cut Time (Alla Breve)",
+        "hint": "Imagine literally 'cutting' the Common Time C symbol in half with a knife - that slash gives it its name!",
+        "explanation": "✂️ A capital C with a line through it is a shortcut symbol for Cut Time, another name for 2/2.",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 53,
+        "question": "🪙 In 2/2 time, what note value gets ONE full beat?",
+        "options": ["A Minim (Half Note)", "A Crotchet (Quarter Note)", "A Semibreve", "A Quaver"],
+        "ground_truth": "A Minim (Half Note)",
+        "hint": "Remember, the bottom number of a time signature always reveals which note gets the beat. Bottom number 2 points to the minim!",
+        "explanation": "🪙 The bottom '2' in 2/2 tells us the Minim is the note that carries a single beat.",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 54,
+        "question": "🧮 How many total Crotchet (quarter-note) beats fit inside one bar of 2/2 time?",
+        "options": ["4", "2", "3", "8"],
+        "ground_truth": "4",
+        "hint": "2/2 has 2 Minim beats per bar, and each Minim is worth 2 Crotchets. Multiply: 2 x 2!",
+        "explanation": "🧮 2 minims per bar, each worth 2 crotchets: 2 x 2 = 4 crotchet beats hiding inside every bar of 2/2!",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 55,
+        "question": "🎂 What does the time signature 3/2 tell you about each bar?",
+        "options": [
+            "3 half-note (minim) beats per bar",
+            "3 quarter-note beats per bar",
+            "3 eighth-note beats per bar",
+            "3 whole-note beats per bar"
+        ],
+        "ground_truth": "3 half-note (minim) beats per bar",
+        "hint": "Just like 2/2, the bottom number 2 always means the Minim gets the beat - only the top number changed to 3!",
+        "explanation": "🎂 The bottom '2' means Minims get the beat, and the top '3' means there are 3 of them in every bar.",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 56,
+        "question": "🧮 How many total Crotchet beats fit inside one bar of 3/2 time?",
+        "options": ["6", "3", "4", "8"],
+        "ground_truth": "6",
+        "hint": "3/2 has 3 Minim beats per bar, and each Minim is worth 2 Crotchets. Multiply: 3 x 2!",
+        "explanation": "🧮 3 minims per bar, each worth 2 crotchets: 3 x 2 = 6 crotchet beats fit inside every bar of 3/2!",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 57,
+        "question": "👑 What does the time signature 4/2 tell you about each bar?",
+        "options": [
+            "4 half-note (minim) beats per bar",
+            "4 quarter-note beats per bar",
+            "4 eighth-note beats per bar",
+            "4 whole-note beats per bar"
+        ],
+        "ground_truth": "4 half-note (minim) beats per bar",
+        "hint": "The bottom number 2 still means Minims get the beat. The top number just grew to 4!",
+        "explanation": "👑 The bottom '2' means Minims get the beat, and the top '4' means there are 4 of them in every bar.",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 58,
+        "question": "🧮 How many total Crotchet beats fit inside one bar of 4/2 time?",
+        "options": ["8", "4", "6", "2"],
+        "ground_truth": "8",
+        "hint": "4/2 has 4 Minim beats per bar, and each Minim is worth 2 Crotchets. Multiply: 4 x 2!",
+        "explanation": "🧮 4 minims per bar, each worth 2 crotchets: 4 x 2 = 8 crotchet beats fit inside every bar of 4/2!",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 59,
+        "question": "🎈 What does the bottom number '8' mean in a time signature like 3/8?",
+        "options": [
+            "A Quaver (Eighth Note) gets one beat",
+            "A Crotchet (Quarter Note) gets one beat",
+            "A Minim (Half Note) gets one beat",
+            "A Semiquaver gets one beat"
+        ],
+        "ground_truth": "A Quaver (Eighth Note) gets one beat",
+        "hint": "The bottom number is a code for which note gets the beat. An '8' points straight at the eighth note - the Quaver!",
+        "explanation": "🎈 The bottom '8' means a Quaver (eighth note) is the note that carries a single beat in this time signature.",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 60,
+        "question": "🎈 In 3/8 time, how many Quaver (eighth-note) beats fit inside each bar?",
+        "options": ["3", "2", "4", "6"],
+        "ground_truth": "3",
+        "hint": "Just read the top number straight off the time signature - it's the beat counter!",
+        "explanation": "🎈 The top '3' in 3/8 means 3 Quaver beats fit into every single bar.",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 61,
+        "question": "🧠 If a bar of 3/8 time is completely filled, how many total Crotchet beats worth of music does it actually contain?",
+        "options": ["1.5 beats", "3 beats", "1 beat", "2 beats"],
+        "ground_truth": "1.5 beats",
+        "hint": "There are 3 quavers in the bar, and each quaver is worth 0.5 of a crotchet beat. Multiply: 3 x 0.5!",
+        "explanation": "🧠 3 quavers x 0.5 crotchet-beats each = 1.5 crotchet beats worth of music packed into one 3/8 bar!",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 62,
+        "question": "🔍 A composer writes a bar containing 4 Minim notes in a row. Which time signature would fit that bar perfectly?",
+        "options": ["4/2", "4/4", "2/2", "3/2"],
+        "ground_truth": "4/2",
+        "hint": "You need a signature where the Minim gets the beat (bottom number 2) AND there's room for 4 of them (top number 4)!",
+        "explanation": "🔍 4 Minim beats per bar, with the Minim carrying the beat, is exactly what 4/2 time signature describes!",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 63,
+        "question": "✂️ Which of these time signatures is known by the nickname 'Cut Time'?",
+        "options": ["2/2", "4/4", "3/4", "6/8"],
+        "ground_truth": "2/2",
+        "hint": "This time signature literally looks like the Common Time symbol has been cut in half by a slash!",
+        "explanation": "✂️ 2/2 is the time signature nicknamed Cut Time (or Alla Breve).",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 64,
+        "question": "✂️ The symbol for Cut Time looks like a capital C with a __________ drawn through it.",
+        "options": ["vertical line", "horizontal line", "diagonal line", "circle"],
+        "ground_truth": "vertical line",
+        "hint": "Picture a knife slicing straight up and down through the middle of the letter C!",
+        "explanation": "✂️ Cut Time's symbol is a capital C sliced by a straight vertical line.",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 65,
+        "question": "🪙 In 3/2 time, what note value receives ONE beat?",
+        "options": ["A Minim (Half Note)", "A Crotchet (Quarter Note)", "A Semibreve", "A Quaver"],
+        "ground_truth": "A Minim (Half Note)",
+        "hint": "Check the bottom number of the time signature - it's still a 2, just like in 2/2!",
+        "explanation": "🪙 The bottom '2' in 3/2 means the Minim carries a single beat.",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 66,
+        "question": "🪙 In 4/2 time, what note value receives ONE beat?",
+        "options": ["A Minim (Half Note)", "A Crotchet (Quarter Note)", "A Semibreve", "A Quaver"],
+        "ground_truth": "A Minim (Half Note)",
+        "hint": "Check the bottom number of the time signature - it's still a 2, just like in 2/2 and 3/2!",
+        "explanation": "🪙 The bottom '2' in 4/2 means the Minim carries a single beat.",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 67,
+        "question": "🎈 In 3/8 time, which note value receives ONE beat?",
+        "options": ["A Quaver (Eighth Note)", "A Crotchet (Quarter Note)", "A Minim (Half Note)", "A Semiquaver"],
+        "ground_truth": "A Quaver (Eighth Note)",
+        "hint": "Check the bottom number of this time signature - it's an 8, which always points to the Quaver!",
+        "explanation": "🎈 The bottom '8' in 3/8 means the Quaver carries a single beat.",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 68,
+        "question": "🔁 A bar of 2/2 time is completely filled with 2 Minim notes. Could you rewrite this exact same music using a 4/4 time signature without changing any note values?",
+        "options": [
+            "Yes, both add up to 4 crotchet beats per bar",
+            "No, 4/4 has more beats",
+            "No, the note values would need to change",
+            "No, 2/2 is longer than 4/4"
+        ],
+        "ground_truth": "Yes, both add up to 4 crotchet beats per bar",
+        "hint": "Count the total crotchet-beat value of each bar. If both totals match, the same notes will fit!",
+        "explanation": "🔁 Both 2/2 and 4/4 add up to 4 crotchet beats per bar, so the exact same notes fit perfectly in either time signature.",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 69,
+        "question": "🔁 A single Semibreve (4-beat whole note) fills one bar of 4/4 time perfectly. Would it also perfectly fill one bar of 2/2 time?",
+        "options": [
+            "Yes, 2/2 also totals 4 crotchet beats per bar",
+            "No, 2/2 only allows 2 beats",
+            "No, semibreves are banned in 2/2",
+            "No, you would need two semibreves"
+        ],
+        "ground_truth": "Yes, 2/2 also totals 4 crotchet beats per bar",
+        "hint": "A semibreve is worth 4 crotchet beats. Does 2/2's total beat count also add up to 4?",
+        "explanation": "🔁 Since 2/2 also totals 4 crotchet beats per bar (just like 4/4), a single Semibreve fills it perfectly too.",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 70,
+        "question": "🧮 How many total Quaver beats would you need to completely fill one bar of 3/2 time?",
+        "options": ["12", "6", "3", "8"],
+        "ground_truth": "12",
+        "hint": "3/2 totals 6 crotchet beats. Since each crotchet equals 2 quavers, multiply: 6 x 2!",
+        "explanation": "🧮 3/2 has 6 crotchet beats per bar. Each crotchet beat equals 2 quavers, so 6 x 2 = 12 quavers fill the bar!",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 71,
+        "question": "🧮 How many total Quaver beats would you need to completely fill one bar of 4/2 time?",
+        "options": ["16", "8", "4", "12"],
+        "ground_truth": "16",
+        "hint": "4/2 totals 8 crotchet beats. Since each crotchet equals 2 quavers, multiply: 8 x 2!",
+        "explanation": "🧮 4/2 has 8 crotchet beats per bar. Each crotchet beat equals 2 quavers, so 8 x 2 = 16 quavers fill the bar!",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 72,
+        "question": "🧠 A bar of 3/8 time contains a Dotted Crotchet (worth 3 quavers' worth of time). Does this fill the bar completely?",
+        "options": [
+            "Yes, a dotted crotchet equals exactly 3 quavers",
+            "No, it's too short",
+            "No, it's too long",
+            "No, dotted notes aren't allowed in 3/8"
+        ],
+        "ground_truth": "Yes, a dotted crotchet equals exactly 3 quavers",
+        "hint": "A dotted crotchet is 1.5 crotchet-beats, which equals exactly 3 quaver-beats. Does that match the bar's 3-quaver total?",
+        "explanation": "🧠 A dotted crotchet (1.5 crotchet beats = 3 quavers) fits a 3/8 bar (3 quaver beats) perfectly!",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 73,
+        "question": "🔍 If a composer writes 6 Crotchet notes in a row and closes the bar right after the sixth one, which of these time signatures could they be using?",
+        "options": ["3/2", "3/4", "6/8", "4/2"],
+        "ground_truth": "3/2",
+        "hint": "6 crotchet beats matches a bar where 3 minims (each worth 2 crotchets) fit - that's the top number 3 with bottom number 2!",
+        "explanation": "🔍 6 crotchet beats = 3 minim beats, which exactly matches a 3/2 time signature.",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 74,
+        "question": "🔍 If a composer writes 8 Crotchet notes in a row and closes the bar right after the eighth one, which of these time signatures could they be using?",
+        "options": ["4/2", "4/4", "2/2", "8/4"],
+        "ground_truth": "4/2",
+        "hint": "8 crotchet beats matches a bar where 4 minims (each worth 2 crotchets) fit - that's the top number 4 with bottom number 2!",
+        "explanation": "🔍 8 crotchet beats = 4 minim beats, which exactly matches a 4/2 time signature.",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 75,
+        "question": "🧠 3/8 time and 3/4 time both have a top number of 3. What is different between them?",
+        "options": [
+            "3/8 uses Quaver beats (shorter bars); 3/4 uses Crotchet beats (longer bars)",
+            "They are actually identical",
+            "3/8 has more beats than 3/4",
+            "3/4 uses Quaver beats and 3/8 uses Crotchet beats"
+        ],
+        "ground_truth": "3/8 uses Quaver beats (shorter bars); 3/4 uses Crotchet beats (longer bars)",
+        "hint": "Always check the bottom number! An 8 means Quavers get the beat, while a 4 means Crotchets get the beat.",
+        "explanation": "🧠 Even with the same top number, the bottom number changes everything: 3/8 bars are worth 1.5 crotchet beats total, while 3/4 bars are worth 3 full crotchet beats.",
+        "metadata": {
+            "topic": "time_signatures",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 76,
+        "question": "🏠 What is the tonic (home note) of the A Major scale?",
+        "options": ["A", "B", "C", "G"],
+        "ground_truth": "A",
+        "hint": "Scales always name themselves after their very first, starting note!",
+        "explanation": "🏠 An A Major scale begins its climb right on the note A!",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 77,
+        "question": "✨ How many sharps live inside the A Major key signature?",
+        "options": ["3 sharps", "2 sharps", "1 sharp", "4 sharps"],
+        "ground_truth": "3 sharps",
+        "hint": "A Major has one more sharp than D Major's two sharps!",
+        "explanation": "✨ A Major has three sharps in its key signature club.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 78,
+        "question": "✨ Which three sharps make up the A Major key signature?",
+        "options": ["F♯, C♯, G♯", "F♯, C♯, B♯", "F♯, C♯, D♯", "G♯, C♯, D♯"],
+        "ground_truth": "F♯, C♯, G♯",
+        "hint": "Start with D Major's two sharps (F♯, C♯), then add one brand new sharp!",
+        "explanation": "✨ A Major keeps F♯ and C♯ from D Major and adds a new sharp: G♯!",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 79,
+        "question": "🏠 What is the tonic (home note) of the B♭ Major scale?",
+        "options": ["B♭", "B", "C", "A"],
+        "ground_truth": "B♭",
+        "hint": "Scales always name themselves after their very first, starting note - flat and all!",
+        "explanation": "🏠 A B♭ Major scale begins its climb right on the note B♭!",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 80,
+        "question": "⚓ How many flats live inside the B♭ Major key signature?",
+        "options": ["2 flats", "1 flat", "3 flats", "0 flats"],
+        "ground_truth": "2 flats",
+        "hint": "B♭ Major has one more flat than F Major's single flat!",
+        "explanation": "⚓ B♭ Major has two flats in its key signature club.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 81,
+        "question": "⚓ Which two flats make up the B♭ Major key signature?",
+        "options": ["B♭ and E♭", "B♭ and A♭", "E♭ and A♭", "B♭ and D♭"],
+        "ground_truth": "B♭ and E♭",
+        "hint": "Start with F Major's single flat (B♭), then add one brand new flat!",
+        "explanation": "⚓ B♭ Major keeps B♭ from F Major and adds a new flat: E♭!",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 82,
+        "question": "🏠 What is the tonic (home note) of the E♭ Major scale?",
+        "options": ["E♭", "E", "D", "F"],
+        "ground_truth": "E♭",
+        "hint": "Scales always name themselves after their very first, starting note - flat and all!",
+        "explanation": "🏠 An E♭ Major scale begins its climb right on the note E♭!",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 83,
+        "question": "⚓ How many flats live inside the E♭ Major key signature?",
+        "options": ["3 flats", "2 flats", "4 flats", "1 flat"],
+        "ground_truth": "3 flats",
+        "hint": "E♭ Major has one more flat than B♭ Major's two flats!",
+        "explanation": "⚓ E♭ Major has three flats in its key signature club.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 84,
+        "question": "⚓ Which three flats make up the E♭ Major key signature?",
+        "options": ["B♭, E♭, A♭", "B♭, E♭, D♭", "E♭, A♭, D♭", "B♭, A♭, D♭"],
+        "ground_truth": "B♭, E♭, A♭",
+        "hint": "Start with B♭ Major's two flats (B♭, E♭), then add one brand new flat!",
+        "explanation": "⚓ E♭ Major keeps B♭ and E♭ from B♭ Major and adds a new flat: A♭!",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 85,
+        "question": "🧩 B♭ Major has 2 flats (B♭, E♭). E♭ Major adds exactly one more flat to that family. What is the new flat added?",
+        "options": ["A♭", "D♭", "G♭", "C♭"],
+        "ground_truth": "A♭",
+        "hint": "Each new flat key adds a flat that is a perfect 4th above the last flat that was added!",
+        "explanation": "🧩 Moving from B♭ Major to E♭ Major, the brand-new flat added to the family is A♭!",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 86,
+        "question": "🧗 Let's spell out A Major: A, B, C♯, D, E, F♯, G♯, A. What scale degree NUMBER is F♯?",
+        "options": ["6", "5", "4", "7"],
+        "ground_truth": "6",
+        "hint": "Count the letters starting from A as number 1: A(1), B(2), C♯(3), D(4), E(5), F♯...",
+        "explanation": "🧮 Counting up: A(1), B(2), C♯(3), D(4), E(5), F♯(6). F♯ is the 6th degree of A Major!",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 87,
+        "question": "🧗 Let's spell out E♭ Major: E♭, F, G, A♭, B♭, C, D, E♭. What scale degree NUMBER is A♭?",
+        "options": ["4", "3", "5", "2"],
+        "ground_truth": "4",
+        "hint": "Count the letters starting from E♭ as number 1: E♭(1), F(2), G(3), A♭...",
+        "explanation": "🧮 Counting up: E♭(1), F(2), G(3), A♭(4). A♭ is the 4th degree of E♭ Major!",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 88,
+        "question": "🧗 Let's spell out the full A Major scale. What are all 8 notes, low to high?",
+        "options": [
+            "A, B, C♯, D, E, F♯, G♯, A",
+            "A, B, C, D, E, F♯, G♯, A",
+            "A, B♭, C♯, D, E, F♯, G♯, A",
+            "A, B, C♯, D♯, E, F♯, G♯, A"
+        ],
+        "ground_truth": "A, B, C♯, D, E, F♯, G♯, A",
+        "hint": "Only three notes get sharpened in A Major: the 3rd, 6th, and 7th degrees (C, F, and G)!",
+        "explanation": "🎹 A Major is spelled A, B, C♯, D, E, F♯, G♯, A - using exactly three sharps: C♯, F♯, and G♯.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 89,
+        "question": "🧗 Let's spell out the full B♭ Major scale. What are all 8 notes, low to high?",
+        "options": [
+            "B♭, C, D, E♭, F, G, A, B♭",
+            "B♭, C, D, E, F, G, A, B♭",
+            "B♭, C♭, D, E♭, F, G, A, B♭",
+            "B♭, C, D, E♭, F, G, A♭, B♭"
+        ],
+        "ground_truth": "B♭, C, D, E♭, F, G, A, B♭",
+        "hint": "Only two notes get flattened in B♭ Major: the 1st and 4th degrees (B and E)!",
+        "explanation": "🎹 B♭ Major is spelled B♭, C, D, E♭, F, G, A, B♭ - using exactly two flats: B♭ and E♭.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 90,
+        "question": "🧗 Let's spell out the full E♭ Major scale. What are all 8 notes, low to high?",
+        "options": [
+            "E♭, F, G, A♭, B♭, C, D, E♭",
+            "E♭, F, G♭, A♭, B♭, C, D, E♭",
+            "E♭, F, G, A♭, B♭, C, D♭, E♭",
+            "E♭, F, G, A, B♭, C, D, E♭"
+        ],
+        "ground_truth": "E♭, F, G, A♭, B♭, C, D, E♭",
+        "hint": "Three notes get flattened in E♭ Major: the 1st, 4th, and 5th degrees (E, A, and B)!",
+        "explanation": "🎹 E♭ Major is spelled E♭, F, G, A♭, B♭, C, D, E♭ - using exactly three flats: E♭, A♭, and B♭.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 91,
+        "question": "✨ Sharp keys add new sharps in a set order: F♯, C♯, G♯, D♯... Which sharp comes right after G♯ when a key signature grows?",
+        "options": ["D♯", "A♯", "E♯", "B♯"],
+        "ground_truth": "D♯",
+        "hint": "Just continue the pattern F♯, C♯, G♯... the next one keeps climbing by a perfect 5th!",
+        "explanation": "✨ The sharp order always continues F♯, C♯, G♯, D♯, A♯, E♯, B♯ - so D♯ comes right after G♯.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 92,
+        "question": "⚓ Flat keys add new flats in a set order: B♭, E♭, A♭, D♭... Which flat comes right after A♭ when a key signature grows?",
+        "options": ["D♭", "G♭", "C♭", "F♭"],
+        "ground_truth": "D♭",
+        "hint": "Just continue the pattern B♭, E♭, A♭... the next one keeps climbing by a perfect 4th!",
+        "explanation": "⚓ The flat order always continues B♭, E♭, A♭, D♭, G♭, C♭, F♭ - so D♭ comes right after A♭.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 93,
+        "question": "🔍 We've learned C, G, D, A Major (sharp keys) and C, F, B♭, E♭ Major (flat keys). Which of these is a SHARP key?",
+        "options": ["A Major", "E♭ Major", "B♭ Major", "F Major"],
+        "ground_truth": "A Major",
+        "hint": "Check the key signature - sharp keys use sharps, and only one of these options does!",
+        "explanation": "🔍 A Major uses sharps (F♯, C♯, G♯), making it a sharp key, unlike the other flat-key options.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 94,
+        "question": "🔍 Which of these is a FLAT key?",
+        "options": ["E♭ Major", "D Major", "A Major", "G Major"],
+        "ground_truth": "E♭ Major",
+        "hint": "Check the key signature - flat keys use flats, and only one of these options does!",
+        "explanation": "🔍 E♭ Major uses flats (B♭, E♭, A♭), making it a flat key, unlike the other sharp-key options.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 95,
+        "question": "🧮 How many total accidentals (sharps or flats combined) does A Major use?",
+        "options": ["3", "2", "4", "1"],
+        "ground_truth": "3",
+        "hint": "Count up the sharps in A Major's key signature: F♯, C♯, G♯!",
+        "explanation": "🧮 A Major uses exactly 3 accidentals: F♯, C♯, and G♯.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 96,
+        "question": "🧮 How many total accidentals does B♭ Major use?",
+        "options": ["2", "3", "1", "4"],
+        "ground_truth": "2",
+        "hint": "Count up the flats in B♭ Major's key signature: B♭, E♭!",
+        "explanation": "🧮 B♭ Major uses exactly 2 accidentals: B♭ and E♭.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 97,
+        "question": "🧩 Every time a new sharp key is introduced, exactly ONE new sharp is added to the key signature. Does this same pattern also apply to flat keys?",
+        "options": [
+            "True - one new flat is added each time",
+            "False - flat keys add two at a time",
+            "False - flat keys don't follow a pattern",
+            "False - flat keys remove a flat each time"
+        ],
+        "ground_truth": "True - one new flat is added each time",
+        "hint": "Compare F Major (1 flat), B♭ Major (2 flats), and E♭ Major (3 flats) - notice how each one grows by exactly one!",
+        "explanation": "🧩 Just like sharp keys, each new flat key adds exactly one brand-new flat to the family.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 98,
+        "question": "🍃 In A Major, the note G is always played as G♯ because of the key signature. If a composer wants a plain, un-sharped G just once in the piece, what symbol must they write?",
+        "options": ["A Natural sign (♮)", "A Sharp sign (♯)", "A Flat sign (♭)", "A new key signature"],
+        "ground_truth": "A Natural sign (♮)",
+        "hint": "This symbol resets a note back to its plain, unaltered form, canceling out the key signature just for that note!",
+        "explanation": "🍃 A Natural sign (♮) cancels the key signature's sharp just for that one note, giving you a plain G.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 99,
+        "question": "🧗 Which three scale degree numbers are sharped in A Major (C♯, F♯, and G♯)?",
+        "options": ["3rd, 6th, and 7th", "2nd, 5th, and 7th", "3rd, 5th, and 6th", "4th, 6th, and 7th"],
+        "ground_truth": "3rd, 6th, and 7th",
+        "hint": "Count the scale A(1) B(2) C♯(3) D(4) E(5) F♯(6) G♯(7) - which positions hold the sharps?",
+        "explanation": "🧮 In A Major (A,B,C♯,D,E,F♯,G♯,A), the sharps land on the 3rd (C♯), 6th (F♯), and 7th (G♯) degrees.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 100,
+        "question": "🧗 Which two NON-tonic scale degrees are flatted in E♭ Major (besides the tonic E♭ itself)?",
+        "options": ["4th and 5th", "2nd and 3rd", "6th and 7th", "3rd and 6th"],
+        "ground_truth": "4th and 5th",
+        "hint": "Count the scale E♭(1) F(2) G(3) A♭(4) B♭(5) C(6) D(7) - which positions besides the tonic hold flats?",
+        "explanation": "🧮 In E♭ Major (E♭,F,G,A♭,B♭,C,D,E♭), besides the tonic, the flats land on the 4th (A♭) and 5th (B♭) degrees.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 101,
+        "question": "👯 What is the relative minor of C Major?",
+        "options": ["A minor", "E minor", "D minor", "G minor"],
+        "ground_truth": "A minor",
+        "hint": "Relative minors share the exact same key signature as their major partner - and C Major has zero sharps or flats!",
+        "explanation": "👯 A minor is the relative minor of C Major - both share a key signature with no sharps or flats.",
+        "metadata": {
+            "topic": "minor_scales",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 102,
+        "question": "👯 What is the relative minor of G Major?",
+        "options": ["E minor", "A minor", "D minor", "B minor"],
+        "ground_truth": "E minor",
+        "hint": "G Major has one sharp (F♯). Its relative minor keeps that exact same sharp!",
+        "explanation": "👯 E minor is the relative minor of G Major - both share the same single sharp (F♯).",
+        "metadata": {
+            "topic": "minor_scales",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 103,
+        "question": "👯 What is the relative minor of F Major?",
+        "options": ["D minor", "A minor", "E minor", "C minor"],
+        "ground_truth": "D minor",
+        "hint": "F Major has one flat (B♭). Its relative minor keeps that exact same flat!",
+        "explanation": "👯 D minor is the relative minor of F Major - both share the same single flat (B♭).",
+        "metadata": {
+            "topic": "minor_scales",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 104,
+        "question": "🔗 Two scales that are 'relative' to each other (like C Major and A minor) always share the same what?",
+        "options": ["Key signature", "Tonic note", "Number of beats", "Clef"],
+        "ground_truth": "Key signature",
+        "hint": "Think of them as cousins from the same family - they share the same sharps and flats, but start on different home notes!",
+        "explanation": "🔗 Relative major and minor scales always share an identical key signature, even though their tonic notes are different.",
+        "metadata": {
+            "topic": "minor_scales",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 105,
+        "question": "🍃 What is the key signature of A minor (the natural form)?",
+        "options": ["0 sharps and 0 flats", "1 sharp", "1 flat", "2 sharps"],
+        "ground_truth": "0 sharps and 0 flats",
+        "hint": "A minor is best friends with C Major, and C Major is the cleanest scale of all!",
+        "explanation": "🍃 A minor shares C Major's key signature - completely clean with zero sharps or flats.",
+        "metadata": {
+            "topic": "minor_scales",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 106,
+        "question": "🦜 What is the key signature of E minor?",
+        "options": ["1 sharp (F♯)", "0 sharps and 0 flats", "1 flat (B♭)", "2 sharps"],
+        "ground_truth": "1 sharp (F♯)",
+        "hint": "E minor shares its key signature with a major scale that has one sharp badge - the same one from Grade 1!",
+        "explanation": "🦜 E minor shares G Major's key signature - a single sharp, F♯.",
+        "metadata": {
+            "topic": "minor_scales",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 107,
+        "question": "⚓ What is the key signature of D minor?",
+        "options": ["1 flat (B♭)", "0 sharps and 0 flats", "1 sharp (F♯)", "2 flats"],
+        "ground_truth": "1 flat (B♭)",
+        "hint": "D minor shares its key signature with a major scale that has one flat badge - the same one from Grade 1!",
+        "explanation": "⚓ D minor shares F Major's key signature - a single flat, B♭.",
+        "metadata": {
+            "topic": "minor_scales",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 108,
+        "question": "🪜 A Natural Minor scale uses only the notes from its key signature with no extra accidentals added. What is the 7th note of the A Natural Minor scale?",
+        "options": ["G", "G♯", "F", "F♯"],
+        "ground_truth": "G",
+        "hint": "A minor has no sharps or flats, so just count up the plain alphabet: A, B, C, D, E, F, G!",
+        "explanation": "🪜 A Natural Minor is A-B-C-D-E-F-G-A, all plain white-key notes. The 7th note is a plain G.",
+        "metadata": {
+            "topic": "minor_scales",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 109,
+        "question": "⚡ To build a Harmonic Minor scale, which single note gets raised by a semitone compared to the Natural Minor?",
+        "options": ["The 7th note", "The 6th note", "The 3rd note", "The 1st note"],
+        "ground_truth": "The 7th note",
+        "hint": "This note is called the 'leading tone' because raising it makes it lean strongly back home to the tonic!",
+        "explanation": "⚡ Harmonic Minor raises the 7th note by a semitone, creating a sharper 'leading tone' pull back to the tonic.",
+        "metadata": {
+            "topic": "minor_scales",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 110,
+        "question": "⚡ What is the 7th note of A Harmonic Minor (raised from the Natural Minor's plain G)?",
+        "options": ["G♯", "G", "F♯", "A♭"],
+        "ground_truth": "G♯",
+        "hint": "Take the natural G and push it up by one tiny semitone step!",
+        "explanation": "⚡ A Harmonic Minor raises G to G♯: A, B, C, D, E, F, G♯, A.",
+        "metadata": {
+            "topic": "minor_scales",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 111,
+        "question": "⚡ What is the 7th note of E Harmonic Minor (raised from the Natural Minor's plain D)?",
+        "options": ["D♯", "D", "C♯", "E♭"],
+        "ground_truth": "D♯",
+        "hint": "Take the natural D and push it up by one tiny semitone step!",
+        "explanation": "⚡ E Harmonic Minor raises D to D♯: E, F♯, G, A, B, C, D♯, E.",
+        "metadata": {
+            "topic": "minor_scales",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 112,
+        "question": "⚡ What is the 7th note of D Harmonic Minor (raised from the Natural Minor's plain C)?",
+        "options": ["C♯", "C", "B♮", "D♭"],
+        "ground_truth": "C♯",
+        "hint": "Take the natural C and push it up by one tiny semitone step!",
+        "explanation": "⚡ D Harmonic Minor raises C to C♯: D, E, F, G, A, B♭, C♯, D.",
+        "metadata": {
+            "topic": "minor_scales",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 113,
+        "question": "🎢 In a Melodic Minor scale going UP (ascending), how many notes are raised compared to the Natural Minor?",
+        "options": [
+            "2 notes (the 6th and 7th)",
+            "1 note (just the 7th)",
+            "3 notes",
+            "0 notes"
+        ],
+        "ground_truth": "2 notes (the 6th and 7th)",
+        "hint": "Melodic Minor raises BOTH of the top two notes on the way up, not just the leading tone!",
+        "explanation": "🎢 Ascending Melodic Minor raises both the 6th and 7th notes by a semitone each, smoothing the climb to the top.",
+        "metadata": {
+            "topic": "minor_scales",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 114,
+        "question": "🎢 When a Melodic Minor scale comes back DOWN (descending), what happens to those two raised notes?",
+        "options": [
+            "They return to the Natural Minor form (un-raised)",
+            "They stay raised the whole way down",
+            "They get raised even higher",
+            "They turn into rests"
+        ],
+        "ground_truth": "They return to the Natural Minor form (un-raised)",
+        "hint": "Melodic Minor only wears its 'raised' costume going up. Coming back down, it changes back into its Natural Minor clothes!",
+        "explanation": "🎢 Descending Melodic Minor drops the raised 6th and 7th and matches the plain Natural Minor scale instead.",
+        "metadata": {
+            "topic": "minor_scales",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 115,
+        "question": "🧗 Let's build A Melodic Minor ascending: A, B, C, D, E, F♯, G♯, A. Compared to A Natural Minor (which has plain F and G), which two notes were raised?",
+        "options": ["F and G", "C and D", "B and C", "E and F"],
+        "ground_truth": "F and G",
+        "hint": "The 6th note of A minor is F, and the 7th is G. Those are exactly the two notes Melodic Minor raises!",
+        "explanation": "🧗 A Natural Minor's F and G (the 6th and 7th notes) are raised to F♯ and G♯ to create A Melodic Minor ascending.",
+        "metadata": {
+            "topic": "minor_scales",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 116,
+        "question": "🧗 Let's spell the full E Natural Minor scale, low to high.",
+        "options": [
+            "E, F♯, G, A, B, C, D, E",
+            "E, F, G, A, B, C, D, E",
+            "E, F♯, G♯, A, B, C, D, E",
+            "E, F♯, G, A, B, C♯, D, E"
+        ],
+        "ground_truth": "E, F♯, G, A, B, C, D, E",
+        "hint": "E minor shares G Major's single sharp - only F needs to be sharpened!",
+        "explanation": "🎹 E Natural Minor is spelled E, F♯, G, A, B, C, D, E - matching G Major's one-sharp key signature.",
+        "metadata": {
+            "topic": "minor_scales",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 117,
+        "question": "🧗 Let's spell the full D Natural Minor scale, low to high.",
+        "options": [
+            "D, E, F, G, A, B♭, C, D",
+            "D, E, F♯, G, A, B, C, D",
+            "D, E, F, G, A, B, C, D",
+            "D, E, F, G, A, B♭, C♯, D"
+        ],
+        "ground_truth": "D, E, F, G, A, B♭, C, D",
+        "hint": "D minor shares F Major's single flat - only B needs to be flattened!",
+        "explanation": "🎹 D Natural Minor is spelled D, E, F, G, A, B♭, C, D - matching F Major's one-flat key signature.",
+        "metadata": {
+            "topic": "minor_scales",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 118,
+        "question": "🪜 What is the 6th note of the D Natural Minor scale?",
+        "options": ["B♭", "B", "A", "C"],
+        "ground_truth": "B♭",
+        "hint": "Count up the D Natural Minor scale (D, E, F, G, A...) to the 6th note - remember its one flat!",
+        "explanation": "🪜 D Natural Minor is D, E, F, G, A, B♭, C, D. The 6th note is B♭.",
+        "metadata": {
+            "topic": "minor_scales",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 119,
+        "question": "🪜 What is the 6th note of the E Natural Minor scale?",
+        "options": ["C", "C♯", "B", "D"],
+        "ground_truth": "C",
+        "hint": "Count up the E Natural Minor scale (E, F♯, G, A, B...) to the 6th note - it's a plain, natural letter!",
+        "explanation": "🪜 E Natural Minor is E, F♯, G, A, B, C, D, E. The 6th note is a plain C.",
+        "metadata": {
+            "topic": "minor_scales",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 120,
+        "question": "⚡ Let's build E Harmonic Minor. Starting from E Natural Minor (E, F♯, G, A, B, C, D, E), which note gets raised, and to what?",
+        "options": [
+            "D raised to D♯",
+            "C raised to C♯",
+            "F♯ raised to F double-sharp",
+            "B raised to B♯"
+        ],
+        "ground_truth": "D raised to D♯",
+        "hint": "The 7th note of E Natural Minor is D. Harmonic Minor always raises the 7th note!",
+        "explanation": "⚡ Raising the 7th note (D) to D♯ turns E Natural Minor into E Harmonic Minor.",
+        "metadata": {
+            "topic": "minor_scales",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 121,
+        "question": "⚡ Let's build D Harmonic Minor. Starting from D Natural Minor (D, E, F, G, A, B♭, C, D), which note gets raised, and to what?",
+        "options": [
+            "C raised to C♯",
+            "B♭ raised to B♮",
+            "F raised to F♯",
+            "A raised to A♯"
+        ],
+        "ground_truth": "C raised to C♯",
+        "hint": "The 7th note of D Natural Minor is C. Harmonic Minor always raises the 7th note!",
+        "explanation": "⚡ Raising the 7th note (C) to C♯ turns D Natural Minor into D Harmonic Minor.",
+        "metadata": {
+            "topic": "minor_scales",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 122,
+        "question": "🎢 Let's build E Melodic Minor ascending. Which two notes of E Natural Minor (C and D) get raised?",
+        "options": [
+            "C and D (raised to C♯ and D♯)",
+            "F♯ and G",
+            "A and B",
+            "B and C"
+        ],
+        "ground_truth": "C and D (raised to C♯ and D♯)",
+        "hint": "Melodic Minor always raises the 6th and 7th notes. In E minor, those are C and D!",
+        "explanation": "🎢 E Melodic Minor ascending raises the 6th (C) and 7th (D) notes to C♯ and D♯: E, F♯, G, A, B, C♯, D♯, E.",
+        "metadata": {
+            "topic": "minor_scales",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 123,
+        "question": "🎢 Let's build D Melodic Minor ascending. Which two notes of D Natural Minor (B♭ and C) get raised?",
+        "options": [
+            "B♭ and C (raised to B♮ and C♯)",
+            "E and F",
+            "G and A",
+            "D and E"
+        ],
+        "ground_truth": "B♭ and C (raised to B♮ and C♯)",
+        "hint": "Melodic Minor always raises the 6th and 7th notes. In D minor, those are B♭ and C!",
+        "explanation": "🎢 D Melodic Minor ascending raises the 6th (B♭) and 7th (C) notes to B♮ and C♯: D, E, F, G, A, B, C♯, D.",
+        "metadata": {
+            "topic": "minor_scales",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 124,
+        "question": "🎵 Why do composers often use the Harmonic Minor scale instead of the Natural Minor when writing chords?",
+        "options": [
+            "The raised 7th (leading tone) creates a stronger pull back to the tonic",
+            "It uses fewer notes, so it's easier to play",
+            "It removes the need for a key signature",
+            "It makes every chord sound exactly the same"
+        ],
+        "ground_truth": "The raised 7th (leading tone) creates a stronger pull back to the tonic",
+        "hint": "Composers often want their music to feel like it's 'leaning' strongly back home before the ending - the raised 7th does exactly that!",
+        "explanation": "🎵 The sharpened 7th degree in Harmonic Minor acts as a strong leading tone, giving chords a satisfying pull back to the tonic.",
+        "metadata": {
+            "topic": "minor_scales",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 125,
+        "question": "🎢 Why does the Melodic Minor scale change on the way back DOWN, instead of keeping the raised notes the whole time?",
+        "options": [
+            "The raised notes were only needed to smoothly lead UP to the tonic; coming down, the natural minor sound feels more fitting",
+            "Composers forgot to write the sharps",
+            "Descending scales are never allowed to have sharps",
+            "It's simply a random rule with no musical reason"
+        ],
+        "ground_truth": "The raised notes were only needed to smoothly lead UP to the tonic; coming down, the natural minor sound feels more fitting",
+        "hint": "Think about why we raise notes going up in the first place - once you're heading back down, that reason disappears!",
+        "explanation": "🎢 The raised 6th and 7th smooth the climb toward the tonic. Coming back down, that pull isn't needed, so the scale reverts to its natural minor form.",
+        "metadata": {
+            "topic": "minor_scales",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 126,
+        "question": "🏰 In a Root Position triad, which scale degree note sits at the very BOTTOM?",
+        "options": ["The 1st (the tonic)", "The 3rd", "The 5th", "The 7th"],
+        "ground_truth": "The 1st (the tonic)",
+        "hint": "The 'root' of a plant grows at the very bottom - just like the 'root' of a Root Position chord!",
+        "explanation": "🏰 Root Position always has the tonic (1st note) sitting at the bottom, like the foundation of a tower.",
+        "metadata": {
+            "topic": "triads",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 127,
+        "question": "🏰 In a Root Position triad, which scale degree note sits on TOP?",
+        "options": ["The 5th", "The 3rd", "The 1st", "The 7th"],
+        "ground_truth": "The 5th",
+        "hint": "The triad stacks up 1-3-5. The last number in that stack sits right at the very top!",
+        "explanation": "🏰 Root Position stacks the 1st (bottom), 3rd (middle), and 5th (top), so the 5th is always the topmost note.",
+        "metadata": {
+            "topic": "triads",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 128,
+        "question": "🔄 What happens to a triad's notes to turn it into First Inversion?",
+        "options": [
+            "The 3rd moves to the bottom, and the root jumps up an octave to the top",
+            "The 5th moves to the bottom, and the root stays in the middle",
+            "All three notes swap into a completely random order",
+            "The chord gets an extra 4th note added"
+        ],
+        "ground_truth": "The 3rd moves to the bottom, and the root jumps up an octave to the top",
+        "hint": "Think of it as the bottom brick of the tower jumping to the very top, letting the middle brick become the new bottom!",
+        "explanation": "🔄 First Inversion takes the root (1st) from the bottom and moves it up an octave to the top, so the 3rd becomes the new bottom note.",
+        "metadata": {
+            "topic": "triads",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 129,
+        "question": "🎹 The C Major triad in Root Position is C-E-G. What are its notes in First Inversion?",
+        "options": ["E-G-C", "G-C-E", "C-G-E", "E-C-G"],
+        "ground_truth": "E-G-C",
+        "hint": "Move the bottom note (C) up to the top, keeping E and G where they were!",
+        "explanation": "🎹 Moving C from the bottom to the top gives you E-G-C, the First Inversion of the C Major triad.",
+        "metadata": {
+            "topic": "triads",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 130,
+        "question": "🎹 The G Major triad in Root Position is G-B-D. What are its notes in First Inversion?",
+        "options": ["B-D-G", "D-G-B", "G-D-B", "B-G-D"],
+        "ground_truth": "B-D-G",
+        "hint": "Move the bottom note (G) up to the top, keeping B and D where they were!",
+        "explanation": "🎹 Moving G from the bottom to the top gives you B-D-G, the First Inversion of the G Major triad.",
+        "metadata": {
+            "topic": "triads",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 131,
+        "question": "🎹 The A Major triad in Root Position is A-C♯-E. What are its notes in First Inversion?",
+        "options": ["C♯-E-A", "E-A-C♯", "A-E-C♯", "C♯-A-E"],
+        "ground_truth": "C♯-E-A",
+        "hint": "Move the bottom note (A) up to the top, keeping C♯ and E where they were!",
+        "explanation": "🎹 Moving A from the bottom to the top gives you C♯-E-A, the First Inversion of the A Major triad.",
+        "metadata": {
+            "topic": "triads",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 132,
+        "question": "🎹 The B♭ Major triad in Root Position is B♭-D-F. What are its notes in First Inversion?",
+        "options": ["D-F-B♭", "F-B♭-D", "B♭-F-D", "D-B♭-F"],
+        "ground_truth": "D-F-B♭",
+        "hint": "Move the bottom note (B♭) up to the top, keeping D and F where they were!",
+        "explanation": "🎹 Moving B♭ from the bottom to the top gives you D-F-B♭, the First Inversion of the B♭ Major triad.",
+        "metadata": {
+            "topic": "triads",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 133,
+        "question": "🕵️‍♂️ You see a chord spelled E-G-C (bottom to top). Is this the Root Position or First Inversion of the C Major triad?",
+        "options": ["First Inversion", "Root Position", "Second Inversion", "Not a triad at all"],
+        "ground_truth": "First Inversion",
+        "hint": "Root Position of C Major always starts on C at the bottom. This chord starts on E instead!",
+        "explanation": "🕵️‍♂️ Since E (the 3rd of C Major) is at the bottom instead of C, this is the First Inversion.",
+        "metadata": {
+            "topic": "triads",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 134,
+        "question": "🔍 What note is always sitting at the very bottom of a First Inversion triad?",
+        "options": ["The 3rd of the chord", "The 1st (root) of the chord", "The 5th of the chord", "The 7th of the chord"],
+        "ground_truth": "The 3rd of the chord",
+        "hint": "Since the root jumped up to the top, whichever note used to be in the middle becomes the new bottom!",
+        "explanation": "🔍 In First Inversion, the 3rd of the chord always ends up at the bottom, since the root moved up an octave.",
+        "metadata": {
+            "topic": "triads",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 135,
+        "question": "🏰 Build the A Minor triad in Root Position using scale degrees 1, 3, and 5 of A Natural Minor (A, B, C, D, E, F, G). What three notes do you get?",
+        "options": ["A-C-E", "A-C♯-E", "A-D-F", "A-C-G"],
+        "ground_truth": "A-C-E",
+        "hint": "Count up the A Natural Minor scale: A (1), skip B, C (3), skip D, E (5)!",
+        "explanation": "🏰 Note 1 is A, Note 3 is C, and Note 5 is E, giving the A Minor triad: A-C-E.",
+        "metadata": {
+            "topic": "triads",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 136,
+        "question": "🔄 What are the notes of the A Minor triad in First Inversion?",
+        "options": ["C-E-A", "E-A-C", "A-E-C", "C-A-E"],
+        "ground_truth": "C-E-A",
+        "hint": "Move the bottom note (A) up to the top, keeping C and E where they were!",
+        "explanation": "🔄 Moving A from the bottom to the top gives you C-E-A, the First Inversion of the A Minor triad.",
+        "metadata": {
+            "topic": "triads",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 137,
+        "question": "🧩 A triad written as D-F-B♭ (bottom to top) is the First Inversion of which Major triad?",
+        "options": ["B♭ Major", "D Major", "F Major", "G Major"],
+        "ground_truth": "B♭ Major",
+        "hint": "Move the bottom note (D) to the top instead, and see which note becomes the new root: D-F-B♭ becomes B♭-D-F!",
+        "explanation": "🧩 Flipping D-F-B♭ back to Root Position gives B♭-D-F, which is the B♭ Major triad.",
+        "metadata": {
+            "topic": "triads",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 138,
+        "question": "🏰 A Root Position triad is built by stacking which three scale degrees on top of each other?",
+        "options": ["1st, 3rd, and 5th", "1st, 2nd, and 3rd", "2nd, 4th, and 6th", "1st, 4th, and 8th"],
+        "ground_truth": "1st, 3rd, and 5th",
+        "hint": "Think of leap-frogging over notes! You start on 1, skip 2, land on 3, skip 4, and finish on 5.",
+        "explanation": "🏰 A Root Position triad always stacks the 1st (bottom), 3rd (middle), and 5th (top) notes of the scale.",
+        "metadata": {
+            "topic": "triads",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 139,
+        "question": "🏰 What is the specific name for the bottom note of a Root Position triad?",
+        "options": ["The Root (or Tonic)", "The Third", "The Fifth", "The Inversion"],
+        "ground_truth": "The Root (or Tonic)",
+        "hint": "This note gives the whole chord its name, just like a plant's root supports the whole tree!",
+        "explanation": "🏰 The bottom note of a Root Position triad is called the Root (or Tonic) - it's the note the chord is named after.",
+        "metadata": {
+            "topic": "triads",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 140,
+        "question": "🎹 The D Major triad in Root Position is D-F♯-A. What are its notes in First Inversion?",
+        "options": ["F♯-A-D", "A-D-F♯", "D-A-F♯", "F♯-D-A"],
+        "ground_truth": "F♯-A-D",
+        "hint": "Move the bottom note (D) up to the top, keeping F♯ and A where they were!",
+        "explanation": "🎹 Moving D from the bottom to the top gives you F♯-A-D, the First Inversion of the D Major triad.",
+        "metadata": {
+            "topic": "triads",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 141,
+        "question": "🎹 The F Major triad in Root Position is F-A-C. What are its notes in First Inversion?",
+        "options": ["A-C-F", "C-F-A", "F-C-A", "A-F-C"],
+        "ground_truth": "A-C-F",
+        "hint": "Move the bottom note (F) up to the top, keeping A and C where they were!",
+        "explanation": "🎹 Moving F from the bottom to the top gives you A-C-F, the First Inversion of the F Major triad.",
+        "metadata": {
+            "topic": "triads",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 142,
+        "question": "🎹 The E Minor triad in Root Position is E-G-B. What are its notes in First Inversion?",
+        "options": ["G-B-E", "B-E-G", "E-B-G", "G-E-B"],
+        "ground_truth": "G-B-E",
+        "hint": "Move the bottom note (E) up to the top, keeping G and B where they were!",
+        "explanation": "🎹 Moving E from the bottom to the top gives you G-B-E, the First Inversion of the E Minor triad.",
+        "metadata": {
+            "topic": "triads",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 143,
+        "question": "🎹 The D Minor triad in Root Position is D-F-A. What are its notes in First Inversion?",
+        "options": ["F-A-D", "A-D-F", "D-A-F", "F-D-A"],
+        "ground_truth": "F-A-D",
+        "hint": "Move the bottom note (D) up to the top, keeping F and A where they were!",
+        "explanation": "🎹 Moving D from the bottom to the top gives you F-A-D, the First Inversion of the D Minor triad.",
+        "metadata": {
+            "topic": "triads",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 144,
+        "question": "🕵️‍♂️ You see a chord spelled B-D-G (bottom to top). Is this the Root Position or First Inversion of the G Major triad?",
+        "options": ["First Inversion", "Root Position", "Second Inversion", "Not a triad at all"],
+        "ground_truth": "First Inversion",
+        "hint": "Root Position of G Major always starts on G at the bottom. This chord starts on B instead!",
+        "explanation": "🕵️‍♂️ Since B (the 3rd of G Major) is at the bottom instead of G, this is the First Inversion.",
+        "metadata": {
+            "topic": "triads",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 145,
+        "question": "🕵️‍♂️ You see a chord spelled A-C♯-E (bottom to top). Is this the Root Position or First Inversion of the A Major triad?",
+        "options": ["Root Position", "First Inversion", "Second Inversion", "Not a triad at all"],
+        "ground_truth": "Root Position",
+        "hint": "Check the bottom note - is it the tonic (A) itself, or a different scale degree?",
+        "explanation": "🕵️‍♂️ Since A (the root/tonic) sits at the bottom, this chord is in Root Position.",
+        "metadata": {
+            "topic": "triads",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 146,
+        "question": "📏 In a Root Position triad, what is the interval (distance) between the bottom note and the middle note?",
+        "options": ["A 3rd", "A 4th", "A 5th", "A 2nd"],
+        "ground_truth": "A 3rd",
+        "hint": "Count from the 1st note up to the 3rd note - what size interval is that?",
+        "explanation": "📏 The bottom note (1st) to the middle note (3rd) always spans a 3rd in a Root Position triad.",
+        "metadata": {
+            "topic": "triads",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 147,
+        "question": "📏 In a Root Position triad, what is the interval (distance) between the bottom note and the top note?",
+        "options": ["A 5th", "A 4th", "A 3rd", "A 6th"],
+        "ground_truth": "A 5th",
+        "hint": "Count from the 1st note up to the 5th note - what size interval is that?",
+        "explanation": "📏 The bottom note (1st) to the top note (5th) always spans a 5th in a Root Position triad.",
+        "metadata": {
+            "topic": "triads",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 148,
+        "question": "🧩 A triad written as F-A-D (bottom to top) is the First Inversion of which triad?",
+        "options": ["D Minor", "D Major", "F Major", "A Minor"],
+        "ground_truth": "D Minor",
+        "hint": "Move the bottom note (F) to the top instead, and see which note becomes the new root: F-A-D becomes D-F-A!",
+        "explanation": "🧩 Flipping F-A-D back to Root Position gives D-F-A, which is the D Minor triad (F natural, not F♯).",
+        "metadata": {
+            "topic": "triads",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 149,
+        "question": "🧩 A triad written as C♯-E-A (bottom to top) is the First Inversion of which Major triad?",
+        "options": ["A Major", "C Major", "E Major", "D Major"],
+        "ground_truth": "A Major",
+        "hint": "Move the bottom note (C♯) to the top instead, and see which note becomes the new root: C♯-E-A becomes A-C♯-E!",
+        "explanation": "🧩 Flipping C♯-E-A back to Root Position gives A-C♯-E, which is the A Major triad.",
+        "metadata": {
+            "topic": "triads",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 150,
+        "question": "🔍 True or False: In First Inversion, the interval from the bottom note to the top note is always a 6th instead of a 5th.",
+        "options": [
+            "True - it becomes a 6th",
+            "False - it stays a 5th",
+            "False - it becomes a 4th",
+            "False - it becomes a 7th"
+        ],
+        "ground_truth": "True - it becomes a 6th",
+        "hint": "In First Inversion (3-5-1), count from the bottom note (the 3rd) up to the top note (the root, an octave higher)!",
+        "explanation": "🔍 Since the root jumps up an octave in First Inversion, the distance from the new bottom note (3rd) to the top note (root) becomes a 6th.",
+        "metadata": {
+            "topic": "triads",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 151,
+        "question": "👯 What do we call the interval formed when two musicians play the exact SAME note together?",
+        "options": ["A Unison", "An Octave", "A Third", "A Rest"],
+        "ground_truth": "A Unison",
+        "hint": "This word means 'one sound' - it's when there's zero distance between two matching notes!",
+        "explanation": "👯 A Unison happens when two notes are exactly the same pitch - the smallest possible 'interval' of all, zero distance apart.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 152,
+        "question": "💎 Which of these interval sizes is NEVER called 'Major' or 'Minor', only 'Perfect'?",
+        "options": ["A 4th", "A 2nd", "A 3rd", "A 6th"],
+        "ground_truth": "A 4th",
+        "hint": "Unisons, 4ths, 5ths, and Octaves are the special 'Perfect' family - this size is one of them!",
+        "explanation": "💎 4ths belong to the special 'Perfect' interval family, alongside Unisons, 5ths, and Octaves.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 153,
+        "question": "🎹 How many semitones (the smallest piano steps) make up a Minor 2nd interval?",
+        "options": ["1 semitone", "2 semitones", "3 semitones", "4 semitones"],
+        "ground_truth": "1 semitone",
+        "hint": "This is the tiniest possible gap between two different notes - like two piano keys with nothing between them!",
+        "explanation": "🎹 A Minor 2nd is just 1 semitone - the smallest interval gap in Western music.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 154,
+        "question": "🎹 How many semitones make up a Major 2nd interval?",
+        "options": ["2 semitones", "1 semitone", "3 semitones", "4 semitones"],
+        "ground_truth": "2 semitones",
+        "hint": "A Major 2nd equals one full Tone. Remember, a Tone is made of two semitones added together!",
+        "explanation": "🎹 A Major 2nd is worth 2 semitones - exactly one whole Tone step.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 155,
+        "question": "🎹 C to D is a whole Tone apart (2 semitones). What type of 2nd interval is this?",
+        "options": ["Major 2nd", "Minor 2nd", "Perfect 2nd", "Augmented 2nd"],
+        "ground_truth": "Major 2nd",
+        "hint": "2 semitones is the bigger of the two 2nd sizes - the 'Major' one!",
+        "explanation": "🎹 A full 2-semitone gap, like C to D, is always called a Major 2nd.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 156,
+        "question": "🎹 E to F sits just a semitone apart (they're piano neighbors with no black key between them). What type of 2nd interval is this?",
+        "options": ["Minor 2nd", "Major 2nd", "Perfect 2nd", "Diminished 2nd"],
+        "ground_truth": "Minor 2nd",
+        "hint": "1 semitone is the smaller of the two 2nd sizes - the 'Minor' one!",
+        "explanation": "🎹 A tight 1-semitone gap, like E to F, is always called a Minor 2nd.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 157,
+        "question": "🎹 How many semitones make up a Major 3rd interval (like C to E)?",
+        "options": ["4 semitones", "3 semitones", "5 semitones", "2 semitones"],
+        "ground_truth": "4 semitones",
+        "hint": "A Major 3rd equals two full Tones. Two tones times two semitones each equals...?",
+        "explanation": "🎹 A Major 3rd spans 4 semitones - two whole Tones stacked together.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 158,
+        "question": "🎹 How many semitones make up a Minor 3rd interval (like E to G)?",
+        "options": ["3 semitones", "4 semitones", "2 semitones", "5 semitones"],
+        "ground_truth": "3 semitones",
+        "hint": "A Minor 3rd is just one semitone smaller than a Major 3rd!",
+        "explanation": "🎹 A Minor 3rd spans 3 semitones - one and a half Tones.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 159,
+        "question": "🎹 C to E spans 4 semitones. What type of 3rd interval is this?",
+        "options": ["Major 3rd", "Minor 3rd", "Perfect 3rd", "Augmented 3rd"],
+        "ground_truth": "Major 3rd",
+        "hint": "4 semitones is the bigger of the two 3rd sizes - the 'Major' one!",
+        "explanation": "🎹 A 4-semitone gap, like C to E, is always called a Major 3rd.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 160,
+        "question": "🎹 E to G spans 3 semitones. What type of 3rd interval is this?",
+        "options": ["Minor 3rd", "Major 3rd", "Perfect 3rd", "Diminished 3rd"],
+        "ground_truth": "Minor 3rd",
+        "hint": "3 semitones is the smaller of the two 3rd sizes - the 'Minor' one!",
+        "explanation": "🎹 A 3-semitone gap, like E to G, is always called a Minor 3rd.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 161,
+        "question": "🎹 How many semitones make up a Perfect 4th interval (like C to F)?",
+        "options": ["5 semitones", "4 semitones", "6 semitones", "3 semitones"],
+        "ground_truth": "5 semitones",
+        "hint": "A Perfect 4th is one semitone wider than a Major 3rd!",
+        "explanation": "🎹 A Perfect 4th, like C to F, always spans exactly 5 semitones.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 162,
+        "question": "🎹 How many semitones make up a Perfect 5th interval (like C to G)?",
+        "options": ["7 semitones", "6 semitones", "8 semitones", "5 semitones"],
+        "ground_truth": "7 semitones",
+        "hint": "A Perfect 5th is two semitones wider than a Perfect 4th!",
+        "explanation": "🎹 A Perfect 5th, like C to G, always spans exactly 7 semitones.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 163,
+        "question": "💎 Why are Unisons, 4ths, 5ths, and Octaves called 'Perfect' intervals instead of Major or Minor?",
+        "options": [
+            "They sound especially smooth and stable, so they only use one quality name",
+            "They are the loudest intervals",
+            "They can only be played on the piano",
+            "They are always exactly 1 semitone wide"
+        ],
+        "ground_truth": "They sound especially smooth and stable, so they only use one quality name",
+        "hint": "These intervals sound so calm and settled that musicians long ago decided they didn't need a 'Major' or 'Minor' version at all!",
+        "explanation": "💎 Perfect intervals (Unison, 4th, 5th, Octave) have a uniquely stable, consonant sound, so they get their very own single label instead of splitting into Major and Minor.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 164,
+        "question": "🧠 An interval from D up to F is a 3rd in size, spanning 3 semitones. What QUALITY of 3rd is this?",
+        "options": ["Minor 3rd", "Major 3rd", "Perfect 3rd", "Augmented 3rd"],
+        "ground_truth": "Minor 3rd",
+        "hint": "3 semitones always matches the smaller 3rd size - the one named 'Minor'!",
+        "explanation": "🧠 Since D to F spans 3 semitones, just like E to G, it is classified as a Minor 3rd.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 165,
+        "question": "🎹 How many semitones make up a Unison interval (the same note played twice)?",
+        "options": ["0 semitones", "1 semitone", "2 semitones", "4 semitones"],
+        "ground_truth": "0 semitones",
+        "hint": "If two notes are exactly the same pitch, how much distance is really between them?",
+        "explanation": "🎹 A Unison has zero semitones of distance - it's literally the same note played together.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 166,
+        "question": "🎹 How many semitones make up a Perfect Octave interval?",
+        "options": ["12 semitones", "7 semitones", "5 semitones", "8 semitones"],
+        "ground_truth": "12 semitones",
+        "hint": "An octave is the biggest interval you've learned so far - it takes a full 12 tiny piano steps to get there!",
+        "explanation": "🎹 A Perfect Octave spans 12 semitones - the distance from one note to the next note with the same letter name.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 167,
+        "question": "🏠 An Octave interval always uses the same what?",
+        "options": [
+            "Letter name (just higher or lower)",
+            "Clef",
+            "Time signature",
+            "Rhythm"
+        ],
+        "ground_truth": "Letter name (just higher or lower)",
+        "hint": "Think back to Grade 2's pitch lessons - octaves keep the same letter, just at a different height!",
+        "explanation": "🏠 An Octave always connects two notes with the same letter name, one higher and one lower.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 168,
+        "question": "🎹 F to G is a whole Tone apart (2 semitones). What type of 2nd interval is this?",
+        "options": ["Major 2nd", "Minor 2nd", "Perfect 2nd", "Augmented 2nd"],
+        "ground_truth": "Major 2nd",
+        "hint": "2 semitones is always the bigger of the two 2nd sizes!",
+        "explanation": "🎹 A full 2-semitone gap, like F to G, is always called a Major 2nd.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 169,
+        "question": "🎹 B to C is only a semitone apart. What type of 2nd interval is this?",
+        "options": ["Minor 2nd", "Major 2nd", "Perfect 2nd", "Diminished 2nd"],
+        "ground_truth": "Minor 2nd",
+        "hint": "1 semitone is always the smaller of the two 2nd sizes!",
+        "explanation": "🎹 A tight 1-semitone gap, like B to C, is always called a Minor 2nd.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 170,
+        "question": "🎹 F to A spans 4 semitones. What type of 3rd interval is this?",
+        "options": ["Major 3rd", "Minor 3rd", "Perfect 3rd", "Augmented 3rd"],
+        "ground_truth": "Major 3rd",
+        "hint": "4 semitones always matches the bigger 3rd size!",
+        "explanation": "🎹 A 4-semitone gap, like F to A, is always called a Major 3rd.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 171,
+        "question": "🎹 G to B♭ spans 3 semitones. What type of 3rd interval is this?",
+        "options": ["Minor 3rd", "Major 3rd", "Perfect 3rd", "Diminished 3rd"],
+        "ground_truth": "Minor 3rd",
+        "hint": "3 semitones always matches the smaller 3rd size!",
+        "explanation": "🎹 A 3-semitone gap, like G to B♭, is always called a Minor 3rd.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 172,
+        "question": "🎹 C to F spans 5 semitones. What type of interval size and quality is this?",
+        "options": ["Perfect 4th", "Major 4th", "Minor 4th", "Perfect 5th"],
+        "ground_truth": "Perfect 4th",
+        "hint": "5 semitones and a 4th letter-distance always matches this 'Perfect' family interval!",
+        "explanation": "🎹 C to F is a 4th in size and 5 semitones wide, making it a Perfect 4th.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 173,
+        "question": "🎹 D to A spans 7 semitones. What type of interval size and quality is this?",
+        "options": ["Perfect 5th", "Major 5th", "Minor 5th", "Perfect 4th"],
+        "ground_truth": "Perfect 5th",
+        "hint": "7 semitones and a 5th letter-distance always matches this 'Perfect' family interval!",
+        "explanation": "🎹 D to A is a 5th in size and 7 semitones wide, making it a Perfect 5th.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 174,
+        "question": "🧠 Two intervals both span a '3rd' in letter-name size, but one is 3 semitones and the other is 4 semitones. What distinguishes them?",
+        "options": [
+            "The number of semitones determines whether it's Major (4) or Minor (3)",
+            "They are actually the exact same interval",
+            "The number of semitones determines the note's rhythm",
+            "Only the note names matter, not the semitones"
+        ],
+        "ground_truth": "The number of semitones determines whether it's Major (4) or Minor (3)",
+        "hint": "Letter-name size (like '3rd') only tells half the story - semitone count reveals the quality: Major or Minor!",
+        "explanation": "🧠 The letter distance gives the interval's size (3rd), while the semitone count gives its quality (Major = 4 semitones, Minor = 3 semitones).",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 175,
+        "question": "🎵 Why is a Perfect 5th (7 semitones) considered a very 'stable' and pleasant-sounding interval compared to a Minor 2nd (1 semitone)?",
+        "options": [
+            "Its sound waves line up smoothly and consonantly, while the Minor 2nd clashes tightly and sounds dissonant",
+            "The Perfect 5th is always played louder",
+            "The Minor 2nd is technically not a real interval",
+            "The Perfect 5th uses more notes than the Minor 2nd"
+        ],
+        "ground_truth": "Its sound waves line up smoothly and consonantly, while the Minor 2nd clashes tightly and sounds dissonant",
+        "hint": "Think about how the two notes 'blend' together - do they sound calm and settled, or tense and rubbing against each other?",
+        "explanation": "🎵 Wider, consonant intervals like the Perfect 5th blend smoothly, while very close intervals like the Minor 2nd clash and sound tense (dissonant).",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 3
+        }
+    }
+]
