@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -21,11 +23,54 @@ class User extends Authenticatable
         'current_grade_level',
         'profile_picture',
         'elo_rating',
+        'warm_up_streak',
+        'warm_up_longest_streak',
+        'last_warm_up_date',
     ];
 
     protected $casts = [
         'elo_rating' => 'float',
+        'last_warm_up_date' => 'date',
     ];
+
+    /**
+     * Record a completed Tuning Fork warm-up for today and update the daily streak.
+     * Locks the row for the duration of the read-modify-write to avoid a double-submit race.
+     */
+    public function recordWarmUp(): array
+    {
+        return DB::transaction(function () {
+            $user = self::query()->lockForUpdate()->findOrFail($this->id);
+
+            $today = Carbon::today();
+            $lastDate = $user->last_warm_up_date;
+            $isNewRecord = false;
+
+            if ($lastDate === null || !$lastDate->isToday()) {
+                $user->warm_up_streak = $lastDate?->isYesterday()
+                    ? $user->warm_up_streak + 1
+                    : 1;
+
+                $user->last_warm_up_date = $today;
+
+                if ($user->warm_up_streak > $user->warm_up_longest_streak) {
+                    $user->warm_up_longest_streak = $user->warm_up_streak;
+                    $isNewRecord = true;
+                }
+
+                $user->save();
+                $this->warm_up_streak = $user->warm_up_streak;
+                $this->warm_up_longest_streak = $user->warm_up_longest_streak;
+                $this->last_warm_up_date = $user->last_warm_up_date;
+            }
+
+            return [
+                'current' => $user->warm_up_streak,
+                'longest' => $user->warm_up_longest_streak,
+                'is_new_record' => $isNewRecord,
+            ];
+        });
+    }
 
     public function progress(): HasMany
     {

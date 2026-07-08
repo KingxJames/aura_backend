@@ -16,6 +16,11 @@ class DatabaseSeeder extends Seeder
             CoreUserSeeder::class,
             ActivityLogSeeder::class,
             GradeOneQuizSeeder::class,
+            GradeTwoQuizSeeder::class,
+            GradeThreeQuizSeeder::class,
+            GradeFourQuizSeeder::class,
+            GradeFiveQuizSeeder::class,
+            OpusLevelSeeder::class,
         ]);
     }
 }

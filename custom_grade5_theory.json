@@ -1,0 +1,2594 @@
+[
+    {
+        "id": 1,
+        "question": "🎼 What is an irregular (or asymmetrical) time signature?",
+        "options": [
+            "A time signature whose beats can't be grouped evenly into 2s or 3s, such as 5/4 or 7/4",
+            "A time signature written without a top number",
+            "A time signature only found in compound time",
+            "A time signature that changes tempo every bar"
+        ],
+        "ground_truth": "A time signature whose beats can't be grouped evenly into 2s or 3s, such as 5/4 or 7/4",
+        "hint": "Think about numbers like 5 and 7 - they don't split neatly into equal groups of 2 or 3!",
+        "explanation": "🎼 An irregular time signature has a top number (like 5 or 7) that must be split into uneven groups of 2s and 3s.",
+        "metadata": {
+            "topic": "irregular_time_signatures",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 2,
+        "question": "🔢 How many quarter-note beats are in a bar of 5/4?",
+        "options": [
+            "5",
+            "4",
+            "7",
+            "3"
+        ],
+        "ground_truth": "5",
+        "hint": "The top number of a time signature tells you the beats per bar!",
+        "explanation": "🔢 A bar of 5/4 contains five quarter-note beats.",
+        "metadata": {
+            "topic": "irregular_time_signatures",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 3,
+        "question": "🪜 Into which two groupings is a bar of 5/4 most commonly divided?",
+        "options": [
+            "3+2 or 2+3",
+            "4+1 or 1+4",
+            "2+2+1",
+            "5 equal beats only, never grouped"
+        ],
+        "ground_truth": "3+2 or 2+3",
+        "hint": "Five splits neatly into a group of three and a group of two, in either order!",
+        "explanation": "🪜 5/4 bars are almost always grouped as 3+2 or 2+3 beats.",
+        "metadata": {
+            "topic": "irregular_time_signatures",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 4,
+        "question": "🎼 In a 5/8 bar grouped as 3+2, how many eighth notes are in the first group?",
+        "options": [
+            "3",
+            "2",
+            "5",
+            "4"
+        ],
+        "ground_truth": "3",
+        "hint": "Read the grouping left to right - the first number is the first group!",
+        "explanation": "🎼 In a 3+2 grouping, the first group contains three eighth notes.",
+        "metadata": {
+            "topic": "irregular_time_signatures",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 5,
+        "question": "🎼 In a 5/8 bar grouped as 2+3, how many eighth notes are in the second group?",
+        "options": [
+            "3",
+            "2",
+            "5",
+            "4"
+        ],
+        "ground_truth": "3",
+        "hint": "The groupings are named in order - 2 first, then 3!",
+        "explanation": "🎼 In a 2+3 grouping, the second group contains three eighth notes.",
+        "metadata": {
+            "topic": "irregular_time_signatures",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 6,
+        "question": "🔢 How many eighth-note beats are in a bar of 7/8?",
+        "options": [
+            "7",
+            "5",
+            "8",
+            "4"
+        ],
+        "ground_truth": "7",
+        "hint": "Just like other time signatures, the top number tells you how many of the bottom-number notes fit in a bar!",
+        "explanation": "🔢 A bar of 7/8 contains seven eighth notes in total.",
+        "metadata": {
+            "topic": "irregular_time_signatures",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 7,
+        "question": "👀 Which of these is NOT a common grouping for a bar of 7/8?",
+        "options": [
+            "6 + 1",
+            "2+2+3",
+            "2+3+2",
+            "3+2+2"
+        ],
+        "ground_truth": "6 + 1",
+        "hint": "The usual groupings all combine 2s and 3s - look for the odd one out!",
+        "explanation": "👀 7/8 bars are grouped using combinations of 2s and 3s (2+2+3, 2+3+2, 3+2+2), never as 6+1.",
+        "metadata": {
+            "topic": "irregular_time_signatures",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 8,
+        "question": "🎨 Beaming in irregular time signatures should reflect...",
+        "options": [
+            "The chosen grouping of the beats (e.g. 3+2)",
+            "Always groups of 2 eighth notes regardless of meter",
+            "Never beam more than one note together",
+            "The key signature"
+        ],
+        "ground_truth": "The chosen grouping of the beats (e.g. 3+2)",
+        "hint": "Beams help performers see the groupings at a glance!",
+        "explanation": "🎨 Beaming shows the performer exactly how the bar is grouped, e.g. 3+2 or 2+2+3.",
+        "metadata": {
+            "topic": "irregular_time_signatures",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 9,
+        "question": "🔢 A time signature of 7/4 contains how many quarter-note beats per bar?",
+        "options": [
+            "7",
+            "5",
+            "4",
+            "8"
+        ],
+        "ground_truth": "7",
+        "hint": "Same idea as 7/8, just with quarter notes instead of eighth notes!",
+        "explanation": "🔢 A bar of 7/4 contains seven quarter-note beats.",
+        "metadata": {
+            "topic": "irregular_time_signatures",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 10,
+        "question": "🎷 Which jazz group made the 5/4 piece 'Take Five' famous?",
+        "options": [
+            "The Dave Brubeck Quartet",
+            "The Miles Davis Quintet",
+            "The Duke Ellington Orchestra",
+            "The John Coltrane Quartet"
+        ],
+        "ground_truth": "The Dave Brubeck Quartet",
+        "hint": "This quartet's pianist and bandleader shares his surname with the tune's fame!",
+        "explanation": "🎷 'Take Five' was popularized by the Dave Brubeck Quartet and is one of the most famous 5/4 pieces ever recorded.",
+        "metadata": {
+            "topic": "irregular_time_signatures",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 11,
+        "question": "🪐 Gustav Holst's 'Mars, the Bringer of War' from The Planets is a well-known orchestral work in which irregular time signature?",
+        "options": [
+            "5/4",
+            "7/8",
+            "5/8",
+            "7/4"
+        ],
+        "ground_truth": "5/4",
+        "hint": "Same meter as 'Take Five,' giving both pieces a relentless, off-balance drive!",
+        "explanation": "🪐 'Mars' is famously built on a driving, repeated 5/4 rhythm.",
+        "metadata": {
+            "topic": "irregular_time_signatures",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 12,
+        "question": "🔢 A quintuplet divides the beat into how many equal notes?",
+        "options": [
+            "5",
+            "6",
+            "7",
+            "4"
+        ],
+        "ground_truth": "5",
+        "hint": "'Quint-' is the clue in the name!",
+        "explanation": "🔢 A quintuplet splits the beat into five equal notes.",
+        "metadata": {
+            "topic": "irregular_time_signatures",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/44/Kwintool.png",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 13,
+        "question": "🔢 A sextuplet divides the beat into how many equal notes?",
+        "options": [
+            "6",
+            "5",
+            "7",
+            "4"
+        ],
+        "ground_truth": "6",
+        "hint": "'Sex-' here comes from the Latin for six, just like 'sextet'!",
+        "explanation": "🔢 A sextuplet splits the beat into six equal notes.",
+        "metadata": {
+            "topic": "irregular_time_signatures",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Sextool.png",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 14,
+        "question": "🔢 A septuplet divides the beat into how many equal notes?",
+        "options": [
+            "7",
+            "6",
+            "5",
+            "8"
+        ],
+        "ground_truth": "7",
+        "hint": "'Sept-' is the same prefix as in 'September,' once the seventh month!",
+        "explanation": "🔢 A septuplet splits the beat into seven equal notes.",
+        "metadata": {
+            "topic": "irregular_time_signatures",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Septimool.png",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 15,
+        "question": "👀 A quintuplet of eighth notes replaces the usual number of eighth notes in that beat's space - how many is that usually?",
+        "options": [
+            "4",
+            "3",
+            "2",
+            "6"
+        ],
+        "ground_truth": "4",
+        "hint": "Five notes squeeze into the space normally taken by this many!",
+        "explanation": "👀 A quintuplet fits 5 notes into the time normally occupied by 4 notes.",
+        "metadata": {
+            "topic": "irregular_time_signatures",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/44/Kwintool.png",
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 16,
+        "question": "🎨 A sextuplet is often beamed to visually resemble which simpler grouping?",
+        "options": [
+            "Two groups of a triplet",
+            "Three groups of a duplet",
+            "One long beam with no subgrouping ever",
+            "A group of four plus a group of two"
+        ],
+        "ground_truth": "Two groups of a triplet",
+        "hint": "Six splits neatly into two sets of three!",
+        "explanation": "🎨 Sextuplets are often beamed as two triplet-like groups of three notes.",
+        "metadata": {
+            "topic": "irregular_time_signatures",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Sextool.png",
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 17,
+        "question": "🔢 What small number is written above or below a tuplet group to show how many notes it contains?",
+        "options": [
+            "The tuplet's number (e.g. 5, 6, or 7)",
+            "The time signature",
+            "The key signature number",
+            "The metronome mark"
+        ],
+        "ground_truth": "The tuplet's number (e.g. 5, 6, or 7)",
+        "hint": "Look for a single digit bracketed or slurred over the notes!",
+        "explanation": "🔢 A small number above or below the group (like 5, 6, or 7) shows how many notes the tuplet contains.",
+        "metadata": {
+            "topic": "irregular_time_signatures",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 18,
+        "question": "🎼 Which of the following is the correct term for a group of 5 equal notes played in the time of 4?",
+        "options": [
+            "Quintuplet",
+            "Quadruplet",
+            "Quintet",
+            "Pentatonic"
+        ],
+        "ground_truth": "Quintuplet",
+        "hint": "This term also relates to the number five, like the 'quint' in quintuplet!",
+        "explanation": "🎼 A group of 5 equal notes played in the time of 4 is called a quintuplet.",
+        "metadata": {
+            "topic": "irregular_time_signatures",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/44/Kwintool.png",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 19,
+        "question": "🎼 Which of the following is the correct term for a group of 7 equal notes played in the time of 4 (or 8)?",
+        "options": [
+            "Septuplet",
+            "Septet",
+            "Heptatonic",
+            "Sextuplet"
+        ],
+        "ground_truth": "Septuplet",
+        "hint": "Not to be confused with a 'septet,' which is a group of seven performers, not notes!",
+        "explanation": "🎼 A group of 7 equal notes is called a septuplet.",
+        "metadata": {
+            "topic": "irregular_time_signatures",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Septimool.png",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 20,
+        "question": "👀 In a bar of 5/4 grouped as 2+3, which beats typically receive the stronger accent?",
+        "options": [
+            "Beats 1 and 3",
+            "Beats 2 and 4",
+            "Only beat 5",
+            "All five beats equally, with no accent pattern"
+        ],
+        "ground_truth": "Beats 1 and 3",
+        "hint": "The strong accent falls on the first beat of each group - and the second group starts right after the first two beats!",
+        "explanation": "👀 With a 2+3 grouping, the accented beats are beat 1 (start of the first group) and beat 3 (start of the second group).",
+        "metadata": {
+            "topic": "irregular_time_signatures",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 21,
+        "question": "🎼 Which time signature would most naturally suit a bar grouped as 3+2+2 eighth notes?",
+        "options": [
+            "7/8",
+            "5/8",
+            "6/8",
+            "9/8"
+        ],
+        "ground_truth": "7/8",
+        "hint": "Add the groups together: 3+2+2 equals how many eighth notes in total?",
+        "explanation": "🎼 3+2+2 eighth notes total seven eighth notes, fitting a bar of 7/8.",
+        "metadata": {
+            "topic": "irregular_time_signatures",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 22,
+        "question": "👀 Why might a composer choose an irregular time signature like 7/8 instead of a simple or compound meter?",
+        "options": [
+            "To create an asymmetrical, off-balance rhythmic feel",
+            "Because irregular meters are always faster",
+            "Irregular meters cannot contain rests",
+            "To avoid using a key signature"
+        ],
+        "ground_truth": "To create an asymmetrical, off-balance rhythmic feel",
+        "hint": "Think about the effect on the listener's sense of pulse!",
+        "explanation": "👀 Irregular meters create a distinctive, uneven rhythmic feel that simple or compound meters can't achieve.",
+        "metadata": {
+            "topic": "irregular_time_signatures",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 23,
+        "question": "🔢 A bar of 5/8 could also be described as a bar of 2/8 plus a bar of ___?",
+        "options": [
+            "3/8",
+            "4/8",
+            "2/8",
+            "5/4"
+        ],
+        "ground_truth": "3/8",
+        "hint": "2 plus what equals 5?",
+        "explanation": "🔢 2/8 plus 3/8 together make up a full bar of 5/8.",
+        "metadata": {
+            "topic": "irregular_time_signatures",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 24,
+        "question": "🎼 Which of these is an example of an irregular time signature?",
+        "options": [
+            "5/4",
+            "6/8",
+            "3/4",
+            "12/8"
+        ],
+        "ground_truth": "5/4",
+        "hint": "The other three are simple or compound meters that group evenly into 2s or 3s!",
+        "explanation": "🎼 5/4 is irregular because 5 beats can't be grouped evenly into 2s or 3s alone.",
+        "metadata": {
+            "topic": "irregular_time_signatures",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 25,
+        "question": "🎹 How many sharps are in the key signature of B major?",
+        "options": [
+            "5",
+            "4",
+            "6",
+            "3"
+        ],
+        "ground_truth": "5",
+        "hint": "B major sits one step further round the circle of fifths than E major's four sharps!",
+        "explanation": "🎹 B major has five sharps: F#, C#, G#, D#, A#.",
+        "metadata": {
+            "topic": "key_signatures_complete",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 26,
+        "question": "🎹 How many flats are in the key signature of Db major?",
+        "options": [
+            "5",
+            "4",
+            "6",
+            "3"
+        ],
+        "ground_truth": "5",
+        "hint": "Db major sits one step further round the circle of fifths than Ab major's four flats!",
+        "explanation": "🎹 Db major has five flats: Bb, Eb, Ab, Db, Gb.",
+        "metadata": {
+            "topic": "key_signatures_complete",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 27,
+        "question": "🎹 Which major key has 6 sharps?",
+        "options": [
+            "F# major",
+            "Gb major",
+            "B major",
+            "C# major"
+        ],
+        "ground_truth": "F# major",
+        "hint": "This key's tonic note is itself a sharp!",
+        "explanation": "🎹 F# major has six sharps: F#, C#, G#, D#, A#, E#.",
+        "metadata": {
+            "topic": "key_signatures_complete",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 28,
+        "question": "🎹 Which major key has 6 flats?",
+        "options": [
+            "Gb major",
+            "F# major",
+            "Db major",
+            "Cb major"
+        ],
+        "ground_truth": "Gb major",
+        "hint": "This key's tonic note is itself a flat!",
+        "explanation": "🎹 Gb major has six flats: Bb, Eb, Ab, Db, Gb, Cb.",
+        "metadata": {
+            "topic": "key_signatures_complete",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 29,
+        "question": "✍️ What is the order of sharps in key signatures, starting from the first added?",
+        "options": [
+            "F, C, G, D, A, E, B",
+            "B, E, A, D, G, C, F",
+            "C, D, E, F, G, A, B",
+            "F, G, A, B, C, D, E"
+        ],
+        "ground_truth": "F, C, G, D, A, E, B",
+        "hint": "Remember the mnemonic: Father Christmas Gives Dad An Elephant!",
+        "explanation": "✍️ Sharps are always added in the order F, C, G, D, A, E, B.",
+        "metadata": {
+            "topic": "key_signatures_complete",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Sharp.svg",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 30,
+        "question": "✍️ What is the order of flats in key signatures, starting from the first added?",
+        "options": [
+            "B, E, A, D, G, C, F",
+            "F, C, G, D, A, E, B",
+            "C, B, A, G, F, E, D",
+            "F, E, D, C, B, A, G"
+        ],
+        "ground_truth": "B, E, A, D, G, C, F",
+        "hint": "It's simply the sharp order written backwards!",
+        "explanation": "✍️ Flats are always added in the order B, E, A, D, G, C, F - the reverse of the sharp order.",
+        "metadata": {
+            "topic": "key_signatures_complete",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Flat.svg",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 31,
+        "question": "🎹 Which minor key has 6 sharps in its key signature?",
+        "options": [
+            "D# minor",
+            "Eb minor",
+            "G# minor",
+            "C# minor"
+        ],
+        "ground_truth": "D# minor",
+        "hint": "This is the relative minor of F# major!",
+        "explanation": "🎹 D# minor shares its six sharps with its relative major, F# major.",
+        "metadata": {
+            "topic": "key_signatures_complete",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 32,
+        "question": "🎹 Which minor key has 6 flats in its key signature?",
+        "options": [
+            "Eb minor",
+            "D# minor",
+            "Bb minor",
+            "Ab minor"
+        ],
+        "ground_truth": "Eb minor",
+        "hint": "This is the relative minor of Gb major!",
+        "explanation": "🎹 Eb minor shares its six flats with its relative major, Gb major.",
+        "metadata": {
+            "topic": "key_signatures_complete",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 33,
+        "question": "🔄 What is 'enharmonic equivalence' in music?",
+        "options": [
+            "When two differently-named notes or keys sound the same but are written differently",
+            "When two keys share the exact same key signature",
+            "When a melody is played backwards",
+            "When a chord is inverted"
+        ],
+        "ground_truth": "When two differently-named notes or keys sound the same but are written differently",
+        "hint": "Think of F# and Gb - same sound, different spelling!",
+        "explanation": "🔄 Enharmonic equivalence means two spellings that sound identical but look different on the page.",
+        "metadata": {
+            "topic": "key_signatures_complete",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 34,
+        "question": "🔄 F# major and Gb major are examples of what?",
+        "options": [
+            "Enharmonic equivalent keys",
+            "Relative keys",
+            "Parallel keys",
+            "Transposed keys"
+        ],
+        "ground_truth": "Enharmonic equivalent keys",
+        "hint": "They sound exactly the same on a piano, despite having different key signatures!",
+        "explanation": "🔄 F# major and Gb major sound identical but are written with sharps and flats respectively - true enharmonic equivalents.",
+        "metadata": {
+            "topic": "key_signatures_complete",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 35,
+        "question": "🎹 What is the relative minor of F# major?",
+        "options": [
+            "D# minor",
+            "Eb minor",
+            "B minor",
+            "G# minor"
+        ],
+        "ground_truth": "D# minor",
+        "hint": "Drop a minor 3rd below the major tonic to find its relative minor!",
+        "explanation": "🎹 D# minor is the relative minor of F# major, sharing all six sharps.",
+        "metadata": {
+            "topic": "key_signatures_complete",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 36,
+        "question": "🎹 What is the relative minor of Gb major?",
+        "options": [
+            "Eb minor",
+            "D# minor",
+            "Cb minor",
+            "F minor"
+        ],
+        "ground_truth": "Eb minor",
+        "hint": "Drop a minor 3rd below the major tonic to find its relative minor!",
+        "explanation": "🎹 Eb minor is the relative minor of Gb major, sharing all six flats.",
+        "metadata": {
+            "topic": "key_signatures_complete",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 37,
+        "question": "🎹 How many sharps does E major have?",
+        "options": [
+            "4",
+            "3",
+            "5",
+            "2"
+        ],
+        "ground_truth": "4",
+        "hint": "E major sits one step further round the circle of fifths than A major's three sharps!",
+        "explanation": "🎹 E major has four sharps: F#, C#, G#, D#.",
+        "metadata": {
+            "topic": "key_signatures_complete",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 38,
+        "question": "🎹 How many flats does Ab major have?",
+        "options": [
+            "4",
+            "3",
+            "5",
+            "2"
+        ],
+        "ground_truth": "4",
+        "hint": "Ab major sits one step further round the circle of fifths than Eb major's three flats!",
+        "explanation": "🎹 Ab major has four flats: Bb, Eb, Ab, Db.",
+        "metadata": {
+            "topic": "key_signatures_complete",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 39,
+        "question": "🎹 Which key signature has 3 sharps?",
+        "options": [
+            "A major",
+            "E major",
+            "D major",
+            "B major"
+        ],
+        "ground_truth": "A major",
+        "hint": "This key sits between D major (2 sharps) and E major (4 sharps) on the circle of fifths!",
+        "explanation": "🎹 A major has three sharps: F#, C#, G#.",
+        "metadata": {
+            "topic": "key_signatures_complete",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 40,
+        "question": "🎹 Which key signature has 3 flats?",
+        "options": [
+            "Eb major",
+            "Ab major",
+            "Bb major",
+            "F major"
+        ],
+        "ground_truth": "Eb major",
+        "hint": "This key sits between Bb major (2 flats) and Ab major (4 flats) on the circle of fifths!",
+        "explanation": "🎹 Eb major has three flats: Bb, Eb, Ab.",
+        "metadata": {
+            "topic": "key_signatures_complete",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 41,
+        "question": "🎹 What is the relative major of C# minor?",
+        "options": [
+            "E major",
+            "A major",
+            "D major",
+            "B major"
+        ],
+        "ground_truth": "E major",
+        "hint": "Go up a minor 3rd from the minor tonic to find its relative major!",
+        "explanation": "🎹 E major is the relative major of C# minor, sharing four sharps.",
+        "metadata": {
+            "topic": "key_signatures_complete",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 42,
+        "question": "🎹 What is the relative major of Bb minor?",
+        "options": [
+            "Db major",
+            "Gb major",
+            "Eb major",
+            "F major"
+        ],
+        "ground_truth": "Db major",
+        "hint": "Go up a minor 3rd from the minor tonic to find its relative major!",
+        "explanation": "🎹 Db major is the relative major of Bb minor, sharing five flats.",
+        "metadata": {
+            "topic": "key_signatures_complete",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 43,
+        "question": "🔢 To find the relative minor of a major key, you move...",
+        "options": [
+            "Down a minor 3rd (or up a major 6th) from the tonic",
+            "Down a major 3rd from the tonic",
+            "Up a perfect 5th from the tonic",
+            "Down a perfect 4th from the tonic"
+        ],
+        "ground_truth": "Down a minor 3rd (or up a major 6th) from the tonic",
+        "hint": "Think of C major and A minor - how far apart are C and A?",
+        "explanation": "🔢 The relative minor's tonic sits a minor 3rd below (or a major 6th above) the major key's tonic.",
+        "metadata": {
+            "topic": "key_signatures_complete",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 44,
+        "question": "🎹 Which key signature, major or minor, has NO sharps or flats?",
+        "options": [
+            "C major or A minor",
+            "C major or C minor",
+            "G major or E minor",
+            "F major or D minor"
+        ],
+        "ground_truth": "C major or A minor",
+        "hint": "This is the very first key signature every student learns!",
+        "explanation": "🎹 C major and its relative minor, A minor, share an empty key signature.",
+        "metadata": {
+            "topic": "key_signatures_complete",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 45,
+        "question": "🔄 Every major key has an enharmonic equivalent found by...",
+        "options": [
+            "Renaming it using the opposite type of accidental while sounding identical",
+            "Adding one extra sharp",
+            "Playing it an octave higher",
+            "Changing the time signature"
+        ],
+        "ground_truth": "Renaming it using the opposite type of accidental while sounding identical",
+        "hint": "The pitch never changes - only the spelling does!",
+        "explanation": "🔄 An enharmonic equivalent renames the same sounding key using sharps instead of flats (or vice versa).",
+        "metadata": {
+            "topic": "key_signatures_complete",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 46,
+        "question": "🔄 Which of these key signatures would be enharmonically equivalent to a key written with 6 sharps?",
+        "options": [
+            "A key with 6 flats",
+            "A key with 6 sharps and one extra flat",
+            "A key with no accidentals",
+            "A key with 7 flats"
+        ],
+        "ground_truth": "A key with 6 flats",
+        "hint": "Think of F# major and its flat-spelled twin!",
+        "explanation": "🔄 A key with 6 sharps (F# major) sounds identical to a key with 6 flats (Gb major).",
+        "metadata": {
+            "topic": "key_signatures_complete",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 47,
+        "question": "🎹 On a piano keyboard, F# and Gb are played using...",
+        "options": [
+            "The exact same key (they are the same pitch)",
+            "Two different keys a semitone apart",
+            "Two different keys a whole tone apart",
+            "White keys only"
+        ],
+        "ground_truth": "The exact same key (they are the same pitch)",
+        "hint": "A piano has no way to distinguish between the two spellings!",
+        "explanation": "🎹 F# and Gb are the same physical piano key - identical pitch, different names.",
+        "metadata": {
+            "topic": "key_signatures_complete",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 48,
+        "question": "🔄 Which of these pairs correctly matches an enharmonic major key pair at the 6-accidental boundary?",
+        "options": [
+            "F# major & Gb major",
+            "F# major & G major",
+            "Gb major & G major",
+            "F# major & F major"
+        ],
+        "ground_truth": "F# major & Gb major",
+        "hint": "Both keys use six accidentals and sound identical!",
+        "explanation": "🔄 F# major (6 sharps) and Gb major (6 flats) are enharmonic equivalents.",
+        "metadata": {
+            "topic": "key_signatures_complete",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 49,
+        "question": "🎺 What does it mean when an instrument is called a 'transposing instrument'?",
+        "options": [
+            "Its written pitch differs from the pitch that actually sounds",
+            "It can only play in one key",
+            "It has no fixed pitch",
+            "It is always an octave instrument"
+        ],
+        "ground_truth": "Its written pitch differs from the pitch that actually sounds",
+        "hint": "Think of the difference between what's on the page and what you hear!",
+        "explanation": "🎺 A transposing instrument sounds a different pitch than the one written on the page.",
+        "metadata": {
+            "topic": "transposing_instruments",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Transposing_instrument-_written_sounds_as.png",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 50,
+        "question": "🎺 When a Clarinet in Bb plays a written C, what pitch actually sounds?",
+        "options": [
+            "Bb",
+            "C",
+            "D",
+            "A"
+        ],
+        "ground_truth": "Bb",
+        "hint": "The instrument's name tells you exactly what sounds when it reads a written C!",
+        "explanation": "🎺 A Clarinet in Bb sounds a concert Bb when it plays a written C.",
+        "metadata": {
+            "topic": "transposing_instruments",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Transposing_instrument-_written_sounds_as.png",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 51,
+        "question": "🎺 The Clarinet in Bb sounds a ___ lower than written.",
+        "options": [
+            "Major 2nd",
+            "Minor 2nd",
+            "Minor 3rd",
+            "Perfect 4th"
+        ],
+        "ground_truth": "Major 2nd",
+        "hint": "Count from written C down to concert Bb - it's just one whole step!",
+        "explanation": "🎺 The Clarinet in Bb sounds a major 2nd lower than the written pitch.",
+        "metadata": {
+            "topic": "transposing_instruments",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 52,
+        "question": "🎺 When a Clarinet in A plays a written C, what pitch actually sounds?",
+        "options": [
+            "A",
+            "Bb",
+            "C",
+            "F"
+        ],
+        "ground_truth": "A",
+        "hint": "Again, the instrument's name reveals the sounding pitch for a written C!",
+        "explanation": "🎺 A Clarinet in A sounds a concert A when it plays a written C.",
+        "metadata": {
+            "topic": "transposing_instruments",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 53,
+        "question": "🎺 The Clarinet in A sounds a ___ lower than written.",
+        "options": [
+            "Minor 3rd",
+            "Major 2nd",
+            "Major 3rd",
+            "Perfect 5th"
+        ],
+        "ground_truth": "Minor 3rd",
+        "hint": "Count from written C down to concert A - three semitones!",
+        "explanation": "🎺 The Clarinet in A sounds a minor 3rd lower than the written pitch.",
+        "metadata": {
+            "topic": "transposing_instruments",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 54,
+        "question": "🎺 Which brass instrument commonly transposes exactly like the Clarinet in Bb?",
+        "options": [
+            "The Trumpet in Bb",
+            "The French Horn in F",
+            "The Tuba",
+            "The Trombone"
+        ],
+        "ground_truth": "The Trumpet in Bb",
+        "hint": "Its name gives away the shared transposition!",
+        "explanation": "🎺 The Trumpet in Bb transposes down a major 2nd, exactly like the Clarinet in Bb.",
+        "metadata": {
+            "topic": "transposing_instruments",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 55,
+        "question": "🎺 When a Trumpet in Bb plays a written C, what pitch actually sounds?",
+        "options": [
+            "Bb",
+            "C",
+            "A",
+            "D"
+        ],
+        "ground_truth": "Bb",
+        "hint": "Same rule as the Clarinet in Bb!",
+        "explanation": "🎺 A Trumpet in Bb sounds a concert Bb when it plays a written C.",
+        "metadata": {
+            "topic": "transposing_instruments",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 56,
+        "question": "🎺 The French Horn in F sounds a ___ lower than written.",
+        "options": [
+            "Perfect 5th",
+            "Major 2nd",
+            "Minor 3rd",
+            "Perfect 4th"
+        ],
+        "ground_truth": "Perfect 5th",
+        "hint": "This is a bigger drop than the Bb instruments - a full five scale degrees!",
+        "explanation": "🎺 The French Horn in F sounds a perfect 5th lower than the written pitch.",
+        "metadata": {
+            "topic": "transposing_instruments",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 57,
+        "question": "🎺 When a French Horn in F plays a written C, what pitch actually sounds?",
+        "options": [
+            "F",
+            "C",
+            "G",
+            "Bb"
+        ],
+        "ground_truth": "F",
+        "hint": "Again, the instrument's name reveals the sounding pitch for a written C!",
+        "explanation": "🎺 A French Horn in F sounds a concert F when it plays a written C.",
+        "metadata": {
+            "topic": "transposing_instruments",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 58,
+        "question": "🎺 Which woodwind instrument, similar to an oboe, also transposes in F like the French Horn?",
+        "options": [
+            "The Cor Anglais",
+            "The Clarinet",
+            "The Bassoon",
+            "The Piccolo"
+        ],
+        "ground_truth": "The Cor Anglais",
+        "hint": "Sometimes called the 'English Horn,' despite being a woodwind!",
+        "explanation": "🎺 The Cor Anglais (English Horn) transposes in F, just like the French Horn.",
+        "metadata": {
+            "topic": "transposing_instruments",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 59,
+        "question": "👀 Why are instruments called 'in Bb' or 'in F'?",
+        "options": [
+            "Because that is the pitch that sounds when they play a written C",
+            "Because that is their lowest possible note",
+            "Because that is the key they are built in physically only",
+            "Because their music never uses accidentals"
+        ],
+        "ground_truth": "Because that is the pitch that sounds when they play a written C",
+        "hint": "It's a naming convention based on one specific written note!",
+        "explanation": "👀 An instrument's transposition name always refers to the concert pitch sounded for a written C.",
+        "metadata": {
+            "topic": "transposing_instruments",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 60,
+        "question": "🔢 To find the sounding (concert) pitch from a written note on a Bb instrument, you transpose the written note...",
+        "options": [
+            "Down a major 2nd",
+            "Up a major 2nd",
+            "Down a minor 3rd",
+            "Up a perfect 5th"
+        ],
+        "ground_truth": "Down a major 2nd",
+        "hint": "Bb instruments always sound lower than written!",
+        "explanation": "🔢 To find the concert pitch, transpose the written note down a major 2nd for a Bb instrument.",
+        "metadata": {
+            "topic": "transposing_instruments",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 61,
+        "question": "🔢 To find the written pitch needed to produce a given concert pitch on a Bb instrument, you transpose the concert pitch...",
+        "options": [
+            "Up a major 2nd",
+            "Down a major 2nd",
+            "Up a minor 3rd",
+            "Down a perfect 5th"
+        ],
+        "ground_truth": "Up a major 2nd",
+        "hint": "This is the exact opposite direction of finding the sounding pitch!",
+        "explanation": "🔢 To find the written pitch, transpose the concert pitch up a major 2nd for a Bb instrument.",
+        "metadata": {
+            "topic": "transposing_instruments",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 62,
+        "question": "🎼 If a concert pitch melody is in C major, in what key would the same melody be written for a Clarinet in Bb?",
+        "options": [
+            "D major",
+            "Bb major",
+            "C major",
+            "F major"
+        ],
+        "ground_truth": "D major",
+        "hint": "Transpose the key up a major 2nd, the same direction as any written note!",
+        "explanation": "🎼 C major transposed up a major 2nd becomes D major - the written key for a Bb Clarinet.",
+        "metadata": {
+            "topic": "transposing_instruments",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 63,
+        "question": "🎼 If a concert pitch melody is in C major, in what key would the same melody be written for a French Horn in F?",
+        "options": [
+            "G major",
+            "F major",
+            "C major",
+            "D major"
+        ],
+        "ground_truth": "G major",
+        "hint": "Transpose the key up a perfect 5th!",
+        "explanation": "🎼 C major transposed up a perfect 5th becomes G major - the written key for a Horn in F.",
+        "metadata": {
+            "topic": "transposing_instruments",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 64,
+        "question": "🎼 If a concert pitch melody is in D major, in what key would the same melody be written for a Clarinet in A?",
+        "options": [
+            "F major",
+            "D major",
+            "B minor",
+            "C major"
+        ],
+        "ground_truth": "F major",
+        "hint": "Transpose the key up a minor 3rd!",
+        "explanation": "🎼 D major transposed up a minor 3rd becomes F major - the written key for a Clarinet in A.",
+        "metadata": {
+            "topic": "transposing_instruments",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 65,
+        "question": "🔢 When transposing a melody for a Bb trumpet, if the concert pitch note is a G, what note should be written?",
+        "options": [
+            "A",
+            "F",
+            "G",
+            "B"
+        ],
+        "ground_truth": "A",
+        "hint": "Move the note up a major 2nd from the concert pitch!",
+        "explanation": "🔢 G transposed up a major 2nd becomes A - the written note for a Bb Trumpet.",
+        "metadata": {
+            "topic": "transposing_instruments",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 66,
+        "question": "🔢 When transposing a melody for a Horn in F, if the concert pitch note is a Bb, what note should be written?",
+        "options": [
+            "F",
+            "Eb",
+            "Bb",
+            "C"
+        ],
+        "ground_truth": "F",
+        "hint": "Move the note up a perfect 5th from the concert pitch!",
+        "explanation": "🔢 Bb transposed up a perfect 5th becomes F - the written note for a Horn in F.",
+        "metadata": {
+            "topic": "transposing_instruments",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 67,
+        "question": "👀 A written note for a Clarinet in Bb will always sound ___ than the same-looking note played on a non-transposing instrument like the Flute.",
+        "options": [
+            "Lower",
+            "Higher",
+            "The same",
+            "An octave higher"
+        ],
+        "ground_truth": "Lower",
+        "hint": "The Clarinet's sounding pitch always drops below its written pitch!",
+        "explanation": "👀 Because the Clarinet in Bb transposes down, its written notes always sound lower than a non-transposing instrument reading the same note.",
+        "metadata": {
+            "topic": "transposing_instruments",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 68,
+        "question": "👀 Which of these is TRUE about transposing instrument key signatures?",
+        "options": [
+            "The written key signature is also transposed to match the transposition interval",
+            "Transposing instruments never use key signatures",
+            "The key signature stays in concert pitch regardless of the instrument",
+            "Only sharps are used in transposed key signatures, never flats"
+        ],
+        "ground_truth": "The written key signature is also transposed to match the transposition interval",
+        "hint": "Everything about the written part shifts, including the key signature itself!",
+        "explanation": "👀 The written key signature is transposed by the same interval as the notes themselves.",
+        "metadata": {
+            "topic": "transposing_instruments",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 69,
+        "question": "🔢 Besides pitch, what else must be adjusted when transposing a melody from concert pitch to a written part?",
+        "options": [
+            "All accidentals, so the correct transposed pitches are used throughout",
+            "The time signature",
+            "The note durations",
+            "The tempo marking"
+        ],
+        "ground_truth": "All accidentals, so the correct transposed pitches are used throughout",
+        "hint": "Sharps and flats need to move along with every note!",
+        "explanation": "🔢 Every accidental must be transposed too, so the correct pitches result once played.",
+        "metadata": {
+            "topic": "transposing_instruments",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 70,
+        "question": "🎺 A 'Clarinet in Bb' and a 'Trumpet in Bb' share which transposition interval?",
+        "options": [
+            "Both sound a major 2nd lower than written",
+            "Both sound a minor 3rd lower than written",
+            "Both sound a perfect 5th lower than written",
+            "Both sound an octave lower than written"
+        ],
+        "ground_truth": "Both sound a major 2nd lower than written",
+        "hint": "Both instruments share the same 'Bb' name for a reason!",
+        "explanation": "🎺 Both the Bb Clarinet and Bb Trumpet sound a major 2nd lower than written.",
+        "metadata": {
+            "topic": "transposing_instruments",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 71,
+        "question": "🎺 Which pair of instruments both transpose down a perfect 5th from written pitch?",
+        "options": [
+            "French Horn in F and Cor Anglais",
+            "Clarinet in Bb and Trumpet in Bb",
+            "Clarinet in A and Cor Anglais",
+            "Trumpet in Bb and French Horn in F"
+        ],
+        "ground_truth": "French Horn in F and Cor Anglais",
+        "hint": "Both instruments are 'in F'!",
+        "explanation": "🎺 Both the French Horn in F and the Cor Anglais transpose down a perfect 5th.",
+        "metadata": {
+            "topic": "transposing_instruments",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 72,
+        "question": "🎼 If a French Horn in F part is written in the key of D major, what is the concert (sounding) key?",
+        "options": [
+            "G major",
+            "A major",
+            "C major",
+            "D major"
+        ],
+        "ground_truth": "G major",
+        "hint": "This time, transpose the written key down a perfect 5th!",
+        "explanation": "🎼 D major transposed down a perfect 5th becomes G major - the concert key actually heard.",
+        "metadata": {
+            "topic": "transposing_instruments",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 73,
+        "question": "🔢 On which scale degree is the Supertonic triad (Chord II) built?",
+        "options": [
+            "The 2nd degree",
+            "The 4th degree",
+            "The 7th degree",
+            "The 5th degree"
+        ],
+        "ground_truth": "The 2nd degree",
+        "hint": "'Super-tonic' literally means 'above the tonic' - just one step up!",
+        "explanation": "🔢 The Supertonic triad, Chord II, is built on the 2nd degree of the scale.",
+        "metadata": {
+            "topic": "cadences_and_chord_ii",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 74,
+        "question": "🎹 In the key of C major, which notes make up Chord II?",
+        "options": [
+            "D, F, A",
+            "C, E, G",
+            "F, A, C",
+            "G, B, D"
+        ],
+        "ground_truth": "D, F, A",
+        "hint": "Start on the 2nd note of the C major scale and stack two 3rds!",
+        "explanation": "🎹 Chord II in C major is built on D: D, F, A.",
+        "metadata": {
+            "topic": "cadences_and_chord_ii",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png",
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 75,
+        "question": "👀 In a major key, the triad built on the supertonic (Chord II) is normally what quality?",
+        "options": [
+            "Minor",
+            "Major",
+            "Diminished",
+            "Augmented"
+        ],
+        "ground_truth": "Minor",
+        "hint": "Play D, F, A in the key of C major and listen closely to its color!",
+        "explanation": "👀 Chord II in a major key is a minor triad.",
+        "metadata": {
+            "topic": "cadences_and_chord_ii",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png",
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 76,
+        "question": "🎹 In the key of G major, which notes make up Chord II?",
+        "options": [
+            "A, C, E",
+            "G, B, D",
+            "C, E, G",
+            "D, F#, A"
+        ],
+        "ground_truth": "A, C, E",
+        "hint": "Start on the 2nd note of the G major scale and stack two 3rds!",
+        "explanation": "🎹 Chord II in G major is built on A: A, C, E.",
+        "metadata": {
+            "topic": "cadences_and_chord_ii",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 77,
+        "question": "🎶 A Perfect Cadence is formed by which chord progression?",
+        "options": [
+            "V to I",
+            "IV to I",
+            "I to V",
+            "V to VI"
+        ],
+        "ground_truth": "V to I",
+        "hint": "This is the most conclusive-sounding cadence, ending firmly on the tonic!",
+        "explanation": "🎶 A Perfect cadence moves from Chord V to Chord I.",
+        "metadata": {
+            "topic": "cadences_and_chord_ii",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 78,
+        "question": "🎶 Which cadence is nicknamed the 'Amen' cadence, often heard at the end of a hymn?",
+        "options": [
+            "Plagal cadence",
+            "Perfect cadence",
+            "Imperfect cadence",
+            "Interrupted cadence"
+        ],
+        "ground_truth": "Plagal cadence",
+        "hint": "Think of the two chords sung to the word 'A-men' at a hymn's close!",
+        "explanation": "🎶 The Plagal cadence (IV-I) is nicknamed the 'Amen' cadence.",
+        "metadata": {
+            "topic": "cadences_and_chord_ii",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 79,
+        "question": "🎶 The Plagal cadence is formed by which chord progression?",
+        "options": [
+            "IV to I",
+            "V to I",
+            "II to V",
+            "V to VI"
+        ],
+        "ground_truth": "IV to I",
+        "hint": "This is the 'Amen' cadence progression!",
+        "explanation": "🎶 A Plagal cadence moves from Chord IV to Chord I.",
+        "metadata": {
+            "topic": "cadences_and_chord_ii",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 80,
+        "question": "🎶 Which cadence sounds 'unfinished,' typically ending phrases in the middle of a piece?",
+        "options": [
+            "Imperfect cadence",
+            "Perfect cadence",
+            "Plagal cadence",
+            "Interrupted cadence"
+        ],
+        "ground_truth": "Imperfect cadence",
+        "hint": "This cadence always leaves the listener wanting more, like a comma rather than a full stop!",
+        "explanation": "🎶 The Imperfect cadence sounds unresolved, like a musical comma.",
+        "metadata": {
+            "topic": "cadences_and_chord_ii",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 81,
+        "question": "🎶 An Imperfect cadence always ends on which chord?",
+        "options": [
+            "Chord V",
+            "Chord I",
+            "Chord IV",
+            "Chord VI"
+        ],
+        "ground_truth": "Chord V",
+        "hint": "This is the same chord that a Perfect cadence starts from!",
+        "explanation": "🎶 An Imperfect cadence always resolves onto Chord V, leaving the harmony unresolved.",
+        "metadata": {
+            "topic": "cadences_and_chord_ii",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 82,
+        "question": "🎶 Which of these progressions could form an Imperfect cadence?",
+        "options": [
+            "II to V",
+            "V to I",
+            "IV to I",
+            "V to VI"
+        ],
+        "ground_truth": "II to V",
+        "hint": "Look for the progression that ends on Chord V!",
+        "explanation": "🎶 II to V is a common way to form an Imperfect cadence, ending unresolved on Chord V.",
+        "metadata": {
+            "topic": "cadences_and_chord_ii",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 83,
+        "question": "🎶 The Interrupted cadence is formed by which chord progression?",
+        "options": [
+            "V to VI",
+            "V to I",
+            "IV to I",
+            "I to V"
+        ],
+        "ground_truth": "V to VI",
+        "hint": "This cadence sets up the ear for Chord I, then surprises it!",
+        "explanation": "🎶 An Interrupted cadence moves from Chord V to Chord VI.",
+        "metadata": {
+            "topic": "cadences_and_chord_ii",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 84,
+        "question": "👀 Why is the Interrupted cadence sometimes called a 'deceptive' cadence?",
+        "options": [
+            "It sets up the ear to expect Chord I but resolves to Chord VI instead",
+            "It never resolves at all",
+            "It uses only dissonant chords",
+            "It is always played very loudly"
+        ],
+        "ground_truth": "It sets up the ear to expect Chord I but resolves to Chord VI instead",
+        "hint": "Think about what the listener expects to hear after Chord V!",
+        "explanation": "👀 It 'deceives' the ear by resolving to Chord VI instead of the expected Chord I.",
+        "metadata": {
+            "topic": "cadences_and_chord_ii",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 85,
+        "question": "🎶 Which cadence provides the strongest, most conclusive sense of ending a piece?",
+        "options": [
+            "Perfect cadence",
+            "Imperfect cadence",
+            "Interrupted cadence",
+            "Plagal cadence"
+        ],
+        "ground_truth": "Perfect cadence",
+        "hint": "This is the cadence most commonly used to finish a whole piece!",
+        "explanation": "🎶 The Perfect cadence (V-I) gives the strongest sense of finality.",
+        "metadata": {
+            "topic": "cadences_and_chord_ii",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 86,
+        "question": "🎶 Chord II is most commonly used to lead into which chord, forming a common pre-dominant progression?",
+        "options": [
+            "Chord V",
+            "Chord I",
+            "Chord VI",
+            "Chord III"
+        ],
+        "ground_truth": "Chord V",
+        "hint": "Chord II often acts as a stepping stone toward the dominant!",
+        "explanation": "🎶 Chord II frequently leads into Chord V, acting as a pre-dominant chord.",
+        "metadata": {
+            "topic": "cadences_and_chord_ii",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 87,
+        "question": "🎶 Which of these correctly completes a Perfect cadence: I - IV - ___ - I?",
+        "options": [
+            "V",
+            "II",
+            "VI",
+            "III"
+        ],
+        "ground_truth": "V",
+        "hint": "The final move into the last chord must be from Chord V!",
+        "explanation": "🎶 A Perfect cadence always finishes with V moving to I.",
+        "metadata": {
+            "topic": "cadences_and_chord_ii",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 88,
+        "question": "🎹 In the key of D major, which chord is the Supertonic (Chord II)?",
+        "options": [
+            "E minor",
+            "G major",
+            "A major",
+            "B minor"
+        ],
+        "ground_truth": "E minor",
+        "hint": "Start on the 2nd note of the D major scale and stack two 3rds!",
+        "explanation": "🎹 Chord II in D major is built on E: E, G, B - an E minor triad.",
+        "metadata": {
+            "topic": "cadences_and_chord_ii",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 89,
+        "question": "🎹 In the key of F major, which chord is the Supertonic (Chord II)?",
+        "options": [
+            "G minor",
+            "Bb major",
+            "C major",
+            "A minor"
+        ],
+        "ground_truth": "G minor",
+        "hint": "Start on the 2nd note of the F major scale and stack two 3rds!",
+        "explanation": "🎹 Chord II in F major is built on G: G, Bb, D - a G minor triad.",
+        "metadata": {
+            "topic": "cadences_and_chord_ii",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 90,
+        "question": "🎶 A cadence acts like a form of musical punctuation. Which cadence is most like a 'comma,' implying the phrase will continue?",
+        "options": [
+            "Imperfect cadence",
+            "Perfect cadence",
+            "Plagal cadence",
+            "Interrupted cadence"
+        ],
+        "ground_truth": "Imperfect cadence",
+        "hint": "This cadence leaves the harmony unresolved, just like a comma leaves a sentence unfinished!",
+        "explanation": "🎶 The Imperfect cadence works like a comma, signaling the music will continue.",
+        "metadata": {
+            "topic": "cadences_and_chord_ii",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 91,
+        "question": "🎶 Which chord is commonly inserted before Chord V to create a 'II-V-I' progression leading to a Perfect cadence?",
+        "options": [
+            "Chord II",
+            "Chord III",
+            "Chord VI",
+            "Chord VII"
+        ],
+        "ground_truth": "Chord II",
+        "hint": "The progression is literally named after this chord!",
+        "explanation": "🎶 Chord II is the chord inserted before V in a II-V-I progression.",
+        "metadata": {
+            "topic": "cadences_and_chord_ii",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 92,
+        "question": "🔢 What is the correct Roman numeral used to label the Supertonic chord?",
+        "options": [
+            "II",
+            "IV",
+            "V",
+            "VII"
+        ],
+        "ground_truth": "II",
+        "hint": "It's built on the 2nd scale degree, so use the matching Roman numeral!",
+        "explanation": "🔢 The Supertonic chord is labeled with the Roman numeral II.",
+        "metadata": {
+            "topic": "cadences_and_chord_ii",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 93,
+        "question": "👀 Chord II is often found in ___ inversion to create smooth bass movement into Chord V.",
+        "options": [
+            "First inversion (II6)",
+            "Second inversion (II6/4)",
+            "Root position only",
+            "Third inversion"
+        ],
+        "ground_truth": "First inversion (II6)",
+        "hint": "This inversion places the chord's 3rd in the bass, smoothing the line into Chord V!",
+        "explanation": "👀 Chord II is frequently used in first inversion (II6) to create smoother voice leading.",
+        "metadata": {
+            "topic": "cadences_and_chord_ii",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 94,
+        "question": "🎶 Which cadence type ends a piece with the most 'open,' unresolved quality, avoiding both Chord I and full resolution?",
+        "options": [
+            "Imperfect cadence",
+            "Perfect cadence",
+            "Plagal cadence",
+            "Interrupted cadence"
+        ],
+        "ground_truth": "Imperfect cadence",
+        "hint": "This cadence never even reaches Chord I - it stops right on Chord V!",
+        "explanation": "🎶 The Imperfect cadence deliberately avoids Chord I, ending on the open sound of Chord V.",
+        "metadata": {
+            "topic": "cadences_and_chord_ii",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 95,
+        "question": "🎹 In the key of A major, which chord is the Supertonic (Chord II)?",
+        "options": [
+            "B minor",
+            "D major",
+            "E major",
+            "F# minor"
+        ],
+        "ground_truth": "B minor",
+        "hint": "Start on the 2nd note of the A major scale and stack two 3rds!",
+        "explanation": "🎹 Chord II in A major is built on B: B, D, F# - a B minor triad.",
+        "metadata": {
+            "topic": "cadences_and_chord_ii",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 96,
+        "question": "🎶 Which of the four main cadences (Perfect, Plagal, Imperfect, Interrupted) is built from V moving to VI?",
+        "options": [
+            "Interrupted cadence",
+            "Perfect cadence",
+            "Plagal cadence",
+            "Imperfect cadence"
+        ],
+        "ground_truth": "Interrupted cadence",
+        "hint": "This is the 'surprise' cadence that avoids the expected tonic!",
+        "explanation": "🎶 The Interrupted cadence is built from V moving to VI.",
+        "metadata": {
+            "topic": "cadences_and_chord_ii",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 97,
+        "question": "📏 What is a 'compound interval'?",
+        "options": [
+            "An interval that is larger than an octave",
+            "An interval that includes two notes played together",
+            "An interval smaller than a 2nd",
+            "An interval that changes key"
+        ],
+        "ground_truth": "An interval that is larger than an octave",
+        "hint": "Think of intervals that stretch beyond eight notes!",
+        "explanation": "📏 A compound interval spans more than an octave (larger than an 8ve).",
+        "metadata": {
+            "topic": "compound_intervals",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 98,
+        "question": "🔢 To simplify a compound interval into its equivalent simple interval, what number do you subtract?",
+        "options": [
+            "7",
+            "8",
+            "12",
+            "1"
+        ],
+        "ground_truth": "7",
+        "hint": "An octave itself is worth this many scale-degree numbers, minus one!",
+        "explanation": "🔢 Subtracting 7 from a compound interval's number gives its simple equivalent.",
+        "metadata": {
+            "topic": "compound_intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 99,
+        "question": "📏 A 9th, when simplified, is equivalent to which simple interval (plus an octave)?",
+        "options": [
+            "A 2nd",
+            "A 3rd",
+            "A 9th cannot be simplified",
+            "An octave"
+        ],
+        "ground_truth": "A 2nd",
+        "hint": "9 minus 7 equals...",
+        "explanation": "📏 A 9th simplifies to a 2nd, plus an octave.",
+        "metadata": {
+            "topic": "compound_intervals",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 100,
+        "question": "📏 A 10th, when simplified, is equivalent to which simple interval (plus an octave)?",
+        "options": [
+            "A 3rd",
+            "A 2nd",
+            "A 4th",
+            "A 5th"
+        ],
+        "ground_truth": "A 3rd",
+        "hint": "10 minus 7 equals...",
+        "explanation": "📏 A 10th simplifies to a 3rd, plus an octave.",
+        "metadata": {
+            "topic": "compound_intervals",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 101,
+        "question": "📏 A Perfect 11th is equivalent to an octave plus which simple interval?",
+        "options": [
+            "A Perfect 4th",
+            "A Perfect 5th",
+            "A Major 4th",
+            "A Minor 4th"
+        ],
+        "ground_truth": "A Perfect 4th",
+        "hint": "11 minus 7 equals...",
+        "explanation": "📏 A Perfect 11th simplifies to a Perfect 4th, plus an octave.",
+        "metadata": {
+            "topic": "compound_intervals",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 102,
+        "question": "📏 A Perfect 12th is equivalent to an octave plus which simple interval?",
+        "options": [
+            "A Perfect 5th",
+            "A Perfect 4th",
+            "A Major 6th",
+            "A Minor 6th"
+        ],
+        "ground_truth": "A Perfect 5th",
+        "hint": "12 minus 7 equals...",
+        "explanation": "📏 A Perfect 12th simplifies to a Perfect 5th, plus an octave.",
+        "metadata": {
+            "topic": "compound_intervals",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 103,
+        "question": "📏 A Minor 13th is equivalent to an octave plus which simple interval?",
+        "options": [
+            "A Minor 6th",
+            "A Major 6th",
+            "A Minor 7th",
+            "A Major 7th"
+        ],
+        "ground_truth": "A Minor 6th",
+        "hint": "13 minus 7 equals... and the quality stays Minor!",
+        "explanation": "📏 A Minor 13th simplifies to a Minor 6th, plus an octave.",
+        "metadata": {
+            "topic": "compound_intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 104,
+        "question": "📏 A Major 13th is equivalent to an octave plus which simple interval?",
+        "options": [
+            "A Major 6th",
+            "A Minor 6th",
+            "A Major 7th",
+            "A Perfect 5th"
+        ],
+        "ground_truth": "A Major 6th",
+        "hint": "13 minus 7 equals... and the quality stays Major!",
+        "explanation": "📏 A Major 13th simplifies to a Major 6th, plus an octave.",
+        "metadata": {
+            "topic": "compound_intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 105,
+        "question": "📏 A Minor 14th is equivalent to an octave plus which simple interval?",
+        "options": [
+            "A Minor 7th",
+            "A Major 7th",
+            "A Minor 6th",
+            "A Perfect 5th"
+        ],
+        "ground_truth": "A Minor 7th",
+        "hint": "14 minus 7 equals... and the quality stays Minor!",
+        "explanation": "📏 A Minor 14th simplifies to a Minor 7th, plus an octave.",
+        "metadata": {
+            "topic": "compound_intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 106,
+        "question": "🎹 What is the interval from C4 up to D5 (an octave and a step above C4)?",
+        "options": [
+            "A Major 9th",
+            "A Major 2nd",
+            "A Minor 9th",
+            "A Major 10th"
+        ],
+        "ground_truth": "A Major 9th",
+        "hint": "C up to D is a Major 2nd - now add an octave!",
+        "explanation": "🎹 C4 to D5 is a Major 9th (an octave plus a Major 2nd).",
+        "metadata": {
+            "topic": "compound_intervals",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/11/Grand_staff_labeled_notes.svg",
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 107,
+        "question": "🎹 What is the interval from C4 up to E5?",
+        "options": [
+            "A Major 10th",
+            "A Major 3rd",
+            "A Minor 10th",
+            "A Major 9th"
+        ],
+        "ground_truth": "A Major 10th",
+        "hint": "C up to E is a Major 3rd - now add an octave!",
+        "explanation": "🎹 C4 to E5 is a Major 10th (an octave plus a Major 3rd).",
+        "metadata": {
+            "topic": "compound_intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 108,
+        "question": "🎹 What is the interval from C4 up to F5?",
+        "options": [
+            "A Perfect 11th",
+            "A Perfect 4th",
+            "A Perfect 12th",
+            "A Perfect 8th"
+        ],
+        "ground_truth": "A Perfect 11th",
+        "hint": "C up to F is a Perfect 4th - now add an octave!",
+        "explanation": "🎹 C4 to F5 is a Perfect 11th (an octave plus a Perfect 4th).",
+        "metadata": {
+            "topic": "compound_intervals",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/11/Grand_staff_labeled_notes.svg",
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 109,
+        "question": "🎹 What is the interval from C4 up to G5?",
+        "options": [
+            "A Perfect 12th",
+            "A Perfect 5th",
+            "A Perfect 11th",
+            "A Major 12th"
+        ],
+        "ground_truth": "A Perfect 12th",
+        "hint": "C up to G is a Perfect 5th - now add an octave!",
+        "explanation": "🎹 C4 to G5 is a Perfect 12th (an octave plus a Perfect 5th).",
+        "metadata": {
+            "topic": "compound_intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 110,
+        "question": "🎹 What is the interval from C4 up to Ab5?",
+        "options": [
+            "A Minor 13th",
+            "A Major 13th",
+            "A Minor 6th",
+            "A Minor 14th"
+        ],
+        "ground_truth": "A Minor 13th",
+        "hint": "C up to Ab is a Minor 6th - now add an octave!",
+        "explanation": "🎹 C4 to Ab5 is a Minor 13th (an octave plus a Minor 6th).",
+        "metadata": {
+            "topic": "compound_intervals",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 111,
+        "question": "👀 When does an interval stop being called 'simple' and start being called 'compound'?",
+        "options": [
+            "Once it exceeds an octave (larger than an 8ve)",
+            "Once it exceeds a 5th",
+            "Once both notes are sharp or flat",
+            "Once it spans more than one bar"
+        ],
+        "ground_truth": "Once it exceeds an octave (larger than an 8ve)",
+        "hint": "The dividing line is exactly one octave!",
+        "explanation": "👀 Any interval larger than an octave is classified as compound.",
+        "metadata": {
+            "topic": "compound_intervals",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 112,
+        "question": "👀 Does the quality (major, minor, perfect, etc.) of an interval change when it becomes compound?",
+        "options": [
+            "No, the quality stays the same, only the number changes",
+            "Yes, major always becomes minor",
+            "Yes, perfect always becomes major",
+            "Yes, the quality reverses"
+        ],
+        "ground_truth": "No, the quality stays the same, only the number changes",
+        "hint": "Adding an octave doesn't alter whether an interval is major, minor, or perfect!",
+        "explanation": "👀 The quality of an interval remains unchanged when it becomes compound - only the number increases by 7.",
+        "metadata": {
+            "topic": "compound_intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 113,
+        "question": "📏 What is a 15th also commonly known as?",
+        "options": [
+            "Two octaves",
+            "A double 7th",
+            "A compound unison",
+            "A double 5th"
+        ],
+        "ground_truth": "Two octaves",
+        "hint": "15 minus 7 equals 8 (an octave) - and then there's still another octave stacked on top!",
+        "explanation": "📏 A 15th spans exactly two octaves.",
+        "metadata": {
+            "topic": "compound_intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 114,
+        "question": "🔢 A Major 9th spans how many semitones in total?",
+        "options": [
+            "14",
+            "12",
+            "13",
+            "15"
+        ],
+        "ground_truth": "14",
+        "hint": "A Major 2nd is 2 semitones - now add a full octave's worth of 12!",
+        "explanation": "🔢 A Major 9th equals 14 semitones (2 semitones for the Major 2nd, plus 12 for the octave).",
+        "metadata": {
+            "topic": "compound_intervals",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 115,
+        "question": "🔢 A Perfect 11th spans how many semitones in total?",
+        "options": [
+            "17",
+            "16",
+            "18",
+            "19"
+        ],
+        "ground_truth": "17",
+        "hint": "A Perfect 4th is 5 semitones - now add a full octave's worth of 12!",
+        "explanation": "🔢 A Perfect 11th equals 17 semitones (5 semitones for the Perfect 4th, plus 12 for the octave).",
+        "metadata": {
+            "topic": "compound_intervals",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 116,
+        "question": "🔢 A Minor 13th spans how many semitones in total?",
+        "options": [
+            "20",
+            "21",
+            "19",
+            "22"
+        ],
+        "ground_truth": "20",
+        "hint": "A Minor 6th is 8 semitones - now add a full octave's worth of 12!",
+        "explanation": "🔢 A Minor 13th equals 20 semitones (8 semitones for the Minor 6th, plus 12 for the octave).",
+        "metadata": {
+            "topic": "compound_intervals",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 117,
+        "question": "👀 To identify a compound interval's simple equivalent quality, you should first...",
+        "options": [
+            "Reduce the top note by an octave, then measure the resulting simple interval",
+            "Ignore the bottom note entirely",
+            "Double the bottom note's octave",
+            "Always assume it's a 2nd"
+        ],
+        "ground_truth": "Reduce the top note by an octave, then measure the resulting simple interval",
+        "hint": "Bring the higher note down an octave so both notes sit close together!",
+        "explanation": "👀 Lowering the top note by an octave reveals the simple interval hiding inside the compound one.",
+        "metadata": {
+            "topic": "compound_intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 118,
+        "question": "🎹 What is the interval from C4 up to Bb5?",
+        "options": [
+            "A Minor 14th",
+            "A Major 14th",
+            "A Minor 13th",
+            "A Minor 7th"
+        ],
+        "ground_truth": "A Minor 14th",
+        "hint": "C up to Bb is a Minor 7th - now add an octave!",
+        "explanation": "🎹 C4 to Bb5 is a Minor 14th (an octave plus a Minor 7th).",
+        "metadata": {
+            "topic": "compound_intervals",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 119,
+        "question": "🎹 What is the interval from C4 up to B5?",
+        "options": [
+            "A Major 14th",
+            "A Minor 14th",
+            "A Major 13th",
+            "A Major 7th"
+        ],
+        "ground_truth": "A Major 14th",
+        "hint": "C up to B is a Major 7th - now add an octave!",
+        "explanation": "🎹 C4 to B5 is a Major 14th (an octave plus a Major 7th).",
+        "metadata": {
+            "topic": "compound_intervals",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 120,
+        "question": "📏 If a soprano note sits a 10th above the bass, and the simplified interval is a Major 3rd, what is the full compound interval called?",
+        "options": [
+            "A Major 10th",
+            "A Major 3rd",
+            "A Minor 10th",
+            "A Major 17th"
+        ],
+        "ground_truth": "A Major 10th",
+        "hint": "Add 7 to the simple interval's number, keeping the same quality!",
+        "explanation": "📏 A Major 3rd plus an octave is correctly named a Major 10th.",
+        "metadata": {
+            "topic": "compound_intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 121,
+        "question": "🎤 What does the acronym 'SATB' stand for?",
+        "options": [
+            "Soprano, Alto, Tenor, Bass",
+            "Solo, Alto, Treble, Baritone",
+            "Soprano, Alto, Treble, Bass",
+            "Sharp, Accidental, Tone, Beat"
+        ],
+        "ground_truth": "Soprano, Alto, Tenor, Bass",
+        "hint": "These are the four standard voice types in a choir, from highest to lowest!",
+        "explanation": "🎤 SATB stands for Soprano, Alto, Tenor, and Bass.",
+        "metadata": {
+            "topic": "satb_score_reading",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/41/Adeste_Fideles_sheet_music_sample.svg",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 122,
+        "question": "🎼 In an 'open score' for SATB, how many separate staves are typically used?",
+        "options": [
+            "Four (one per voice)",
+            "Two",
+            "One",
+            "Three"
+        ],
+        "ground_truth": "Four (one per voice)",
+        "hint": "Every voice gets its own individual line!",
+        "explanation": "🎼 An open score gives each of the four voices its own separate stave.",
+        "metadata": {
+            "topic": "satb_score_reading",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/41/Adeste_Fideles_sheet_music_sample.svg",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 123,
+        "question": "🎼 In a 'short score' (piano/vocal score) for SATB, how many staves are typically used?",
+        "options": [
+            "Two",
+            "Four",
+            "One",
+            "Three"
+        ],
+        "ground_truth": "Two",
+        "hint": "Voices are paired up to share staves, like a piano part!",
+        "explanation": "🎼 A short score condenses the four voices onto just two staves.",
+        "metadata": {
+            "topic": "satb_score_reading",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 124,
+        "question": "🎼 In a short score, which two voices typically share the treble clef stave?",
+        "options": [
+            "Soprano and Alto",
+            "Tenor and Bass",
+            "Soprano and Tenor",
+            "Alto and Bass"
+        ],
+        "ground_truth": "Soprano and Alto",
+        "hint": "These are the two highest voices in the choir!",
+        "explanation": "🎼 Soprano and Alto share the treble clef stave in a short score.",
+        "metadata": {
+            "topic": "satb_score_reading",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/41/Adeste_Fideles_sheet_music_sample.svg",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 125,
+        "question": "🎼 In a short score, which two voices typically share the bass clef stave?",
+        "options": [
+            "Tenor and Bass",
+            "Soprano and Alto",
+            "Alto and Tenor",
+            "Soprano and Bass"
+        ],
+        "ground_truth": "Tenor and Bass",
+        "hint": "These are the two lowest voices in the choir!",
+        "explanation": "🎼 Tenor and Bass share the bass clef stave in a short score.",
+        "metadata": {
+            "topic": "satb_score_reading",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 126,
+        "question": "✍️ When Soprano and Alto share a treble clef stave, which direction do the Soprano's note stems point?",
+        "options": [
+            "Upward",
+            "Downward",
+            "Sideways",
+            "There are no stems for Soprano"
+        ],
+        "ground_truth": "Upward",
+        "hint": "The higher voice on a shared stave always points its stems up!",
+        "explanation": "✍️ Soprano stems point upward, since it is the higher of the two voices.",
+        "metadata": {
+            "topic": "satb_score_reading",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 127,
+        "question": "✍️ When Soprano and Alto share a treble clef stave, which direction do the Alto's note stems point?",
+        "options": [
+            "Downward",
+            "Upward",
+            "Sideways",
+            "There are no stems for Alto"
+        ],
+        "ground_truth": "Downward",
+        "hint": "The lower voice on a shared stave always points its stems down!",
+        "explanation": "✍️ Alto stems point downward, since it is the lower of the two voices.",
+        "metadata": {
+            "topic": "satb_score_reading",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 128,
+        "question": "✍️ When Tenor and Bass share a bass clef stave, which direction do the Tenor's note stems point?",
+        "options": [
+            "Upward",
+            "Downward",
+            "Sideways",
+            "There are no stems for Tenor"
+        ],
+        "ground_truth": "Upward",
+        "hint": "The higher voice on a shared stave always points its stems up!",
+        "explanation": "✍️ Tenor stems point upward, since it is the higher of the two voices.",
+        "metadata": {
+            "topic": "satb_score_reading",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 129,
+        "question": "✍️ When Tenor and Bass share a bass clef stave, which direction do the Bass's note stems point?",
+        "options": [
+            "Downward",
+            "Upward",
+            "Sideways",
+            "There are no stems for Bass"
+        ],
+        "ground_truth": "Downward",
+        "hint": "The lower voice on a shared stave always points its stems down!",
+        "explanation": "✍️ Bass stems point downward, since it is the lower of the two voices.",
+        "metadata": {
+            "topic": "satb_score_reading",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 130,
+        "question": "👀 What is the general rule for stem direction when two voices share one stave?",
+        "options": [
+            "The higher voice's stems point up, the lower voice's stems point down",
+            "Both voices always point up",
+            "Both voices always point down",
+            "Stems alternate randomly"
+        ],
+        "ground_truth": "The higher voice's stems point up, the lower voice's stems point down",
+        "hint": "This rule applies to both the treble and bass clef pairings!",
+        "explanation": "👀 On any shared stave, the higher voice's stems go up and the lower voice's stems go down.",
+        "metadata": {
+            "topic": "satb_score_reading",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 131,
+        "question": "🎤 Which voice typically has the highest range in an SATB choir?",
+        "options": [
+            "Soprano",
+            "Alto",
+            "Tenor",
+            "Bass"
+        ],
+        "ground_truth": "Soprano",
+        "hint": "This voice sits at the very top of the choir!",
+        "explanation": "🎤 Soprano is the highest voice in an SATB choir.",
+        "metadata": {
+            "topic": "satb_score_reading",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 132,
+        "question": "🎤 Which voice typically has the lowest range in an SATB choir?",
+        "options": [
+            "Bass",
+            "Tenor",
+            "Alto",
+            "Soprano"
+        ],
+        "ground_truth": "Bass",
+        "hint": "This voice sits at the very bottom of the choir!",
+        "explanation": "🎤 Bass is the lowest voice in an SATB choir.",
+        "metadata": {
+            "topic": "satb_score_reading",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 133,
+        "question": "🎼 Converting an open SATB score into a short score means...",
+        "options": [
+            "Combining four staves into two, without changing any pitches",
+            "Removing two of the four voices entirely",
+            "Transposing every voice up an octave",
+            "Changing the key signature"
+        ],
+        "ground_truth": "Combining four staves into two, without changing any pitches",
+        "hint": "No notes are lost - they're just laid out differently on the page!",
+        "explanation": "🎼 A short score keeps every pitch but combines the four voices onto two shared staves.",
+        "metadata": {
+            "topic": "satb_score_reading",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/41/Adeste_Fideles_sheet_music_sample.svg",
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 134,
+        "question": "🎤 Approximately, which of these best describes the Soprano voice range?",
+        "options": [
+            "Middle C up to around the A above the treble staff",
+            "The lowest range of the choir, similar to the Bass",
+            "An octave above the Tenor only",
+            "Identical to the Alto range"
+        ],
+        "ground_truth": "Middle C up to around the A above the treble staff",
+        "hint": "Think of the highest choir voice, roughly matching a solo female singer's upper range!",
+        "explanation": "🎤 The Soprano range runs roughly from middle C up to the A above the treble staff.",
+        "metadata": {
+            "topic": "satb_score_reading",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 135,
+        "question": "🎤 Approximately, which of these best describes the Alto voice range, sitting just below the Soprano?",
+        "options": [
+            "From around the G below middle C to about the D or E above it",
+            "The very lowest range in the choir",
+            "Identical to the Tenor range",
+            "An octave above the Soprano"
+        ],
+        "ground_truth": "From around the G below middle C to about the D or E above it",
+        "hint": "This range sits comfortably below the Soprano, still within the treble staff mostly!",
+        "explanation": "🎤 The Alto range runs roughly from the G below middle C up to about the D or E above it.",
+        "metadata": {
+            "topic": "satb_score_reading",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 136,
+        "question": "🎼 The Tenor voice, though a mid-range male voice, is most often written using which clef in a short SATB score?",
+        "options": [
+            "Bass clef",
+            "Alto clef",
+            "Tenor clef only",
+            "Percussion clef"
+        ],
+        "ground_truth": "Bass clef",
+        "hint": "It shares the same clef as the Bass in a short score!",
+        "explanation": "🎼 In a short score, Tenor is written in the bass clef, sharing the stave with Bass.",
+        "metadata": {
+            "topic": "satb_score_reading",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 137,
+        "question": "🎻 The Italian performance direction 'arco' instructs a string player to...",
+        "options": [
+            "Play with the bow",
+            "Pluck the strings",
+            "Play with a mute",
+            "Play very softly"
+        ],
+        "ground_truth": "Play with the bow",
+        "hint": "This is the normal way of playing a string instrument, using the bow!",
+        "explanation": "🎻 'Arco' means to play with the bow.",
+        "metadata": {
+            "topic": "satb_score_reading",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 138,
+        "question": "🎻 The Italian performance direction 'pizzicato' instructs a string player to...",
+        "options": [
+            "Pluck the strings",
+            "Play with the bow",
+            "Play with a mute",
+            "Play very loudly"
+        ],
+        "ground_truth": "Pluck the strings",
+        "hint": "This technique replaces the bow with the fingers!",
+        "explanation": "🎻 'Pizzicato' means to pluck the strings instead of bowing.",
+        "metadata": {
+            "topic": "satb_score_reading",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 139,
+        "question": "🔇 The Italian performance direction 'con sordino' instructs a player to...",
+        "options": [
+            "Play with a mute",
+            "Play without a mute",
+            "Pluck the strings",
+            "Play with the bow"
+        ],
+        "ground_truth": "Play with a mute",
+        "hint": "'Sordino' means mute, and 'con' means 'with'!",
+        "explanation": "🔇 'Con sordino' means to play with a mute attached.",
+        "metadata": {
+            "topic": "satb_score_reading",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 140,
+        "question": "🎼 When reading an orchestral score, instruments are conventionally listed from top to bottom in which order?",
+        "options": [
+            "Woodwind, Brass, Percussion, then Strings",
+            "Strings, then Woodwind, Brass, Percussion",
+            "Alphabetical order",
+            "Loudest to quietest"
+        ],
+        "ground_truth": "Woodwind, Brass, Percussion, then Strings",
+        "hint": "Think of the standard layout used in most printed orchestral scores!",
+        "explanation": "🎼 Full scores are conventionally ordered Woodwind, Brass, Percussion, then Strings from top to bottom.",
+        "metadata": {
+            "topic": "satb_score_reading",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 141,
+        "question": "👀 When analyzing an orchestral score, how can you quickly identify a transposing instrument's part?",
+        "options": [
+            "Its key signature or notated pitch differs from the concert pitch of the rest of the score",
+            "It is always written in red ink",
+            "It never has a key signature",
+            "It is always placed at the bottom of the score"
+        ],
+        "ground_truth": "Its key signature or notated pitch differs from the concert pitch of the rest of the score",
+        "hint": "Compare its written notes against the rest of the ensemble's concert pitch!",
+        "explanation": "👀 A transposing instrument's part is written in a different key signature or pitch than concert pitch.",
+        "metadata": {
+            "topic": "satb_score_reading",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 142,
+        "question": "🎻 In a full orchestral score, which family of instruments is conventionally placed at the very bottom of the page?",
+        "options": [
+            "Strings",
+            "Woodwind",
+            "Brass",
+            "Percussion"
+        ],
+        "ground_truth": "Strings",
+        "hint": "This family, including violins and cellos, anchors the bottom of the score!",
+        "explanation": "🎻 Strings are conventionally placed at the bottom of a full orchestral score.",
+        "metadata": {
+            "topic": "satb_score_reading",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 143,
+        "question": "🎼 Why is it useful to convert an open score into a short score?",
+        "options": [
+            "It is easier to read and play at the piano",
+            "It changes the harmony of the piece",
+            "It removes the need for a key signature",
+            "It transposes the piece into a new key"
+        ],
+        "ground_truth": "It is easier to read and play at the piano",
+        "hint": "Think about how a pianist would want to read four vocal lines at once!",
+        "explanation": "🎼 A short score is much easier to sight-read and accompany at the piano.",
+        "metadata": {
+            "topic": "satb_score_reading",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 144,
+        "question": "🎼 Which clef combination is used for a standard SATB short (piano/vocal) score?",
+        "options": [
+            "Treble clef and Bass clef",
+            "Two treble clefs",
+            "Alto clef and Tenor clef",
+            "Two bass clefs"
+        ],
+        "ground_truth": "Treble clef and Bass clef",
+        "hint": "One clef for the higher pair of voices, one for the lower pair!",
+        "explanation": "🎼 A standard SATB short score uses one treble clef stave and one bass clef stave.",
+        "metadata": {
+            "topic": "satb_score_reading",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/41/Adeste_Fideles_sheet_music_sample.svg",
+            "difficulty": 1
+        }
+    }
+]

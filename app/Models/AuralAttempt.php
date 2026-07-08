@@ -12,6 +12,8 @@ class AuralAttempt extends Model
 
     protected $fillable = [
         'user_id',
+        'context',
+        'opus_level_id',
         'target_note',
         'detected_frequency',
         'cents_deviation',
@@ -22,5 +24,10 @@ class AuralAttempt extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function opusLevel(): BelongsTo
+    {
+        return $this->belongsTo(OpusLevel::class);
     }
 }

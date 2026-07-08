@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 // Import all required application controllers
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\AuralController;
+use App\Http\Controllers\API\OpusController;
 use App\Http\Controllers\API\QuizController;
 use App\Http\Controllers\API\TutorController;
 use App\Http\Controllers\API\TranscriptionController;
@@ -37,6 +38,10 @@ Route::middleware('auth:sanctum')->group(function () {
     // --- Aural Analysis Engine (Aural Tab) ---
     Route::get('/v1/aural', [AuralController::class, 'index']);           // List historic singing attempts
     Route::post('/v1/aural/analyze', [AuralController::class, 'store']);     // Process new audio via Python
+    Route::post('/v1/aural/warm-up', [AuralController::class, 'warmUp']);       // Tuning Fork daily warm-up
+    Route::get('/v1/aural/warm-up/today', [AuralController::class, 'warmUpStatus']); // Today's warm-up + streak status
+    Route::get('/v1/aural/opus', [OpusController::class, 'index']);           // Opus Syllabus overview + progress
+    Route::post('/v1/aural/opus/{opusLevel}/attempt', [OpusController::class, 'attempt']); // Submit a note attempt for a level
     Route::get('/v1/aural/{id}', [AuralController::class, 'show']);       // View single pitch evaluation
     Route::put('/v1/aural/{id}', [AuralController::class, 'update']);     // Edit notes/comments on an attempt
     Route::delete('/v1/aural/{id}', [AuralController::class, 'destroy']); // Delete an attempt record

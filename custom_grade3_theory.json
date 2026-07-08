@@ -2,20 +2,38 @@
     {
         "id": 1,
         "question": "🎻 Grade 3 introduces a brand new clef alongside Treble and Bass. What is it called?",
-        "options": ["The Alto Clef", "The Tenor Clef", "The Neutral Clef", "The Percussion Clef"],
+        "options": [
+            "The Alto Clef",
+            "The Tenor Clef",
+            "The Neutral Clef",
+            "The Percussion Clef"
+        ],
         "ground_truth": "The Alto Clef",
         "hint": "It belongs to the 'C clef' family and points its center right at Middle C!",
         "explanation": "🎻 The Alto Clef is the third clef you'll learn, marking Middle C on the middle line of the staff.",
-        "metadata": {"topic": "alto_clef", "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/02/Alto-clef.svg", "difficulty": 1}
+        "metadata": {
+            "topic": "alto_clef",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/02/Alto-clef.svg",
+            "difficulty": 1
+        }
     },
     {
         "id": 2,
         "question": "🎻 The Alto Clef belongs to which family of clefs, named after the note it points to?",
-        "options": ["The C Clef family", "The G Clef family", "The F Clef family", "The D Clef family"],
+        "options": [
+            "The C Clef family",
+            "The G Clef family",
+            "The F Clef family",
+            "The D Clef family"
+        ],
         "ground_truth": "The C Clef family",
         "hint": "This clef's whole job is to mark exactly where the note C sits!",
         "explanation": "🎻 The Alto Clef is a 'C Clef' - its center curls point straight at a C on the staff.",
-        "metadata": {"topic": "alto_clef", "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/02/Alto-clef.svg", "difficulty": 1}
+        "metadata": {
+            "topic": "alto_clef",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/02/Alto-clef.svg",
+            "difficulty": 1
+        }
     },
     {
         "id": 3,
@@ -24,16 +42,29 @@
         "ground_truth": "Middle C",
         "hint": "Look at where the two curves of the clef meet - that's the note it's naming!",
         "explanation": "🎻 The Alto Clef's center notch marks Middle C exactly, no matter which line it sits on.",
-        "metadata": {"topic": "alto_clef", "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/02/Alto-clef.svg", "difficulty": 1}
+        "metadata": {
+            "topic": "alto_clef",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/02/Alto-clef.svg",
+            "difficulty": 1
+        }
     },
     {
         "id": 4,
         "question": "🎻 On which line of the staff does the Alto Clef's center sit, marking that line as Middle C?",
-        "options": ["The middle line (Line 3)", "The bottom line (Line 1)", "The top line (Line 5)", "The second line (Line 2)"],
+        "options": [
+            "The middle line (Line 3)",
+            "The bottom line (Line 1)",
+            "The top line (Line 5)",
+            "The second line (Line 2)"
+        ],
         "ground_truth": "The middle line (Line 3)",
         "hint": "The Alto Clef balances right in the center of the staff, like it's sitting on a see-saw!",
         "explanation": "🎻 The Alto Clef sits centered on Line 3, making that exact line Middle C.",
-        "metadata": {"topic": "alto_clef", "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/02/Alto-clef.svg", "difficulty": 1}
+        "metadata": {
+            "topic": "alto_clef",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/02/Alto-clef.svg",
+            "difficulty": 1
+        }
     },
     {
         "id": 5,
@@ -42,7 +73,11 @@
         "ground_truth": "The Viola",
         "hint": "This instrument is a bit bigger than a violin and a bit smaller than a cello!",
         "explanation": "🎻 The Viola is the main instrument that reads Alto Clef, since its pitch range sits perfectly in the middle of the staff.",
-        "metadata": {"topic": "alto_clef", "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/02/Alto-clef.svg", "difficulty": 1}
+        "metadata": {
+            "topic": "alto_clef",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/02/Alto-clef.svg",
+            "difficulty": 1
+        }
     },
     {
         "id": 6,
@@ -56,7 +91,11 @@
         "ground_truth": "Its pitch range sits in the middle, so Alto Clef avoids too many ledger lines",
         "hint": "Think about why bass clef helps low notes - the viola needs a staff that matches ITS comfortable range!",
         "explanation": "👀 The viola's natural range sits between violin and cello, so Alto Clef keeps its notes on the staff instead of drowning in ledger lines.",
-        "metadata": {"topic": "alto_clef", "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/02/Alto-clef.svg", "difficulty": 2}
+        "metadata": {
+            "topic": "alto_clef",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/02/Alto-clef.svg",
+            "difficulty": 2
+        }
     },
     {
         "id": 7,
@@ -65,7 +104,7 @@
         "ground_truth": "F",
         "hint": "Middle C sits on Line 3. Count down two letter-lines: C, B(space), A(line2), G(space), F(line1)!",
         "explanation": "🪜 Counting down from Middle C on Line 3, the bottom line of the Alto staff lands on F.",
-        "metadata": {"topic": "alto_clef", "image_url": null, "difficulty": 2}
+        "metadata": { "topic": "alto_clef", "image_url": null, "difficulty": 2 }
     },
     {
         "id": 8,
@@ -74,7 +113,7 @@
         "ground_truth": "G",
         "hint": "Middle C sits on Line 3. Count up two letter-lines: C, D(space), E(line4), F(space), G(line5)!",
         "explanation": "🪜 Counting up from Middle C on Line 3, the top line of the Alto staff lands on G.",
-        "metadata": {"topic": "alto_clef", "image_url": null, "difficulty": 2}
+        "metadata": { "topic": "alto_clef", "image_url": null, "difficulty": 2 }
     },
     {
         "id": 9,
@@ -83,7 +122,7 @@
         "ground_truth": "A",
         "hint": "Step down just one letter-line from Middle C (Line 3)!",
         "explanation": "🪜 One letter-line below Middle C on the Alto staff is A, sitting on Line 2.",
-        "metadata": {"topic": "alto_clef", "image_url": null, "difficulty": 1}
+        "metadata": { "topic": "alto_clef", "image_url": null, "difficulty": 1 }
     },
     {
         "id": 10,
@@ -92,7 +131,7 @@
         "ground_truth": "E",
         "hint": "Step up just one letter-line from Middle C (Line 3)!",
         "explanation": "🪜 One letter-line above Middle C on the Alto staff is E, sitting on Line 4.",
-        "metadata": {"topic": "alto_clef", "image_url": null, "difficulty": 1}
+        "metadata": { "topic": "alto_clef", "image_url": null, "difficulty": 1 }
     },
     {
         "id": 11,
@@ -101,7 +140,7 @@
         "ground_truth": "G",
         "hint": "It's the space right between Line 1 (F) and Line 2 (A)!",
         "explanation": "🎈 The bottom space of the Alto Clef staff, between F and A, is G.",
-        "metadata": {"topic": "alto_clef", "image_url": null, "difficulty": 2}
+        "metadata": { "topic": "alto_clef", "image_url": null, "difficulty": 2 }
     },
     {
         "id": 12,
@@ -110,7 +149,7 @@
         "ground_truth": "F",
         "hint": "It's the space right between Line 4 (E) and Line 5 (G)!",
         "explanation": "🎈 The top space of the Alto Clef staff, between E and G, is F.",
-        "metadata": {"topic": "alto_clef", "image_url": null, "difficulty": 2}
+        "metadata": { "topic": "alto_clef", "image_url": null, "difficulty": 2 }
     },
     {
         "id": 13,
@@ -119,7 +158,7 @@
         "ground_truth": "B",
         "hint": "Step up one letter from A, the note on Line 2!",
         "explanation": "🎈 Just above A (Line 2) sits B, filling Space 2 of the Alto Clef staff.",
-        "metadata": {"topic": "alto_clef", "image_url": null, "difficulty": 2}
+        "metadata": { "topic": "alto_clef", "image_url": null, "difficulty": 2 }
     },
     {
         "id": 14,
@@ -128,7 +167,7 @@
         "ground_truth": "D",
         "hint": "Step up one letter from Middle C!",
         "explanation": "🎈 Just above Middle C (Line 3) sits D, filling Space 3 of the Alto Clef staff.",
-        "metadata": {"topic": "alto_clef", "image_url": null, "difficulty": 2}
+        "metadata": { "topic": "alto_clef", "image_url": null, "difficulty": 2 }
     },
     {
         "id": 15,
@@ -142,7 +181,7 @@
         "ground_truth": "Fine Apples Cause Extra Giggles",
         "hint": "Each word's first letter should spell out F, A, C, E, G in order!",
         "explanation": "🔤 'Fine Apples Cause Extra Giggles' gives you F-A-C-E-G, the Alto Clef lines from bottom to top.",
-        "metadata": {"topic": "alto_clef", "image_url": null, "difficulty": 1}
+        "metadata": { "topic": "alto_clef", "image_url": null, "difficulty": 1 }
     },
     {
         "id": 16,
@@ -156,7 +195,7 @@
         "ground_truth": "Good Boys Deserve Fudge",
         "hint": "Each word's first letter should spell out G, B, D, F in order!",
         "explanation": "🔤 'Good Boys Deserve Fudge' gives you G-B-D-F, the Alto Clef spaces from bottom to top.",
-        "metadata": {"topic": "alto_clef", "image_url": null, "difficulty": 1}
+        "metadata": { "topic": "alto_clef", "image_url": null, "difficulty": 1 }
     },
     {
         "id": 17,
@@ -170,7 +209,11 @@
         "ground_truth": "Right on the middle line (Line 3), no ledger line needed",
         "hint": "That's the entire point of the Alto Clef's design - it points straight at Middle C on a real staff line!",
         "explanation": "🔁 Alto Clef is special because Middle C sits comfortably inside the staff on Line 3, unlike Treble or Bass where it needs a ledger line.",
-        "metadata": {"topic": "alto_clef", "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/17/Middle_C_in_four_clefs.svg", "difficulty": 2}
+        "metadata": {
+            "topic": "alto_clef",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/17/Middle_C_in_four_clefs.svg",
+            "difficulty": 2
+        }
     },
     {
         "id": 18,
@@ -184,7 +227,11 @@
         "ground_truth": "No, it sits right on Line 3 within the staff",
         "hint": "Alto Clef's whole design purpose is to bring Middle C inside the 5 lines!",
         "explanation": "🔁 Unlike Treble and Bass, Alto Clef places Middle C directly on a staff line, so no ledger line is needed.",
-        "metadata": {"topic": "alto_clef", "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/17/Middle_C_in_four_clefs.svg", "difficulty": 2}
+        "metadata": {
+            "topic": "alto_clef",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/17/Middle_C_in_four_clefs.svg",
+            "difficulty": 2
+        }
     },
     {
         "id": 19,
@@ -198,16 +245,25 @@
         "ground_truth": "On the bottom line of the Treble staff",
         "hint": "The top line of Alto Clef is G4, the very same pitch as the bottom line of the Treble staff!",
         "explanation": "🔁 G4 is the top line of Alto Clef AND the bottom line of Treble Clef - the same pitch, different clefs.",
-        "metadata": {"topic": "alto_clef", "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/17/Middle_C_in_four_clefs.svg", "difficulty": 3}
+        "metadata": {
+            "topic": "alto_clef",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/17/Middle_C_in_four_clefs.svg",
+            "difficulty": 3
+        }
     },
     {
         "id": 20,
         "question": "🧗 Grade 3 lets you read notes with up to how many ledger lines above or below any staff?",
-        "options": ["Three ledger lines", "One ledger line", "Two ledger lines", "Five ledger lines"],
+        "options": [
+            "Three ledger lines",
+            "One ledger line",
+            "Two ledger lines",
+            "Five ledger lines"
+        ],
         "ground_truth": "Three ledger lines",
         "hint": "Grade 2 stopped at two - Grade 3 climbs one level higher (or lower)!",
         "explanation": "🧗 Grade 3 extends ledger line reading up to three lines above or below any staff, in any clef.",
-        "metadata": {"topic": "alto_clef", "image_url": null, "difficulty": 2}
+        "metadata": { "topic": "alto_clef", "image_url": null, "difficulty": 2 }
     },
     {
         "id": 21,
@@ -216,7 +272,7 @@
         "ground_truth": "B",
         "hint": "Step up from the top line G: A fills the space just above, then B lands on the first ledger line!",
         "explanation": "🧗 Counting up from the top line (G): A fills the space above the staff, and B lands on the first ledger line above.",
-        "metadata": {"topic": "alto_clef", "image_url": null, "difficulty": 3}
+        "metadata": { "topic": "alto_clef", "image_url": null, "difficulty": 3 }
     },
     {
         "id": 22,
@@ -225,16 +281,21 @@
         "ground_truth": "G",
         "hint": "Count down in letter-lines from the bottom line F: E(space), D(1st ledger), C(space), B(2nd ledger), A(space), G(3rd ledger)!",
         "explanation": "🧗 Counting down from the bottom line (F) three ledger lines lands on G.",
-        "metadata": {"topic": "alto_clef", "image_url": null, "difficulty": 3}
+        "metadata": { "topic": "alto_clef", "image_url": null, "difficulty": 3 }
     },
     {
         "id": 23,
         "question": "🎼 The 'C Clef' family can also be placed on the fourth line of the staff to create a different, related clef. What is it called?",
-        "options": ["The Tenor Clef", "The Soprano Clef", "The Baritone Clef", "The Neutral Clef"],
+        "options": [
+            "The Tenor Clef",
+            "The Soprano Clef",
+            "The Baritone Clef",
+            "The Neutral Clef"
+        ],
         "ground_truth": "The Tenor Clef",
         "hint": "This clef is used by instruments like cello and trombone for their higher passages!",
         "explanation": "🎼 Moving the C Clef symbol to the fourth line creates the Tenor Clef, another member of the C Clef family.",
-        "metadata": {"topic": "alto_clef", "image_url": null, "difficulty": 3}
+        "metadata": { "topic": "alto_clef", "image_url": null, "difficulty": 3 }
     },
     {
         "id": 24,
@@ -248,7 +309,11 @@
         "ground_truth": "No, only the position of the notes on the staff changes",
         "hint": "A clef is just a set of directions for reading the staff - the pitches themselves don't change!",
         "explanation": "🧠 Changing clefs never changes a note's letter name or pitch - it only changes where that note is drawn on the staff.",
-        "metadata": {"topic": "alto_clef", "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/17/Middle_C_in_four_clefs.svg", "difficulty": 2}
+        "metadata": {
+            "topic": "alto_clef",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/17/Middle_C_in_four_clefs.svg",
+            "difficulty": 2
+        }
     },
     {
         "id": 25,
@@ -262,61 +327,115 @@
         "ground_truth": "On Space 4 (the top space)",
         "hint": "Keep the same letter name C, and count up eight letter-steps from Middle C on Line 3!",
         "explanation": "🔁 One octave above Middle C (Line 3) lands on C5, which sits in the top space (Space 4) of the Alto Clef staff.",
-        "metadata": {"topic": "alto_clef", "image_url": null, "difficulty": 3}
+        "metadata": { "topic": "alto_clef", "image_url": null, "difficulty": 3 }
     },
     {
         "id": 26,
         "question": "🎶 In compound time, how does the main beat naturally divide?",
-        "options": ["Into three equal parts", "Into two equal parts", "Into four equal parts", "It doesn't divide at all"],
+        "options": [
+            "Into three equal parts",
+            "Into two equal parts",
+            "Into four equal parts",
+            "It doesn't divide at all"
+        ],
         "ground_truth": "Into three equal parts",
         "hint": "This is the big difference from simple time, which always splits beats into pairs!",
         "explanation": "🎶 Compound time beats naturally split into groups of three, unlike simple time's groups of two.",
-        "metadata": {"topic": "compound_time", "image_url": null, "difficulty": 1}
+        "metadata": {
+            "topic": "compound_time",
+            "image_url": null,
+            "difficulty": 1
+        }
     },
     {
         "id": 27,
         "question": "🎶 In simple time (like Grades 1 and 2), how does the main beat naturally divide?",
-        "options": ["Into two equal parts", "Into three equal parts", "Into five equal parts", "It doesn't divide"],
+        "options": [
+            "Into two equal parts",
+            "Into three equal parts",
+            "Into five equal parts",
+            "It doesn't divide"
+        ],
         "ground_truth": "Into two equal parts",
         "hint": "Think of a Crotchet beat splitting into two Quavers - nice and even!",
         "explanation": "🎶 Simple time beats naturally split into pairs, which is why Grades 1 and 2 focused on it first.",
-        "metadata": {"topic": "compound_time", "image_url": null, "difficulty": 1}
+        "metadata": {
+            "topic": "compound_time",
+            "image_url": null,
+            "difficulty": 1
+        }
     },
     {
         "id": 28,
         "question": "🔮 In compound time, what kind of note value represents ONE full beat?",
-        "options": ["A dotted note", "A plain undotted note", "A tied note", "A rest"],
+        "options": [
+            "A dotted note",
+            "A plain undotted note",
+            "A tied note",
+            "A rest"
+        ],
         "ground_truth": "A dotted note",
         "hint": "Since the beat splits into three, it needs a note that's naturally worth three of something smaller - that's a dot's job!",
         "explanation": "🔮 A dot adds half the note's value, turning a note into three equal smaller parts - perfect for a compound beat.",
-        "metadata": {"topic": "compound_time", "image_url": null, "difficulty": 2}
+        "metadata": {
+            "topic": "compound_time",
+            "image_url": null,
+            "difficulty": 2
+        }
     },
     {
         "id": 29,
         "question": "🥁 How many beats are in one bar of 6/8 time?",
-        "options": ["2 dotted crotchet beats", "3 dotted crotchet beats", "6 crotchet beats", "4 dotted crotchet beats"],
+        "options": [
+            "2 dotted crotchet beats",
+            "3 dotted crotchet beats",
+            "6 crotchet beats",
+            "4 dotted crotchet beats"
+        ],
         "ground_truth": "2 dotted crotchet beats",
         "hint": "Divide the top number (6) by 3 to find how many dotted-crotchet beats are in the bar!",
         "explanation": "🥁 6/8 has 2 main beats per bar, each one a dotted crotchet worth 3 quavers.",
-        "metadata": {"topic": "compound_time", "image_url": null, "difficulty": 1}
+        "metadata": {
+            "topic": "compound_time",
+            "image_url": null,
+            "difficulty": 1
+        }
     },
     {
         "id": 30,
         "question": "🥁 How many beats are in one bar of 9/8 time?",
-        "options": ["3 dotted crotchet beats", "9 crotchet beats", "2 dotted crotchet beats", "4 dotted crotchet beats"],
+        "options": [
+            "3 dotted crotchet beats",
+            "9 crotchet beats",
+            "2 dotted crotchet beats",
+            "4 dotted crotchet beats"
+        ],
         "ground_truth": "3 dotted crotchet beats",
         "hint": "Divide the top number (9) by 3 to find how many dotted-crotchet beats are in the bar!",
         "explanation": "🥁 9/8 has 3 main beats per bar, each one a dotted crotchet worth 3 quavers.",
-        "metadata": {"topic": "compound_time", "image_url": null, "difficulty": 1}
+        "metadata": {
+            "topic": "compound_time",
+            "image_url": null,
+            "difficulty": 1
+        }
     },
     {
         "id": 31,
         "question": "🥁 How many beats are in one bar of 12/8 time?",
-        "options": ["4 dotted crotchet beats", "12 crotchet beats", "3 dotted crotchet beats", "6 dotted crotchet beats"],
+        "options": [
+            "4 dotted crotchet beats",
+            "12 crotchet beats",
+            "3 dotted crotchet beats",
+            "6 dotted crotchet beats"
+        ],
         "ground_truth": "4 dotted crotchet beats",
         "hint": "Divide the top number (12) by 3 to find how many dotted-crotchet beats are in the bar!",
         "explanation": "🥁 12/8 has 4 main beats per bar, each one a dotted crotchet worth 3 quavers.",
-        "metadata": {"topic": "compound_time", "image_url": null, "difficulty": 1}
+        "metadata": {
+            "topic": "compound_time",
+            "image_url": null,
+            "difficulty": 1
+        }
     },
     {
         "id": 32,
@@ -325,7 +444,11 @@
         "ground_truth": "6",
         "hint": "Just read the top number of the time signature directly!",
         "explanation": "🧮 The top number '6' in 6/8 tells you there are 6 quavers' worth of music in every bar.",
-        "metadata": {"topic": "compound_time", "image_url": null, "difficulty": 1}
+        "metadata": {
+            "topic": "compound_time",
+            "image_url": null,
+            "difficulty": 1
+        }
     },
     {
         "id": 33,
@@ -334,7 +457,11 @@
         "ground_truth": "9",
         "hint": "Just read the top number of the time signature directly!",
         "explanation": "🧮 The top number '9' in 9/8 tells you there are 9 quavers' worth of music in every bar.",
-        "metadata": {"topic": "compound_time", "image_url": null, "difficulty": 1}
+        "metadata": {
+            "topic": "compound_time",
+            "image_url": null,
+            "difficulty": 1
+        }
     },
     {
         "id": 34,
@@ -343,7 +470,11 @@
         "ground_truth": "12",
         "hint": "Just read the top number of the time signature directly!",
         "explanation": "🧮 The top number '12' in 12/8 tells you there are 12 quavers' worth of music in every bar.",
-        "metadata": {"topic": "compound_time", "image_url": null, "difficulty": 1}
+        "metadata": {
+            "topic": "compound_time",
+            "image_url": null,
+            "difficulty": 1
+        }
     },
     {
         "id": 35,
@@ -352,25 +483,47 @@
         "ground_truth": "3",
         "hint": "That's the whole idea of compound time - each beat splits into three, not two!",
         "explanation": "📦 Every dotted crotchet beat in compound time breaks down into exactly 3 quavers.",
-        "metadata": {"topic": "compound_time", "image_url": null, "difficulty": 2}
+        "metadata": {
+            "topic": "compound_time",
+            "image_url": null,
+            "difficulty": 2
+        }
     },
     {
         "id": 36,
         "question": "📦 In 9/8 time, the 9 quavers are usually beamed together in how many groups?",
-        "options": ["3 groups of 3", "9 groups of 1", "2 groups of 4.5", "1 group of 9"],
+        "options": [
+            "3 groups of 3",
+            "9 groups of 1",
+            "2 groups of 4.5",
+            "1 group of 9"
+        ],
         "ground_truth": "3 groups of 3",
         "hint": "9/8 has 3 beats, and each beat's quavers get beamed together separately!",
         "explanation": "📦 9/8 time beams its 9 quavers into 3 clear groups of 3, one for each dotted-crotchet beat.",
-        "metadata": {"topic": "compound_time", "image_url": null, "difficulty": 2}
+        "metadata": {
+            "topic": "compound_time",
+            "image_url": null,
+            "difficulty": 2
+        }
     },
     {
         "id": 37,
         "question": "📦 In 12/8 time, the 12 quavers are usually beamed together in how many groups?",
-        "options": ["4 groups of 3", "12 groups of 1", "3 groups of 4", "2 groups of 6"],
+        "options": [
+            "4 groups of 3",
+            "12 groups of 1",
+            "3 groups of 4",
+            "2 groups of 6"
+        ],
         "ground_truth": "4 groups of 3",
         "hint": "12/8 has 4 beats, and each beat's quavers get beamed together separately!",
         "explanation": "📦 12/8 time beams its 12 quavers into 4 clear groups of 3, one for each dotted-crotchet beat.",
-        "metadata": {"topic": "compound_time", "image_url": null, "difficulty": 2}
+        "metadata": {
+            "topic": "compound_time",
+            "image_url": null,
+            "difficulty": 2
+        }
     },
     {
         "id": 38,
@@ -384,7 +537,11 @@
         "ground_truth": "The top number is usually 6, 9, or 12 (divisible by 3)",
         "hint": "Compound top numbers split evenly into groups of three beats' worth of subdivisions!",
         "explanation": "🔍 Top numbers like 6, 9, and 12 signal compound time because they divide evenly by 3.",
-        "metadata": {"topic": "compound_time", "image_url": null, "difficulty": 2}
+        "metadata": {
+            "topic": "compound_time",
+            "image_url": null,
+            "difficulty": 2
+        }
     },
     {
         "id": 39,
@@ -393,7 +550,11 @@
         "ground_truth": "Simple",
         "hint": "In 3/4, each Crotchet beat splits into two Quavers, not three!",
         "explanation": "🔍 3/4 is simple time - its Crotchet beats divide into pairs of Quavers.",
-        "metadata": {"topic": "compound_time", "image_url": null, "difficulty": 1}
+        "metadata": {
+            "topic": "compound_time",
+            "image_url": null,
+            "difficulty": 1
+        }
     },
     {
         "id": 40,
@@ -402,7 +563,11 @@
         "ground_truth": "Compound",
         "hint": "In 6/8, each dotted-crotchet beat splits into three Quavers!",
         "explanation": "🔍 6/8 is compound time - its dotted-crotchet beats divide into groups of three Quavers.",
-        "metadata": {"topic": "compound_time", "image_url": null, "difficulty": 1}
+        "metadata": {
+            "topic": "compound_time",
+            "image_url": null,
+            "difficulty": 1
+        }
     },
     {
         "id": 41,
@@ -416,16 +581,29 @@
         "ground_truth": "3/4 feels like 3 beats; 6/8 feels like 2 beats",
         "hint": "Same total time, but grouped differently - 3/4 counts in threes, 6/8 counts in twos (of dotted crotchets)!",
         "explanation": "🧠 Even with equal total duration, 3/4 stresses 3 simple beats while 6/8 stresses 2 compound beats - a very different feel.",
-        "metadata": {"topic": "compound_time", "image_url": null, "difficulty": 3}
+        "metadata": {
+            "topic": "compound_time",
+            "image_url": null,
+            "difficulty": 3
+        }
     },
     {
         "id": 42,
         "question": "✨ What brand new, faster note value is introduced in Grade 3?",
-        "options": ["The Demisemiquaver (32nd note)", "The Semiquaver (16th note)", "The Hemidemisemiquaver (64th note)", "The Breve"],
+        "options": [
+            "The Demisemiquaver (32nd note)",
+            "The Semiquaver (16th note)",
+            "The Hemidemisemiquaver (64th note)",
+            "The Breve"
+        ],
         "ground_truth": "The Demisemiquaver (32nd note)",
         "hint": "This note is even faster than a Semiquaver - it needs an extra flag to prove it!",
         "explanation": "✨ Grade 3 introduces the Demisemiquaver, also known as the 32nd note.",
-        "metadata": {"topic": "compound_time", "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/32nd_note.svg", "difficulty": 1}
+        "metadata": {
+            "topic": "compound_time",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/32nd_note.svg",
+            "difficulty": 1
+        }
     },
     {
         "id": 43,
@@ -434,7 +612,11 @@
         "ground_truth": "3 flags",
         "hint": "A Semiquaver has 2 flags - the Demisemiquaver needs just one more to be twice as fast!",
         "explanation": "🚩 A Demisemiquaver has 3 flags, making it worth an eighth of a beat.",
-        "metadata": {"topic": "compound_time", "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/32nd_note.svg", "difficulty": 2}
+        "metadata": {
+            "topic": "compound_time",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/32nd_note.svg",
+            "difficulty": 2
+        }
     },
     {
         "id": 44,
@@ -443,7 +625,11 @@
         "ground_truth": "8",
         "hint": "A Demisemiquaver is worth an eighth of a beat. How many eighths make a whole?",
         "explanation": "🧮 Since each Demisemiquaver is 1/8 of a beat, it takes exactly 8 of them to fill one Crotchet beat.",
-        "metadata": {"topic": "compound_time", "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/32nd_note.svg", "difficulty": 2}
+        "metadata": {
+            "topic": "compound_time",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/32nd_note.svg",
+            "difficulty": 2
+        }
     },
     {
         "id": 45,
@@ -452,7 +638,11 @@
         "ground_truth": "4",
         "hint": "A Quaver is half a beat, and a Demisemiquaver is an eighth of a beat. Divide!",
         "explanation": "🧮 A Quaver (0.5 beats) contains exactly 4 Demisemiquavers (each 0.125 beats).",
-        "metadata": {"topic": "compound_time", "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/32nd_note.svg", "difficulty": 2}
+        "metadata": {
+            "topic": "compound_time",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/32nd_note.svg",
+            "difficulty": 2
+        }
     },
     {
         "id": 46,
@@ -461,7 +651,11 @@
         "ground_truth": "2",
         "hint": "A Semiquaver is a quarter of a beat, and a Demisemiquaver is an eighth. Divide!",
         "explanation": "🧮 A Semiquaver (0.25 beats) contains exactly 2 Demisemiquavers (each 0.125 beats).",
-        "metadata": {"topic": "compound_time", "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/32nd_note.svg", "difficulty": 2}
+        "metadata": {
+            "topic": "compound_time",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/32nd_note.svg",
+            "difficulty": 2
+        }
     },
     {
         "id": 47,
@@ -475,7 +669,11 @@
         "ground_truth": "A rest worth 1/8 of a beat of silence",
         "hint": "This rest matches the value of its note twin - the Demisemiquaver!",
         "explanation": "⚡ The Demisemiquaver Rest is worth 1/8 of a beat of silence, matching the Demisemiquaver note.",
-        "metadata": {"topic": "compound_time", "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/32nd_rest.svg", "difficulty": 2}
+        "metadata": {
+            "topic": "compound_time",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/32nd_rest.svg",
+            "difficulty": 2
+        }
     },
     {
         "id": 48,
@@ -484,7 +682,11 @@
         "ground_truth": "3 beams",
         "hint": "Each flag becomes a beam when notes are grouped together - match the 3 flags!",
         "explanation": "🤝 Demisemiquavers get a triple beam (3 thick lines) connecting their stems, matching their 3 flags.",
-        "metadata": {"topic": "compound_time", "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/32nd_note.svg", "difficulty": 2}
+        "metadata": {
+            "topic": "compound_time",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/32nd_note.svg",
+            "difficulty": 2
+        }
     },
     {
         "id": 49,
@@ -493,7 +695,11 @@
         "ground_truth": "6/8",
         "hint": "Two groups of three quavers matches the two dotted-crotchet beats of a compound duple time!",
         "explanation": "🔍 Beaming in groups of 3+3 quavers is the classic look of a 6/8 bar.",
-        "metadata": {"topic": "compound_time", "image_url": null, "difficulty": 2}
+        "metadata": {
+            "topic": "compound_time",
+            "image_url": null,
+            "difficulty": 2
+        }
     },
     {
         "id": 50,
@@ -502,7 +708,11 @@
         "ground_truth": "9/8",
         "hint": "Three groups of three quavers matches the three dotted-crotchet beats of a compound triple time!",
         "explanation": "🔍 Beaming in groups of 3+3+3 quavers is the classic look of a 9/8 bar.",
-        "metadata": {"topic": "compound_time", "image_url": null, "difficulty": 2}
+        "metadata": {
+            "topic": "compound_time",
+            "image_url": null,
+            "difficulty": 2
+        }
     },
     {
         "id": 51,
@@ -511,7 +721,11 @@
         "ground_truth": "E",
         "hint": "Scales always name themselves after their starting note!",
         "explanation": "🏠 The new 4-sharp major key begins its climb right on the note E.",
-        "metadata": {"topic": "scales", "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg", "difficulty": 1}
+        "metadata": {
+            "topic": "scales",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 1
+        }
     },
     {
         "id": 52,
@@ -520,16 +734,29 @@
         "ground_truth": "4 sharps",
         "hint": "E Major has one more sharp than A Major's three sharps!",
         "explanation": "✨ E Major has four sharps in its key signature club.",
-        "metadata": {"topic": "scales", "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg", "difficulty": 1}
+        "metadata": {
+            "topic": "scales",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 1
+        }
     },
     {
         "id": 53,
         "question": "✨ Which four sharps make up the E Major key signature?",
-        "options": ["F♯, C♯, G♯, D♯", "F♯, C♯, G♯, A♯", "F♯, C♯, D♯, A♯", "C♯, G♯, D♯, A♯"],
+        "options": [
+            "F♯, C♯, G♯, D♯",
+            "F♯, C♯, G♯, A♯",
+            "F♯, C♯, D♯, A♯",
+            "C♯, G♯, D♯, A♯"
+        ],
         "ground_truth": "F♯, C♯, G♯, D♯",
         "hint": "Start with A Major's three sharps (F♯, C♯, G♯), then add one brand new sharp!",
         "explanation": "✨ E Major keeps F♯, C♯, and G♯ from A Major and adds a new sharp: D♯!",
-        "metadata": {"topic": "scales", "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg", "difficulty": 2}
+        "metadata": {
+            "topic": "scales",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 2
+        }
     },
     {
         "id": 54,
@@ -538,7 +765,11 @@
         "ground_truth": "A♭",
         "hint": "Scales always name themselves after their starting note - flat and all!",
         "explanation": "🏠 The new 4-flat major key begins its climb right on the note A♭.",
-        "metadata": {"topic": "scales", "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg", "difficulty": 1}
+        "metadata": {
+            "topic": "scales",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 1
+        }
     },
     {
         "id": 55,
@@ -547,16 +778,29 @@
         "ground_truth": "4 flats",
         "hint": "A♭ Major has one more flat than E♭ Major's three flats!",
         "explanation": "⚓ A♭ Major has four flats in its key signature club.",
-        "metadata": {"topic": "scales", "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg", "difficulty": 1}
+        "metadata": {
+            "topic": "scales",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 1
+        }
     },
     {
         "id": 56,
         "question": "⚓ Which four flats make up the A♭ Major key signature?",
-        "options": ["B♭, E♭, A♭, D♭", "B♭, E♭, A♭, G♭", "B♭, A♭, D♭, G♭", "E♭, A♭, D♭, G♭"],
+        "options": [
+            "B♭, E♭, A♭, D♭",
+            "B♭, E♭, A♭, G♭",
+            "B♭, A♭, D♭, G♭",
+            "E♭, A♭, D♭, G♭"
+        ],
         "ground_truth": "B♭, E♭, A♭, D♭",
         "hint": "Start with E♭ Major's three flats (B♭, E♭, A♭), then add one brand new flat!",
         "explanation": "⚓ A♭ Major keeps B♭, E♭, and A♭ from E♭ Major and adds a new flat: D♭!",
-        "metadata": {"topic": "scales", "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg", "difficulty": 2}
+        "metadata": {
+            "topic": "scales",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 2
+        }
     },
     {
         "id": 57,
@@ -565,7 +809,11 @@
         "ground_truth": "C♯ minor",
         "hint": "Count down a minor 3rd from the major tonic E: E, D, C♯!",
         "explanation": "👫 C♯ minor is the relative minor of E Major - both share the same 4-sharp key signature.",
-        "metadata": {"topic": "scales", "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg", "difficulty": 2}
+        "metadata": {
+            "topic": "scales",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 2
+        }
     },
     {
         "id": 58,
@@ -574,25 +822,39 @@
         "ground_truth": "F minor",
         "hint": "Count down a minor 3rd from the major tonic A♭: A♭, G, F!",
         "explanation": "👫 F minor is the relative minor of A♭ Major - both share the same 4-flat key signature.",
-        "metadata": {"topic": "scales", "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg", "difficulty": 2}
+        "metadata": {
+            "topic": "scales",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 2
+        }
     },
     {
         "id": 59,
         "question": "🎭 C♯ Natural Minor's 7th degree is B natural. What happens to that note in C♯ HARMONIC Minor?",
-        "options": ["It is raised to B♯", "It is lowered to B♭", "It stays as B natural", "It becomes B double-sharp"],
+        "options": [
+            "It is raised to B♯",
+            "It is lowered to B♭",
+            "It stays as B natural",
+            "It becomes B double-sharp"
+        ],
         "ground_truth": "It is raised to B♯",
         "hint": "Harmonic minor always raises the 7th degree by a semitone to create a leading tone!",
         "explanation": "🎭 C♯ Harmonic Minor raises the 7th degree from B natural up to B♯, creating a strong pull back to C♯.",
-        "metadata": {"topic": "scales", "image_url": null, "difficulty": 2}
+        "metadata": { "topic": "scales", "image_url": null, "difficulty": 2 }
     },
     {
         "id": 60,
         "question": "🎭 F Natural Minor's 7th degree is E♭. What happens to that note in F HARMONIC Minor?",
-        "options": ["It is raised to E natural", "It is lowered to E double-flat", "It stays as E♭", "It is raised to E♯"],
+        "options": [
+            "It is raised to E natural",
+            "It is lowered to E double-flat",
+            "It stays as E♭",
+            "It is raised to E♯"
+        ],
         "ground_truth": "It is raised to E natural",
         "hint": "Harmonic minor always raises the 7th degree by a semitone to create a leading tone!",
         "explanation": "🎭 F Harmonic Minor raises the 7th degree from E♭ up to E natural, creating a strong pull back to F.",
-        "metadata": {"topic": "scales", "image_url": null, "difficulty": 2}
+        "metadata": { "topic": "scales", "image_url": null, "difficulty": 2 }
     },
     {
         "id": 61,
@@ -606,7 +868,7 @@
         "ground_truth": "Melodic minor raises both the 6th and 7th degrees ascending, then reverts to natural minor descending",
         "hint": "Melodic minor 'changes its mind' depending on which direction you're traveling!",
         "explanation": "🎢 Ascending, melodic minor raises the 6th and 7th degrees; descending, it drops back to the plain natural minor.",
-        "metadata": {"topic": "scales", "image_url": null, "difficulty": 2}
+        "metadata": { "topic": "scales", "image_url": null, "difficulty": 2 }
     },
     {
         "id": 62,
@@ -615,34 +877,57 @@
         "ground_truth": "A♯ and B♯",
         "hint": "C♯ natural minor's 6th and 7th are A and B - raise both by a semitone!",
         "explanation": "🎢 C♯ Melodic Minor ascending raises A to A♯ and B to B♯.",
-        "metadata": {"topic": "scales", "image_url": null, "difficulty": 3}
+        "metadata": { "topic": "scales", "image_url": null, "difficulty": 3 }
     },
     {
         "id": 63,
         "question": "🎢 In F MELODIC Minor ascending, the 6th and 7th degrees are raised. What notes do they become?",
-        "options": ["D natural and E natural", "D♭ and E♭", "D natural and E♭", "D♭ and E natural"],
+        "options": [
+            "D natural and E natural",
+            "D♭ and E♭",
+            "D natural and E♭",
+            "D♭ and E natural"
+        ],
         "ground_truth": "D natural and E natural",
         "hint": "F natural minor's 6th and 7th are D♭ and E♭ - raise both by a semitone!",
         "explanation": "🎢 F Melodic Minor ascending raises D♭ to D natural and E♭ to E natural.",
-        "metadata": {"topic": "scales", "image_url": null, "difficulty": 3}
+        "metadata": { "topic": "scales", "image_url": null, "difficulty": 3 }
     },
     {
         "id": 64,
         "question": "🔢 What is the correct order in which sharps are added to key signatures (first four)?",
-        "options": ["F♯, C♯, G♯, D♯", "F♯, G♯, C♯, D♯", "C♯, F♯, G♯, D♯", "F♯, C♯, D♯, G♯"],
+        "options": [
+            "F♯, C♯, G♯, D♯",
+            "F♯, G♯, C♯, D♯",
+            "C♯, F♯, G♯, D♯",
+            "F♯, C♯, D♯, G♯"
+        ],
         "ground_truth": "F♯, C♯, G♯, D♯",
         "hint": "This order never changes - it's the same order every new sharp key follows!",
         "explanation": "🔢 Sharps are always added in this order: F♯, C♯, G♯, D♯, A♯, E♯, B♯.",
-        "metadata": {"topic": "scales", "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg", "difficulty": 2}
+        "metadata": {
+            "topic": "scales",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 2
+        }
     },
     {
         "id": 65,
         "question": "🔢 What is the correct order in which flats are added to key signatures (first four)?",
-        "options": ["B♭, E♭, A♭, D♭", "B♭, A♭, E♭, D♭", "E♭, B♭, A♭, D♭", "B♭, E♭, D♭, A♭"],
+        "options": [
+            "B♭, E♭, A♭, D♭",
+            "B♭, A♭, E♭, D♭",
+            "E♭, B♭, A♭, D♭",
+            "B♭, E♭, D♭, A♭"
+        ],
         "ground_truth": "B♭, E♭, A♭, D♭",
         "hint": "This order never changes - it's the same order every new flat key follows!",
         "explanation": "🔢 Flats are always added in this order: B♭, E♭, A♭, D♭, G♭, C♭, F♭.",
-        "metadata": {"topic": "scales", "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg", "difficulty": 2}
+        "metadata": {
+            "topic": "scales",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 2
+        }
     },
     {
         "id": 66,
@@ -651,7 +936,7 @@
         "ground_truth": "G♯",
         "hint": "E Major's notes are E, F♯, G♯, A, B, C♯, D♯. Count to the third note!",
         "explanation": "🔍 The 3rd degree of E Major (E-F♯-G♯-A-B-C♯-D♯) is G♯.",
-        "metadata": {"topic": "scales", "image_url": null, "difficulty": 2}
+        "metadata": { "topic": "scales", "image_url": null, "difficulty": 2 }
     },
     {
         "id": 67,
@@ -660,7 +945,7 @@
         "ground_truth": "F",
         "hint": "A♭ Major's notes are A♭, B♭, C, D♭, E♭, F, G. Count to the sixth note!",
         "explanation": "🔍 The 6th degree of A♭ Major (A♭-B♭-C-D♭-E♭-F-G) is F.",
-        "metadata": {"topic": "scales", "image_url": null, "difficulty": 2}
+        "metadata": { "topic": "scales", "image_url": null, "difficulty": 2 }
     },
     {
         "id": 68,
@@ -669,7 +954,7 @@
         "ground_truth": "A",
         "hint": "E Major's notes are E, F♯, G♯, A, B, C♯, D♯. Count to the fourth note!",
         "explanation": "🔍 The 4th degree of E Major is A.",
-        "metadata": {"topic": "scales", "image_url": null, "difficulty": 2}
+        "metadata": { "topic": "scales", "image_url": null, "difficulty": 2 }
     },
     {
         "id": 69,
@@ -678,7 +963,7 @@
         "ground_truth": "G",
         "hint": "A♭ Major's notes are A♭, B♭, C, D♭, E♭, F, G. Count to the seventh note!",
         "explanation": "🔍 The 7th degree (leading tone) of A♭ Major is G.",
-        "metadata": {"topic": "scales", "image_url": null, "difficulty": 2}
+        "metadata": { "topic": "scales", "image_url": null, "difficulty": 2 }
     },
     {
         "id": 70,
@@ -687,7 +972,7 @@
         "ground_truth": "B",
         "hint": "E Major's notes are E, F♯, G♯, A, B, C♯, D♯. Count to the fifth note!",
         "explanation": "🎯 The dominant (5th degree) of E Major is B.",
-        "metadata": {"topic": "scales", "image_url": null, "difficulty": 2}
+        "metadata": { "topic": "scales", "image_url": null, "difficulty": 2 }
     },
     {
         "id": 71,
@@ -696,25 +981,43 @@
         "ground_truth": "E♭",
         "hint": "A♭ Major's notes are A♭, B♭, C, D♭, E♭, F, G. Count to the fifth note!",
         "explanation": "🎯 The dominant (5th degree) of A♭ Major is E♭.",
-        "metadata": {"topic": "scales", "image_url": null, "difficulty": 2}
+        "metadata": { "topic": "scales", "image_url": null, "difficulty": 2 }
     },
     {
         "id": 72,
         "question": "🔍 Which major key signature has exactly ONE FEWER sharp than E Major?",
-        "options": ["A Major (3 sharps)", "D Major (2 sharps)", "B Major (5 sharps)", "G Major (1 sharp)"],
+        "options": [
+            "A Major (3 sharps)",
+            "D Major (2 sharps)",
+            "B Major (5 sharps)",
+            "G Major (1 sharp)"
+        ],
         "ground_truth": "A Major (3 sharps)",
         "hint": "E Major has 4 sharps - which key comes right before it in the sharp-adding order?",
         "explanation": "🔍 A Major, with 3 sharps, has exactly one fewer sharp than E Major's 4.",
-        "metadata": {"topic": "scales", "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg", "difficulty": 2}
+        "metadata": {
+            "topic": "scales",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 2
+        }
     },
     {
         "id": 73,
         "question": "🔍 Which major key signature has exactly ONE FEWER flat than A♭ Major?",
-        "options": ["E♭ Major (3 flats)", "D♭ Major (5 flats)", "B♭ Major (2 flats)", "F Major (1 flat)"],
+        "options": [
+            "E♭ Major (3 flats)",
+            "D♭ Major (5 flats)",
+            "B♭ Major (2 flats)",
+            "F Major (1 flat)"
+        ],
         "ground_truth": "E♭ Major (3 flats)",
         "hint": "A♭ Major has 4 flats - which key comes right before it in the flat-adding order?",
         "explanation": "🔍 E♭ Major, with 3 flats, has exactly one fewer flat than A♭ Major's 4.",
-        "metadata": {"topic": "scales", "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg", "difficulty": 2}
+        "metadata": {
+            "topic": "scales",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 2
+        }
     },
     {
         "id": 74,
@@ -728,16 +1031,25 @@
         "ground_truth": "No, all three previous sharps stay, and one new sharp joins them",
         "hint": "Key signatures always build UP - old sharps never disappear when new ones are added!",
         "explanation": "🧠 Every new key signature keeps all earlier sharps (or flats) and simply adds one more.",
-        "metadata": {"topic": "scales", "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg", "difficulty": 2}
+        "metadata": {
+            "topic": "scales",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 2
+        }
     },
     {
         "id": 75,
         "question": "🧠 In C♯ Harmonic Minor, the raised 7th (B♯) sits just a semitone below the tonic C♯. What is this special relationship called?",
-        "options": ["A leading tone", "A tonic pedal", "A relative interval", "A cadence"],
+        "options": [
+            "A leading tone",
+            "A tonic pedal",
+            "A relative interval",
+            "A cadence"
+        ],
         "ground_truth": "A leading tone",
         "hint": "This note 'leads' strongly back up to the tonic, like it's pulling you home!",
         "explanation": "🧠 A note sitting a semitone below the tonic, creating a strong pull upward, is called a leading tone.",
-        "metadata": {"topic": "scales", "image_url": null, "difficulty": 3}
+        "metadata": { "topic": "scales", "image_url": null, "difficulty": 3 }
     },
     {
         "id": 76,
@@ -746,7 +1058,7 @@
         "ground_truth": "Perfect",
         "hint": "This special family of intervals never gets called 'Major' or 'Minor'!",
         "explanation": "🔢 4ths and 5ths belong to the Perfect interval family, along with unisons and octaves.",
-        "metadata": {"topic": "intervals", "image_url": null, "difficulty": 1}
+        "metadata": { "topic": "intervals", "image_url": null, "difficulty": 1 }
     },
     {
         "id": 77,
@@ -755,16 +1067,21 @@
         "ground_truth": "Perfect",
         "hint": "This special family of intervals never gets called 'Major' or 'Minor'!",
         "explanation": "🔢 Unisons and octaves belong to the Perfect interval family, along with 4ths and 5ths.",
-        "metadata": {"topic": "intervals", "image_url": null, "difficulty": 1}
+        "metadata": { "topic": "intervals", "image_url": null, "difficulty": 1 }
     },
     {
         "id": 78,
         "question": "🔢 A 2nd, 3rd, 6th, or 7th interval can have which two possible qualities?",
-        "options": ["Major or Minor", "Perfect or Augmented", "Diminished or Perfect", "Major or Perfect"],
+        "options": [
+            "Major or Minor",
+            "Perfect or Augmented",
+            "Diminished or Perfect",
+            "Major or Perfect"
+        ],
         "ground_truth": "Major or Minor",
         "hint": "These four interval numbers never get called 'Perfect'!",
         "explanation": "🔢 2nds, 3rds, 6ths, and 7ths are always either Major or Minor in quality.",
-        "metadata": {"topic": "intervals", "image_url": null, "difficulty": 1}
+        "metadata": { "topic": "intervals", "image_url": null, "difficulty": 1 }
     },
     {
         "id": 79,
@@ -773,7 +1090,7 @@
         "ground_truth": "Minor 3rd",
         "hint": "Major intervals shrink by a semitone to become Minor - the number stays the same!",
         "explanation": "🔽 Lowering a Major 3rd by a semitone turns it into a Minor 3rd.",
-        "metadata": {"topic": "intervals", "image_url": null, "difficulty": 2}
+        "metadata": { "topic": "intervals", "image_url": null, "difficulty": 2 }
     },
     {
         "id": 80,
@@ -782,7 +1099,7 @@
         "ground_truth": "Major 6th",
         "hint": "Minor intervals grow by a semitone to become Major - the number stays the same!",
         "explanation": "🔼 Raising a Minor 6th by a semitone turns it into a Major 6th.",
-        "metadata": {"topic": "intervals", "image_url": null, "difficulty": 2}
+        "metadata": { "topic": "intervals", "image_url": null, "difficulty": 2 }
     },
     {
         "id": 81,
@@ -791,7 +1108,7 @@
         "ground_truth": "Major 3rd",
         "hint": "C to E spans 4 semitones and 3 letter names - that's a wide, bright-sounding 3rd!",
         "explanation": "🎼 C up to E is a Major 3rd, spanning 4 semitones.",
-        "metadata": {"topic": "intervals", "image_url": null, "difficulty": 2}
+        "metadata": { "topic": "intervals", "image_url": null, "difficulty": 2 }
     },
     {
         "id": 82,
@@ -800,7 +1117,7 @@
         "ground_truth": "Minor 3rd",
         "hint": "Flattening the E shrinks the gap by one semitone, from 4 down to 3!",
         "explanation": "🎼 C up to E♭ is a Minor 3rd, spanning 3 semitones.",
-        "metadata": {"topic": "intervals", "image_url": null, "difficulty": 2}
+        "metadata": { "topic": "intervals", "image_url": null, "difficulty": 2 }
     },
     {
         "id": 83,
@@ -809,7 +1126,7 @@
         "ground_truth": "Perfect 5th",
         "hint": "C to G spans 7 semitones and 5 letter names - a wide open, stable-sounding interval!",
         "explanation": "🎼 C up to G is a Perfect 5th, spanning 7 semitones.",
-        "metadata": {"topic": "intervals", "image_url": null, "difficulty": 2}
+        "metadata": { "topic": "intervals", "image_url": null, "difficulty": 2 }
     },
     {
         "id": 84,
@@ -818,7 +1135,7 @@
         "ground_truth": "Perfect 4th",
         "hint": "C to F spans 5 semitones and 4 letter names!",
         "explanation": "🎼 C up to F is a Perfect 4th, spanning 5 semitones.",
-        "metadata": {"topic": "intervals", "image_url": null, "difficulty": 2}
+        "metadata": { "topic": "intervals", "image_url": null, "difficulty": 2 }
     },
     {
         "id": 85,
@@ -827,7 +1144,7 @@
         "ground_truth": "Major 3rd",
         "hint": "E and G♯ are the 1st and 3rd degrees of E Major - a bright interval!",
         "explanation": "🎼 E up to G♯ is a Major 3rd, spanning 4 semitones.",
-        "metadata": {"topic": "intervals", "image_url": null, "difficulty": 3}
+        "metadata": { "topic": "intervals", "image_url": null, "difficulty": 3 }
     },
     {
         "id": 86,
@@ -836,7 +1153,7 @@
         "ground_truth": "Perfect 5th",
         "hint": "E and B are the 1st and 5th degrees of E Major - the dominant relationship!",
         "explanation": "🎼 E up to B is a Perfect 5th, spanning 7 semitones.",
-        "metadata": {"topic": "intervals", "image_url": null, "difficulty": 3}
+        "metadata": { "topic": "intervals", "image_url": null, "difficulty": 3 }
     },
     {
         "id": 87,
@@ -845,7 +1162,7 @@
         "ground_truth": "Major 3rd",
         "hint": "A♭ and C are the 1st and 3rd degrees of A♭ Major!",
         "explanation": "🎼 A♭ up to C is a Major 3rd, spanning 4 semitones.",
-        "metadata": {"topic": "intervals", "image_url": null, "difficulty": 3}
+        "metadata": { "topic": "intervals", "image_url": null, "difficulty": 3 }
     },
     {
         "id": 88,
@@ -854,7 +1171,7 @@
         "ground_truth": "Perfect 5th",
         "hint": "A♭ and E♭ are the 1st and 5th degrees of A♭ Major - the dominant relationship!",
         "explanation": "🎼 A♭ up to E♭ is a Perfect 5th, spanning 7 semitones.",
-        "metadata": {"topic": "intervals", "image_url": null, "difficulty": 3}
+        "metadata": { "topic": "intervals", "image_url": null, "difficulty": 3 }
     },
     {
         "id": 89,
@@ -863,7 +1180,7 @@
         "ground_truth": "Minor 3rd",
         "hint": "D to F spans only 3 semitones - a narrower, darker-sounding 3rd!",
         "explanation": "🎼 D up to F is a Minor 3rd, spanning 3 semitones.",
-        "metadata": {"topic": "intervals", "image_url": null, "difficulty": 2}
+        "metadata": { "topic": "intervals", "image_url": null, "difficulty": 2 }
     },
     {
         "id": 90,
@@ -872,7 +1189,7 @@
         "ground_truth": "Minor 7th",
         "hint": "G to F natural spans 10 semitones - one semitone short of a full octave's 7th!",
         "explanation": "🎼 G up to F natural is a Minor 7th, spanning 10 semitones.",
-        "metadata": {"topic": "intervals", "image_url": null, "difficulty": 3}
+        "metadata": { "topic": "intervals", "image_url": null, "difficulty": 3 }
     },
     {
         "id": 91,
@@ -881,7 +1198,7 @@
         "ground_truth": "Major 7th",
         "hint": "G to F♯ spans 11 semitones - just one semitone short of a full octave!",
         "explanation": "🎼 G up to F♯ is a Major 7th, spanning 11 semitones.",
-        "metadata": {"topic": "intervals", "image_url": null, "difficulty": 3}
+        "metadata": { "topic": "intervals", "image_url": null, "difficulty": 3 }
     },
     {
         "id": 92,
@@ -890,7 +1207,7 @@
         "ground_truth": "2 semitones",
         "hint": "Think of a whole tone, like C to D!",
         "explanation": "🔢 A Major 2nd spans 2 semitones (a whole tone), like C to D.",
-        "metadata": {"topic": "intervals", "image_url": null, "difficulty": 1}
+        "metadata": { "topic": "intervals", "image_url": null, "difficulty": 1 }
     },
     {
         "id": 93,
@@ -899,7 +1216,7 @@
         "ground_truth": "1 semitone",
         "hint": "Think of a half step, like E to F!",
         "explanation": "🔢 A Minor 2nd spans just 1 semitone (a half step), like E to F.",
-        "metadata": {"topic": "intervals", "image_url": null, "difficulty": 1}
+        "metadata": { "topic": "intervals", "image_url": null, "difficulty": 1 }
     },
     {
         "id": 94,
@@ -908,7 +1225,7 @@
         "ground_truth": "7 semitones",
         "hint": "Think of C up to G!",
         "explanation": "🔢 A Perfect 5th spans 7 semitones, like C up to G.",
-        "metadata": {"topic": "intervals", "image_url": null, "difficulty": 1}
+        "metadata": { "topic": "intervals", "image_url": null, "difficulty": 1 }
     },
     {
         "id": 95,
@@ -917,34 +1234,49 @@
         "ground_truth": "5 semitones",
         "hint": "Think of C up to F!",
         "explanation": "🔢 A Perfect 4th spans 5 semitones, like C up to F.",
-        "metadata": {"topic": "intervals", "image_url": null, "difficulty": 1}
+        "metadata": { "topic": "intervals", "image_url": null, "difficulty": 1 }
     },
     {
         "id": 96,
         "question": "🔢 How many semitones make up a Major 6th?",
-        "options": ["9 semitones", "8 semitones", "10 semitones", "7 semitones"],
+        "options": [
+            "9 semitones",
+            "8 semitones",
+            "10 semitones",
+            "7 semitones"
+        ],
         "ground_truth": "9 semitones",
         "hint": "Think of C up to A!",
         "explanation": "🔢 A Major 6th spans 9 semitones, like C up to A.",
-        "metadata": {"topic": "intervals", "image_url": null, "difficulty": 2}
+        "metadata": { "topic": "intervals", "image_url": null, "difficulty": 2 }
     },
     {
         "id": 97,
         "question": "🔢 How many semitones make up a Minor 7th?",
-        "options": ["10 semitones", "11 semitones", "9 semitones", "8 semitones"],
+        "options": [
+            "10 semitones",
+            "11 semitones",
+            "9 semitones",
+            "8 semitones"
+        ],
         "ground_truth": "10 semitones",
         "hint": "Think of C up to B♭!",
         "explanation": "🔢 A Minor 7th spans 10 semitones, like C up to B♭.",
-        "metadata": {"topic": "intervals", "image_url": null, "difficulty": 2}
+        "metadata": { "topic": "intervals", "image_url": null, "difficulty": 2 }
     },
     {
         "id": 98,
         "question": "🧠 True or false: a Perfect interval can be described as 'Major' or 'Minor'.",
-        "options": ["False - Perfect intervals never use those labels", "True - all intervals can be Major or Minor", "True, but only 4ths", "True, but only 5ths"],
+        "options": [
+            "False - Perfect intervals never use those labels",
+            "True - all intervals can be Major or Minor",
+            "True, but only 4ths",
+            "True, but only 5ths"
+        ],
         "ground_truth": "False - Perfect intervals never use those labels",
         "hint": "1sts, 4ths, 5ths, and 8ths belong to their very own quality family!",
         "explanation": "🧠 Perfect intervals (1, 4, 5, 8) are simply called Perfect - never Major or Minor.",
-        "metadata": {"topic": "intervals", "image_url": null, "difficulty": 2}
+        "metadata": { "topic": "intervals", "image_url": null, "difficulty": 2 }
     },
     {
         "id": 99,
@@ -953,7 +1285,7 @@
         "ground_truth": "Major 6th",
         "hint": "E and C♯ are the 1st and 6th degrees of E Major!",
         "explanation": "🎼 E up to C♯ is a Major 6th, spanning 9 semitones.",
-        "metadata": {"topic": "intervals", "image_url": null, "difficulty": 3}
+        "metadata": { "topic": "intervals", "image_url": null, "difficulty": 3 }
     },
     {
         "id": 100,
@@ -962,34 +1294,61 @@
         "ground_truth": "Major 7th",
         "hint": "A♭ and G are the 1st and 7th degrees of A♭ Major!",
         "explanation": "🎼 A♭ up to G is a Major 7th, spanning 11 semitones.",
-        "metadata": {"topic": "intervals", "image_url": null, "difficulty": 3}
+        "metadata": { "topic": "intervals", "image_url": null, "difficulty": 3 }
     },
     {
         "id": 101,
         "question": "🏗️ In a Root Position triad, which scale degree is the LOWEST (bass) note?",
-        "options": ["The 1st degree (the root)", "The 3rd degree", "The 5th degree", "The 7th degree"],
+        "options": [
+            "The 1st degree (the root)",
+            "The 3rd degree",
+            "The 5th degree",
+            "The 7th degree"
+        ],
         "ground_truth": "The 1st degree (the root)",
         "hint": "It's right there in the name - 'Root' Position!",
         "explanation": "🏗️ A Root Position triad has its root (1st degree) sitting as the lowest note.",
-        "metadata": {"topic": "chord_inversions", "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png", "difficulty": 1}
+        "metadata": {
+            "topic": "chord_inversions",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png",
+            "difficulty": 1
+        }
     },
     {
         "id": 102,
         "question": "🏗️ In a First Inversion triad, which scale degree is the LOWEST (bass) note?",
-        "options": ["The 3rd degree", "The 1st degree (the root)", "The 5th degree", "The 7th degree"],
+        "options": [
+            "The 3rd degree",
+            "The 1st degree (the root)",
+            "The 5th degree",
+            "The 7th degree"
+        ],
         "ground_truth": "The 3rd degree",
         "hint": "The chord has been 'flipped' once, moving the 3rd down to the bottom!",
         "explanation": "🏗️ A First Inversion triad has its 3rd degree sitting as the lowest note.",
-        "metadata": {"topic": "chord_inversions", "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png", "difficulty": 1}
+        "metadata": {
+            "topic": "chord_inversions",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png",
+            "difficulty": 1
+        }
     },
     {
         "id": 103,
         "question": "🏗️ Grade 3 introduces a brand new inversion. In a Second Inversion triad, which scale degree is the LOWEST (bass) note?",
-        "options": ["The 5th degree", "The 1st degree (the root)", "The 3rd degree", "The 7th degree"],
+        "options": [
+            "The 5th degree",
+            "The 1st degree (the root)",
+            "The 3rd degree",
+            "The 7th degree"
+        ],
         "ground_truth": "The 5th degree",
         "hint": "This is the newest inversion for Grade 3 - the chord flips twice, landing the 5th at the bottom!",
         "explanation": "🏗️ A Second Inversion triad has its 5th degree sitting as the lowest note.",
-        "metadata": {"topic": "chord_inversions", "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png", "difficulty": 2}
+        "metadata": {
+            "topic": "chord_inversions",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png",
+            "difficulty": 2
+        }
     },
     {
         "id": 104,
@@ -998,7 +1357,11 @@
         "ground_truth": "A 6/4 chord",
         "hint": "Count the intervals above the bass note (the 5th degree): a 4th and a 6th above it!",
         "explanation": "🔢 A Second Inversion triad is nicknamed a '6/4 chord' because the intervals above the bass are a 4th and a 6th.",
-        "metadata": {"topic": "chord_inversions", "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png", "difficulty": 2}
+        "metadata": {
+            "topic": "chord_inversions",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png",
+            "difficulty": 2
+        }
     },
     {
         "id": 105,
@@ -1007,7 +1370,11 @@
         "ground_truth": "6 (short for 6/3)",
         "hint": "Count the intervals above the bass note (the 3rd degree): a 3rd and a 6th above it!",
         "explanation": "🔢 A First Inversion triad is labeled with a '6' (from the full figures 6/3).",
-        "metadata": {"topic": "chord_inversions", "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png", "difficulty": 2}
+        "metadata": {
+            "topic": "chord_inversions",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png",
+            "difficulty": 2
+        }
     },
     {
         "id": 106,
@@ -1016,7 +1383,11 @@
         "ground_truth": "No numbers, or 5/3",
         "hint": "The intervals above the root are a 3rd and a 5th - the 'default' position needs no special label!",
         "explanation": "🔢 Root Position triads are usually left unlabeled, or occasionally marked 5/3.",
-        "metadata": {"topic": "chord_inversions", "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png", "difficulty": 2}
+        "metadata": {
+            "topic": "chord_inversions",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png",
+            "difficulty": 2
+        }
     },
     {
         "id": 107,
@@ -1025,7 +1396,11 @@
         "ground_truth": "C, E, G",
         "hint": "Root position stacks the notes in their natural order, starting from the root!",
         "explanation": "🎹 C Major's tonic triad in Root Position, bottom to top, is C, E, G.",
-        "metadata": {"topic": "chord_inversions", "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png", "difficulty": 1}
+        "metadata": {
+            "topic": "chord_inversions",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png",
+            "difficulty": 1
+        }
     },
     {
         "id": 108,
@@ -1034,7 +1409,11 @@
         "ground_truth": "E, G, C",
         "hint": "Take the 3rd (E) and move it to the bottom of the stack!",
         "explanation": "🎹 C Major's tonic triad in First Inversion, bottom to top, is E, G, C.",
-        "metadata": {"topic": "chord_inversions", "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png", "difficulty": 2}
+        "metadata": {
+            "topic": "chord_inversions",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png",
+            "difficulty": 2
+        }
     },
     {
         "id": 109,
@@ -1043,7 +1422,11 @@
         "ground_truth": "G, C, E",
         "hint": "Take the 5th (G) and move it all the way to the bottom of the stack!",
         "explanation": "🎹 C Major's tonic triad in Second Inversion, bottom to top, is G, C, E.",
-        "metadata": {"topic": "chord_inversions", "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png", "difficulty": 2}
+        "metadata": {
+            "topic": "chord_inversions",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png",
+            "difficulty": 2
+        }
     },
     {
         "id": 110,
@@ -1052,7 +1435,11 @@
         "ground_truth": "E, G♯, B",
         "hint": "Stack the 1st, 3rd, and 5th degrees of the E Major scale!",
         "explanation": "🎻 The E Major tonic triad is built from E (1st), G♯ (3rd), and B (5th).",
-        "metadata": {"topic": "chord_inversions", "image_url": null, "difficulty": 2}
+        "metadata": {
+            "topic": "chord_inversions",
+            "image_url": null,
+            "difficulty": 2
+        }
     },
     {
         "id": 111,
@@ -1061,7 +1448,11 @@
         "ground_truth": "B",
         "hint": "Second inversion always puts the 5th degree at the bottom - and B is E Major's 5th!",
         "explanation": "🎻 In Second Inversion, the E Major triad has B (the 5th) as its lowest note.",
-        "metadata": {"topic": "chord_inversions", "image_url": null, "difficulty": 2}
+        "metadata": {
+            "topic": "chord_inversions",
+            "image_url": null,
+            "difficulty": 2
+        }
     },
     {
         "id": 112,
@@ -1070,7 +1461,11 @@
         "ground_truth": "G♯",
         "hint": "First inversion always puts the 3rd degree at the bottom - and G♯ is E Major's 3rd!",
         "explanation": "🎻 In First Inversion, the E Major triad has G♯ (the 3rd) as its lowest note.",
-        "metadata": {"topic": "chord_inversions", "image_url": null, "difficulty": 2}
+        "metadata": {
+            "topic": "chord_inversions",
+            "image_url": null,
+            "difficulty": 2
+        }
     },
     {
         "id": 113,
@@ -1079,7 +1474,11 @@
         "ground_truth": "A♭, C, E♭",
         "hint": "Stack the 1st, 3rd, and 5th degrees of the A♭ Major scale!",
         "explanation": "🎺 The A♭ Major tonic triad is built from A♭ (1st), C (3rd), and E♭ (5th).",
-        "metadata": {"topic": "chord_inversions", "image_url": null, "difficulty": 2}
+        "metadata": {
+            "topic": "chord_inversions",
+            "image_url": null,
+            "difficulty": 2
+        }
     },
     {
         "id": 114,
@@ -1088,7 +1487,11 @@
         "ground_truth": "E♭",
         "hint": "Second inversion always puts the 5th degree at the bottom - and E♭ is A♭ Major's 5th!",
         "explanation": "🎺 In Second Inversion, the A♭ Major triad has E♭ (the 5th) as its lowest note.",
-        "metadata": {"topic": "chord_inversions", "image_url": null, "difficulty": 2}
+        "metadata": {
+            "topic": "chord_inversions",
+            "image_url": null,
+            "difficulty": 2
+        }
     },
     {
         "id": 115,
@@ -1097,7 +1500,11 @@
         "ground_truth": "C",
         "hint": "First inversion always puts the 3rd degree at the bottom - and C is A♭ Major's 3rd!",
         "explanation": "🎺 In First Inversion, the A♭ Major triad has C (the 3rd) as its lowest note.",
-        "metadata": {"topic": "chord_inversions", "image_url": null, "difficulty": 2}
+        "metadata": {
+            "topic": "chord_inversions",
+            "image_url": null,
+            "difficulty": 2
+        }
     },
     {
         "id": 116,
@@ -1111,25 +1518,47 @@
         "ground_truth": "No - it's the same three notes, just rearranged with a different note on the bottom",
         "hint": "Think of it like reshuffling three friends in a line - same friends, different order!",
         "explanation": "🧠 Inversions never change the notes of a chord, only which one appears at the bottom.",
-        "metadata": {"topic": "chord_inversions", "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png", "difficulty": 2}
+        "metadata": {
+            "topic": "chord_inversions",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png",
+            "difficulty": 2
+        }
     },
     {
         "id": 117,
         "question": "🔍 A C Major triad (notes C, E, G) is played with G as its lowest note. What inversion is this?",
-        "options": ["Second Inversion", "Root Position", "First Inversion", "Third Inversion"],
+        "options": [
+            "Second Inversion",
+            "Root Position",
+            "First Inversion",
+            "Third Inversion"
+        ],
         "ground_truth": "Second Inversion",
         "hint": "G is the 5th degree of C Major, and the 5th at the bottom always means Second Inversion!",
         "explanation": "🔍 With G (the 5th) as the bass note, this C Major triad is in Second Inversion.",
-        "metadata": {"topic": "chord_inversions", "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png", "difficulty": 2}
+        "metadata": {
+            "topic": "chord_inversions",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png",
+            "difficulty": 2
+        }
     },
     {
         "id": 118,
         "question": "🔍 A C Major triad (notes C, E, G) is played with E as its lowest note. What inversion is this?",
-        "options": ["First Inversion", "Root Position", "Second Inversion", "Third Inversion"],
+        "options": [
+            "First Inversion",
+            "Root Position",
+            "Second Inversion",
+            "Third Inversion"
+        ],
         "ground_truth": "First Inversion",
         "hint": "E is the 3rd degree of C Major, and the 3rd at the bottom always means First Inversion!",
         "explanation": "🔍 With E (the 3rd) as the bass note, this C Major triad is in First Inversion.",
-        "metadata": {"topic": "chord_inversions", "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png", "difficulty": 2}
+        "metadata": {
+            "topic": "chord_inversions",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png",
+            "difficulty": 2
+        }
     },
     {
         "id": 119,
@@ -1138,7 +1567,11 @@
         "ground_truth": "C",
         "hint": "C is the 5th degree of F minor - the note that Second Inversion always puts at the bottom!",
         "explanation": "🎭 In Second Inversion, the F minor tonic triad has C (the 5th) as its lowest note.",
-        "metadata": {"topic": "chord_inversions", "image_url": null, "difficulty": 3}
+        "metadata": {
+            "topic": "chord_inversions",
+            "image_url": null,
+            "difficulty": 3
+        }
     },
     {
         "id": 120,
@@ -1147,7 +1580,11 @@
         "ground_truth": "G♯",
         "hint": "G♯ is the 5th degree of C♯ minor - the note that Second Inversion always puts at the bottom!",
         "explanation": "🎭 In Second Inversion, the C♯ minor tonic triad has G♯ (the 5th) as its lowest note.",
-        "metadata": {"topic": "chord_inversions", "image_url": null, "difficulty": 3}
+        "metadata": {
+            "topic": "chord_inversions",
+            "image_url": null,
+            "difficulty": 3
+        }
     },
     {
         "id": 121,
@@ -1156,7 +1593,11 @@
         "ground_truth": "A Trill",
         "hint": "This ornament rapidly wobbles between two neighboring notes!",
         "explanation": "🎵 'tr' above a note signals a Trill, a rapid alternation between the main note and the one above it.",
-        "metadata": {"topic": "ornaments_terms", "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Trill_notation.svg", "difficulty": 1}
+        "metadata": {
+            "topic": "ornaments_terms",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Trill_notation.svg",
+            "difficulty": 1
+        }
     },
     {
         "id": 122,
@@ -1170,7 +1611,11 @@
         "ground_truth": "Rapidly alternate between the main note and the note above it",
         "hint": "Think of a shimmering, fluttering sound bouncing between two close pitches!",
         "explanation": "🎵 A Trill is a fast back-and-forth flutter between a note and the note directly above it.",
-        "metadata": {"topic": "ornaments_terms", "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Trill_notation.svg", "difficulty": 1}
+        "metadata": {
+            "topic": "ornaments_terms",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Trill_notation.svg",
+            "difficulty": 1
+        }
     },
     {
         "id": 123,
@@ -1179,7 +1624,11 @@
         "ground_truth": "A Turn",
         "hint": "This curly symbol makes the melody 'turn' around the main note!",
         "explanation": "🌀 A curled, sideways-S symbol above a note indicates a Turn ornament.",
-        "metadata": {"topic": "ornaments_terms", "image_url": null, "difficulty": 1}
+        "metadata": {
+            "topic": "ornaments_terms",
+            "image_url": null,
+            "difficulty": 1
+        }
     },
     {
         "id": 124,
@@ -1193,7 +1642,11 @@
         "ground_truth": "The note above, the main note, the note below, then the main note again",
         "hint": "Picture the melody dipping above and below the main note in a smooth little loop!",
         "explanation": "🌀 A Turn weaves through the note above, the main note, the note below, and back to the main note.",
-        "metadata": {"topic": "ornaments_terms", "image_url": null, "difficulty": 2}
+        "metadata": {
+            "topic": "ornaments_terms",
+            "image_url": null,
+            "difficulty": 2
+        }
     },
     {
         "id": 125,
@@ -1202,7 +1655,11 @@
         "ground_truth": "A Mordent",
         "hint": "This quick, biting little symbol gets its name from the Italian word for 'to bite'!",
         "explanation": "⚡ A short zigzag with a vertical line through it is the symbol for a Mordent.",
-        "metadata": {"topic": "ornaments_terms", "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Upper.lower.mordent.notation.svg", "difficulty": 1}
+        "metadata": {
+            "topic": "ornaments_terms",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Upper.lower.mordent.notation.svg",
+            "difficulty": 1
+        }
     },
     {
         "id": 126,
@@ -1216,7 +1673,11 @@
         "ground_truth": "Quickly alternate the main note with a neighboring note once, then return",
         "hint": "It's like a quick little 'nibble' away from the note and straight back!",
         "explanation": "⚡ A Mordent quickly flicks to a neighboring note once and snaps right back to the main note.",
-        "metadata": {"topic": "ornaments_terms", "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Upper.lower.mordent.notation.svg", "difficulty": 2}
+        "metadata": {
+            "topic": "ornaments_terms",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Upper.lower.mordent.notation.svg",
+            "difficulty": 2
+        }
     },
     {
         "id": 127,
@@ -1230,7 +1691,11 @@
         "ground_truth": "A grace note, written at full size, that 'leans' into and takes time from the main note",
         "hint": "Its name comes from the Italian word 'appoggiare', meaning 'to lean'!",
         "explanation": "🎶 An Appoggiatura is a full-sized grace note that leans on the main note, borrowing some of its time value.",
-        "metadata": {"topic": "ornaments_terms", "image_url": null, "difficulty": 2}
+        "metadata": {
+            "topic": "ornaments_terms",
+            "image_url": null,
+            "difficulty": 2
+        }
     },
     {
         "id": 128,
@@ -1244,7 +1709,11 @@
         "ground_truth": "A small note without any slash through its stem, placed before the main note",
         "hint": "It looks like an unslashed grace note - the slash belongs to its cousin, the Acciaccatura!",
         "explanation": "🎶 An Appoggiatura is written as a small note with no slash through its stem.",
-        "metadata": {"topic": "ornaments_terms", "image_url": null, "difficulty": 2}
+        "metadata": {
+            "topic": "ornaments_terms",
+            "image_url": null,
+            "difficulty": 2
+        }
     },
     {
         "id": 129,
@@ -1258,7 +1727,11 @@
         "ground_truth": "A very short 'crushed' grace note played quickly, just before the beat",
         "hint": "Its name comes from the Italian word for 'crushed'!",
         "explanation": "⚡ An Acciaccatura is a tiny, quickly 'crushed' grace note squeezed in just before the main note.",
-        "metadata": {"topic": "ornaments_terms", "image_url": null, "difficulty": 2}
+        "metadata": {
+            "topic": "ornaments_terms",
+            "image_url": null,
+            "difficulty": 2
+        }
     },
     {
         "id": 130,
@@ -1272,16 +1745,29 @@
         "ground_truth": "The Acciaccatura has a small slash through its stem",
         "hint": "Look for a little diagonal line crossing through the tiny note's stem!",
         "explanation": "⚡ A small slash through the stem is what distinguishes an Acciaccatura from an Appoggiatura.",
-        "metadata": {"topic": "ornaments_terms", "image_url": null, "difficulty": 2}
+        "metadata": {
+            "topic": "ornaments_terms",
+            "image_url": null,
+            "difficulty": 2
+        }
     },
     {
         "id": 131,
         "question": "🇮🇹 What does the Italian term 'Cantabile' mean?",
-        "options": ["In a singing style", "Playfully", "Very loudly", "Getting faster"],
+        "options": [
+            "In a singing style",
+            "Playfully",
+            "Very loudly",
+            "Getting faster"
+        ],
         "ground_truth": "In a singing style",
         "hint": "This word shares its root with 'canto', meaning 'song'!",
         "explanation": "🇮🇹 'Cantabile' means the music should be played in a smooth, singing style.",
-        "metadata": {"topic": "ornaments_terms", "image_url": null, "difficulty": 1}
+        "metadata": {
+            "topic": "ornaments_terms",
+            "image_url": null,
+            "difficulty": 1
+        }
     },
     {
         "id": 132,
@@ -1290,7 +1776,11 @@
         "ground_truth": "Sweetly",
         "hint": "Think of 'dolce' desserts - this word is all about sweetness!",
         "explanation": "🇮🇹 'Dolce' tells the performer to play sweetly and gently.",
-        "metadata": {"topic": "ornaments_terms", "image_url": null, "difficulty": 1}
+        "metadata": {
+            "topic": "ornaments_terms",
+            "image_url": null,
+            "difficulty": 1
+        }
     },
     {
         "id": 133,
@@ -1299,16 +1789,29 @@
         "ground_truth": "A 4th",
         "hint": "In C Major second inversion (G-C-E), G up to C is exactly this interval!",
         "explanation": "🔢 The '4' in a 6/4 chord comes from the interval between the bass note and the chord's root, which is a 4th.",
-        "metadata": {"topic": "chord_inversions", "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png", "difficulty": 3}
+        "metadata": {
+            "topic": "chord_inversions",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png",
+            "difficulty": 3
+        }
     },
     {
         "id": 134,
         "question": "🇮🇹 What does the Italian term 'Grazioso' mean?",
-        "options": ["Gracefully", "Angrily", "Very slowly", "With heavy accents"],
+        "options": [
+            "Gracefully",
+            "Angrily",
+            "Very slowly",
+            "With heavy accents"
+        ],
         "ground_truth": "Gracefully",
         "hint": "This word sounds just like the English word for elegant charm!",
         "explanation": "🇮🇹 'Grazioso' instructs the performer to play gracefully and elegantly.",
-        "metadata": {"topic": "ornaments_terms", "image_url": null, "difficulty": 1}
+        "metadata": {
+            "topic": "ornaments_terms",
+            "image_url": null,
+            "difficulty": 1
+        }
     },
     {
         "id": 135,
@@ -1317,7 +1820,11 @@
         "ground_truth": "Playfully",
         "hint": "This word shares its root with 'scherzo', a light and playful musical movement!",
         "explanation": "🇮🇹 'Scherzando' means the music should be played in a playful, joking manner.",
-        "metadata": {"topic": "ornaments_terms", "image_url": null, "difficulty": 2}
+        "metadata": {
+            "topic": "ornaments_terms",
+            "image_url": null,
+            "difficulty": 2
+        }
     },
     {
         "id": 136,
@@ -1326,16 +1833,29 @@
         "ground_truth": "A 6th",
         "hint": "In C Major second inversion (G-C-E), G up to E is exactly this interval!",
         "explanation": "🔢 The '6' in a 6/4 chord comes from the interval between the bass note and the chord's 3rd, which is a 6th.",
-        "metadata": {"topic": "chord_inversions", "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png", "difficulty": 3}
+        "metadata": {
+            "topic": "chord_inversions",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png",
+            "difficulty": 3
+        }
     },
     {
         "id": 137,
         "question": "🇮🇹 What does the Italian term 'Smorzando' mean?",
-        "options": ["Dying away", "Bursting to life", "Staying exactly the same", "Suddenly very loud"],
+        "options": [
+            "Dying away",
+            "Bursting to life",
+            "Staying exactly the same",
+            "Suddenly very loud"
+        ],
         "ground_truth": "Dying away",
         "hint": "Imagine a sound gradually fading into silence, like a flame going out!",
         "explanation": "🇮🇹 'Smorzando' means the music should gradually die away in both volume and speed.",
-        "metadata": {"topic": "ornaments_terms", "image_url": null, "difficulty": 2}
+        "metadata": {
+            "topic": "ornaments_terms",
+            "image_url": null,
+            "difficulty": 2
+        }
     },
     {
         "id": 138,
@@ -1349,7 +1869,11 @@
         "ground_truth": "First Inversion and Second Inversion",
         "hint": "No matter the inversion, a triad always uses the same three letter names - just reshuffled!",
         "explanation": "🧠 Both First and Second Inversion simply rearrange the same three notes as Root Position, placing a different note at the bottom.",
-        "metadata": {"topic": "chord_inversions", "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png", "difficulty": 2}
+        "metadata": {
+            "topic": "chord_inversions",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png",
+            "difficulty": 2
+        }
     },
     {
         "id": 139,
@@ -1358,7 +1882,11 @@
         "ground_truth": "Fast",
         "hint": "Think of the English word 'vital' - full of speed and energy!",
         "explanation": "🇫🇷 'Vite' is French for 'fast' or 'quickly'.",
-        "metadata": {"topic": "ornaments_terms", "image_url": null, "difficulty": 2}
+        "metadata": {
+            "topic": "ornaments_terms",
+            "image_url": null,
+            "difficulty": 2
+        }
     },
     {
         "id": 140,
@@ -1367,7 +1895,11 @@
         "ground_truth": "Slow",
         "hint": "Think of the English word 'lent' as in taking your time, slowly!",
         "explanation": "🇫🇷 'Lent' is French for 'slow'.",
-        "metadata": {"topic": "ornaments_terms", "image_url": null, "difficulty": 2}
+        "metadata": {
+            "topic": "ornaments_terms",
+            "image_url": null,
+            "difficulty": 2
+        }
     },
     {
         "id": 141,
@@ -1376,7 +1908,11 @@
         "ground_truth": "B",
         "hint": "First Inversion always puts the 3rd degree at the bottom - and B is G Major's 3rd!",
         "explanation": "🎵 In First Inversion, the G Major triad has B (the 3rd) as its lowest note.",
-        "metadata": {"topic": "chord_inversions", "image_url": null, "difficulty": 2}
+        "metadata": {
+            "topic": "chord_inversions",
+            "image_url": null,
+            "difficulty": 2
+        }
     },
     {
         "id": 142,
@@ -1385,7 +1921,11 @@
         "ground_truth": "Slow",
         "hint": "It sounds a little like the English word 'long' - slow and drawn out!",
         "explanation": "🇩🇪 'Langsam' is German for 'slow'.",
-        "metadata": {"topic": "ornaments_terms", "image_url": null, "difficulty": 2}
+        "metadata": {
+            "topic": "ornaments_terms",
+            "image_url": null,
+            "difficulty": 2
+        }
     },
     {
         "id": 143,
@@ -1394,7 +1934,11 @@
         "ground_truth": "Lively",
         "hint": "It relates to the German word for 'life' - full of energy!",
         "explanation": "🇩🇪 'Lebhaft' is German for 'lively'.",
-        "metadata": {"topic": "ornaments_terms", "image_url": null, "difficulty": 2}
+        "metadata": {
+            "topic": "ornaments_terms",
+            "image_url": null,
+            "difficulty": 2
+        }
     },
     {
         "id": 144,
@@ -1403,7 +1947,11 @@
         "ground_truth": "A",
         "hint": "Second Inversion always puts the 5th degree at the bottom - and A is D minor's 5th!",
         "explanation": "🎵 In Second Inversion, the D minor triad has A (the 5th) as its lowest note.",
-        "metadata": {"topic": "chord_inversions", "image_url": null, "difficulty": 2}
+        "metadata": {
+            "topic": "chord_inversions",
+            "image_url": null,
+            "difficulty": 2
+        }
     },
     {
         "id": 145,
@@ -1412,7 +1960,11 @@
         "ground_truth": "German",
         "hint": "This word joins 'Langsam', 'Lebhaft', and 'Mässig' from the same language family!",
         "explanation": "🇩🇪 'Ruhig' is a German term meaning calm or peaceful.",
-        "metadata": {"topic": "ornaments_terms", "image_url": null, "difficulty": 2}
+        "metadata": {
+            "topic": "ornaments_terms",
+            "image_url": null,
+            "difficulty": 2
+        }
     },
     {
         "id": 146,
@@ -1421,16 +1973,29 @@
         "ground_truth": "Cantabile",
         "hint": "Match the meaning 'singing style' to the correct Italian word from your list!",
         "explanation": "🎼 'Cantabile' is the Italian term meaning 'in a singing style'.",
-        "metadata": {"topic": "ornaments_terms", "image_url": null, "difficulty": 2}
+        "metadata": {
+            "topic": "ornaments_terms",
+            "image_url": null,
+            "difficulty": 2
+        }
     },
     {
         "id": 147,
         "question": "🎼 A pianist sees a small, unslashed grace note before a main note. Which ornament are they about to play?",
-        "options": ["An Appoggiatura", "An Acciaccatura", "A Mordent", "A Turn"],
+        "options": [
+            "An Appoggiatura",
+            "An Acciaccatura",
+            "A Mordent",
+            "A Turn"
+        ],
         "ground_truth": "An Appoggiatura",
         "hint": "No slash through the stem means it takes real time from the main note - unlike its crushed cousin!",
         "explanation": "🎼 An unslashed grace note that leans into the main note is an Appoggiatura.",
-        "metadata": {"topic": "ornaments_terms", "image_url": null, "difficulty": 2}
+        "metadata": {
+            "topic": "ornaments_terms",
+            "image_url": null,
+            "difficulty": 2
+        }
     },
     {
         "id": 148,
@@ -1439,24 +2004,46 @@
         "ground_truth": "An Acciaccatura",
         "hint": "The slash through the stem is the telltale sign of the 'crushed note'!",
         "explanation": "🎼 A slashed grace note played very quickly before the beat is an Acciaccatura.",
-        "metadata": {"topic": "ornaments_terms", "image_url": null, "difficulty": 2}
+        "metadata": {
+            "topic": "ornaments_terms",
+            "image_url": null,
+            "difficulty": 2
+        }
     },
     {
         "id": 149,
         "question": "🎼 Which two ornaments both use small grace notes, but are told apart by a single slash mark through the stem?",
-        "options": ["Appoggiatura and Acciaccatura", "Trill and Turn", "Mordent and Trill", "Turn and Mordent"],
+        "options": [
+            "Appoggiatura and Acciaccatura",
+            "Trill and Turn",
+            "Mordent and Trill",
+            "Turn and Mordent"
+        ],
         "ground_truth": "Appoggiatura and Acciaccatura",
         "hint": "One takes time from the main note (no slash); the other is crushed in quickly (with a slash)!",
         "explanation": "🎼 The Appoggiatura and Acciaccatura are the two grace-note ornaments distinguished by the presence or absence of a slash.",
-        "metadata": {"topic": "ornaments_terms", "image_url": null, "difficulty": 3}
+        "metadata": {
+            "topic": "ornaments_terms",
+            "image_url": null,
+            "difficulty": 3
+        }
     },
     {
         "id": 150,
         "question": "🎼 A score marked 'Andante, dolce e cantabile' asks the performer to play at a walking pace, and also...?",
-        "options": ["Sweetly and in a singing style", "Fast and agitated", "As quietly as possible only", "With a trill on every note"],
+        "options": [
+            "Sweetly and in a singing style",
+            "Fast and agitated",
+            "As quietly as possible only",
+            "With a trill on every note"
+        ],
         "ground_truth": "Sweetly and in a singing style",
         "hint": "Translate 'dolce' and 'cantabile' separately, then combine their meanings!",
         "explanation": "🎼 'Dolce e cantabile' combines 'sweetly' and 'in a singing style' - a gentle, lyrical instruction.",
-        "metadata": {"topic": "ornaments_terms", "image_url": null, "difficulty": 3}
+        "metadata": {
+            "topic": "ornaments_terms",
+            "image_url": null,
+            "difficulty": 3
+        }
     }
 ]

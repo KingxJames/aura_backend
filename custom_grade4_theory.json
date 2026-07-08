@@ -1,0 +1,2702 @@
+[
+    {
+        "id": 1,
+        "question": "🎻 Grade 4 introduces the final new clef of your journey, sitting even higher than Alto. What is it called?",
+        "options": [
+            "The Tenor Clef",
+            "The Alto Clef",
+            "The Soprano Clef",
+            "The Neutral Clef"
+        ],
+        "ground_truth": "The Tenor Clef",
+        "hint": "It's still a 'C clef', just perched one line higher up the staff than its Grade 3 cousin!",
+        "explanation": "🎻 The Tenor Clef is the fourth and final clef in this series, sitting one line higher than the Alto Clef.",
+        "metadata": {
+            "topic": "tenor_clef",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/17/Middle_C_in_four_clefs.svg",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 2,
+        "question": "🎻 Like the Alto Clef, the Tenor Clef belongs to which family of clefs?",
+        "options": [
+            "The C Clef family",
+            "The G Clef family",
+            "The F Clef family",
+            "The Neutral Clef family"
+        ],
+        "ground_truth": "The C Clef family",
+        "hint": "Both the Alto and Tenor clefs share the exact same job - pointing at a C!",
+        "explanation": "🎻 The Tenor Clef, like the Alto Clef, is a C Clef - its center always marks Middle C.",
+        "metadata": {
+            "topic": "tenor_clef",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 3,
+        "question": "🎻 Which note does the very center of the Tenor Clef point to?",
+        "options": [
+            "Middle C",
+            "Treble G",
+            "Bass F",
+            "Tenor D"
+        ],
+        "ground_truth": "Middle C",
+        "hint": "Every C clef, no matter where it sits on the staff, always points to the exact same note!",
+        "explanation": "🎻 The Tenor Clef's center notch marks Middle C, just like the Alto Clef does.",
+        "metadata": {
+            "topic": "tenor_clef",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/17/Middle_C_in_four_clefs.svg",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 4,
+        "question": "🪜 On which line of the staff does the Tenor Clef's center sit, marking that line as Middle C?",
+        "options": [
+            "The fourth line (Line 4)",
+            "The middle line (Line 3)",
+            "The bottom line (Line 1)",
+            "The top line (Line 5)"
+        ],
+        "ground_truth": "The fourth line (Line 4)",
+        "hint": "It sits one line higher than the Alto Clef's middle-line placement!",
+        "explanation": "🪜 The Tenor Clef sits centered on Line 4, one line higher than the Alto Clef's Line 3.",
+        "metadata": {
+            "topic": "tenor_clef",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/17/Middle_C_in_four_clefs.svg",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 5,
+        "question": "👀 Compared to the Alto Clef, where does the Tenor Clef's Middle C sit?",
+        "options": [
+            "One line higher up the staff",
+            "One line lower down the staff",
+            "In exactly the same place",
+            "Two lines higher up the staff"
+        ],
+        "ground_truth": "One line higher up the staff",
+        "hint": "Alto sits on Line 3; Tenor sits on Line 4 - count the difference!",
+        "explanation": "👀 The Tenor Clef places Middle C one line higher than the Alto Clef does.",
+        "metadata": {
+            "topic": "tenor_clef",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 6,
+        "question": "🎻 Which orchestral instrument reads the Tenor Clef for its highest passages?",
+        "options": [
+            "The Cello",
+            "The Violin",
+            "The Double Bass",
+            "The Flute"
+        ],
+        "ground_truth": "The Cello",
+        "hint": "This bowed string instrument normally reads Bass Clef, but switches for its high notes!",
+        "explanation": "🎻 The Cello switches to Tenor Clef when its melody climbs too high for comfortable Bass Clef reading.",
+        "metadata": {
+            "topic": "tenor_clef",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 7,
+        "question": "🎻 Which woodwind instrument reads the Tenor Clef for its highest passages?",
+        "options": [
+            "The Bassoon",
+            "The Flute",
+            "The Clarinet",
+            "The Oboe"
+        ],
+        "ground_truth": "The Bassoon",
+        "hint": "This double-reed instrument normally reads Bass Clef, but switches for its high notes too!",
+        "explanation": "🎻 The Bassoon, like the Cello, switches to Tenor Clef for its upper-register passages.",
+        "metadata": {
+            "topic": "tenor_clef",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 8,
+        "question": "🎻 Which brass instrument reads the Tenor Clef for its highest passages?",
+        "options": [
+            "The Trombone",
+            "The Trumpet",
+            "The Tuba",
+            "The French Horn"
+        ],
+        "ground_truth": "The Trombone",
+        "hint": "This slide instrument normally reads Bass Clef, but switches when the notes climb high!",
+        "explanation": "🎻 The Trombone shares the Tenor Clef habit with the Cello and Bassoon, using it for high passages.",
+        "metadata": {
+            "topic": "tenor_clef",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 9,
+        "question": "👀 Why do cellists, bassoonists, and trombonists switch to Tenor Clef for high passages instead of staying in Bass Clef?",
+        "options": [
+            "It avoids writing many ledger lines above the Bass Clef staff",
+            "Tenor Clef makes the notes sound higher",
+            "Bass Clef cannot be used for fast passages",
+            "It is required by law in orchestras"
+        ],
+        "ground_truth": "It avoids writing many ledger lines above the Bass Clef staff",
+        "hint": "Think about why the Alto Clef helps the viola - the same logic keeps notes readable here!",
+        "explanation": "👀 Switching to Tenor Clef keeps high passages sitting neatly on the staff instead of stacking up ledger lines.",
+        "metadata": {
+            "topic": "tenor_clef",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 10,
+        "question": "🪜 What note sits on the BOTTOM line (Line 1) of the Tenor Clef staff?",
+        "options": [
+            "D",
+            "F",
+            "E",
+            "C"
+        ],
+        "ground_truth": "D",
+        "hint": "Middle C sits on Line 4. Count down three letter-lines: C, B(space), A(line3), G(space), F(line2), E(space), D(line1)!",
+        "explanation": "🪜 Counting down from Middle C on Line 4, the bottom line of the Tenor staff lands on D.",
+        "metadata": {
+            "topic": "tenor_clef",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 11,
+        "question": "🪜 What note sits on the TOP line (Line 5) of the Tenor Clef staff?",
+        "options": [
+            "E",
+            "D",
+            "F",
+            "G"
+        ],
+        "ground_truth": "E",
+        "hint": "Middle C sits on Line 4. Count up one letter-line!",
+        "explanation": "🪜 One letter-line above Middle C on the Tenor staff is E, sitting on Line 5.",
+        "metadata": {
+            "topic": "tenor_clef",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 12,
+        "question": "🪜 What note sits on Line 2 of the Tenor Clef staff?",
+        "options": [
+            "F",
+            "D",
+            "A",
+            "G"
+        ],
+        "ground_truth": "F",
+        "hint": "Count down two letter-lines from Middle C on Line 4: C, B(space), A(line3), G(space), F(line2)!",
+        "explanation": "🪜 Line 2 of the Tenor Clef staff is F, two letter-lines below Middle C.",
+        "metadata": {
+            "topic": "tenor_clef",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 13,
+        "question": "🪜 What note sits on Line 3 of the Tenor Clef staff, just below Middle C?",
+        "options": [
+            "A",
+            "B",
+            "G",
+            "F"
+        ],
+        "ground_truth": "A",
+        "hint": "Step down just one letter-line from Middle C (Line 4)!",
+        "explanation": "🪜 One letter-line below Middle C on the Tenor staff is A, sitting on Line 3.",
+        "metadata": {
+            "topic": "tenor_clef",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 14,
+        "question": "🎈 What note sits in the very TOP space (Space 4) of the Tenor Clef staff, just above Middle C?",
+        "options": [
+            "D",
+            "E",
+            "C",
+            "F"
+        ],
+        "ground_truth": "D",
+        "hint": "Step up just one letter-space from Middle C (Line 4)!",
+        "explanation": "🎈 One letter-step above Middle C on the Tenor staff is D, sitting in Space 4.",
+        "metadata": {
+            "topic": "tenor_clef",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 15,
+        "question": "🎈 What note sits in Space 3 of the Tenor Clef staff, just below Middle C?",
+        "options": [
+            "B",
+            "A",
+            "C",
+            "D"
+        ],
+        "ground_truth": "B",
+        "hint": "Step down just one letter-space from Middle C (Line 4)!",
+        "explanation": "🎈 One letter-step below Middle C on the Tenor staff is B, sitting in Space 3.",
+        "metadata": {
+            "topic": "tenor_clef",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 16,
+        "question": "🎈 What note sits in the very BOTTOM space (Space 1) of the Tenor Clef staff?",
+        "options": [
+            "E",
+            "G",
+            "D",
+            "F"
+        ],
+        "ground_truth": "E",
+        "hint": "It's the space right between Line 1 (D) and Line 2 (F)!",
+        "explanation": "🎈 The bottom space of the Tenor Clef staff, between D and F, is E.",
+        "metadata": {
+            "topic": "tenor_clef",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 17,
+        "question": "🎈 What note sits in Space 2 of the Tenor Clef staff?",
+        "options": [
+            "G",
+            "E",
+            "B",
+            "F"
+        ],
+        "ground_truth": "G",
+        "hint": "It's the space right between Line 2 (F) and Line 3 (A)!",
+        "explanation": "🎈 Space 2 of the Tenor Clef staff, between F and A, is G.",
+        "metadata": {
+            "topic": "tenor_clef",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 18,
+        "question": "👀 For their LOWER, more common passages, cellists normally read which clef instead of Tenor?",
+        "options": [
+            "Bass Clef",
+            "Treble Clef",
+            "Alto Clef",
+            "Neutral Clef"
+        ],
+        "ground_truth": "Bass Clef",
+        "hint": "The cello's most comfortable low range fits best in the clef named after the F line!",
+        "explanation": "👀 Cello parts are written mostly in Bass Clef, only switching to Tenor Clef for higher passages.",
+        "metadata": {
+            "topic": "tenor_clef",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 19,
+        "question": "👀 For their LOWER, more common passages, bassoonists normally read which clef instead of Tenor?",
+        "options": [
+            "Bass Clef",
+            "Treble Clef",
+            "Alto Clef",
+            "Soprano Clef"
+        ],
+        "ground_truth": "Bass Clef",
+        "hint": "Like the cello, the bassoon's low, comfortable range fits best in this clef!",
+        "explanation": "👀 Bassoon parts are mostly written in Bass Clef, switching to Tenor Clef only for their higher notes.",
+        "metadata": {
+            "topic": "tenor_clef",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 20,
+        "question": "👀 If a cello, bassoon, or trombone part climbs even HIGHER than Tenor Clef can comfortably hold, which clef takes over next?",
+        "options": [
+            "Treble Clef",
+            "Alto Clef",
+            "Bass Clef",
+            "Neutral Clef"
+        ],
+        "ground_truth": "Treble Clef",
+        "hint": "When even Tenor Clef needs too many ledger lines, the highest common clef steps in!",
+        "explanation": "👀 For extremely high passages, these instruments move all the way to Treble Clef.",
+        "metadata": {
+            "topic": "tenor_clef",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 21,
+        "question": "🎻 Put these four clefs in the order they were introduced across Grades 1 to 4.",
+        "options": [
+            "Treble, Bass, Alto, Tenor",
+            "Bass, Treble, Tenor, Alto",
+            "Alto, Tenor, Treble, Bass",
+            "Treble, Alto, Bass, Tenor"
+        ],
+        "ground_truth": "Treble, Bass, Alto, Tenor",
+        "hint": "Treble and Bass came first in earlier grades, then Alto in Grade 3, and now Tenor!",
+        "explanation": "🎻 Your clef journey has run Treble, then Bass, then Alto in Grade 3, and finally Tenor in Grade 4.",
+        "metadata": {
+            "topic": "tenor_clef",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 22,
+        "question": "🔢 Middle C sits on Line 4 in Tenor Clef and Line 3 in Alto Clef. Where does it sit in Treble Clef?",
+        "options": [
+            "On a short ledger line just below the staff",
+            "On the middle line of the staff",
+            "On the top line of the staff",
+            "In the bottom space of the staff"
+        ],
+        "ground_truth": "On a short ledger line just below the staff",
+        "hint": "Middle C is famous for needing its own little ledger line beneath the Treble staff!",
+        "explanation": "🔢 In Treble Clef, Middle C sits on a ledger line just underneath the five staff lines.",
+        "metadata": {
+            "topic": "tenor_clef",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/17/Middle_C_in_four_clefs.svg",
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 23,
+        "question": "🔢 And where does Middle C sit in Bass Clef?",
+        "options": [
+            "On a short ledger line just above the staff",
+            "On the middle line of the staff",
+            "On the bottom line of the staff",
+            "In the top space of the staff"
+        ],
+        "ground_truth": "On a short ledger line just above the staff",
+        "hint": "Middle C sits just above the five lines of the Bass staff, on its own little ledger line!",
+        "explanation": "🔢 In Bass Clef, Middle C sits on a ledger line just above the five staff lines.",
+        "metadata": {
+            "topic": "tenor_clef",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/17/Middle_C_in_four_clefs.svg",
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 24,
+        "question": "🎵 A tenor trombonist plays a passage entirely above the Bass Clef staff. Which clef would make this passage easiest to read?",
+        "options": [
+            "Tenor Clef",
+            "Treble Clef",
+            "Alto Clef",
+            "Neutral Clef"
+        ],
+        "ground_truth": "Tenor Clef",
+        "hint": "This is exactly the situation Tenor Clef was designed to solve for trombone, cello, and bassoon parts!",
+        "explanation": "🎵 Tenor Clef keeps high trombone passages on the staff instead of piling up ledger lines above Bass Clef.",
+        "metadata": {
+            "topic": "tenor_clef",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 25,
+        "question": "🌟 Which single fact best explains why both the Alto and Tenor clefs exist as separate options?",
+        "options": [
+            "Different instruments have different comfortable ranges, so the 'Middle C line' moves to suit them",
+            "Composers invented them purely for variety",
+            "Only string instruments are allowed to use C clefs",
+            "Alto and Tenor clefs represent different pitches for Middle C"
+        ],
+        "ground_truth": "Different instruments have different comfortable ranges, so the 'Middle C line' moves to suit them",
+        "hint": "Both clefs point to the exact same Middle C - what changes is WHERE that C sits on the staff!",
+        "explanation": "🌟 Alto and Tenor clefs place Middle C on different lines purely to keep each instrument's typical range close to the staff, avoiding excess ledger lines.",
+        "metadata": {
+            "topic": "tenor_clef",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 26,
+        "question": "🎶 Grade 4 introduces a brand new, extra-long note value. What is it called?",
+        "options": [
+            "The Breve",
+            "The Semibreve",
+            "The Minim",
+            "The Longa"
+        ],
+        "ground_truth": "The Breve",
+        "hint": "This note is worth double a Semibreve (whole note)!",
+        "explanation": "🎶 The Breve is the longest common note value, worth double a Semibreve.",
+        "metadata": {
+            "topic": "rhythm_time",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 27,
+        "question": "🎶 How many beats is a Breve worth in 4/4 time?",
+        "options": [
+            "8 beats",
+            "4 beats",
+            "2 beats",
+            "16 beats"
+        ],
+        "ground_truth": "8 beats",
+        "hint": "A Semibreve (whole note) fills one whole bar of 4/4 with 4 beats - the Breve fills TWO bars!",
+        "explanation": "🎶 A Breve equals two Semibreves, so in 4/4 time it lasts a full 8 beats.",
+        "metadata": {
+            "topic": "rhythm_time",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 28,
+        "question": "🎶 How many Minims (half notes) equal one Breve?",
+        "options": [
+            "4 Minims",
+            "2 Minims",
+            "8 Minims",
+            "3 Minims"
+        ],
+        "ground_truth": "4 Minims",
+        "hint": "One Semibreve equals 2 Minims, and a Breve is double a Semibreve!",
+        "explanation": "🎶 Since a Breve equals 2 Semibreves, and each Semibreve equals 2 Minims, a Breve equals 4 Minims.",
+        "metadata": {
+            "topic": "rhythm_time",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 29,
+        "question": "👀 How does a Breve rest's symbol differ from a Semibreve (whole) rest's symbol?",
+        "options": [
+            "The Breve rest is a filled block that sits ON TOP of a line, while the whole rest hangs BELOW a line",
+            "They look completely identical",
+            "The Breve rest is round while the whole rest is square",
+            "The Breve rest only appears in compound time"
+        ],
+        "ground_truth": "The Breve rest is a filled block that sits ON TOP of a line, while the whole rest hangs BELOW a line",
+        "hint": "Both are solid rectangles, but pay attention to which side of the line they sit on!",
+        "explanation": "👀 A Breve rest sits on top of a staff line, while a Semibreve (whole) rest hangs below one - a subtle but important difference.",
+        "metadata": {
+            "topic": "rhythm_time",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 30,
+        "question": "🔮 A single dot after a note adds what fraction of the note's value?",
+        "options": [
+            "Half its value",
+            "A quarter of its value",
+            "Double its value",
+            "A third of its value"
+        ],
+        "ground_truth": "Half its value",
+        "hint": "You learned this rule in earlier grades - one dot always adds half again!",
+        "explanation": "🔮 A single dot always adds half the original note's value.",
+        "metadata": {
+            "topic": "rhythm_time",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 31,
+        "question": "🔮 Grade 4 introduces the Double Dot. What does the SECOND dot add?",
+        "options": [
+            "A quarter of the note's original value",
+            "Half of the note's original value",
+            "The same as the first dot",
+            "Double the note's original value"
+        ],
+        "ground_truth": "A quarter of the note's original value",
+        "hint": "Each extra dot is worth half of the PREVIOUS dot - so the second dot is half of a half!",
+        "explanation": "🔮 The second dot adds a quarter of the note's original value, since it's worth half of the first dot's addition.",
+        "metadata": {
+            "topic": "rhythm_time",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 32,
+        "question": "🧮 A double-dotted Crotchet is worth how many semiquavers in total?",
+        "options": [
+            "7 semiquavers",
+            "6 semiquavers",
+            "8 semiquavers",
+            "5 semiquavers"
+        ],
+        "ground_truth": "7 semiquavers",
+        "hint": "A plain Crotchet is 4 semiquavers. Add half (2) for the first dot, then a quarter (1) for the second dot!",
+        "explanation": "🧮 4 (Crotchet) + 2 (first dot) + 1 (second dot) = 7 semiquavers total for a double-dotted Crotchet.",
+        "metadata": {
+            "topic": "rhythm_time",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 33,
+        "question": "🧮 A double-dotted Minim is worth how many crotchet beats in total?",
+        "options": [
+            "3.5 beats",
+            "3 beats",
+            "4 beats",
+            "2.5 beats"
+        ],
+        "ground_truth": "3.5 beats",
+        "hint": "A plain Minim is 2 beats. Add half (1) for the first dot, then a quarter (0.5) for the second dot!",
+        "explanation": "🧮 2 (Minim) + 1 (first dot) + 0.5 (second dot) = 3.5 beats total for a double-dotted Minim.",
+        "metadata": {
+            "topic": "rhythm_time",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 34,
+        "question": "🎵 Grade 4 introduces the Duplet, the exact opposite of a triplet. What does a Duplet do?",
+        "options": [
+            "Fits two equal notes into the time normally taken by three",
+            "Fits three equal notes into the time normally taken by two",
+            "Doubles the length of a single note",
+            "Splits a beat into four equal parts"
+        ],
+        "ground_truth": "Fits two equal notes into the time normally taken by three",
+        "hint": "A triplet squeezes 3 into a 2-feeling space - a duplet does the reverse!",
+        "explanation": "🎵 A Duplet fits two even notes into a space that would normally hold three, the mirror image of a triplet.",
+        "metadata": {
+            "topic": "rhythm_time",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 35,
+        "question": "🎵 A Duplet is most naturally used in which type of time?",
+        "options": [
+            "Compound time",
+            "Simple time",
+            "Free time",
+            "Additive time"
+        ],
+        "ground_truth": "Compound time",
+        "hint": "Compound time beats already divide into three, so a duplet 'forces' just two into that space!",
+        "explanation": "🎵 Duplets appear in compound time, momentarily making a normally three-part beat feel like two.",
+        "metadata": {
+            "topic": "rhythm_time",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 36,
+        "question": "🎵 A Triplet, by contrast, is most naturally used in which type of time?",
+        "options": [
+            "Simple time",
+            "Compound time",
+            "6/8 time only",
+            "It cannot be used in any time signature"
+        ],
+        "ground_truth": "Simple time",
+        "hint": "Simple time beats normally divide into two, so a triplet 'forces' three into that space instead!",
+        "explanation": "🎵 Triplets appear in simple time, momentarily making a normally two-part beat feel like three.",
+        "metadata": {
+            "topic": "rhythm_time",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 37,
+        "question": "🎶 What kind of time signature grouping is 6/4?",
+        "options": [
+            "Compound duple",
+            "Simple duple",
+            "Compound triple",
+            "Simple triple"
+        ],
+        "ground_truth": "Compound duple",
+        "hint": "Six divided into groups of three gives two big beats per bar!",
+        "explanation": "🎶 6/4 groups into two beats per bar, each worth a dotted Minim - compound duple time.",
+        "metadata": {
+            "topic": "rhythm_time",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 38,
+        "question": "🎶 What kind of time signature grouping is 9/4?",
+        "options": [
+            "Compound triple",
+            "Compound duple",
+            "Simple triple",
+            "Compound quadruple"
+        ],
+        "ground_truth": "Compound triple",
+        "hint": "Nine divided into groups of three gives three big beats per bar!",
+        "explanation": "🎶 9/4 groups into three beats per bar, each worth a dotted Minim - compound triple time.",
+        "metadata": {
+            "topic": "rhythm_time",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 39,
+        "question": "🎶 What kind of time signature grouping is 12/4?",
+        "options": [
+            "Compound quadruple",
+            "Compound triple",
+            "Simple quadruple",
+            "Compound duple"
+        ],
+        "ground_truth": "Compound quadruple",
+        "hint": "Twelve divided into groups of three gives four big beats per bar!",
+        "explanation": "🎶 12/4 groups into four beats per bar, each worth a dotted Minim - compound quadruple time.",
+        "metadata": {
+            "topic": "rhythm_time",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 40,
+        "question": "🔮 In 6/4, 9/4, and 12/4 time, what note value receives ONE full beat?",
+        "options": [
+            "A dotted Minim",
+            "A plain Minim",
+            "A dotted Crotchet",
+            "A plain Crotchet"
+        ],
+        "ground_truth": "A dotted Minim",
+        "hint": "Since each beat splits into three crotchets, it needs a note worth exactly three crotchets - a dotted one!",
+        "explanation": "🔮 In these /4 compound signatures, a dotted Minim (worth 3 crotchets) fills one full beat.",
+        "metadata": {
+            "topic": "rhythm_time",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 41,
+        "question": "🎶 What kind of time signature grouping is 6/16?",
+        "options": [
+            "Compound duple",
+            "Simple duple",
+            "Compound triple",
+            "Compound quadruple"
+        ],
+        "ground_truth": "Compound duple",
+        "hint": "Just like 6/8, but built from smaller semiquavers instead of quavers!",
+        "explanation": "🎶 6/16 groups into two beats per bar, each worth a dotted quaver - compound duple time.",
+        "metadata": {
+            "topic": "rhythm_time",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 42,
+        "question": "🎶 What kind of time signature grouping is 9/16?",
+        "options": [
+            "Compound triple",
+            "Compound duple",
+            "Simple triple",
+            "Compound quadruple"
+        ],
+        "ground_truth": "Compound triple",
+        "hint": "Just like 9/8, but built from smaller semiquavers instead of quavers!",
+        "explanation": "🎶 9/16 groups into three beats per bar, each worth a dotted quaver - compound triple time.",
+        "metadata": {
+            "topic": "rhythm_time",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 43,
+        "question": "🎶 What kind of time signature grouping is 12/16?",
+        "options": [
+            "Compound quadruple",
+            "Compound triple",
+            "Simple quadruple",
+            "Compound duple"
+        ],
+        "ground_truth": "Compound quadruple",
+        "hint": "Just like 12/8, but built from smaller semiquavers instead of quavers!",
+        "explanation": "🎶 12/16 groups into four beats per bar, each worth a dotted quaver - compound quadruple time.",
+        "metadata": {
+            "topic": "rhythm_time",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 44,
+        "question": "🔮 In 6/16, 9/16, and 12/16 time, what note value receives ONE full beat?",
+        "options": [
+            "A dotted quaver",
+            "A plain quaver",
+            "A dotted semiquaver",
+            "A dotted Crotchet"
+        ],
+        "ground_truth": "A dotted quaver",
+        "hint": "Since each beat splits into three semiquavers, it needs a note worth exactly three semiquavers - a dotted one!",
+        "explanation": "🔮 In these /16 compound signatures, a dotted quaver (worth 3 semiquavers) fills one full beat.",
+        "metadata": {
+            "topic": "rhythm_time",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 45,
+        "question": "🌟 6/4 time feels exactly like a slower version of which familiar time signature?",
+        "options": [
+            "6/8",
+            "3/4",
+            "2/4",
+            "9/8"
+        ],
+        "ground_truth": "6/8",
+        "hint": "Both group into two dotted beats per bar - only the note values are bigger in 6/4!",
+        "explanation": "🌟 6/4 has the same compound duple feel as 6/8, just written in larger note values.",
+        "metadata": {
+            "topic": "rhythm_time",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 46,
+        "question": "🌟 9/4 time feels exactly like a slower version of which familiar time signature?",
+        "options": [
+            "9/8",
+            "6/8",
+            "3/4",
+            "12/8"
+        ],
+        "ground_truth": "9/8",
+        "hint": "Both group into three dotted beats per bar - only the note values are bigger in 9/4!",
+        "explanation": "🌟 9/4 has the same compound triple feel as 9/8, just written in larger note values.",
+        "metadata": {
+            "topic": "rhythm_time",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 47,
+        "question": "🌟 12/4 time feels exactly like a slower version of which familiar time signature?",
+        "options": [
+            "12/8",
+            "9/8",
+            "6/8",
+            "4/4"
+        ],
+        "ground_truth": "12/8",
+        "hint": "Both group into four dotted beats per bar - only the note values are bigger in 12/4!",
+        "explanation": "🌟 12/4 has the same compound quadruple feel as 12/8, just written in larger note values.",
+        "metadata": {
+            "topic": "rhythm_time",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 48,
+        "question": "🌟 6/16 time feels exactly like a faster version of which familiar time signature?",
+        "options": [
+            "6/8",
+            "9/8",
+            "3/8",
+            "12/16"
+        ],
+        "ground_truth": "6/8",
+        "hint": "Both group into two dotted beats per bar - only the note values are smaller in 6/16!",
+        "explanation": "🌟 6/16 has the same compound duple feel as 6/8, just written in smaller note values.",
+        "metadata": {
+            "topic": "rhythm_time",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 49,
+        "question": "🌟 9/16 time feels exactly like a faster version of which familiar time signature?",
+        "options": [
+            "9/8",
+            "6/8",
+            "12/8",
+            "3/8"
+        ],
+        "ground_truth": "9/8",
+        "hint": "Both group into three dotted beats per bar - only the note values are smaller in 9/16!",
+        "explanation": "🌟 9/16 has the same compound triple feel as 9/8, just written in smaller note values.",
+        "metadata": {
+            "topic": "rhythm_time",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 50,
+        "question": "🌟 12/16 time feels exactly like a faster version of which familiar time signature?",
+        "options": [
+            "12/8",
+            "9/8",
+            "6/8",
+            "4/4"
+        ],
+        "ground_truth": "12/8",
+        "hint": "Both group into four dotted beats per bar - only the note values are smaller in 12/16!",
+        "explanation": "🌟 12/16 has the same compound quadruple feel as 12/8, just written in smaller note values.",
+        "metadata": {
+            "topic": "rhythm_time",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 51,
+        "question": "🏠 What is the tonic (home note) of the new Grade 4 major key with 5 sharps?",
+        "options": [
+            "B",
+            "E",
+            "F♯",
+            "A"
+        ],
+        "ground_truth": "B",
+        "hint": "This key has one more sharp than Grade 3's E Major (4 sharps)!",
+        "explanation": "🏠 The new 5-sharp major key begins right on the note B.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 52,
+        "question": "✨ How many sharps live inside the B Major key signature?",
+        "options": [
+            "5 sharps",
+            "4 sharps",
+            "6 sharps",
+            "3 sharps"
+        ],
+        "ground_truth": "5 sharps",
+        "hint": "B Major has one more sharp than E Major's four sharps!",
+        "explanation": "✨ B Major has five sharps in its key signature.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 53,
+        "question": "✨ Which five sharps make up the B Major key signature?",
+        "options": [
+            "F♯, C♯, G♯, D♯, A♯",
+            "F♯, C♯, G♯, D♯, E♯",
+            "F♯, C♯, G♯, A♯, B♯",
+            "C♯, G♯, D♯, A♯, E♯"
+        ],
+        "ground_truth": "F♯, C♯, G♯, D♯, A♯",
+        "hint": "Start with E Major's four sharps (F♯, C♯, G♯, D♯), then add one brand new sharp!",
+        "explanation": "✨ B Major keeps F♯, C♯, G♯, and D♯ from E Major and adds a new sharp: A♯!",
+        "metadata": {
+            "topic": "scales",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 54,
+        "question": "🏠 What is the tonic (home note) of the new Grade 4 major key with 5 flats?",
+        "options": [
+            "D♭",
+            "A♭",
+            "G♭",
+            "B♭"
+        ],
+        "ground_truth": "D♭",
+        "hint": "This key has one more flat than Grade 3's A♭ Major (4 flats)!",
+        "explanation": "🏠 The new 5-flat major key begins right on the note D♭.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 55,
+        "question": "✨ How many flats live inside the D♭ Major key signature?",
+        "options": [
+            "5 flats",
+            "4 flats",
+            "6 flats",
+            "3 flats"
+        ],
+        "ground_truth": "5 flats",
+        "hint": "D♭ Major has one more flat than A♭ Major's four flats!",
+        "explanation": "✨ D♭ Major has five flats in its key signature.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 56,
+        "question": "✨ Which five flats make up the D♭ Major key signature?",
+        "options": [
+            "B♭, E♭, A♭, D♭, G♭",
+            "B♭, E♭, A♭, D♭, C♭",
+            "B♭, E♭, A♭, G♭, C♭",
+            "E♭, A♭, D♭, G♭, C♭"
+        ],
+        "ground_truth": "B♭, E♭, A♭, D♭, G♭",
+        "hint": "Start with A♭ Major's four flats (B♭, E♭, A♭, D♭), then add one brand new flat!",
+        "explanation": "✨ D♭ Major keeps B♭, E♭, A♭, and D♭ from A♭ Major and adds a new flat: G♭!",
+        "metadata": {
+            "topic": "scales",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 57,
+        "question": "🌙 What is the new Grade 4 minor key that shares its key signature with B Major (5 sharps)?",
+        "options": [
+            "G♯ Minor",
+            "D♯ Minor",
+            "B Minor",
+            "F♯ Minor"
+        ],
+        "ground_truth": "G♯ Minor",
+        "hint": "Count down a minor 3rd from B to find its relative minor!",
+        "explanation": "🌙 G♯ Minor is the relative minor of B Major, sharing the same 5-sharp key signature.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 58,
+        "question": "🌙 What is the new Grade 4 minor key that shares its key signature with D♭ Major (5 flats)?",
+        "options": [
+            "B♭ Minor",
+            "G♭ Minor",
+            "D♭ Minor",
+            "E♭ Minor"
+        ],
+        "ground_truth": "B♭ Minor",
+        "hint": "Count down a minor 3rd from D♭ to find its relative minor!",
+        "explanation": "🌙 B♭ Minor is the relative minor of D♭ Major, sharing the same 5-flat key signature.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 59,
+        "question": "🌙 G♯ Minor is the relative minor of which Grade 4 major key?",
+        "options": [
+            "B Major",
+            "E Major",
+            "D♭ Major",
+            "F♯ Major"
+        ],
+        "ground_truth": "B Major",
+        "hint": "They share the exact same 5-sharp key signature!",
+        "explanation": "🌙 G♯ Minor shares its 5-sharp key signature with B Major, its relative major.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 60,
+        "question": "🌙 B♭ Minor is the relative minor of which Grade 4 major key?",
+        "options": [
+            "D♭ Major",
+            "A♭ Major",
+            "G♭ Major",
+            "E♭ Major"
+        ],
+        "ground_truth": "D♭ Major",
+        "hint": "They share the exact same 5-flat key signature!",
+        "explanation": "🌙 B♭ Minor shares its 5-flat key signature with D♭ Major, its relative major.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 61,
+        "question": "🔀 Grade 4 introduces a brand new type of scale: the Chromatic Scale. How many different notes does it use within one octave?",
+        "options": [
+            "12 notes",
+            "7 notes",
+            "8 notes",
+            "5 notes"
+        ],
+        "ground_truth": "12 notes",
+        "hint": "Unlike major and minor scales, this one uses every single note available!",
+        "explanation": "🔀 A Chromatic Scale packs in all 12 different notes within an octave.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 62,
+        "question": "🔀 A Chromatic Scale moves entirely by which interval?",
+        "options": [
+            "Semitones (half steps)",
+            "Tones (whole steps)",
+            "Thirds",
+            "A mixture of any interval"
+        ],
+        "ground_truth": "Semitones (half steps)",
+        "hint": "Every single step is the smallest possible distance between two notes!",
+        "explanation": "🔀 A Chromatic Scale climbs or descends entirely in semitones, with no whole-tone gaps.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 63,
+        "question": "🔀 Which accidental is conventionally used when writing a Chromatic Scale ASCENDING?",
+        "options": [
+            "Sharps",
+            "Flats",
+            "Naturals only",
+            "Double sharps"
+        ],
+        "ground_truth": "Sharps",
+        "hint": "Going up, notation traditionally favors the accidental that 'raises' a note!",
+        "explanation": "🔀 Ascending chromatic scales are conventionally notated using sharps.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 64,
+        "question": "🔀 Which accidental is conventionally used when writing a Chromatic Scale DESCENDING?",
+        "options": [
+            "Flats",
+            "Sharps",
+            "Naturals only",
+            "Double flats"
+        ],
+        "ground_truth": "Flats",
+        "hint": "Coming down, notation traditionally favors the accidental that 'lowers' a note!",
+        "explanation": "🔀 Descending chromatic scales are conventionally notated using flats.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 65,
+        "question": "🔀 Unlike Major and Minor scales, a Chromatic Scale can start on...",
+        "options": [
+            "Any note at all",
+            "Only the tonic of a major key",
+            "Only white notes",
+            "Only notes with sharps"
+        ],
+        "ground_truth": "Any note at all",
+        "hint": "Since every note is included anyway, there's no fixed 'starting pattern' to follow!",
+        "explanation": "🔀 Because a Chromatic Scale simply moves in semitones through all 12 notes, it can begin on any starting pitch.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 66,
+        "question": "🔢 Counting the octave note at the top, how many total notes are played in one full ascending Chromatic Scale?",
+        "options": [
+            "13 notes",
+            "12 notes",
+            "8 notes",
+            "7 notes"
+        ],
+        "ground_truth": "13 notes",
+        "hint": "There are 12 different notes, plus the starting note repeated an octave higher!",
+        "explanation": "🔢 A full Chromatic Scale plays 13 notes in total: 12 distinct pitches plus the octave repeat.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 67,
+        "question": "✨ Which brand new sharp is added when moving from E Major (4 sharps) to B Major (5 sharps)?",
+        "options": [
+            "A♯",
+            "D♯",
+            "G♯",
+            "E♯"
+        ],
+        "ground_truth": "A♯",
+        "hint": "Follow the circle of fifths - each new key adds just one new sharp!",
+        "explanation": "✨ Moving from E Major to B Major adds a single new sharp: A♯.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 68,
+        "question": "✨ Which brand new flat is added when moving from A♭ Major (4 flats) to D♭ Major (5 flats)?",
+        "options": [
+            "G♭",
+            "C♭",
+            "F♭",
+            "B♭♭"
+        ],
+        "ground_truth": "G♭",
+        "hint": "Follow the circle of fifths - each new key adds just one new flat!",
+        "explanation": "✨ Moving from A♭ Major to D♭ Major adds a single new flat: G♭.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 69,
+        "question": "🏠 What is the tonic note, with its accidental, of the new 5-sharp minor key?",
+        "options": [
+            "G♯",
+            "G",
+            "A♭",
+            "F♯"
+        ],
+        "ground_truth": "G♯",
+        "hint": "Its name says it all - this minor key starts on a sharpened G!",
+        "explanation": "🏠 The new 5-sharp minor key's tonic is G♯.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 70,
+        "question": "🏠 What is the tonic note, with its accidental, of the new 5-flat minor key?",
+        "options": [
+            "B♭",
+            "B",
+            "A♭",
+            "C♭"
+        ],
+        "ground_truth": "B♭",
+        "hint": "Its name says it all - this minor key starts on a flattened B!",
+        "explanation": "🏠 The new 5-flat minor key's tonic is B♭.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 71,
+        "question": "🔢 By the end of Grade 4, how far does your key signature knowledge now reach?",
+        "options": [
+            "Up to 5 sharps and 5 flats",
+            "Up to 4 sharps and 4 flats",
+            "Up to 6 sharps and 6 flats",
+            "Up to 3 sharps and 3 flats"
+        ],
+        "ground_truth": "Up to 5 sharps and 5 flats",
+        "hint": "Grade 4 adds one more sharp key and one more flat key on top of Grade 3's four!",
+        "explanation": "🔢 By the end of Grade 4, your key signature knowledge reaches 5 sharps and 5 flats.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 72,
+        "question": "🔀 A Chromatic Scale is best described as a scale of...",
+        "options": [
+            "All half-steps, with no whole-step gaps",
+            "Alternating whole-steps and half-steps",
+            "Only whole-steps",
+            "A random mixture of large leaps"
+        ],
+        "ground_truth": "All half-steps, with no whole-step gaps",
+        "hint": "Compare this to a major scale's tone-tone-semitone pattern - chromatic scales skip that pattern entirely!",
+        "explanation": "🔀 A Chromatic Scale is unique because every single step is a half-step, unlike the mixed patterns of major and minor scales.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 73,
+        "question": "🌙 What is the key signature of G♯ Minor?",
+        "options": [
+            "5 sharps",
+            "5 flats",
+            "4 sharps",
+            "6 sharps"
+        ],
+        "ground_truth": "5 sharps",
+        "hint": "It shares its key signature with its relative major, B Major!",
+        "explanation": "🌙 G♯ Minor has 5 sharps, the same key signature as B Major.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 74,
+        "question": "🌙 What is the key signature of B♭ Minor?",
+        "options": [
+            "5 flats",
+            "5 sharps",
+            "4 flats",
+            "6 flats"
+        ],
+        "ground_truth": "5 flats",
+        "hint": "It shares its key signature with its relative major, D♭ Major!",
+        "explanation": "🌙 B♭ Minor has 5 flats, the same key signature as D♭ Major.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Circle_of_fifths_with_key_signatures.svg",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 75,
+        "question": "🎹 On a keyboard, playing every single key (white and black) in a row from C to the C above it demonstrates which type of scale?",
+        "options": [
+            "A Chromatic Scale",
+            "A Major Scale",
+            "A Minor Scale",
+            "A Pentatonic Scale"
+        ],
+        "ground_truth": "A Chromatic Scale",
+        "hint": "Hitting every note with no gaps at all is the defining feature of this scale!",
+        "explanation": "🎹 Playing every adjacent key on a keyboard in sequence produces a Chromatic Scale.",
+        "metadata": {
+            "topic": "scales",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 76,
+        "question": "🔢 Grade 4 completes the interval family. What does the word 'Augmented' mean when describing an interval?",
+        "options": [
+            "One semitone LARGER than Perfect or Major",
+            "One semitone SMALLER than Perfect or Minor",
+            "Exactly the same size as Major",
+            "Always exactly one octave"
+        ],
+        "ground_truth": "One semitone LARGER than Perfect or Major",
+        "hint": "Think of 'augment' meaning to increase or enlarge something!",
+        "explanation": "🔢 An Augmented interval is always one semitone bigger than its Perfect or Major equivalent.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 77,
+        "question": "🔢 What does the word 'Diminished' mean when describing an interval?",
+        "options": [
+            "One semitone SMALLER than Perfect or Minor",
+            "One semitone LARGER than Perfect or Major",
+            "Exactly the same size as minor",
+            "Always exactly a unison"
+        ],
+        "ground_truth": "One semitone SMALLER than Perfect or Minor",
+        "hint": "Think of 'diminish' meaning to shrink or reduce something!",
+        "explanation": "🔢 A Diminished interval is always one semitone smaller than its Perfect or Minor equivalent.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 78,
+        "question": "🔢 Which two interval qualities can be made Augmented (by adding a semitone)?",
+        "options": [
+            "Perfect and Major intervals",
+            "Perfect and Minor intervals",
+            "Only Major intervals",
+            "Only Perfect intervals"
+        ],
+        "ground_truth": "Perfect and Major intervals",
+        "hint": "Both of these are 'as big as they normally get' before augmenting stretches them further!",
+        "explanation": "🔢 Both Perfect and Major intervals can be stretched by a semitone to become Augmented.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 79,
+        "question": "🔢 Which two interval qualities can be made Diminished (by removing a semitone)?",
+        "options": [
+            "Perfect and Minor intervals",
+            "Perfect and Major intervals",
+            "Only Minor intervals",
+            "Only Perfect intervals"
+        ],
+        "ground_truth": "Perfect and Minor intervals",
+        "hint": "Both of these are 'as small as they normally get' before diminishing shrinks them further!",
+        "explanation": "🔢 Both Perfect and Minor intervals can be shrunk by a semitone to become Diminished.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 80,
+        "question": "📐 According to ABRSM Grade 4, what is the largest interval size you need to identify?",
+        "options": [
+            "One octave",
+            "Two octaves",
+            "A 10th",
+            "A 6th"
+        ],
+        "ground_truth": "One octave",
+        "hint": "Even with all these new augmented and diminished qualities, the range tested doesn't stretch beyond this familiar boundary!",
+        "explanation": "📐 Grade 4 interval questions are capped at a maximum span of one octave.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 81,
+        "question": "📐 When working out any interval's quality, what should you count FIRST?",
+        "options": [
+            "The letter-name distance (the interval number, like 3rd or 5th)",
+            "The number of semitones only",
+            "The key signature of the piece",
+            "The clef being used"
+        ],
+        "ground_truth": "The letter-name distance (the interval number, like 3rd or 5th)",
+        "hint": "Before you can judge the quality, you need to know whether you're dealing with a 3rd, a 5th, or something else!",
+        "explanation": "📐 The first step is always counting letter names to find the basic interval number.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 82,
+        "question": "📐 After counting the interval number, what should you check SECOND?",
+        "options": [
+            "The actual number of semitones, compared to the Perfect or Major reference size",
+            "Whether the notes are on lines or spaces",
+            "The tempo of the piece",
+            "The instrument being used"
+        ],
+        "ground_truth": "The actual number of semitones, compared to the Perfect or Major reference size",
+        "hint": "Once you know the number (like a 5th), compare how many semitones it actually spans!",
+        "explanation": "📐 The second step is comparing the actual semitone count against the standard Perfect/Major size for that interval number.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 83,
+        "question": "🔢 A Perfect 4th made one semitone LARGER becomes a...",
+        "options": [
+            "Augmented 4th",
+            "Diminished 4th",
+            "Major 4th",
+            "Minor 4th"
+        ],
+        "ground_truth": "Augmented 4th",
+        "hint": "4ths are Perfect intervals - stretching them by a semitone can only lead one direction!",
+        "explanation": "🔢 Widening a Perfect 4th by a semitone creates an Augmented 4th.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 84,
+        "question": "🔢 A Perfect 4th made one semitone SMALLER becomes a...",
+        "options": [
+            "Diminished 4th",
+            "Augmented 4th",
+            "Minor 4th",
+            "Major 4th"
+        ],
+        "ground_truth": "Diminished 4th",
+        "hint": "4ths are Perfect intervals - shrinking them by a semitone can only lead one direction!",
+        "explanation": "🔢 Narrowing a Perfect 4th by a semitone creates a Diminished 4th.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 85,
+        "question": "🔢 A Perfect 5th made one semitone LARGER becomes a...",
+        "options": [
+            "Augmented 5th",
+            "Diminished 5th",
+            "Major 5th",
+            "Minor 5th"
+        ],
+        "ground_truth": "Augmented 5th",
+        "hint": "5ths are Perfect intervals too, so the same rule applies as with 4ths!",
+        "explanation": "🔢 Widening a Perfect 5th by a semitone creates an Augmented 5th.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 86,
+        "question": "🔢 A Perfect 5th made one semitone SMALLER becomes a...",
+        "options": [
+            "Diminished 5th",
+            "Augmented 5th",
+            "Minor 5th",
+            "Major 5th"
+        ],
+        "ground_truth": "Diminished 5th",
+        "hint": "5ths are Perfect intervals too, so the same shrinking rule applies as with 4ths!",
+        "explanation": "🔢 Narrowing a Perfect 5th by a semitone creates a Diminished 5th.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 87,
+        "question": "🔢 A Major 3rd made one semitone LARGER becomes a...",
+        "options": [
+            "Augmented 3rd",
+            "Diminished 3rd",
+            "Perfect 3rd",
+            "Minor 3rd"
+        ],
+        "ground_truth": "Augmented 3rd",
+        "hint": "3rds are Major/minor intervals - stretching the Major version gives it this new quality!",
+        "explanation": "🔢 Widening a Major 3rd by a semitone creates an Augmented 3rd.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 88,
+        "question": "🔢 A minor 3rd made one semitone SMALLER becomes a...",
+        "options": [
+            "Diminished 3rd",
+            "Augmented 3rd",
+            "Major 3rd",
+            "Perfect 3rd"
+        ],
+        "ground_truth": "Diminished 3rd",
+        "hint": "minor is already smaller than Major - shrink it even further and it becomes this!",
+        "explanation": "🔢 Narrowing a minor 3rd by a semitone creates a Diminished 3rd.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 89,
+        "question": "🔢 A Major 2nd made one semitone LARGER becomes a...",
+        "options": [
+            "Augmented 2nd",
+            "Diminished 2nd",
+            "Perfect 2nd",
+            "Minor 2nd"
+        ],
+        "ground_truth": "Augmented 2nd",
+        "hint": "2nds are Major/minor intervals - stretching the Major version gives it this new quality!",
+        "explanation": "🔢 Widening a Major 2nd by a semitone creates an Augmented 2nd.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 90,
+        "question": "🔢 A minor 6th made one semitone SMALLER becomes a...",
+        "options": [
+            "Diminished 6th",
+            "Augmented 6th",
+            "Major 6th",
+            "Perfect 6th"
+        ],
+        "ground_truth": "Diminished 6th",
+        "hint": "minor is already smaller than Major - shrink it even further and it becomes this!",
+        "explanation": "🔢 Narrowing a minor 6th by a semitone creates a Diminished 6th.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 91,
+        "question": "🔢 A minor 7th made one semitone SMALLER becomes a...",
+        "options": [
+            "Diminished 7th",
+            "Augmented 7th",
+            "Major 7th",
+            "Perfect 7th"
+        ],
+        "ground_truth": "Diminished 7th",
+        "hint": "minor is already smaller than Major - shrink it even further and it becomes this!",
+        "explanation": "🔢 Narrowing a minor 7th by a semitone creates a Diminished 7th.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 92,
+        "question": "🎹 From C up to F♯ is which interval?",
+        "options": [
+            "Augmented 4th",
+            "Perfect 4th",
+            "Diminished 5th",
+            "Major 4th"
+        ],
+        "ground_truth": "Augmented 4th",
+        "hint": "C to F is a Perfect 4th - F♯ stretches it by one semitone!",
+        "explanation": "🎹 C up to F♯ spans one semitone more than a Perfect 4th, making it an Augmented 4th.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 93,
+        "question": "🎹 From C up to G♭ is which interval?",
+        "options": [
+            "Diminished 5th",
+            "Augmented 4th",
+            "Perfect 5th",
+            "Minor 5th"
+        ],
+        "ground_truth": "Diminished 5th",
+        "hint": "C to G is a Perfect 5th - G♭ shrinks it by one semitone!",
+        "explanation": "🎹 C up to G♭ spans one semitone less than a Perfect 5th, making it a Diminished 5th.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 94,
+        "question": "🌗 An Augmented 4th and a Diminished 5th contain the exact same number of semitones. What is this special interval commonly called?",
+        "options": [
+            "The Tritone",
+            "The Octave",
+            "The Unison",
+            "The Perfect Gap"
+        ],
+        "ground_truth": "The Tritone",
+        "hint": "Its nickname literally means 'three tones', since it spans three whole tones!",
+        "explanation": "🌗 Both the Augmented 4th and Diminished 5th share the nickname Tritone, spanning exactly 6 semitones.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 95,
+        "question": "🌗 How many semitones are in a Tritone?",
+        "options": [
+            "6 semitones",
+            "5 semitones",
+            "7 semitones",
+            "4 semitones"
+        ],
+        "ground_truth": "6 semitones",
+        "hint": "It sits exactly halfway between a Perfect 4th (5 semitones) and a Perfect 5th (7 semitones)!",
+        "explanation": "🌗 A Tritone always spans exactly 6 semitones, whether spelled as an Augmented 4th or a Diminished 5th.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 96,
+        "question": "🎹 From E up to A♯ is which interval?",
+        "options": [
+            "Augmented 4th",
+            "Perfect 4th",
+            "Diminished 5th",
+            "Major 4th"
+        ],
+        "ground_truth": "Augmented 4th",
+        "hint": "E to A is a Perfect 4th - A♯ stretches it by one semitone!",
+        "explanation": "🎹 E up to A♯ spans one semitone more than a Perfect 4th, making it an Augmented 4th.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 97,
+        "question": "🎹 From D up to A♭ is which interval?",
+        "options": [
+            "Diminished 5th",
+            "Augmented 4th",
+            "Perfect 5th",
+            "Minor 5th"
+        ],
+        "ground_truth": "Diminished 5th",
+        "hint": "D to A is a Perfect 5th - A♭ shrinks it by one semitone!",
+        "explanation": "🎹 D up to A♭ spans one semitone less than a Perfect 5th, making it a Diminished 5th.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 3
+        }
+    },
+    {
+        "id": 98,
+        "question": "🎹 From C up to D♯ is which interval?",
+        "options": [
+            "Augmented 2nd",
+            "Major 2nd",
+            "Minor 2nd",
+            "Diminished 2nd"
+        ],
+        "ground_truth": "Augmented 2nd",
+        "hint": "C to D is a Major 2nd - D♯ stretches it by one semitone!",
+        "explanation": "🎹 C up to D♯ spans one semitone more than a Major 2nd, making it an Augmented 2nd.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 99,
+        "question": "📐 If an interval is one semitone WIDER than you'd expect for its number, but that number is normally 'Perfect' or 'Major', what quality is it?",
+        "options": [
+            "Augmented",
+            "Diminished",
+            "Minor",
+            "Perfect"
+        ],
+        "ground_truth": "Augmented",
+        "hint": "Wider than Perfect or Major always means one specific quality!",
+        "explanation": "📐 Any Perfect or Major interval stretched by a semitone becomes Augmented.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 100,
+        "question": "📐 If an interval is one semitone NARROWER than you'd expect for its number, but that number is normally 'Perfect' or 'minor', what quality is it?",
+        "options": [
+            "Diminished",
+            "Augmented",
+            "Major",
+            "Perfect"
+        ],
+        "ground_truth": "Diminished",
+        "hint": "Narrower than Perfect or minor always means one specific quality!",
+        "explanation": "📐 Any Perfect or minor interval shrunk by a semitone becomes Diminished.",
+        "metadata": {
+            "topic": "intervals",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 101,
+        "question": "🏗️ What are the three Primary Triads called?",
+        "options": [
+            "Tonic, Subdominant, and Dominant",
+            "Tonic, Mediant, and Submediant",
+            "Supertonic, Subdominant, and Leading Note",
+            "Tonic, Dominant, and Leading Note"
+        ],
+        "ground_truth": "Tonic, Subdominant, and Dominant",
+        "hint": "These are the three most important chords in any key, built on scale degrees 1, 4, and 5!",
+        "explanation": "🏗️ The Tonic, Subdominant, and Dominant chords are known as the Primary Triads.",
+        "metadata": {
+            "topic": "harmony",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 102,
+        "question": "🏗️ The Tonic triad is built on which scale degree?",
+        "options": [
+            "The 1st degree",
+            "The 4th degree",
+            "The 5th degree",
+            "The 2nd degree"
+        ],
+        "ground_truth": "The 1st degree",
+        "hint": "Tonic literally means 'home', and home is always where the scale starts!",
+        "explanation": "🏗️ The Tonic triad is built on the 1st degree of the scale.",
+        "metadata": {
+            "topic": "harmony",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 103,
+        "question": "🏗️ The Subdominant triad is built on which scale degree?",
+        "options": [
+            "The 4th degree",
+            "The 5th degree",
+            "The 1st degree",
+            "The 3rd degree"
+        ],
+        "ground_truth": "The 4th degree",
+        "hint": "It sits just below the Dominant, one scale degree lower!",
+        "explanation": "🏗️ The Subdominant triad is built on the 4th degree of the scale.",
+        "metadata": {
+            "topic": "harmony",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 104,
+        "question": "🏗️ The Dominant triad is built on which scale degree?",
+        "options": [
+            "The 5th degree",
+            "The 4th degree",
+            "The 1st degree",
+            "The 7th degree"
+        ],
+        "ground_truth": "The 5th degree",
+        "hint": "This chord creates the strongest pull back home to the Tonic!",
+        "explanation": "🏗️ The Dominant triad is built on the 5th degree of the scale.",
+        "metadata": {
+            "topic": "harmony",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 105,
+        "question": "🏗️ What Roman numeral represents the Tonic chord?",
+        "options": [
+            "I",
+            "IV",
+            "V",
+            "II"
+        ],
+        "ground_truth": "I",
+        "hint": "It's built on the 1st degree, so it takes the Roman numeral for one!",
+        "explanation": "🏗️ The Tonic chord is labeled with the Roman numeral I.",
+        "metadata": {
+            "topic": "harmony",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 106,
+        "question": "🏗️ What Roman numeral represents the Subdominant chord?",
+        "options": [
+            "IV",
+            "I",
+            "V",
+            "VI"
+        ],
+        "ground_truth": "IV",
+        "hint": "It's built on the 4th degree, so it takes the Roman numeral for four!",
+        "explanation": "🏗️ The Subdominant chord is labeled with the Roman numeral IV.",
+        "metadata": {
+            "topic": "harmony",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 107,
+        "question": "🏗️ What Roman numeral represents the Dominant chord?",
+        "options": [
+            "V",
+            "IV",
+            "I",
+            "VII"
+        ],
+        "ground_truth": "V",
+        "hint": "It's built on the 5th degree, so it takes the Roman numeral for five!",
+        "explanation": "🏗️ The Dominant chord is labeled with the Roman numeral V.",
+        "metadata": {
+            "topic": "harmony",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 108,
+        "question": "🏗️ Which lower-case letter labels a chord in ROOT position?",
+        "options": [
+            "(a)",
+            "(b)",
+            "(c)",
+            "(d)"
+        ],
+        "ground_truth": "(a)",
+        "hint": "Root position is the 'first' and simplest form, so it gets the first letter!",
+        "explanation": "🏗️ Root position chords are labeled with the letter (a).",
+        "metadata": {
+            "topic": "harmony",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 109,
+        "question": "🏗️ Which lower-case letter labels a chord in FIRST inversion?",
+        "options": [
+            "(b)",
+            "(a)",
+            "(c)",
+            "(d)"
+        ],
+        "ground_truth": "(b)",
+        "hint": "First inversion comes right after root position, so it takes the second letter!",
+        "explanation": "🏗️ First inversion chords are labeled with the letter (b).",
+        "metadata": {
+            "topic": "harmony",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 110,
+        "question": "🏗️ Which lower-case letter labels a chord in SECOND inversion?",
+        "options": [
+            "(c)",
+            "(b)",
+            "(a)",
+            "(d)"
+        ],
+        "ground_truth": "(c)",
+        "hint": "Second inversion is the third possible arrangement, so it takes the third letter!",
+        "explanation": "🏗️ Second inversion chords are labeled with the letter (c).",
+        "metadata": {
+            "topic": "harmony",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 111,
+        "question": "🏗️ What does the label 'I(a)' mean?",
+        "options": [
+            "The Tonic chord in root position",
+            "The Tonic chord in first inversion",
+            "The Dominant chord in root position",
+            "The Subdominant chord in second inversion"
+        ],
+        "ground_truth": "The Tonic chord in root position",
+        "hint": "The Roman numeral names the chord, and the letter names the inversion!",
+        "explanation": "🏗️ I(a) means the Tonic triad, written in root position.",
+        "metadata": {
+            "topic": "harmony",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 112,
+        "question": "🏗️ What does the label 'V(b)' mean?",
+        "options": [
+            "The Dominant chord in first inversion",
+            "The Dominant chord in root position",
+            "The Tonic chord in first inversion",
+            "The Subdominant chord in second inversion"
+        ],
+        "ground_truth": "The Dominant chord in first inversion",
+        "hint": "V is the Dominant, and (b) is the second lettered inversion!",
+        "explanation": "🏗️ V(b) means the Dominant triad, written in first inversion.",
+        "metadata": {
+            "topic": "harmony",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 113,
+        "question": "🏗️ What does the label 'IV(c)' mean?",
+        "options": [
+            "The Subdominant chord in second inversion",
+            "The Subdominant chord in root position",
+            "The Dominant chord in second inversion",
+            "The Tonic chord in first inversion"
+        ],
+        "ground_truth": "The Subdominant chord in second inversion",
+        "hint": "IV is the Subdominant, and (c) is the third lettered inversion!",
+        "explanation": "🏗️ IV(c) means the Subdominant triad, written in second inversion.",
+        "metadata": {
+            "topic": "harmony",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 114,
+        "question": "🎼 Grade 4 introduces the first FOUR-note chord you'll build. What is it called?",
+        "options": [
+            "The Dominant 7th",
+            "The Diminished 7th",
+            "The Tonic 7th",
+            "The Subdominant 7th"
+        ],
+        "ground_truth": "The Dominant 7th",
+        "hint": "It's built by adding one extra note on top of the Dominant triad!",
+        "explanation": "🎼 The Dominant 7th (V7) is your first four-note chord, built on the 5th scale degree.",
+        "metadata": {
+            "topic": "harmony",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 115,
+        "question": "🎼 What symbol represents the Dominant 7th chord?",
+        "options": [
+            "V7",
+            "I7",
+            "IV7",
+            "V(7)a"
+        ],
+        "ground_truth": "V7",
+        "hint": "It's the Dominant chord (V) with a 7th added on top!",
+        "explanation": "🎼 The Dominant 7th chord is written as V7.",
+        "metadata": {
+            "topic": "harmony",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 116,
+        "question": "🎼 How many notes make up a Dominant 7th chord?",
+        "options": [
+            "4 notes",
+            "3 notes",
+            "5 notes",
+            "2 notes"
+        ],
+        "ground_truth": "4 notes",
+        "hint": "It's a triad plus one extra note stacked on top!",
+        "explanation": "🎼 A Dominant 7th chord contains 4 notes: the triad plus the added 7th.",
+        "metadata": {
+            "topic": "harmony",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 117,
+        "question": "🎼 The Dominant 7th chord is built by adding which extra note to the Dominant triad?",
+        "options": [
+            "A minor 7th above the root",
+            "A Major 7th above the root",
+            "A Perfect 5th above the root",
+            "An Augmented 7th above the root"
+        ],
+        "ground_truth": "A minor 7th above the root",
+        "hint": "This extra note is what gives V7 its distinctive, tension-filled sound!",
+        "explanation": "🎼 A minor 7th above the root is added on top of the Dominant triad to form V7.",
+        "metadata": {
+            "topic": "harmony",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 118,
+        "question": "🎼 What quality is the basic triad underneath the added 7th in a Dominant 7th chord?",
+        "options": [
+            "Major",
+            "Minor",
+            "Diminished",
+            "Augmented"
+        ],
+        "ground_truth": "Major",
+        "hint": "Even in minor keys, the Dominant triad itself is always this one special quality, thanks to the raised leading note!",
+        "explanation": "🎼 The triad beneath the 7th in a Dominant 7th chord is always Major.",
+        "metadata": {
+            "topic": "harmony",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 119,
+        "question": "🎼 What are the four notes of the Dominant 7th chord (V7) built in C Major?",
+        "options": [
+            "G, B, D, F",
+            "G, B, D, F♯",
+            "G, B♭, D, F",
+            "C, E, G, B♭"
+        ],
+        "ground_truth": "G, B, D, F",
+        "hint": "Start on G, the 5th degree of C Major, then stack up thirds - major 3rd, then perfect 5th, then minor 7th!",
+        "explanation": "🎼 In C Major, V7 is spelled G, B, D, F - a Major triad on G with a minor 7th (F) added.",
+        "metadata": {
+            "topic": "harmony",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 120,
+        "question": "🎼 The 7th note added in a Dominant 7th chord sits at what interval above the root?",
+        "options": [
+            "A minor 7th",
+            "A Major 7th",
+            "A Perfect 7th",
+            "An Augmented 7th"
+        ],
+        "ground_truth": "A minor 7th",
+        "hint": "This is the exact same interval quality tested when you learned altered 7ths!",
+        "explanation": "🎼 The added note in V7 always forms a minor 7th above the root.",
+        "metadata": {
+            "topic": "harmony",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 121,
+        "question": "🎼 A Dominant 7th chord (V7) most naturally resolves to which chord?",
+        "options": [
+            "I (the Tonic)",
+            "IV (the Subdominant)",
+            "II (the Supertonic)",
+            "VI (the Submediant)"
+        ],
+        "ground_truth": "I (the Tonic)",
+        "hint": "After all that tension, the ear wants to arrive back 'home'!",
+        "explanation": "🎼 V7 creates strong tension that resolves naturally back to the Tonic chord, I.",
+        "metadata": {
+            "topic": "harmony",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 122,
+        "question": "👀 Why does a Dominant 7th chord create such a strong pull toward the Tonic?",
+        "options": [
+            "The added 7th creates dissonance that needs to resolve downward",
+            "It contains more notes than any other chord",
+            "It is always played loudly",
+            "It only appears at the very end of a piece"
+        ],
+        "ground_truth": "The added 7th creates dissonance that needs to resolve downward",
+        "hint": "That extra note doesn't belong comfortably in the chord - it wants to settle somewhere close by!",
+        "explanation": "👀 The dissonant 7th above the root wants to resolve down by step, pulling the whole chord toward the Tonic.",
+        "metadata": {
+            "topic": "harmony",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 123,
+        "question": "🏗️ In a root position Dominant 7th chord, which note sits in the bass?",
+        "options": [
+            "The root (the 5th scale degree)",
+            "The 3rd of the chord",
+            "The added 7th",
+            "The 3rd scale degree"
+        ],
+        "ground_truth": "The root (the 5th scale degree)",
+        "hint": "Root position always means exactly what it says - the root sits on the bottom!",
+        "explanation": "🏗️ In root position, the Dominant 7th's root (scale degree 5) is the lowest sounding note.",
+        "metadata": {
+            "topic": "harmony",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 124,
+        "question": "🏗️ The Tonic triad (I) is built using which three scale degrees?",
+        "options": [
+            "1st, 3rd, and 5th",
+            "1st, 4th, and 5th",
+            "2nd, 4th, and 6th",
+            "1st, 3rd, and 7th"
+        ],
+        "ground_truth": "1st, 3rd, and 5th",
+        "hint": "Just like any triad, it's built by stacking thirds starting from the tonic note!",
+        "explanation": "🏗️ The Tonic triad uses scale degrees 1, 3, and 5.",
+        "metadata": {
+            "topic": "harmony",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 125,
+        "question": "🏗️ Together, the Tonic, Subdominant, and Dominant chords share what collective name?",
+        "options": [
+            "The Primary Triads",
+            "The Secondary Triads",
+            "The Perfect Triads",
+            "The Leading Triads"
+        ],
+        "ground_truth": "The Primary Triads",
+        "hint": "They're called this because they're the three most fundamental, most frequently used chords in a key!",
+        "explanation": "🏗️ Tonic, Subdominant, and Dominant together are known as the Primary Triads.",
+        "metadata": {
+            "topic": "harmony",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Root_position%2C_first_inversion%2C_and_second_inversion_C_major_chords.png",
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 126,
+        "question": "🎻 Grade 4 introduces a brand new topic. What are the four families of orchestral instruments?",
+        "options": [
+            "Strings, Woodwind, Brass, and Percussion",
+            "Strings, Brass, Keyboards, and Percussion",
+            "Woodwind, Brass, Vocals, and Percussion",
+            "Strings, Woodwind, Electronic, and Brass"
+        ],
+        "ground_truth": "Strings, Woodwind, Brass, and Percussion",
+        "hint": "Think of how an orchestra is normally seated - four distinct groups!",
+        "explanation": "🎻 The orchestra is organized into four families: Strings, Woodwind, Brass, and Percussion.",
+        "metadata": {
+            "topic": "orchestral_instruments",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 127,
+        "question": "🎻 String instruments most commonly produce sound by...",
+        "options": [
+            "Drawing a bow across the strings",
+            "Blowing air across an edge",
+            "Buzzing the lips into a mouthpiece",
+            "Striking with mallets"
+        ],
+        "ground_truth": "Drawing a bow across the strings",
+        "hint": "Think of the most common technique - dragging horsehair across tightened strings!",
+        "explanation": "🎻 Strings most often produce sound by bowing, though they can also be plucked.",
+        "metadata": {
+            "topic": "orchestral_instruments",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 128,
+        "question": "🎻 The Italian term 'Arco' instructs a string player to...",
+        "options": [
+            "Play with the bow",
+            "Pluck with the fingers",
+            "Play with a mute",
+            "Play very quietly"
+        ],
+        "ground_truth": "Play with the bow",
+        "hint": "This is the 'normal' way of playing, used after a pizzicato passage ends!",
+        "explanation": "🎻 'Arco' tells a string player to resume bowing after playing pizzicato.",
+        "metadata": {
+            "topic": "orchestral_instruments",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 129,
+        "question": "🎻 The Italian term 'Pizzicato' instructs a string player to...",
+        "options": [
+            "Pluck the strings with the fingers",
+            "Play with the bow",
+            "Play with a mute",
+            "Slide between notes"
+        ],
+        "ground_truth": "Pluck the strings with the fingers",
+        "hint": "This technique gives a short, plucky sound instead of a sustained one!",
+        "explanation": "🎻 'Pizzicato' means to pluck the strings with the fingers instead of bowing.",
+        "metadata": {
+            "topic": "orchestral_instruments",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 130,
+        "question": "🎻 Which family does the Viola belong to?",
+        "options": [
+            "Strings",
+            "Woodwind",
+            "Brass",
+            "Percussion"
+        ],
+        "ground_truth": "Strings",
+        "hint": "It's played with a bow, sitting between the Violin and Cello in size!",
+        "explanation": "🎻 The Viola is a String instrument.",
+        "metadata": {
+            "topic": "orchestral_instruments",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 131,
+        "question": "🎻 Which clef does the Viola read as its main clef?",
+        "options": [
+            "Alto Clef",
+            "Treble Clef",
+            "Bass Clef",
+            "Tenor Clef"
+        ],
+        "ground_truth": "Alto Clef",
+        "hint": "You learned this instrument-clef pairing back in Grade 3!",
+        "explanation": "🎻 The Viola reads Alto Clef as its standard clef.",
+        "metadata": {
+            "topic": "orchestral_instruments",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 132,
+        "question": "🎻 Which clef does the Violin read as its main clef?",
+        "options": [
+            "Treble Clef",
+            "Alto Clef",
+            "Bass Clef",
+            "Tenor Clef"
+        ],
+        "ground_truth": "Treble Clef",
+        "hint": "This is the highest-pitched standard string instrument!",
+        "explanation": "🎻 The Violin reads Treble Clef as its standard clef.",
+        "metadata": {
+            "topic": "orchestral_instruments",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 133,
+        "question": "🎻 Which family does the Double Bass belong to?",
+        "options": [
+            "Strings",
+            "Woodwind",
+            "Brass",
+            "Percussion"
+        ],
+        "ground_truth": "Strings",
+        "hint": "It's the biggest, lowest-pitched member of the bowed string family!",
+        "explanation": "🎻 The Double Bass is a String instrument, the largest and lowest of the family.",
+        "metadata": {
+            "topic": "orchestral_instruments",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 134,
+        "question": "🎺 Which family does the Oboe belong to?",
+        "options": [
+            "Woodwind",
+            "Brass",
+            "Strings",
+            "Percussion"
+        ],
+        "ground_truth": "Woodwind",
+        "hint": "Despite being made of wood and having a reed, it's blown, not bowed!",
+        "explanation": "🎺 The Oboe is a Woodwind instrument.",
+        "metadata": {
+            "topic": "orchestral_instruments",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 135,
+        "question": "🎺 The Oboe produces its sound using...",
+        "options": [
+            "A double reed",
+            "A single reed",
+            "No reed at all",
+            "A brass mouthpiece"
+        ],
+        "ground_truth": "A double reed",
+        "hint": "Two thin pieces of cane vibrate against each other to make this instrument's distinctive sound!",
+        "explanation": "🎺 The Oboe is a double-reed instrument.",
+        "metadata": {
+            "topic": "orchestral_instruments",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 136,
+        "question": "🎺 Which family does the Clarinet belong to?",
+        "options": [
+            "Woodwind",
+            "Brass",
+            "Strings",
+            "Percussion"
+        ],
+        "ground_truth": "Woodwind",
+        "hint": "It's a single-reed relative of the Oboe and Bassoon!",
+        "explanation": "🎺 The Clarinet is a Woodwind instrument.",
+        "metadata": {
+            "topic": "orchestral_instruments",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 137,
+        "question": "🎺 The Clarinet produces its sound using...",
+        "options": [
+            "A single reed",
+            "A double reed",
+            "No reed at all",
+            "A brass mouthpiece"
+        ],
+        "ground_truth": "A single reed",
+        "hint": "Just one thin strip of cane vibrates against the mouthpiece for this instrument!",
+        "explanation": "🎺 The Clarinet is a single-reed instrument.",
+        "metadata": {
+            "topic": "orchestral_instruments",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 138,
+        "question": "🎺 Which family does the Bassoon belong to?",
+        "options": [
+            "Woodwind",
+            "Brass",
+            "Strings",
+            "Percussion"
+        ],
+        "ground_truth": "Woodwind",
+        "hint": "It's the largest, lowest-pitched double-reed instrument in the orchestra!",
+        "explanation": "🎺 The Bassoon is a Woodwind instrument.",
+        "metadata": {
+            "topic": "orchestral_instruments",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 139,
+        "question": "🎺 The Bassoon produces its sound using...",
+        "options": [
+            "A double reed",
+            "A single reed",
+            "No reed at all",
+            "A brass mouthpiece"
+        ],
+        "ground_truth": "A double reed",
+        "hint": "Like the Oboe, this instrument uses two thin pieces of cane vibrating together!",
+        "explanation": "🎺 The Bassoon is a double-reed instrument, just like the Oboe.",
+        "metadata": {
+            "topic": "orchestral_instruments",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 140,
+        "question": "🎺 Which clef does the Bassoon read for its lower, more common passages?",
+        "options": [
+            "Bass Clef",
+            "Treble Clef",
+            "Alto Clef",
+            "Soprano Clef"
+        ],
+        "ground_truth": "Bass Clef",
+        "hint": "This mirrors the Cello and Trombone's normal clef choice!",
+        "explanation": "🎺 The Bassoon normally reads Bass Clef, switching to Tenor Clef only for high passages.",
+        "metadata": {
+            "topic": "orchestral_instruments",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 141,
+        "question": "🎺 The Flute produces its sound by...",
+        "options": [
+            "Blowing air across an edge, with no reed involved",
+            "Using a double reed",
+            "Using a single reed",
+            "Buzzing the lips like a Brass instrument"
+        ],
+        "ground_truth": "Blowing air across an edge, with no reed involved",
+        "hint": "Unlike its Woodwind cousins, this instrument uses no reed at all!",
+        "explanation": "🎺 The Flute is the reedless Woodwind, producing sound by blowing air across the edge of its mouth hole.",
+        "metadata": {
+            "topic": "orchestral_instruments",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 142,
+        "question": "📯 Which family does the Trumpet belong to?",
+        "options": [
+            "Brass",
+            "Woodwind",
+            "Strings",
+            "Percussion"
+        ],
+        "ground_truth": "Brass",
+        "hint": "It's a metal instrument played with a small cup-shaped mouthpiece!",
+        "explanation": "📯 The Trumpet is a Brass instrument.",
+        "metadata": {
+            "topic": "orchestral_instruments",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 143,
+        "question": "📯 Brass instruments produce their sound by...",
+        "options": [
+            "Buzzing the lips into a mouthpiece",
+            "Blowing air across an edge",
+            "Vibrating a reed",
+            "Striking with mallets"
+        ],
+        "ground_truth": "Buzzing the lips into a mouthpiece",
+        "hint": "The player's own lips act like a vibrating reed against the metal mouthpiece!",
+        "explanation": "📯 Brass instruments make sound when the player buzzes their lips into a mouthpiece.",
+        "metadata": {
+            "topic": "orchestral_instruments",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 144,
+        "question": "📯 Which family does the Trombone belong to?",
+        "options": [
+            "Brass",
+            "Woodwind",
+            "Strings",
+            "Percussion"
+        ],
+        "ground_truth": "Brass",
+        "hint": "This instrument uses a sliding tube instead of valves to change pitch!",
+        "explanation": "📯 The Trombone is a Brass instrument.",
+        "metadata": {
+            "topic": "orchestral_instruments",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 145,
+        "question": "📯 Which clef does the Trombone read for its lower, more common passages?",
+        "options": [
+            "Bass Clef",
+            "Treble Clef",
+            "Alto Clef",
+            "Soprano Clef"
+        ],
+        "ground_truth": "Bass Clef",
+        "hint": "This mirrors the Cello and Bassoon's normal clef choice!",
+        "explanation": "📯 The Trombone normally reads Bass Clef, switching to Tenor Clef only for high passages.",
+        "metadata": {
+            "topic": "orchestral_instruments",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 146,
+        "question": "🥁 Which family does the Timpani belong to?",
+        "options": [
+            "Percussion",
+            "Brass",
+            "Strings",
+            "Woodwind"
+        ],
+        "ground_truth": "Percussion",
+        "hint": "These large kettle-shaped drums are struck with mallets!",
+        "explanation": "🥁 The Timpani belong to the Percussion family.",
+        "metadata": {
+            "topic": "orchestral_instruments",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 147,
+        "question": "🥁 What makes the Timpani unusual compared to most other Percussion instruments?",
+        "options": [
+            "They can be tuned to specific pitches",
+            "They are made of wood",
+            "They are always played with the fingers",
+            "They belong to the Brass family"
+        ],
+        "ground_truth": "They can be tuned to specific pitches",
+        "hint": "Unlike a snare drum, these can be adjusted to match an exact note!",
+        "explanation": "🥁 Timpani are pitched percussion instruments, tunable to specific notes unlike most untuned percussion.",
+        "metadata": {
+            "topic": "orchestral_instruments",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 148,
+        "question": "🎻 Which clef does the Cello read for its lower, more common passages?",
+        "options": [
+            "Bass Clef",
+            "Treble Clef",
+            "Alto Clef",
+            "Soprano Clef"
+        ],
+        "ground_truth": "Bass Clef",
+        "hint": "This is the same clef choice as the Bassoon and Trombone!",
+        "explanation": "🎻 The Cello normally reads Bass Clef, switching to Tenor Clef only for high passages.",
+        "metadata": {
+            "topic": "orchestral_instruments",
+            "image_url": null,
+            "difficulty": 1
+        }
+    },
+    {
+        "id": 149,
+        "question": "🔇 The Italian term 'Con Sordino' instructs a player to...",
+        "options": [
+            "Play with a mute",
+            "Play without a mute",
+            "Play very loudly",
+            "Play with the bow"
+        ],
+        "ground_truth": "Play with a mute",
+        "hint": "'Sordino' means mute, and 'Con' means 'with'!",
+        "explanation": "🔇 'Con Sordino' means to play with a mute attached, softening and altering the tone.",
+        "metadata": {
+            "topic": "orchestral_instruments",
+            "image_url": null,
+            "difficulty": 2
+        }
+    },
+    {
+        "id": 150,
+        "question": "🔊 The Italian term 'Senza Sordino' instructs a player to...",
+        "options": [
+            "Play without a mute",
+            "Play with a mute",
+            "Play very softly",
+            "Pluck the strings"
+        ],
+        "ground_truth": "Play without a mute",
+        "hint": "'Senza' means 'without', the opposite of 'Con'!",
+        "explanation": "🔊 'Senza Sordino' instructs the player to remove the mute and play normally.",
+        "metadata": {
+            "topic": "orchestral_instruments",
+            "image_url": null,
+            "difficulty": 2
+        }
+    }
+]

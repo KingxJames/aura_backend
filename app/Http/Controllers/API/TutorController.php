@@ -35,7 +35,7 @@ class TutorController extends Controller
             'content' => $userMessage
         ]);
 
-        $apiKey = env('GEMINI_API_KEY');
+        $apiKey = config('services.gemini.api_key');
         if (empty($apiKey)) {
             return response()->json([
                 'success' => false,
@@ -69,19 +69,17 @@ class TutorController extends Controller
             . "CRITICAL FOR VISUALS: Whenever a user asks to see a visual concept (like a treble clef, bass clef, staff, or note values), you MUST embed a high-quality, clear, publicly available online image URL using standard Markdown image syntax: ![Description](https://url/image.png). "
             . "If a student asks something completely unrelated to music, art history, or audio, gently steer them back to music theory.";
 
+        $primaryModel = config('services.gemini.model', 'gemini-2.5-flash');
+        $fallbackModel = config('services.gemini.fallback_model', 'gemini-3-flash-preview');
+        $enableFallback = (bool) config('services.gemini.enable_fallback', true);
+
         try {
-            // STEP 4: Dispatch payload to Gemini API (Passing System Instructions cleanly)
-            $response = Http::timeout(25)
-                ->acceptJson()
-                ->withHeaders(['Content-Type' => 'application/json'])
-                ->post("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={$apiKey}", [
-                    'contents' => $contents,
-                    'systemInstruction' => [
-                        'parts' => [
-                            ['text' => $systemPrompt]
-                        ]
-                    ]
-                ]);
+            $response = $this->dispatchGeminiRequest($apiKey, $primaryModel, $contents, $systemPrompt);
+
+            if ($response->failed() && $enableFallback && $fallbackModel !== $primaryModel) {
+                $fallbackResponse = $this->dispatchGeminiRequest($apiKey, $fallbackModel, $contents, $systemPrompt);
+                $response = $fallbackResponse;
+            }
         } catch (\Throwable $e) {
             return response()->json([
                 'success' => false,
@@ -118,6 +116,21 @@ class TutorController extends Controller
             'user_log' => $userConversationLog,
             'log' => $aiConversationLog
         ], 201);
+    }
+
+    private function dispatchGeminiRequest(string $apiKey, string $model, array $contents, string $systemPrompt)
+    {
+        return Http::timeout(25)
+            ->acceptJson()
+            ->withHeaders(['Content-Type' => 'application/json'])
+            ->post("https://generativelanguage.googleapis.com/v1beta/models/{$model}:generateContent?key={$apiKey}", [
+                'contents' => $contents,
+                'systemInstruction' => [
+                    'parts' => [
+                        ['text' => $systemPrompt]
+                    ]
+                ]
+            ]);
     }
 
     /**
