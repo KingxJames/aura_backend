@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 // Import all required application controllers
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\AuralController;
+use App\Http\Controllers\API\AuralModuleController;
 use App\Http\Controllers\API\OpusController;
 use App\Http\Controllers\API\QuizController;
 use App\Http\Controllers\API\TutorController;
@@ -42,6 +43,12 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/v1/aural/warm-up/today', [AuralController::class, 'warmUpStatus']); // Today's warm-up + streak status
     Route::get('/v1/aural/opus', [OpusController::class, 'index']);           // Opus Syllabus overview + progress
     Route::post('/v1/aural/opus/{opusLevel}/attempt', [OpusController::class, 'attempt']); // Submit a note attempt for a level
+
+    // --- Grade-Divided Aural Training Modules (1A-1D: Pulse & Metre, Echo Singing, Spotting the Difference, Musical Features) ---
+    Route::get('/v1/aural/modules/{moduleType}/exercise', [AuralModuleController::class, 'generateExercise']); // Procedurally generate a new exercise for a grade
+    Route::post('/v1/aural/modules/exercises/{auralExercise}/attempt', [AuralModuleController::class, 'submitAttempt']); // Submit + grade an attempt
+    Route::get('/v1/aural/modules/attempts', [AuralModuleController::class, 'history']); // Past attempts, filterable by grade/module
+
     Route::get('/v1/aural/{id}', [AuralController::class, 'show']);       // View single pitch evaluation
     Route::put('/v1/aural/{id}', [AuralController::class, 'update']);     // Edit notes/comments on an attempt
     Route::delete('/v1/aural/{id}', [AuralController::class, 'destroy']); // Delete an attempt record
