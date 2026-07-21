@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Crypt;
 use Laravel\Socialite\Facades\Socialite;
 use Laravel\Socialite\Two\GoogleProvider;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Storage;
 
 class AuthController extends Controller
 {
@@ -106,20 +107,20 @@ class AuthController extends Controller
      */
     public function register(Request $request): JsonResponse
     {
-        // 1. Force strict validation rules on the custom username field
         $request->validate([
             'name'     => 'required|string|max:255',
-            'username' => 'required|string|alpha_dash|max:50|unique:users,username', // 👈 Required & Unique
             'email'    => 'required|string|email|max:255|unique:users,email',
             'password' => 'required|string|min:8',
         ]);
 
-        // 2. Persist the record directly using your customized values
+        // The signup form doesn't collect a username, so derive a unique one
+        // from the email (same scheme as the Google sign-in provisioning path).
         $user = User::create([
             'name'     => $request->name,
-            'username' => $request->username, // 👈 Saves your custom input
+            'username' => $this->generateUsernameFromEmail($request->email),
             'email'    => $request->email,
             'password' => Hash::make($request->password),
+            'provider' => 'local',
         ]);
 
         // Issue standard mobile access token
@@ -188,21 +189,15 @@ class AuthController extends Controller
             $avatarUrl = is_string($avatarUrl) && $avatarUrl !== '' ? $avatarUrl : null;
 
             // Provision a user record dynamically in PostgreSQL if it's their first time logging in
-            $baseUsername = Str::slug(Str::before($googleUser->getEmail(), '@'), '_');
-            $username = $baseUsername;
-            $suffix = 1;
-            while (User::where('username', $username)->exists()) {
-                $username = $baseUsername . '_' . $suffix++;
-            }
-
             $user = User::firstOrCreate(
                 ['email' => $googleUser->getEmail()],
                 [
                     'name'              => $googleUser->getName() ?? 'Aura Scholar',
-                    'username'          => $username,
+                    'username'          => $this->generateUsernameFromEmail($googleUser->getEmail()),
                     'password'          => Hash::make(Str::random(24)),
                     'email_verified_at' => now(),
                     'profile_picture'   => $avatarUrl,
+                    'provider'          => 'google',
                 ]
             );
 
@@ -243,6 +238,52 @@ class AuthController extends Controller
         ]);
     }
 
+    /**
+     * PROFILE PICTURE UPLOAD (local accounts only)
+     * POST /api/v1/user/avatar
+     */
+    public function uploadAvatar(Request $request): JsonResponse
+    {
+        $user = $request->user();
+
+        if ($user->provider === 'google') {
+            return response()->json([
+                'success' => false,
+                'message' => 'Your avatar is managed by your Google account.',
+            ], 403);
+        }
+
+        $request->validate([
+            'avatar' => 'required|file|mimes:jpeg,jpg,png,webp|max:5120',
+        ]);
+
+        // Clean up the previously stored file so uploads don't leak orphaned images.
+        if (is_string($user->profile_picture) && str_starts_with($user->profile_picture, '/storage/avatars/')) {
+            Storage::disk('public')->delete(Str::after($user->profile_picture, '/storage/'));
+        }
+
+        $path = $request->file('avatar')->store('avatars', 'public');
+        $user->profile_picture = Storage::url($path);
+        $user->save();
+
+        return response()->json([
+            'success' => true,
+            'user' => $this->serializeUser($user),
+        ]);
+    }
+
+    private function generateUsernameFromEmail(string $email): string
+    {
+        $baseUsername = Str::slug(Str::before($email, '@'), '_');
+        $username = $baseUsername;
+        $suffix = 1;
+        while (User::where('username', $username)->exists()) {
+            $username = $baseUsername . '_' . $suffix++;
+        }
+
+        return $username;
+    }
+
     private function isSupportedRedirectUri(string $redirectUri): bool
     {
         $parts = parse_url($redirectUri);
@@ -277,6 +318,7 @@ class AuthController extends Controller
             'username' => $user->username,
             'current_grade_level' => $user->current_grade_level,
             'profile_picture' => $user->profile_picture,
+            'provider' => $user->provider,
             'created_at' => $user->created_at,
             'updated_at' => $user->updated_at,
         ];

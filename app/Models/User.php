@@ -22,6 +22,7 @@ class User extends Authenticatable
         'username',
         'current_grade_level',
         'profile_picture',
+        'provider',
         'elo_rating',
         'warm_up_streak',
         'warm_up_longest_streak',

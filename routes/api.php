@@ -36,6 +36,9 @@ Route::middleware('auth:sanctum')->group(function () {
     // --- Session Termination ---
     Route::post('/v1/auth/logout', [AuthController::class, 'logout']); // Revoke token & sign out
 
+    // --- Profile ---
+    Route::post('/v1/user/avatar', [AuthController::class, 'uploadAvatar']); // Upload a local-account profile picture
+
     // --- Aural Analysis Engine (Aural Tab) ---
     Route::get('/v1/aural', [AuralController::class, 'index']);           // List historic singing attempts
     Route::post('/v1/aural/analyze', [AuralController::class, 'store']);     // Process new audio via Python

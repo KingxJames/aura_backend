@@ -170,6 +170,8 @@ class AuralModuleController extends Controller
         ], $isCorrect, $scoreDetails);
 
         return response()->json([
+
+        
             'success' => true,
             'is_correct' => $isCorrect,
             'correct_answer' => $groundTruth['time_signature'],
