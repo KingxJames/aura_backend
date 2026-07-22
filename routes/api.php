@@ -12,6 +12,7 @@ use App\Http\Controllers\API\TutorController;
 use App\Http\Controllers\API\TranscriptionController;
 use App\Http\Controllers\API\GradeTheoryController;
 use App\Http\Controllers\API\QuizSessionController;
+use App\Http\Controllers\API\PushTokenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,9 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // --- Profile ---
     Route::post('/v1/user/avatar', [AuthController::class, 'uploadAvatar']); // Upload a local-account profile picture
+    Route::post('/v1/user/password', [AuthController::class, 'changePassword']); // Change password (local accounts only)
+    Route::post('/v1/user/push-token', [PushTokenController::class, 'store']); // Register/reassign this device's Expo push token
+    Route::delete('/v1/user/push-token', [PushTokenController::class, 'destroy']); // Remove this device's push token
 
     // --- Aural Analysis Engine (Aural Tab) ---
     Route::get('/v1/aural', [AuralController::class, 'index']);           // List historic singing attempts

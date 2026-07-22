@@ -6,9 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Laravel\Sanctum\HasApiTokens;
+use NotificationChannels\Expo\ExpoPushToken;
 
 class User extends Authenticatable
 {
@@ -101,5 +103,18 @@ class User extends Authenticatable
     public function sessions()
     {
         return $this->hasMany(QuizSessions::class);
+    }
+
+    public function pushTokens(): HasMany
+    {
+        return $this->hasMany(PushToken::class);
+    }
+
+    /**
+     * @return Collection<int, ExpoPushToken>
+     */
+    public function routeNotificationForExpo(): Collection
+    {
+        return $this->pushTokens->map(fn (PushToken $pushToken) => ExpoPushToken::make($pushToken->token));
     }
 }

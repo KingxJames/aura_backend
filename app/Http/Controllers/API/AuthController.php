@@ -272,6 +272,42 @@ class AuthController extends Controller
         ]);
     }
 
+    /**
+     * CHANGE PASSWORD (local accounts only)
+     * POST /api/v1/user/password
+     */
+    public function changePassword(Request $request): JsonResponse
+    {
+        $user = $request->user();
+
+        if ($user->provider === 'google') {
+            return response()->json([
+                'success' => false,
+                'message' => 'Your account signs in with Google and has no password to change.',
+            ], 403);
+        }
+
+        $request->validate([
+            'current_password' => 'required|string',
+            'new_password' => 'required|string|min:8|confirmed',
+        ]);
+
+        if (!Hash::check($request->current_password, $user->password)) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Your current password is incorrect.',
+            ], 422);
+        }
+
+        $user->password = Hash::make($request->new_password);
+        $user->save();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Password updated.',
+        ]);
+    }
+
     private function generateUsernameFromEmail(string $email): string
     {
         $baseUsername = Str::slug(Str::before($email, '@'), '_');

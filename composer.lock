@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f7a421a7255b44ceb5d49ef6b0eb4ab0",
+    "content-hash": "dcd2f4e440f87008b7b1407da28448f2",
     "packages": [
         {
             "name": "brick/math",
@@ -1117,6 +1117,70 @@
                 }
             ],
             "time": "2025-08-22T14:27:06+00:00"
+        },
+        {
+            "name": "laravel-notification-channels/expo",
+            "version": "2.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-notification-channels/expo.git",
+                "reference": "3897e617186015647938f4072b19211a02216d9b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-notification-channels/expo/zipball/3897e617186015647938f4072b19211a02216d9b",
+                "reference": "3897e617186015647938f4072b19211a02216d9b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "^7.1",
+                "illuminate/contracts": "^12.0|^13.0",
+                "illuminate/notifications": "^12.0|^13.0",
+                "illuminate/support": "^12.0|^13.0",
+                "php": "^8.3"
+            },
+            "require-dev": {
+                "larastan/larastan": "^3.0",
+                "laravel/pint": "^1.0",
+                "orchestra/testbench": "^11.0",
+                "phpunit/phpunit": "^11.0"
+            },
+            "suggest": {
+                "ext-zlib": "Required for compressing payloads exceeding 1 KiB in size."
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "NotificationChannels\\Expo\\ExpoServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "NotificationChannels\\Expo\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Muhammed Sari",
+                    "email": "muhammed@dive.be",
+                    "homepage": "https://dive.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Expo Notifications Channel for Laravel",
+            "homepage": "https://github.com/laravel-notification-channels/expo",
+            "support": {
+                "issues": "https://github.com/laravel-notification-channels/expo/issues",
+                "source": "https://github.com/laravel-notification-channels/expo/tree/2.3.0"
+            },
+            "time": "2026-06-09T14:45:01+00:00"
         },
         {
             "name": "laravel/framework",
