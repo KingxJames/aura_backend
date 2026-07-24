@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
             GradeFourQuizSeeder::class,
             GradeFiveQuizSeeder::class,
             OpusLevelSeeder::class,
+            PulseMetreClipSeeder::class,
+            PulseMetreAuthoredQuestionSeeder::class,
         ]);
     }
 }

@@ -55,6 +55,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/v1/aural/modules/{moduleType}/exercise', [AuralModuleController::class, 'generateExercise']); // Procedurally generate a new exercise for a grade
     Route::post('/v1/aural/modules/exercises/{auralExercise}/attempt', [AuralModuleController::class, 'submitAttempt']); // Submit + grade an attempt
     Route::get('/v1/aural/modules/attempts', [AuralModuleController::class, 'history']); // Past attempts, filterable by grade/module
+    Route::post('/v1/aural/modules/debrief', [AuralModuleController::class, 'debrief']); // AI note reacting to a completed round
+    Route::post('/v1/aural/modules/help', [AuralModuleController::class, 'help']); // AI study tip for a struggling module
 
     Route::get('/v1/aural/{id}', [AuralController::class, 'show']);       // View single pitch evaluation
     Route::put('/v1/aural/{id}', [AuralController::class, 'update']);     // Edit notes/comments on an attempt

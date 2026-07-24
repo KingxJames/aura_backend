@@ -201,8 +201,20 @@ class AuthController extends Controller
                 ]
             );
 
+            // firstOrCreate only applies the 'provider' attribute when it creates a new
+            // row, so an account that already existed (e.g. registered locally first,
+            // or predates the provider column) would otherwise stay tagged 'local'
+            // forever despite successfully authenticating via Google here.
+            $needsSave = false;
+            if ($user->provider !== 'google') {
+                $user->provider = 'google';
+                $needsSave = true;
+            }
             if ($avatarUrl !== null && $user->profile_picture !== $avatarUrl) {
                 $user->profile_picture = $avatarUrl;
+                $needsSave = true;
+            }
+            if ($needsSave) {
                 $user->save();
             }
 

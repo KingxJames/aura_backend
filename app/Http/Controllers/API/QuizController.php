@@ -7,11 +7,17 @@ use Illuminate\Http\Request;
 use App\Models\Grade;          // Linked here: Manages the 'grades' table (Curriculum steps)
 use App\Models\Quiz;           // Linked here: Manages the 'quizzes' table (JSON question blocks)
 use App\Models\UserProgress;   // Linked here: Manages the 'user_progress' table (Student scores)
+use App\Services\GeminiNoteService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Http;
 
 class QuizController extends Controller
 {
+    public function __construct(
+        private GeminiNoteService $geminiNotes
+    ) {
+    }
+
     /**
      * =========================================================================
      * ARCHITECTURE EXPLANATION: CONSOLIDATED SYLLABUS LIFE-CYCLE
@@ -162,19 +168,15 @@ class QuizController extends Controller
     /**
      * 4. READ PROGRESS (Student Analytics) - Fetch a historical report of student scores.
      * Target Frontend: Progress Analytics Tab (Renders charts/grade book graphs)
-     * GET /api/v1/curriculum/progress?user_id={uuid}
+     * GET /api/v1/curriculum/progress
      */
     public function studentProgress(Request $request): JsonResponse
     {
-        $request->validate([
-            'user_id' => 'required|integer|exists:users,id'
-        ]);
-
         // ELOQUENT REVERSE RELATIONSHIP MAPPING:
-        // Looks up rows in 'user_progress' matching the student's UUID, and pulls 
+        // Looks up rows in 'user_progress' matching the student's UUID, and pulls
         // the corresponding 'title' from the 'quizzes' table so the app can display it.
         $history = UserProgress::with('quiz:id,title')
-            ->where('user_id', $request->query('user_id'))
+            ->where('user_id', $request->user()->id)
             ->orderBy('created_at', 'desc')
             ->get();
 
@@ -191,10 +193,11 @@ class QuizController extends Controller
      * Target Frontend: Professor Dashboard / Admin panel reset option
      * DELETE /api/v1/curriculum/progress/{id}
      */
-    public function destroyProgress(string $id): JsonResponse
+    public function destroyProgress(Request $request, string $id): JsonResponse
     {
-        // Searches for the specific record row inside the 'user_progress' table
-        $progress = UserProgress::find($id);
+        // Searches for the specific record row inside the 'user_progress' table,
+        // scoped to the authenticated student so one user can't wipe another's progress
+        $progress = UserProgress::where('user_id', $request->user()->id)->find($id);
 
         if (!$progress) {
             return response()->json([
@@ -316,7 +319,7 @@ class QuizController extends Controller
             . "next step for '{$topicLabel}'. Do not use markdown formatting or bullet points. Respond strictly in "
             . "clean JSON with a single key 'message' containing the note text.";
 
-        return $this->generateAuraNote($prompt, 'Nice work — keep practicing this topic to build your streak further.');
+        return $this->geminiNotes->generateNote($prompt, 'Nice work — keep practicing this topic to build your streak further.');
     }
 
     /**
@@ -339,45 +342,7 @@ class QuizController extends Controller
             . "'{$topicLabel}' before they try again. Do not use markdown formatting or bullet points. Respond "
             . "strictly in clean JSON with a single key 'message' containing the tip text.";
 
-        return $this->generateAuraNote($prompt, "Take a moment to review {$topicLabel} fundamentals before your next attempt — you've got this.");
-    }
-
-    /**
-     * Shared Gemini call for the two short single-note Aura endpoints above.
-     */
-    private function generateAuraNote(string $prompt, string $fallbackMessage): JsonResponse
-    {
-        try {
-            $apiKey = env('GEMINI_API_KEY');
-            $response = Http::withHeaders([
-                'Content-Type' => 'application/json'
-            ])->post("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={$apiKey}", [
-                        'contents' => [
-                            ['parts' => [['text' => $prompt]]]
-                        ],
-                        'generationConfig' => [
-                            'responseMimeType' => 'application/json'
-                        ]
-                    ]);
-
-            if ($response->failed()) {
-                throw new \Exception("Gemini API communication dropped.");
-            }
-
-            $resultText = $response->json()['candidates'][0]['content']['parts'][0]['text'];
-            $data = json_decode($resultText, true);
-
-            return response()->json([
-                'success' => true,
-                'message' => $data['message'] ?? $fallbackMessage,
-            ], 200);
-
-        } catch (\Exception $e) {
-            return response()->json([
-                'success' => false,
-                'message' => $fallbackMessage,
-            ], 500);
-        }
+        return $this->geminiNotes->generateNote($prompt, "Take a moment to review {$topicLabel} fundamentals before your next attempt — you've got this.");
     }
 
     /**

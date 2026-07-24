@@ -18,12 +18,11 @@ class TutorController extends Controller
     public function chat(Request $request): JsonResponse
     {
         $request->validate([
-            'user_id' => 'required|integer|exists:users,id',
             'message' => 'required|string|max:5000',
             'conversation_id' => 'nullable|uuid'
         ]);
 
-        $userId = $request->input('user_id');
+        $userId = $request->user()->id;
         $userMessage = $request->input('message');
         $conversationId = $request->input('conversation_id') ?? (string) Str::uuid();
 
@@ -43,12 +42,20 @@ class TutorController extends Controller
             ], 500);
         }
 
-        // STEP 2: Fetch last 10 messages of history to provide full conversational context
+        // STEP 2: Fetch last 10 messages of history to provide full conversational context.
+        // Order descending to get the MOST RECENT rows (including the message we just
+        // saved above), then reverse back to chronological order for Gemini's contents
+        // array - ordering ascending with take() here would grab the OLDEST messages
+        // instead, silently dropping the current question once a conversation passes
+        // 11 total messages.
         $historyLogs = TutorConversation::where('conversation_id', $conversationId)
             ->where('user_id', $userId)
-            ->orderBy('created_at', 'asc')
-            ->take(11) // Includes the message we just saved
-            ->get();
+            ->orderBy('created_at', 'desc')
+            ->orderBy('id', 'desc')
+            ->take(11)
+            ->get()
+            ->reverse()
+            ->values();
 
         // Format history into Gemini's expected contents structure
         $contents = [];
@@ -63,10 +70,24 @@ class TutorController extends Controller
         }
 
         // STEP 3: Define the Pedagogical System Constraints
+        //
+        // Visual/audio note tags: this is the ONE place that should define the
+        // [[note:...]] tag contract for Gemini. It used to be duplicated (and
+        // contradicted - this block previously told Gemini to embed markdown
+        // image URLs, which the app's renderer strips on receipt) in the
+        // mobile app's per-message wrapper too; keep the tag spec here only
+        // so the frontend (lib/tutorContent.ts parser + components/tutor/NoteGlyph.tsx
+        // renderer) and this prompt can't drift out of sync again.
         $systemPrompt = "You are Aura, an elite AI Music Professor specializing in the music theory curriculum, western music history, and musicology. "
             . "Your job is to answer music questions clearly, concisely, and accurately. "
             . "Use markdown bullet points, bold headers, and structural formatting. "
-            . "CRITICAL FOR VISUALS: Whenever a user asks to see a visual concept (like a treble clef, bass clef, staff, or note values), you MUST embed a high-quality, clear, publicly available online image URL using standard Markdown image syntax: ![Description](https://url/image.png). "
+            . "Never use markdown image syntax (![]()) - you cannot generate real image URLs and the app strips any image tag before display. "
+            . "When you describe how a note looks, where a pitch sits on the staff, or how it sounds, put a tag on its own line right after the description in the exact format [[note:TYPE]], or [[note:TYPE,pitch:PITCH]] when a specific pitch is relevant, or [[note:TYPE,pitch:PITCH,clef:CLEF]] to choose the clef. "
+            . "Add \",play:true\" to any of those (e.g. [[note:quarter,pitch:C4,play:true]]) whenever actually hearing the pitch would help the student - the app renders the tag as a real staff with a tappable play button that sounds that exact pitch. "
+            . "TYPE is one of: whole, half, quarter, eighth, sixteenth. PITCH is a letter A-G optionally followed by # or b then an octave number, e.g. C4 for middle C, F#5, Bb3. CLEF is treble (default) or bass. "
+            . "Omit pitch when the question is only about note duration/appearance in general, not about a specific pitch. "
+            . "For a rest (silence) instead of a sounded note, use [[note:TYPE,rest:true]] instead - e.g. [[note:quarter,rest:true]] for a quarter rest. Rests never take pitch, clef, or play, since they have no pitch and nothing to hear. "
+            . "The tag can only render ONE note or rest at a time - never try to depict a scale, chord, key signature, or full phrase with it, since the renderer doesn't support that yet; describe those in words instead. "
             . "If a student asks something completely unrelated to music, art history, or audio, gently steer them back to music theory.";
 
         $primaryModel = config('services.gemini.model', 'gemini-2.5-flash');
@@ -135,15 +156,11 @@ class TutorController extends Controller
 
     /**
      * 2. READ (Conversation Index) - Optimized to fix N+1 Database Query Bug
-     * GET /api/v1/tutor/conversations?user_id={id}
+     * GET /api/v1/tutor/conversations
      */
     public function conversations(Request $request): JsonResponse
     {
-        $request->validate([
-            'user_id' => 'required|integer|exists:users,id'
-        ]);
-
-        $userId = $request->query('user_id');
+        $userId = $request->user()->id;
 
         // We run a single, fast SQL query to group and find the original prompt title
         $conversations = TutorConversation::query()
@@ -181,16 +198,15 @@ class TutorController extends Controller
 
     /**
      * 2. READ (History) - Pull past chat logs chronologically
-     * GET /api/v1/tutor/history?user_id={id}&conversation_id={uuid}
+     * GET /api/v1/tutor/history?conversation_id={uuid}
      */
     public function history(Request $request): JsonResponse
     {
         $request->validate([
-            'user_id' => 'required|integer|exists:users,id',
             'conversation_id' => 'nullable|uuid'
         ]);
 
-        $query = TutorConversation::where('user_id', $request->query('user_id'));
+        $query = TutorConversation::where('user_id', $request->user()->id);
 
         if ($request->filled('conversation_id')) {
             $query->where('conversation_id', $request->query('conversation_id'));
@@ -210,16 +226,12 @@ class TutorController extends Controller
      */
     public function deleteConversation(Request $request, string $conversationId): JsonResponse
     {
-        $request->validate([
-            'user_id' => 'required|integer|exists:users,id'
-        ]);
-
         if (!Str::isUuid($conversationId)) {
             return response()->json(['success' => false, 'message' => 'Invalid UUID format.'], 422);
         }
 
         $deleted = TutorConversation::query()
-            ->where('user_id', $request->query('user_id'))
+            ->where('user_id', $request->user()->id)
             ->where('conversation_id', $conversationId)
             ->delete();
 
@@ -239,12 +251,8 @@ class TutorController extends Controller
      */
     public function clearConversations(Request $request): JsonResponse
     {
-        $request->validate([
-            'user_id' => 'required|integer|exists:users,id'
-        ]);
-
         $deleted = TutorConversation::query()
-            ->where('user_id', $request->query('user_id'))
+            ->where('user_id', $request->user()->id)
             ->delete();
 
         return response()->json([
@@ -260,7 +268,6 @@ class TutorController extends Controller
     public function clearHistory(Request $request): JsonResponse
     {
         $request->validate([
-            'user_id' => 'required|integer|exists:users,id',
             'conversation_id' => 'nullable|uuid'
         ]);
 

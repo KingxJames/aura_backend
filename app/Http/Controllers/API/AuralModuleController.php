@@ -6,7 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\AuralExercise;
 use App\Models\AuralModuleAttempt;
 use App\Models\Grade;
+use App\Models\PulseMetreAuthoredQuestion;
+use App\Models\PulseMetreClip;
+use App\Models\PulseMetreSession;
 use App\Services\AuralExerciseGeneratorService;
+use App\Services\GeminiNoteService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use InvalidArgumentException;
@@ -30,7 +34,8 @@ class AuralModuleController extends Controller
     private const PULSE_METRE_TOLERANCE_MS = 150;
 
     public function __construct(
-        private AuralExerciseGeneratorService $generator
+        private AuralExerciseGeneratorService $generator,
+        private GeminiNoteService $geminiNotes
     ) {
     }
 
@@ -53,25 +58,55 @@ class AuralModuleController extends Controller
 
         $grade = Grade::findOrFail($request->query('grade_id'));
 
-        // Maps each module_type to its generator method. Kept as an explicit table
-        // (rather than deriving the method name from the string) since 'echo_singing'
-        // maps to generateEchoPhrase() - the names don't follow a 1:1 naming pattern.
-        $generatorMethods = [
-            'pulse_metre' => 'generatePulseMetre',
-            'echo_singing' => 'generateEchoPhrase',
-            'spot_difference' => 'generateSpotDifference',
-            'musical_features' => 'generateMusicalFeatures',
-        ];
+        // Pulse & Metre runs a stateful 10-question, 4-phase progression (see
+        // AuralExerciseGeneratorService::phaseForQuestionNumber()), so it
+        // alone needs a session looked up first.
+        $session = null;
 
         try {
-            $generatorMethod = $generatorMethods[$moduleType];
-            $payload = $this->generator->{$generatorMethod}($grade->level_number);
+            if ($moduleType === 'pulse_metre') {
+                $session = PulseMetreSession::firstOrCreate(
+                    ['user_id' => $request->user()->id, 'grade_id' => $grade->id, 'status' => 'active'],
+                    ['question_number' => 1, 'correct_count' => 0]
+                );
+                $phase = AuralExerciseGeneratorService::phaseForQuestionNumber($session->question_number);
+
+                // Authored content (hand-picked song + beat timestamps) wins if it
+                // exists for this exact slot; otherwise fall back to the real-clip
+                // catalog (listen_mcq) or procedural generation (the tap phases) -
+                // nothing breaks while the authored bank is still being filled in.
+                $authored = PulseMetreAuthoredQuestion::where('grade_id', $grade->id)
+                    ->where('question_number', $session->question_number)
+                    ->first();
+
+                $payload = match (true) {
+                    $authored !== null => $this->buildAuthoredPulseMetrePayload($authored, $phase),
+                    $phase === 'listen_mcq' => $this->generateListenClipPayload(),
+                    default => $this->generator->generatePulseMetre($grade->level_number, $phase),
+                };
+            } else {
+                // Maps each module_type to its generator method. Kept as an explicit table
+                // (rather than deriving the method name from the string) since 'echo_singing'
+                // maps to generateEchoPhrase() - the names don't follow a 1:1 naming pattern.
+                $generatorMethods = [
+                    'echo_singing' => 'generateEchoPhrase',
+                    'spot_difference' => 'generateSpotDifference',
+                    'musical_features' => 'generateMusicalFeatures',
+                ];
+                $generatorMethod = $generatorMethods[$moduleType];
+                $payload = $this->generator->{$generatorMethod}($grade->level_number);
+            }
         } catch (InvalidArgumentException $e) {
             // Thrown by the generator when a grade level's rules aren't defined yet.
             return response()->json([
                 'success' => false,
                 'message' => $e->getMessage(),
             ], 422);
+        }
+
+        if ($session) {
+            $payload['session_id'] = $session->id;
+            $payload['question_number'] = $session->question_number;
         }
 
         $exercise = AuralExercise::create([
@@ -81,15 +116,104 @@ class AuralModuleController extends Controller
             'payload_jsonb' => $payload,
         ]);
 
+        $data = [
+            'exercise_id' => $exercise->id,
+            'grade_id' => $grade->id,
+            'module_type' => $moduleType,
+            ...$payload,
+        ];
+
+        if ($session) {
+            $data['session_progress'] = [
+                'question_number' => $session->question_number,
+                'phase' => $payload['phase'],
+                'total_questions' => 10,
+            ];
+        }
+
         return response()->json([
             'success' => true,
-            'data' => [
-                'exercise_id' => $exercise->id,
-                'grade_id' => $grade->id,
-                'module_type' => $moduleType,
-                ...$payload,
-            ],
+            'data' => $data,
         ]);
+    }
+
+    /**
+     * listen_mcq (Q1-3) plays a real, pre-recorded 2-bar clip instead of a
+     * synthesized click track - unlike every other Aural exercise, this one
+     * pulls from a seeded catalog (PulseMetreClip) rather than
+     * AuralExerciseGeneratorService, since real audio can't be procedurally
+     * generated. Throws (caught by generateExercise's existing try/catch,
+     * 422) if no clip has been seeded yet for the chosen time signature.
+     */
+    private function generateListenClipPayload(): array
+    {
+        $timeSignature = random_int(0, 1) === 0 ? '2/4' : '3/4';
+        $clip = PulseMetreClip::where('time_signature', $timeSignature)
+            ->inRandomOrder()
+            ->first();
+
+        if (!$clip) {
+            throw new InvalidArgumentException(
+                "No Pulse & Metre listening clips have been seeded for {$timeSignature} yet."
+            );
+        }
+
+        return array_merge([
+            'module_type' => 'pulse_metre',
+            'phase' => 'listen_mcq',
+            'time_signature' => $timeSignature,
+            'audio_url' => $clip->audioUrl(),
+            'clip_label' => $clip->label,
+            'ground_truth' => [
+                'time_signature' => $timeSignature,
+            ],
+        ], $this->generator->listenMcqFields());
+    }
+
+    /**
+     * Builds a Pulse & Metre payload from a hand-authored question (one
+     * specific song + time signature + hand-timed beats, fixed to a specific
+     * question_number - see PulseMetreAuthoredQuestion). Only beat_timestamps_ms
+     * is genuinely author-supplied for the tap phases; downbeat_indices/
+     * audible_beat_indices are derived the same way the procedural generator
+     * derives them, via the exact same shared helpers, so grading (which reads
+     * these fields generically off payload_jsonb) works identically regardless
+     * of whether the exercise came from here or from the generator/clip catalog.
+     */
+    private function buildAuthoredPulseMetrePayload(PulseMetreAuthoredQuestion $question, string $phase): array
+    {
+        $data = $question->payload_jsonb;
+        $timeSignature = $data['time_signature'];
+        $beatsPerBar = $timeSignature === '2/4' ? 2 : 3;
+
+        $payload = [
+            'module_type' => 'pulse_metre',
+            'phase' => $phase,
+            'time_signature' => $timeSignature,
+            'audio_url' => $question->audioUrl(),
+            'ground_truth' => [
+                'time_signature' => $timeSignature,
+            ],
+        ];
+
+        if ($phase === 'listen_mcq') {
+            return array_merge($payload, $this->generator->listenMcqFields());
+        }
+
+        $beatTimestampsMs = $data['beat_timestamps_ms'];
+        $payload['beats_per_bar'] = $beatsPerBar;
+        $payload['beat_timestamps_ms'] = $beatTimestampsMs;
+
+        return match ($phase) {
+            'downbeat_tap' => array_merge($payload, $this->generator->downbeatTapFields($beatTimestampsMs, $beatsPerBar)),
+            'muted_bar_tap' => array_merge($payload, $this->generator->mutedBarTapFields($beatsPerBar)),
+            'boss' => array_merge(
+                $payload,
+                $this->generator->mutedBarTapFields($beatsPerBar),
+                $this->generator->listenMcqFields()
+            ),
+            default => throw new InvalidArgumentException("Unknown Pulse & Metre phase: {$phase}"),
+        };
     }
 
     /**
@@ -119,11 +243,124 @@ class AuralModuleController extends Controller
 
     /**
      * 1A GRADING: Pulse & Metre
-     * Scores tap timing against the expected beat grid, then checks the
-     * follow-up "2 time or 3 time?" answer, which is what actually decides
-     * is_correct.
+     * Dispatches to whichever of the 4 phase graders matches the exercise's
+     * generated phase, logs the attempt, then advances the user's session to
+     * the next question.
      */
     private function gradePulseMetre(Request $request, AuralExercise $exercise): JsonResponse
+    {
+        $phase = $exercise->payload_jsonb['phase'] ?? 'listen_mcq';
+
+        $grading = match ($phase) {
+            'listen_mcq' => $this->gradeListenPhase($request, $exercise),
+            'downbeat_tap' => $this->gradeDownbeatPhase($request, $exercise),
+            'muted_bar_tap' => $this->gradeMutedBarPhase($request, $exercise),
+            'boss' => $this->gradeBossPhase($request, $exercise),
+            default => null,
+        };
+
+        if ($grading === null) {
+            return response()->json(['success' => false, 'message' => 'Unsupported Pulse & Metre phase.'], 500);
+        }
+
+        $this->logAttempt(
+            $request,
+            $exercise,
+            $grading['user_response'],
+            $grading['is_correct'],
+            $grading['score_details']
+        );
+
+        return response()->json([
+            'success' => true,
+            'is_correct' => $grading['is_correct'],
+            'correct_answer' => $grading['correct_answer'],
+            'score_details' => $grading['score_details'],
+            'session_progress' => $this->advancePulseMetreSession($exercise, $grading['is_correct']),
+        ]);
+    }
+
+    /**
+     * Phase 1 (Q1-3), "Pure Listening": just the "2 time or 3 time?" MCQ, no tapping.
+     */
+    private function gradeListenPhase(Request $request, AuralExercise $exercise): array
+    {
+        $request->validate([
+            'selected_time_signature' => 'required|string',
+        ]);
+
+        $groundTruth = $exercise->payload_jsonb['ground_truth'];
+        $selected = trim($request->input('selected_time_signature'));
+        $isCorrect = $selected === $groundTruth['time_signature'];
+
+        return [
+            'user_response' => ['selected_time_signature' => $selected],
+            'is_correct' => $isCorrect,
+            'correct_answer' => $groundTruth['time_signature'],
+            'score_details' => ['selected' => $selected, 'expected' => $groundTruth['time_signature']],
+        ];
+    }
+
+    /**
+     * Phase 2 (Q4-6), "Downbeat Sniper": tap only on beat 1 of each bar. Graded
+     * purely on timing against the downbeats - no MCQ this round. Capping the
+     * allowed tap count stops "just tap constantly" from gaming the tolerance check.
+     */
+    private function gradeDownbeatPhase(Request $request, AuralExercise $exercise): array
+    {
+        $request->validate([
+            'tap_timestamps_ms' => 'required|array',
+            'tap_timestamps_ms.*' => 'numeric',
+        ]);
+
+        $taps = $request->input('tap_timestamps_ms');
+        $allBeats = $exercise->payload_jsonb['beat_timestamps_ms'];
+        $downbeatTimestamps = array_map(fn ($i) => $allBeats[$i], $exercise->payload_jsonb['downbeat_indices']);
+
+        $accuracy = $this->computeTapAccuracy($downbeatTimestamps, $taps);
+        $isCorrect = $accuracy['beats_on_time'] === $accuracy['total_beats']
+            && count($taps) <= count($downbeatTimestamps) + 1;
+
+        return [
+            'user_response' => ['tap_timestamps_ms' => $taps],
+            'is_correct' => $isCorrect,
+            'correct_answer' => ['downbeat_timestamps_ms' => $downbeatTimestamps],
+            'score_details' => $accuracy,
+        ];
+    }
+
+    /**
+     * Phase 3 (Q7-9), "Muted Bar": bar 1's clicks are audible, bar 2 is silent.
+     * The user must keep tapping through the silence from their internal clock;
+     * graded on timing accuracy across every beat, including the muted ones.
+     */
+    private function gradeMutedBarPhase(Request $request, AuralExercise $exercise): array
+    {
+        $request->validate([
+            'tap_timestamps_ms' => 'required|array',
+            'tap_timestamps_ms.*' => 'numeric',
+        ]);
+
+        $taps = $request->input('tap_timestamps_ms');
+        $allBeats = $exercise->payload_jsonb['beat_timestamps_ms'];
+
+        $accuracy = $this->computeTapAccuracy($allBeats, $taps);
+        $isCorrect = $accuracy['beats_on_time'] === $accuracy['total_beats'];
+
+        return [
+            'user_response' => ['tap_timestamps_ms' => $taps],
+            'is_correct' => $isCorrect,
+            'correct_answer' => ['beat_timestamps_ms' => $allBeats],
+            'score_details' => $accuracy,
+        ];
+    }
+
+    /**
+     * Phase 4 (Q10), "Boss Level": the Muted Bar tap-through, immediately
+     * followed by the "what time signature was that?" MCQ - both must be
+     * correct, requiring the user to hold tempo and meter in memory at once.
+     */
+    private function gradeBossPhase(Request $request, AuralExercise $exercise): array
     {
         $request->validate([
             'tap_timestamps_ms' => 'required|array',
@@ -131,11 +368,35 @@ class AuralModuleController extends Controller
             'selected_time_signature' => 'required|string',
         ]);
 
-        $expectedBeats = $exercise->payload_jsonb['beat_timestamps_ms'];
         $taps = $request->input('tap_timestamps_ms');
+        $allBeats = $exercise->payload_jsonb['beat_timestamps_ms'];
+        $accuracy = $this->computeTapAccuracy($allBeats, $taps);
+        $timingCorrect = $accuracy['beats_on_time'] === $accuracy['total_beats'];
 
-        // For each expected beat, find the closest tap and record the timing delta.
-        // This is purely diagnostic feedback - it does not affect is_correct.
+        $groundTruth = $exercise->payload_jsonb['ground_truth'];
+        $selected = trim($request->input('selected_time_signature'));
+        $mcqCorrect = $selected === $groundTruth['time_signature'];
+
+        return [
+            'user_response' => ['tap_timestamps_ms' => $taps, 'selected_time_signature' => $selected],
+            'is_correct' => $timingCorrect && $mcqCorrect,
+            'correct_answer' => [
+                'beat_timestamps_ms' => $allBeats,
+                'time_signature' => $groundTruth['time_signature'],
+            ],
+            'score_details' => array_merge($accuracy, [
+                'timing_correct' => $timingCorrect,
+                'mcq_correct' => $mcqCorrect,
+            ]),
+        ];
+    }
+
+    /**
+     * Shared by the 3 tap-based phases: for each expected beat, finds the
+     * closest tap and records the timing delta against PULSE_METRE_TOLERANCE_MS.
+     */
+    private function computeTapAccuracy(array $expectedBeats, array $taps): array
+    {
         $deltas = [];
         $onTimeCount = 0;
         foreach ($expectedBeats as $expectedMs) {
@@ -152,10 +413,7 @@ class AuralModuleController extends Controller
             }
         }
 
-        $groundTruth = $exercise->payload_jsonb['ground_truth'];
-        $isCorrect = trim($request->input('selected_time_signature')) === $groundTruth['time_signature'];
-
-        $scoreDetails = [
+        return [
             'tap_deltas_ms' => $deltas,
             'beats_on_time' => $onTimeCount,
             'total_beats' => count($expectedBeats),
@@ -163,20 +421,42 @@ class AuralModuleController extends Controller
                 ? round(($onTimeCount / count($expectedBeats)) * 100, 1)
                 : 0,
         ];
+    }
 
-        $this->logAttempt($request, $exercise, [
-            'tap_timestamps_ms' => $taps,
-            'selected_time_signature' => $request->input('selected_time_signature'),
-        ], $isCorrect, $scoreDetails);
+    /**
+     * Advances the exercise's PulseMetreSession to the next question, marking it
+     * completed once question 10 is answered (the next generateExercise() call
+     * will then start a fresh session back at question 1). Returns a summary of
+     * the question that was just answered, not the upcoming one.
+     */
+    private function advancePulseMetreSession(AuralExercise $exercise, bool $isCorrect): ?array
+    {
+        $sessionId = $exercise->payload_jsonb['session_id'] ?? null;
+        $session = $sessionId ? PulseMetreSession::find($sessionId) : null;
 
-        return response()->json([
+        if (!$session) {
+            return null;
+        }
 
-        
-            'success' => true,
-            'is_correct' => $isCorrect,
-            'correct_answer' => $groundTruth['time_signature'],
-            'score_details' => $scoreDetails,
-        ]);
+        $completedQuestionNumber = $session->question_number;
+        $completedPhase = AuralExerciseGeneratorService::phaseForQuestionNumber($completedQuestionNumber);
+
+        $session->correct_count += $isCorrect ? 1 : 0;
+        $session->question_number += 1;
+
+        if ($session->question_number > 10) {
+            $session->status = 'completed';
+        }
+
+        $session->save();
+
+        return [
+            'question_number' => $completedQuestionNumber,
+            'phase' => $completedPhase,
+            'total_questions' => 10,
+            'status' => $session->status,
+            'correct_count' => $session->correct_count,
+        ];
     }
 
     /**
@@ -265,6 +545,74 @@ class AuralModuleController extends Controller
         ]);
     }
 
+    /**
+     * POST-ROUND AI DEBRIEF (Aural Training > module results screen)
+     * POST /api/v1/aural/modules/debrief
+     * Mirrors QuizController::topicDebrief - round-level scoring only exists
+     * on the client (the module's exercise loop), so session stats are
+     * supplied in the request body rather than looked up server-side.
+     */
+    public function debrief(Request $request): JsonResponse
+    {
+        $request->validate([
+            'module_type' => 'required|string|in:' . implode(',', self::MODULE_TYPES),
+            'correct_count' => 'required|integer|min:0',
+            'total_questions' => 'required|integer|min:1',
+        ]);
+
+        $moduleLabel = $this->humanizeModuleType($request->module_type);
+        $prompt = "You are Aura, an elite AI Music Professor. A student just finished a practice round on the Aural "
+            . "Training module '{$moduleLabel}': {$request->correct_count}/{$request->total_questions} correct. "
+            . "Write a short, warm, exactly 2-sentence note reacting to this specific result and giving one concrete "
+            . "ear-training tip for '{$moduleLabel}'. Do not use markdown formatting or bullet points. Respond "
+            . "strictly in clean JSON with a single key 'message' containing the note text.";
+
+        return $this->geminiNotes->generateNote($prompt, 'Nice work — keep practicing this module to sharpen your ear.');
+    }
+
+    /**
+     * "ASK AURA" HELP FOR A STRUGGLING MODULE (Aural Training > module screen)
+     * POST /api/v1/aural/modules/help
+     * Mirrors QuizController::topicHelp.
+     */
+    public function help(Request $request): JsonResponse
+    {
+        $request->validate([
+            'module_type' => 'required|string|in:' . implode(',', self::MODULE_TYPES),
+            'attempts' => 'required|integer|min:1',
+            'best_score_percent' => 'required|integer|min:0|max:100',
+        ]);
+
+        $moduleLabel = $this->humanizeModuleType($request->module_type);
+        $prompt = "You are Aura, an elite AI Music Professor. A student is struggling with the Aural Training module "
+            . "'{$moduleLabel}': {$request->attempts} attempts so far, best score {$request->best_score_percent}%. "
+            . "Write a short, encouraging, exactly 2-sentence study tip focused specifically on what to listen for in "
+            . "'{$moduleLabel}' before they try again. Do not use markdown formatting or bullet points. Respond "
+            . "strictly in clean JSON with a single key 'message' containing the tip text.";
+
+        return $this->geminiNotes->generateNote(
+            $prompt,
+            "Take a moment to focus your ear before your next attempt on {$moduleLabel} — you've got this."
+        );
+    }
+
+    /**
+     * Mirrors the frontend's module label lookup so Gemini prompts read
+     * naturally (e.g. 'pulse_metre' -> 'Pulse & Metre') instead of raw
+     * snake_case keys.
+     */
+    private function humanizeModuleType(string $moduleType): string
+    {
+        $labels = [
+            'pulse_metre' => 'Pulse & Metre',
+            'echo_singing' => 'Echo Singing',
+            'spot_difference' => 'Spotting the Difference',
+            'musical_features' => 'Musical Features',
+        ];
+
+        return $labels[$moduleType] ?? ucwords(str_replace('_', ' ', $moduleType));
+    }
+
     private function logAttempt(
         Request $request,
         AuralExercise $exercise,
@@ -304,7 +652,7 @@ class AuralModuleController extends Controller
         }
 
         if ($request->filled('grade_id')) {
-            $query->whereHas('auralExercise', fn ($q) => $q->where('grade_id', $request->query('grade_id')));
+            $query->whereHas('auralExercise', fn($q) => $q->where('grade_id', $request->query('grade_id')));
         }
 
         $attempts = $query->get();
