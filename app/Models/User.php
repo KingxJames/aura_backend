@@ -29,11 +29,14 @@ class User extends Authenticatable
         'warm_up_streak',
         'warm_up_longest_streak',
         'last_warm_up_date',
+        'study_arm',
+        'study_enrolled_at',
     ];
 
     protected $casts = [
         'elo_rating' => 'float',
         'last_warm_up_date' => 'date',
+        'study_enrolled_at' => 'datetime',
     ];
 
     /**

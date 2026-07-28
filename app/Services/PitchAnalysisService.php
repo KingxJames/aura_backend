@@ -2,19 +2,34 @@
 
 namespace App\Services;
 
+use Illuminate\Support\Facades\Http;
+
 class PitchAnalysisService
 {
     /**
-     * Shared DSP engine invocation - runs the Python pitch analyzer against a stored
-     * audio clip and returns the decoded result array.
+     * Shared DSP engine invocation - calls the persistent, supervisor-managed
+     * pitch_service.py (storage/app/script/pitch_service.py) over HTTP instead of
+     * shell_exec'ing a fresh python3 process per request. A fresh process pays
+     * librosa/numba's import + JIT-compile cost on every single call (~9.6s
+     * measured); the persistent service pays that cost once at container boot.
      */
     public function analyze(string $absolutePath, string $targetNote): ?array
     {
-        $scriptPath = storage_path('app/script/pitch_analyzer.py');
-        $command = "python3 " . escapeshellarg($scriptPath) . " " . escapeshellarg($absolutePath) . " " . escapeshellarg($targetNote) . " 2>&1";
+        $baseUrl = env('PITCH_ANALYSIS_API_URL', 'http://127.0.0.1:8001');
+        $endpoint = rtrim($baseUrl, '/') . '/api/v1/analyze';
 
-        $output = shell_exec($command);
+        $response = Http::attach(
+            'audio',
+            file_get_contents($absolutePath),
+            basename($absolutePath)
+        )->timeout(30)->post($endpoint, [
+            'target_note' => $targetNote,
+        ]);
 
-        return json_decode($output, true);
+        if ($response->failed()) {
+            return ['success' => false, 'error' => 'Pitch analysis service error: ' . $response->status()];
+        }
+
+        return $response->json();
     }
 }

@@ -47,4 +47,38 @@ class GeminiNoteService
             ], 500);
         }
     }
+
+    /**
+     * Same Gemini call as generateNote(), but for callers that need the
+     * generated text inline (e.g. embedded into a model field) rather than
+     * an endpoint response of its own.
+     */
+    public function generateText(string $prompt, string $fallbackMessage): string
+    {
+        try {
+            $apiKey = env('GEMINI_API_KEY');
+            $response = Http::withHeaders([
+                'Content-Type' => 'application/json'
+            ])->post("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={$apiKey}", [
+                        'contents' => [
+                            ['parts' => [['text' => $prompt]]]
+                        ],
+                        'generationConfig' => [
+                            'responseMimeType' => 'application/json'
+                        ]
+                    ]);
+
+            if ($response->failed()) {
+                throw new \Exception("Gemini API communication dropped.");
+            }
+
+            $resultText = $response->json()['candidates'][0]['content']['parts'][0]['text'];
+            $data = json_decode($resultText, true);
+
+            return $data['message'] ?? $fallbackMessage;
+
+        } catch (\Exception $e) {
+            return $fallbackMessage;
+        }
+    }
 }

@@ -17,6 +17,7 @@ class AuralAttempt extends Model
         'target_note',
         'detected_frequency',
         'cents_deviation',
+        'processing_ms',
         'feedback_text',
         'audio_path',
     ];

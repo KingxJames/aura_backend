@@ -6,13 +6,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\AuralAttempt;
 use App\Services\PitchAnalysisService;
+use App\Services\GeminiNoteService;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\JsonResponse;
 
 class AuralController extends Controller
 {
     public function __construct(
-        private PitchAnalysisService $pitchAnalysis
+        private PitchAnalysisService $pitchAnalysis,
+        private GeminiNoteService $geminiNotes
     ) {
     }
 
@@ -59,6 +61,7 @@ class AuralController extends Controller
         $absolutePath = storage_path('app/private/' . $filePath);
 
         // 2. Run the Python DSP engine against the uploaded clip
+        $processingStartedAt = microtime(true);
         $result = $this->pitchAnalysis->analyze($absolutePath, $request->target_note);
 
         if (!$result || isset($result['success']) && !$result['success']) {
@@ -70,16 +73,31 @@ class AuralController extends Controller
         }
 
         // 4. Generate dynamic, pedagogical feedback based on performance variance bounds
-        $feedback = "";
         $dev = $result['cents_deviation'];
 
         if ($result['is_correct']) {
-            $feedback = "Excellent ear! Your note singing is stable and well within standard vocal accuracy limits.";
+            $cannedFeedback = "Excellent ear! Your note singing is stable and well within standard vocal accuracy limits.";
         } else {
-            $feedback = $dev > 0
+            $cannedFeedback = $dev > 0
                 ? "You are singing slightly sharp (pitched too high). Relax your vocal cords slightly to land on center pitch."
                 : "You are singing slightly flat (pitched too low). Support your breath and lift the center tone slightly.";
         }
+
+        if ($user->study_arm === 'experimental') {
+            $prompt = "You are Aura, an elite AI Music Professor. A student just sang a note targeting {$request->target_note}. "
+                . "Their detected pitch was {$result['detected_frequency']} Hz, a deviation of {$dev} cents "
+                . "(positive = sharp/too high, negative = flat/too low). Correct: " . ($result['is_correct'] ? 'yes' : 'no') . ". "
+                . "Write a short, warm, exactly 2-sentence diagnostic critique explaining specifically what they did with "
+                . "their pitch and one concrete physical correction tip (breath support, vocal tension, etc). Use plain, "
+                . "jargon-free language a beginner can follow. Do not use markdown formatting or bullet points. Respond "
+                . "strictly in clean JSON with a single key 'message' containing the critique text.";
+
+            $feedback = $this->geminiNotes->generateText($prompt, $cannedFeedback);
+        } else {
+            $feedback = $cannedFeedback;
+        }
+
+        $processingMs = (int) round((microtime(true) - $processingStartedAt) * 1000);
 
         // 5. Commit record metrics directly to PostgreSQL analytics table
         $attempt = AuralAttempt::create([
@@ -88,6 +106,7 @@ class AuralController extends Controller
             'target_note' => $request->target_note,
             'detected_frequency' => $result['detected_frequency'],
             'cents_deviation' => $result['cents_deviation'],
+            'processing_ms' => $processingMs,
             'feedback_text' => $feedback
         ]);
 
@@ -115,6 +134,7 @@ class AuralController extends Controller
         $filePath = $request->file('audio')->store('audio/vocal_tests');
         $absolutePath = storage_path('app/private/' . $filePath);
 
+        $processingStartedAt = microtime(true);
         $result = $this->pitchAnalysis->analyze($absolutePath, $targetNote);
 
         if (!$result || isset($result['success']) && !$result['success']) {
@@ -125,15 +145,32 @@ class AuralController extends Controller
             ], 500);
         }
 
-        $feedback = $result['is_correct']
+        $dev = $result['cents_deviation'];
+        $cannedFeedback = $result['is_correct']
             ? "Nice and steady! The app is tuned in."
             : "Almost there - take a breath and settle onto the note.";
+
+        if ($user->study_arm === 'experimental') {
+            $prompt = "You are Aura, an elite AI Music Professor. A student just did their daily Tuning Fork "
+                . "warm-up, singing against Middle C (C4). Their detected pitch was {$result['detected_frequency']} Hz, "
+                . "a deviation of {$dev} cents (positive = sharp/too high, negative = flat/too low). Correct: "
+                . ($result['is_correct'] ? 'yes' : 'no') . ". Write a short, warm, exactly 1-sentence reaction to this "
+                . "quick daily check-in, in plain jargon-free language. Do not use markdown formatting or bullet points. "
+                . "Respond strictly in clean JSON with a single key 'message' containing the reaction text.";
+
+            $feedback = $this->geminiNotes->generateText($prompt, $cannedFeedback);
+        } else {
+            $feedback = $cannedFeedback;
+        }
+
+        $processingMs = (int) round((microtime(true) - $processingStartedAt) * 1000);
 
         $attempt = AuralAttempt::create([
             'user_id' => $user->id,
             'context' => 'warm_up',
             'audio_path' => $filePath,
             'target_note' => $targetNote,
+            'processing_ms' => $processingMs,
             'detected_frequency' => $result['detected_frequency'],
             'cents_deviation' => $result['cents_deviation'],
             'feedback_text' => $feedback

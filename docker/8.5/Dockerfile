@@ -73,8 +73,11 @@ RUN apt-get update && apt-get upgrade -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Pitch-detection DSP engine dependencies for the Aural/Tuning Fork endpoints (storage/app/script/pitch_analyzer.py)
-RUN pip3 install --no-cache-dir --break-system-packages librosa numpy soundfile
+# Pitch-detection DSP engine dependencies for the Aural/Tuning Fork endpoints.
+# fastapi/uvicorn/python-multipart run pitch_service.py as a persistent, supervisor-managed
+# process (see supervisord.conf) so librosa/numba's import & JIT cost is paid once at container
+# boot instead of on every request via a fresh shell_exec (was ~9.6s per request cold-start).
+RUN pip3 install --no-cache-dir --break-system-packages librosa numpy soundfile fastapi "uvicorn[standard]" python-multipart
 
 RUN setcap "cap_net_bind_service=+ep" /usr/bin/php8.5
 
