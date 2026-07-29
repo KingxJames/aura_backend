@@ -9,6 +9,7 @@ use App\Models\Grade;
 use App\Models\PulseMetreAuthoredQuestion;
 use App\Models\PulseMetreClip;
 use App\Models\PulseMetreSession;
+use App\Services\AdaptiveSequencingService;
 use App\Services\AuralExerciseGeneratorService;
 use App\Services\GeminiNoteService;
 use Illuminate\Http\JsonResponse;
@@ -26,16 +27,22 @@ use InvalidArgumentException;
  */
 class AuralModuleController extends Controller
 {
-    // The 4 modules this controller currently knows how to generate/grade.
-    private const MODULE_TYPES = ['pulse_metre', 'echo_singing', 'spot_difference', 'musical_features'];
+    // The 5 modules this controller currently knows how to generate/grade.
+    private const MODULE_TYPES = ['pulse_metre', 'echo_singing', 'spot_difference', 'musical_features', 'transcription'];
 
     // How close (in milliseconds) a user's tap has to land to an expected beat
     // to count as "on time" for the Pulse & Metre (1A) rhythm scoring.
     private const PULSE_METRE_TOLERANCE_MS = 150;
 
+    // Minimum note-sequence alignment correctness (see scoreTranscriptionAlignment())
+    // for a Transcription attempt's elapsed-time value to count as valid speed data -
+    // a fast but wrong answer must not register as progress.
+    private const TRANSCRIPTION_CORRECTNESS_THRESHOLD_PCT = 80.0;
+
     public function __construct(
         private AuralExerciseGeneratorService $generator,
-        private GeminiNoteService $geminiNotes
+        private GeminiNoteService $geminiNotes,
+        private AdaptiveSequencingService $adaptiveSequencing
     ) {
     }
 
@@ -50,6 +57,18 @@ class AuralModuleController extends Controller
                 'success' => false,
                 'message' => 'Unknown Aural module type: ' . $moduleType,
             ], 404);
+        }
+
+        if ($moduleType === 'transcription') {
+            $unlockStatus = $this->adaptiveSequencing->unlockStatus($request->user());
+
+            if (!$unlockStatus['unlocked']) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Transcription is not unlocked yet - keep practicing Aural pitch-matching to build audiation skill first.',
+                    'unlock_status' => $unlockStatus,
+                ], 403);
+            }
         }
 
         $request->validate([
@@ -92,6 +111,7 @@ class AuralModuleController extends Controller
                     'echo_singing' => 'generateEchoPhrase',
                     'spot_difference' => 'generateSpotDifference',
                     'musical_features' => 'generateMusicalFeatures',
+                    'transcription' => 'generateTranscription',
                 ];
                 $generatorMethod = $generatorMethods[$moduleType];
                 $payload = $this->generator->{$generatorMethod}($grade->level_number);
@@ -237,6 +257,7 @@ class AuralModuleController extends Controller
             'spot_difference' => $this->gradeSpotDifference($request, $auralExercise),
             'musical_features' => $this->gradeMusicalFeatures($request, $auralExercise),
             'echo_singing' => $this->recordEchoSingingStub($request, $auralExercise),
+            'transcription' => $this->gradeTranscription($request, $auralExercise),
             default => response()->json(['success' => false, 'message' => 'Unsupported module type.'], 500),
         };
     }
@@ -546,6 +567,122 @@ class AuralModuleController extends Controller
     }
 
     /**
+     * TRANSCRIPTION GRADING
+     * Elapsed time is measured from exercise generation (server-authoritative
+     * exercise->created_at) to this submission - not a client-supplied
+     * timestamp, so it can't be gamed. Correctness uses note-sequence
+     * alignment (see scoreTranscriptionAlignment) rather than a positional
+     * diff, so one skipped/extra note doesn't cascade into marking every
+     * later note wrong.
+     */
+    private function gradeTranscription(Request $request, AuralExercise $exercise): JsonResponse
+    {
+        $request->validate([
+            'note_sequence' => 'required|array|min:1',
+            'note_sequence.*.note_name' => 'required|string',
+            'note_sequence.*.octave' => 'required|integer',
+            'note_sequence.*.duration_beats' => 'required|numeric',
+        ]);
+
+        $submitted = $request->input('note_sequence');
+        $groundTruth = $exercise->payload_jsonb['ground_truth']['note_sequence'];
+
+        $scoring = $this->scoreTranscriptionAlignment($submitted, $groundTruth);
+        $elapsedMs = $exercise->created_at->diffInMilliseconds(now());
+
+        $scoreDetails = array_merge($scoring, [
+            'elapsed_ms' => $elapsedMs,
+            // Speed is only meaningful analysis data once correctness clears the
+            // gate - a fast wrong answer must not register as progress.
+            'speed_valid' => $scoring['correctness_pct'] >= self::TRANSCRIPTION_CORRECTNESS_THRESHOLD_PCT,
+        ]);
+
+        $this->logAttempt($request, $exercise, ['note_sequence' => $submitted], $scoring['is_correct'], $scoreDetails);
+
+        return response()->json([
+            'success' => true,
+            'is_correct' => $scoring['is_correct'],
+            'correct_answer' => $groundTruth,
+            'score_details' => $scoreDetails,
+        ]);
+    }
+
+    /**
+     * Sequence-alignment scoring (edit-distance family, the same technique
+     * behind Word Error Rate in speech-recognition scoring) between the
+     * submitted note sequence and the ground truth. Costs: 0 for an exact
+     * pitch+duration match, 1 for a partial match (pitch OR duration right),
+     * 2 for a full mismatch or an inserted/deleted note. Correctness % is
+     * normalized against the worst-case cost so it's comparable across
+     * different-length sequences.
+     */
+    private function scoreTranscriptionAlignment(array $submitted, array $groundTruth): array
+    {
+        $m = count($submitted);
+        $n = count($groundTruth);
+
+        $dp = [];
+        for ($i = 0; $i <= $m; $i++) {
+            $dp[$i][0] = $i * 2;
+        }
+        for ($j = 0; $j <= $n; $j++) {
+            $dp[0][$j] = $j * 2;
+        }
+
+        for ($i = 1; $i <= $m; $i++) {
+            for ($j = 1; $j <= $n; $j++) {
+                $subCost = $this->noteMismatchCost($submitted[$i - 1], $groundTruth[$j - 1]);
+                $dp[$i][$j] = min(
+                    $dp[$i - 1][$j - 1] + $subCost, // match / substitute
+                    $dp[$i - 1][$j] + 2,             // deletion (extra submitted note)
+                    $dp[$i][$j - 1] + 2              // insertion (missing note)
+                );
+            }
+        }
+
+        $totalCost = $dp[$m][$n];
+        $maxPossibleCost = 2 * max($m, $n, 1);
+        $correctnessPct = round(max(0.0, 1 - ($totalCost / $maxPossibleCost)) * 100, 1);
+
+        return [
+            'correctness_pct' => $correctnessPct,
+            'alignment_cost' => $totalCost,
+            'is_correct' => $correctnessPct >= self::TRANSCRIPTION_CORRECTNESS_THRESHOLD_PCT,
+        ];
+    }
+
+    private function noteMismatchCost(array $submittedNote, array $groundTruthNote): int
+    {
+        $pitchMatch = ($submittedNote['note_name'] ?? null) === ($groundTruthNote['note_name'] ?? null)
+            && ($submittedNote['octave'] ?? null) === ($groundTruthNote['octave'] ?? null);
+        $durationMatch = ($submittedNote['duration_beats'] ?? null) == ($groundTruthNote['duration_beats'] ?? null);
+
+        if ($pitchMatch && $durationMatch) {
+            return 0;
+        }
+
+        if ($pitchMatch || $durationMatch) {
+            return 1;
+        }
+
+        return 2;
+    }
+
+    /**
+     * TRANSCRIPTION UNLOCK STATUS
+     * Lets the client show real progress ("3 more consistent attempts needed")
+     * instead of a blind locked wall. Control arm always reports unlocked.
+     * GET /api/v1/aural/modules/transcription/unlock-status
+     */
+    public function transcriptionUnlockStatus(Request $request): JsonResponse
+    {
+        return response()->json([
+            'success' => true,
+            'data' => $this->adaptiveSequencing->unlockStatus($request->user()),
+        ]);
+    }
+
+    /**
      * POST-ROUND AI DEBRIEF (Aural Training > module results screen)
      * POST /api/v1/aural/modules/debrief
      * Mirrors QuizController::topicDebrief - round-level scoring only exists
@@ -608,6 +745,7 @@ class AuralModuleController extends Controller
             'echo_singing' => 'Echo Singing',
             'spot_difference' => 'Spotting the Difference',
             'musical_features' => 'Musical Features',
+            'transcription' => 'Transcription',
         ];
 
         return $labels[$moduleType] ?? ucwords(str_replace('_', ' ', $moduleType));

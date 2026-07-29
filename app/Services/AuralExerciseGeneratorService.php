@@ -297,7 +297,33 @@ class AuralExerciseGeneratorService
     }
 
     /**
-     * Shared melody generator used by 1B/1C/1D: a random-walk over scale degrees
+     * TRANSCRIPTION (adaptive-sequencing gated; Gordon MLT symbolic-association
+     * stage). A short 4-6 note stepwise pattern the user must notate after
+     * hearing it - intentionally brief, not a full melody, matching Gordon
+     * MLT's short tonal/rhythm pattern approach rather than long-phrase
+     * dictation. Ground truth is embedded in the payload the same way every
+     * other module here does it (see aural_exercises migration) - not new
+     * hiding logic, just the existing convention.
+     */
+    public function generateTranscription(int $gradeLevel): array
+    {
+        $this->assertGradeOneOnly($gradeLevel, 'Transcription');
+
+        $key = self::GRADE_1_KEYS[array_rand(self::GRADE_1_KEYS)];
+        $noteSequence = $this->generateStepwiseMelody($key, beatsBudget: 4.0, maxDegreeStep: 2);
+
+        return [
+            'module_type' => 'transcription',
+            'key' => $key,
+            'note_sequence' => $noteSequence,
+            'ground_truth' => [
+                'note_sequence' => $noteSequence,
+            ],
+        ];
+    }
+
+    /**
+     * Shared melody generator used by 1B/1C/1D/Transcription: a random-walk over scale degrees
      * (never stepping more than $maxDegreeStep degrees at a time, which is what
      * keeps every leap within a 3rd), with random quarter/eighth-note rhythms
      * filling up the given beat budget.

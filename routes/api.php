@@ -14,6 +14,7 @@ use App\Http\Controllers\API\GradeTheoryController;
 use App\Http\Controllers\API\QuizSessionController;
 use App\Http\Controllers\API\PushTokenController;
 use App\Http\Controllers\API\StudyEnrollmentController;
+use App\Http\Controllers\API\ExerciseFeedbackController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,17 +46,23 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/v1/user/push-token', [PushTokenController::class, 'destroy']); // Remove this device's push token
 
     // --- Research Study Enrollment ---
+    Route::get('/v1/study/status', [StudyEnrollmentController::class, 'status']); // Whether the user is already enrolled (no arm revealed)
     Route::post('/v1/study/enroll', [StudyEnrollmentController::class, 'enroll']); // Consent-gated study arm assignment (block-randomized)
+
+    // --- Post-Exercise Qualitative Feedback ---
+    Route::post('/v1/feedback', [ExerciseFeedbackController::class, 'store']); // Submit/update a 1-5 rating + optional comment for an attempt
 
     // --- Aural Analysis Engine (Aural Tab) ---
     Route::get('/v1/aural', [AuralController::class, 'index']);           // List historic singing attempts
     Route::post('/v1/aural/analyze', [AuralController::class, 'store']);     // Process new audio via Python
     Route::post('/v1/aural/warm-up', [AuralController::class, 'warmUp']);       // Tuning Fork daily warm-up
     Route::get('/v1/aural/warm-up/today', [AuralController::class, 'warmUpStatus']); // Today's warm-up + streak status
+    Route::get('/v1/aural/accuracy-trend', [AuralController::class, 'accuracyTrend']); // Rolling-window MAE trajectory (research metric)
     Route::get('/v1/aural/opus', [OpusController::class, 'index']);           // Opus Syllabus overview + progress
     Route::post('/v1/aural/opus/{opusLevel}/attempt', [OpusController::class, 'attempt']); // Submit a note attempt for a level
 
-    // --- Grade-Divided Aural Training Modules (1A-1D: Pulse & Metre, Echo Singing, Spotting the Difference, Musical Features) ---
+    // --- Grade-Divided Aural Training Modules (1A-1D: Pulse & Metre, Echo Singing, Spotting the Difference, Musical Features, Transcription) ---
+    Route::get('/v1/aural/modules/transcription/unlock-status', [AuralModuleController::class, 'transcriptionUnlockStatus']); // Adaptive-sequencing unlock progress (experimental arm only)
     Route::get('/v1/aural/modules/{moduleType}/exercise', [AuralModuleController::class, 'generateExercise']); // Procedurally generate a new exercise for a grade
     Route::post('/v1/aural/modules/exercises/{auralExercise}/attempt', [AuralModuleController::class, 'submitAttempt']); // Submit + grade an attempt
     Route::get('/v1/aural/modules/attempts', [AuralModuleController::class, 'history']); // Past attempts, filterable by grade/module

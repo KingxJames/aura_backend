@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class AuralAttempt extends Model
 {
@@ -30,5 +31,10 @@ class AuralAttempt extends Model
     public function opusLevel(): BelongsTo
     {
         return $this->belongsTo(OpusLevel::class);
+    }
+
+    public function feedback(): MorphOne
+    {
+        return $this->morphOne(ExerciseFeedback::class, 'feedbackable');
     }
 }

@@ -15,6 +15,20 @@ class StudyEnrollmentController extends Controller
     }
 
     /**
+     * Whether the authenticated user is already enrolled - lets the client
+     * skip straight to a confirmation view instead of showing the consent
+     * form again on every visit. Does not return the assigned arm.
+     * GET /api/v1/study/status
+     */
+    public function status(Request $request): JsonResponse
+    {
+        return response()->json([
+            'success' => true,
+            'enrolled' => $request->user()->study_arm !== null,
+        ]);
+    }
+
+    /**
      * Enroll the authenticated user in the research study. A deliberate,
      * consent-gated second step distinct from account registration -- most
      * users never call this. Does not return the assigned arm: participants

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\AuralAttempt;
 use App\Services\PitchAnalysisService;
 use App\Services\GeminiNoteService;
+use App\Services\PitchAccuracyService;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\JsonResponse;
 
@@ -14,8 +15,27 @@ class AuralController extends Controller
 {
     public function __construct(
         private PitchAnalysisService $pitchAnalysis,
-        private GeminiNoteService $geminiNotes
+        private GeminiNoteService $geminiNotes,
+        private PitchAccuracyService $pitchAccuracy
     ) {
+    }
+
+    /**
+     * PITCH ACCURACY RESEARCH METRIC (Phase 0 item 4): the rolling-window MAE
+     * trajectory across this user's whole practice history - one point per
+     * attempt, each averaging that attempt plus up to (N-1) prior ones. This is
+     * the actual improvement-over-time series for analysis, not a single snapshot.
+     * GET /api/v1/aural/accuracy-trend
+     */
+    public function accuracyTrend(Request $request): JsonResponse
+    {
+        $trend = $this->pitchAccuracy->rollingTrend($request->user());
+
+        return response()->json([
+            'success' => true,
+            'rolling_window_n' => PitchAccuracyService::ROLLING_WINDOW_N,
+            'data' => $trend,
+        ]);
     }
 
     /**
@@ -50,7 +70,7 @@ class AuralController extends Controller
     public function store(Request $request): JsonResponse
     {
         $request->validate([
-            'audio' => 'required|file|mimes:wav,mp3,m4a,ogg|max:10240', // Max 10MB clip
+            'audio' => 'required|file|mimes:wav,mp3,m4a,ogg,webm|max:10240', // webm is what browser MediaRecorder actually produces (Expo web)
             'target_note' => 'required|string|max:5', // e.g., "A4", "C4"
         ]);
 
@@ -125,7 +145,7 @@ class AuralController extends Controller
     public function warmUp(Request $request): JsonResponse
     {
         $request->validate([
-            'audio' => 'required|file|mimes:wav,mp3,m4a,ogg|max:10240', // Max 10MB clip
+            'audio' => 'required|file|mimes:wav,mp3,m4a,ogg,webm|max:10240', // webm is what browser MediaRecorder actually produces (Expo web)
         ]);
 
         $user = $request->user();

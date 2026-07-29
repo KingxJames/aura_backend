@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class AuralModuleAttempt extends Model
 {
@@ -31,5 +32,10 @@ class AuralModuleAttempt extends Model
     public function auralExercise(): BelongsTo
     {
         return $this->belongsTo(AuralExercise::class);
+    }
+
+    public function feedback(): MorphOne
+    {
+        return $this->morphOne(ExerciseFeedback::class, 'feedbackable');
     }
 }
