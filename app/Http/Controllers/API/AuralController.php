@@ -13,6 +13,59 @@ use Illuminate\Http\JsonResponse;
 
 class AuralController extends Controller
 {
+    // Multiple variants per category, picked at random each time, so the
+    // control arm (fixed/static feedback, no LLM) doesn't repeat the exact
+    // same sentence verbatim across the many attempts a real 4-6 week study
+    // session generates. Still genuinely static/template-based - not
+    // LLM-generated - so the control condition itself is unchanged.
+    private const CANNED_FEEDBACK_CORRECT = [
+        "Excellent ear! Your note singing is stable and well within standard vocal accuracy limits.",
+        "Right on target - your pitch matched cleanly and held steady.",
+        "Great job! That was a confident, accurate match.",
+        "Nice and centered - your pitch landed right where it should.",
+        "Well matched! Your ear is tracking that note reliably.",
+    ];
+
+    private const CANNED_FEEDBACK_SHARP = [
+        "You are singing slightly sharp (pitched too high). Relax your vocal cords slightly to land on center pitch.",
+        "That came out a touch sharp. Ease off the tension in your throat to settle onto the note.",
+        "You're pitching a little high there. Try softening your breath support to bring it down.",
+        "Slightly sharp this time - imagine easing the note downward rather than pushing up to it.",
+        "A bit above the target pitch. Relaxing your jaw and throat can help you land centered.",
+    ];
+
+    private const CANNED_FEEDBACK_FLAT = [
+        "You are singing slightly flat (pitched too low). Support your breath and lift the center tone slightly.",
+        "That landed a bit flat. Give it a touch more breath support to lift the pitch up to center.",
+        "You're pitching a little low there. Try lifting the tone slightly as you sustain it.",
+        "Slightly flat this time - imagine reaching gently upward into the note rather than under it.",
+        "A bit below the target pitch. A little more breath energy can help bring it up to center.",
+    ];
+
+    private const CANNED_WARMUP_CORRECT = [
+        "Nice and steady! The app is tuned in.",
+        "Right on the mark - great way to start.",
+        "Spot on! You're warmed up and ready.",
+        "Clean and centered - nice work.",
+    ];
+
+    private const CANNED_WARMUP_SHARP = [
+        "A little sharp today - ease off the tension and try again tomorrow.",
+        "Just a touch high. Relax into the note next time.",
+        "Slightly above center - take a breath and settle in.",
+    ];
+
+    private const CANNED_WARMUP_FLAT = [
+        "Almost there - take a breath and settle onto the note.",
+        "Just a touch low today. A little more breath support will help.",
+        "Slightly under center - lift the tone gently next time.",
+    ];
+
+    private function pickCannedFeedback(array $variants): string
+    {
+        return $variants[array_rand($variants)];
+    }
+
     public function __construct(
         private PitchAnalysisService $pitchAnalysis,
         private GeminiNoteService $geminiNotes,
@@ -96,11 +149,11 @@ class AuralController extends Controller
         $dev = $result['cents_deviation'];
 
         if ($result['is_correct']) {
-            $cannedFeedback = "Excellent ear! Your note singing is stable and well within standard vocal accuracy limits.";
+            $cannedFeedback = $this->pickCannedFeedback(self::CANNED_FEEDBACK_CORRECT);
         } else {
-            $cannedFeedback = $dev > 0
-                ? "You are singing slightly sharp (pitched too high). Relax your vocal cords slightly to land on center pitch."
-                : "You are singing slightly flat (pitched too low). Support your breath and lift the center tone slightly.";
+            $cannedFeedback = $this->pickCannedFeedback(
+                $dev > 0 ? self::CANNED_FEEDBACK_SHARP : self::CANNED_FEEDBACK_FLAT
+            );
         }
 
         if ($user->study_arm === 'experimental') {
@@ -166,9 +219,14 @@ class AuralController extends Controller
         }
 
         $dev = $result['cents_deviation'];
-        $cannedFeedback = $result['is_correct']
-            ? "Nice and steady! The app is tuned in."
-            : "Almost there - take a breath and settle onto the note.";
+
+        if ($result['is_correct']) {
+            $cannedFeedback = $this->pickCannedFeedback(self::CANNED_WARMUP_CORRECT);
+        } else {
+            $cannedFeedback = $this->pickCannedFeedback(
+                $dev > 0 ? self::CANNED_WARMUP_SHARP : self::CANNED_WARMUP_FLAT
+            );
+        }
 
         if ($user->study_arm === 'experimental') {
             $prompt = "You are Aura, an elite AI Music Professor. A student just did their daily Tuning Fork "
