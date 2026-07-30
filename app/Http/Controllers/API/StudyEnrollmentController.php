@@ -15,17 +15,42 @@ class StudyEnrollmentController extends Controller
     }
 
     /**
-     * Whether the authenticated user is already enrolled - lets the client
-     * skip straight to a confirmation view instead of showing the consent
-     * form again on every visit. Does not return the assigned arm.
+     * Whether the authenticated user is already enrolled, and whether they've
+     * ever been shown the consent screen at all (regardless of whether they
+     * joined) - lets the client skip the confirmation view and, separately,
+     * decide whether a first-login redirect to the consent screen is still
+     * needed. Both are tracked per-account, not per-device, so switching
+     * devices (or a second account on the same device) behaves correctly.
+     * Does not return the assigned arm.
      * GET /api/v1/study/status
      */
     public function status(Request $request): JsonResponse
     {
+        $user = $request->user();
+
         return response()->json([
             'success' => true,
-            'enrolled' => $request->user()->study_arm !== null,
+            'enrolled' => $user->study_arm !== null,
+            'prompt_seen' => $user->study_prompt_seen_at !== null,
         ]);
+    }
+
+    /**
+     * Marks that the user has been shown the consent screen, independent of
+     * whether they chose to join. Idempotent - safe to call every time the
+     * consent screen mounts.
+     * POST /api/v1/study/mark-prompt-seen
+     */
+    public function markPromptSeen(Request $request): JsonResponse
+    {
+        $user = $request->user();
+
+        if ($user->study_prompt_seen_at === null) {
+            $user->study_prompt_seen_at = now();
+            $user->save();
+        }
+
+        return response()->json(['success' => true]);
     }
 
     /**

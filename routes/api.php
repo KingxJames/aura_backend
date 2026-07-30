@@ -46,7 +46,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/v1/user/push-token', [PushTokenController::class, 'destroy']); // Remove this device's push token
 
     // --- Research Study Enrollment ---
-    Route::get('/v1/study/status', [StudyEnrollmentController::class, 'status']); // Whether the user is already enrolled (no arm revealed)
+    Route::get('/v1/study/status', [StudyEnrollmentController::class, 'status']); // Whether the user is already enrolled + has seen the consent screen (no arm revealed)
+    Route::post('/v1/study/mark-prompt-seen', [StudyEnrollmentController::class, 'markPromptSeen']); // Records that the consent screen was shown, regardless of the decision
     Route::post('/v1/study/enroll', [StudyEnrollmentController::class, 'enroll']); // Consent-gated study arm assignment (block-randomized)
 
     // --- Post-Exercise Qualitative Feedback ---

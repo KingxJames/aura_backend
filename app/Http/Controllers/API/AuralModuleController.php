@@ -597,10 +597,11 @@ class AuralModuleController extends Controller
             'speed_valid' => $scoring['correctness_pct'] >= self::TRANSCRIPTION_CORRECTNESS_THRESHOLD_PCT,
         ]);
 
-        $this->logAttempt($request, $exercise, ['note_sequence' => $submitted], $scoring['is_correct'], $scoreDetails);
+        $attempt = $this->logAttempt($request, $exercise, ['note_sequence' => $submitted], $scoring['is_correct'], $scoreDetails);
 
         return response()->json([
             'success' => true,
+            'attempt_id' => $attempt->id,
             'is_correct' => $scoring['is_correct'],
             'correct_answer' => $groundTruth,
             'score_details' => $scoreDetails,
@@ -651,21 +652,17 @@ class AuralModuleController extends Controller
         ];
     }
 
+    /**
+     * Pitch/octave only - rhythm is intentionally not scored here. Transcription
+     * tests the same "did you hear the right note" skill as Free Practice
+     * (pitch), not a separate rhythmic-dictation skill.
+     */
     private function noteMismatchCost(array $submittedNote, array $groundTruthNote): int
     {
         $pitchMatch = ($submittedNote['note_name'] ?? null) === ($groundTruthNote['note_name'] ?? null)
             && ($submittedNote['octave'] ?? null) === ($groundTruthNote['octave'] ?? null);
-        $durationMatch = ($submittedNote['duration_beats'] ?? null) == ($groundTruthNote['duration_beats'] ?? null);
 
-        if ($pitchMatch && $durationMatch) {
-            return 0;
-        }
-
-        if ($pitchMatch || $durationMatch) {
-            return 1;
-        }
-
-        return 2;
+        return $pitchMatch ? 0 : 2;
     }
 
     /**
