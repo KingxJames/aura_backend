@@ -14,7 +14,10 @@ use App\Http\Controllers\API\GradeTheoryController;
 use App\Http\Controllers\API\QuizSessionController;
 use App\Http\Controllers\API\PushTokenController;
 use App\Http\Controllers\API\StudyEnrollmentController;
+use App\Http\Controllers\API\StudyBaselineController;
 use App\Http\Controllers\API\ExerciseFeedbackController;
+use App\Http\Controllers\API\FlowCheckinController;
+use App\Http\Controllers\API\StudyDashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,8 +53,25 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/v1/study/mark-prompt-seen', [StudyEnrollmentController::class, 'markPromptSeen']); // Records that the consent screen was shown, regardless of the decision
     Route::post('/v1/study/enroll', [StudyEnrollmentController::class, 'enroll']); // Consent-gated study arm assignment (block-randomized)
 
+    // --- Baseline (Pretest) Assessment - required before arm-specific feedback/gating activates ---
+    Route::get('/v1/study/baseline/status', [StudyBaselineController::class, 'status']); // Progress through the fixed pitch trials + transcription item
+    Route::post('/v1/study/baseline/pitch-attempt', [StudyBaselineController::class, 'pitchAttempt']); // Next fixed-sequence pitch trial
+    Route::get('/v1/study/baseline/transcription-exercise', [StudyBaselineController::class, 'transcriptionExercise']); // Fixed, ungated transcription item
+    Route::post('/v1/study/baseline/transcription-attempt', [StudyBaselineController::class, 'transcriptionAttempt']); // Grade the baseline transcription item
+    Route::post('/v1/study/baseline/complete', [StudyBaselineController::class, 'complete']); // Aggregate + finalize baseline metrics
+
     // --- Post-Exercise Qualitative Feedback ---
     Route::post('/v1/feedback', [ExerciseFeedbackController::class, 'store']); // Submit/update a 1-5 rating + optional comment for an attempt
+
+    // --- Flow / Cognitive-Load Check-in (Pedagogical Sub-Question 2, Aural Training only) ---
+    Route::get('/v1/flow-checkin/today', [FlowCheckinController::class, 'today']); // Whether today's check-in is already done
+    Route::post('/v1/flow-checkin', [FlowCheckinController::class, 'store']); // Submit today's check-in (idempotent per day)
+
+    // --- Researcher-Only Study Dashboard (admin-gated, see EnsureIsAdmin) ---
+    Route::middleware('admin')->group(function () {
+        Route::get('/v1/study/admin/enrollment-summary', [StudyDashboardController::class, 'enrollmentSummary']); // Per-arm enrollment counts vs. target/floor
+        Route::get('/v1/study/admin/attrition', [StudyDashboardController::class, 'attrition']); // Per-participant completed-session counts, flagged if at risk
+    });
 
     // --- Aural Analysis Engine (Aural Tab) ---
     Route::get('/v1/aural', [AuralController::class, 'index']);           // List historic singing attempts
@@ -64,6 +84,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // --- Grade-Divided Aural Training Modules (1A-1D: Pulse & Metre, Echo Singing, Spotting the Difference, Musical Features, Transcription) ---
     Route::get('/v1/aural/modules/transcription/unlock-status', [AuralModuleController::class, 'transcriptionUnlockStatus']); // Adaptive-sequencing unlock progress (experimental arm only)
+    Route::get('/v1/aural/modules/transcription/speed-trend', [AuralModuleController::class, 'transcriptionSpeedTrend']); // Transcription elapsed-time trajectory (research metric)
     Route::get('/v1/aural/modules/{moduleType}/exercise', [AuralModuleController::class, 'generateExercise']); // Procedurally generate a new exercise for a grade
     Route::post('/v1/aural/modules/exercises/{auralExercise}/attempt', [AuralModuleController::class, 'submitAttempt']); // Submit + grade an attempt
     Route::get('/v1/aural/modules/attempts', [AuralModuleController::class, 'history']); // Past attempts, filterable by grade/module

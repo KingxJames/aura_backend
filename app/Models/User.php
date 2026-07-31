@@ -32,6 +32,11 @@ class User extends Authenticatable
         'study_arm',
         'study_enrolled_at',
         'study_prompt_seen_at',
+        'baseline_completed_at',
+        'baseline_pitch_accuracy_cents',
+        'baseline_transcription_accuracy_pct',
+        'baseline_transcription_elapsed_ms',
+        'is_admin',
     ];
 
     protected $casts = [
@@ -39,6 +44,11 @@ class User extends Authenticatable
         'last_warm_up_date' => 'date',
         'study_enrolled_at' => 'datetime',
         'study_prompt_seen_at' => 'datetime',
+        'baseline_completed_at' => 'datetime',
+        'baseline_pitch_accuracy_cents' => 'float',
+        'baseline_transcription_accuracy_pct' => 'float',
+        'baseline_transcription_elapsed_ms' => 'integer',
+        'is_admin' => 'boolean',
     ];
 
     /**
@@ -88,6 +98,11 @@ class User extends Authenticatable
     public function auralAttempts(): HasMany
     {
         return $this->hasMany(AuralAttempt::class);
+    }
+
+    public function flowCheckins(): HasMany
+    {
+        return $this->hasMany(FlowCheckin::class);
     }
 
     public function tutorConversations(): HasMany

@@ -123,6 +123,12 @@ class TranscriptionController extends Controller
             $baseUrl = env('OMR_API_URL', 'http://127.0.0.1:8000');
             $modelEndpoint = rtrim($baseUrl, '/') . '/api/v1/transcribe';
 
+            // OMR pipeline latency (Technical Sub-Question 1: DSP/OMR latency
+            // on a mobile-centric architecture) - wall-clock time for the
+            // microservice round-trip, same measurement style as the pitch
+            // DSP's processing_ms.
+            $processingStartedAt = microtime(true);
+
             $response = Http::attach(
                 'file',
                 $imageBytes,
@@ -133,6 +139,8 @@ class TranscriptionController extends Controller
                 Storage::disk('public')->delete($permanentPath);
                 throw new \Exception("OMR microservice error: " . $response->status());
             }
+
+            $processingMs = (int) round((microtime(true) - $processingStartedAt) * 1000);
 
             $omrOutput = $response->json();
 
@@ -145,6 +153,7 @@ class TranscriptionController extends Controller
                 'uploaded_image_url' => $uploadedImageUrl,
                 'generated_abc' => $abcNotation,
                 'generated_midi' => $midiBase64,
+                'processing_ms' => $processingMs,
             ]);
 
             return response()->json([

@@ -21,7 +21,9 @@ class StudyEnrollmentController extends Controller
      * decide whether a first-login redirect to the consent screen is still
      * needed. Both are tracked per-account, not per-device, so switching
      * devices (or a second account on the same device) behaves correctly.
-     * Does not return the assigned arm.
+     * Also reports baseline (pretest) status - enrolled participants must
+     * finish the baseline assessment before normal arm-specific practice
+     * becomes available. Does not return the assigned arm.
      * GET /api/v1/study/status
      */
     public function status(Request $request): JsonResponse
@@ -32,6 +34,8 @@ class StudyEnrollmentController extends Controller
             'success' => true,
             'enrolled' => $user->study_arm !== null,
             'prompt_seen' => $user->study_prompt_seen_at !== null,
+            'baseline_required' => $user->study_arm !== null && $user->baseline_completed_at === null,
+            'baseline_completed' => $user->baseline_completed_at !== null,
         ]);
     }
 

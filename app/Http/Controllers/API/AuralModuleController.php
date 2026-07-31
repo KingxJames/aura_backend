@@ -12,6 +12,7 @@ use App\Models\PulseMetreSession;
 use App\Services\AdaptiveSequencingService;
 use App\Services\AuralExerciseGeneratorService;
 use App\Services\GeminiNoteService;
+use App\Services\TranscriptionScoringService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use InvalidArgumentException;
@@ -34,15 +35,11 @@ class AuralModuleController extends Controller
     // to count as "on time" for the Pulse & Metre (1A) rhythm scoring.
     private const PULSE_METRE_TOLERANCE_MS = 150;
 
-    // Minimum note-sequence alignment correctness (see scoreTranscriptionAlignment())
-    // for a Transcription attempt's elapsed-time value to count as valid speed data -
-    // a fast but wrong answer must not register as progress.
-    private const TRANSCRIPTION_CORRECTNESS_THRESHOLD_PCT = 80.0;
-
     public function __construct(
         private AuralExerciseGeneratorService $generator,
         private GeminiNoteService $geminiNotes,
-        private AdaptiveSequencingService $adaptiveSequencing
+        private AdaptiveSequencingService $adaptiveSequencing,
+        private TranscriptionScoringService $transcriptionScoring
     ) {
     }
 
@@ -571,7 +568,7 @@ class AuralModuleController extends Controller
      * Elapsed time is measured from exercise generation (server-authoritative
      * exercise->created_at) to this submission - not a client-supplied
      * timestamp, so it can't be gamed. Correctness uses note-sequence
-     * alignment (see scoreTranscriptionAlignment) rather than a positional
+     * alignment (see TranscriptionScoringService) rather than a positional
      * diff, so one skipped/extra note doesn't cascade into marking every
      * later note wrong.
      */
@@ -587,14 +584,14 @@ class AuralModuleController extends Controller
         $submitted = $request->input('note_sequence');
         $groundTruth = $exercise->payload_jsonb['ground_truth']['note_sequence'];
 
-        $scoring = $this->scoreTranscriptionAlignment($submitted, $groundTruth);
+        $scoring = $this->transcriptionScoring->score($submitted, $groundTruth);
         $elapsedMs = $exercise->created_at->diffInMilliseconds(now());
 
         $scoreDetails = array_merge($scoring, [
             'elapsed_ms' => $elapsedMs,
             // Speed is only meaningful analysis data once correctness clears the
             // gate - a fast wrong answer must not register as progress.
-            'speed_valid' => $scoring['correctness_pct'] >= self::TRANSCRIPTION_CORRECTNESS_THRESHOLD_PCT,
+            'speed_valid' => $scoring['correctness_pct'] >= TranscriptionScoringService::CORRECTNESS_THRESHOLD_PCT,
         ]);
 
         $attempt = $this->logAttempt($request, $exercise, ['note_sequence' => $submitted], $scoring['is_correct'], $scoreDetails);
@@ -609,63 +606,6 @@ class AuralModuleController extends Controller
     }
 
     /**
-     * Sequence-alignment scoring (edit-distance family, the same technique
-     * behind Word Error Rate in speech-recognition scoring) between the
-     * submitted note sequence and the ground truth. Costs: 0 for an exact
-     * pitch+duration match, 1 for a partial match (pitch OR duration right),
-     * 2 for a full mismatch or an inserted/deleted note. Correctness % is
-     * normalized against the worst-case cost so it's comparable across
-     * different-length sequences.
-     */
-    private function scoreTranscriptionAlignment(array $submitted, array $groundTruth): array
-    {
-        $m = count($submitted);
-        $n = count($groundTruth);
-
-        $dp = [];
-        for ($i = 0; $i <= $m; $i++) {
-            $dp[$i][0] = $i * 2;
-        }
-        for ($j = 0; $j <= $n; $j++) {
-            $dp[0][$j] = $j * 2;
-        }
-
-        for ($i = 1; $i <= $m; $i++) {
-            for ($j = 1; $j <= $n; $j++) {
-                $subCost = $this->noteMismatchCost($submitted[$i - 1], $groundTruth[$j - 1]);
-                $dp[$i][$j] = min(
-                    $dp[$i - 1][$j - 1] + $subCost, // match / substitute
-                    $dp[$i - 1][$j] + 2,             // deletion (extra submitted note)
-                    $dp[$i][$j - 1] + 2              // insertion (missing note)
-                );
-            }
-        }
-
-        $totalCost = $dp[$m][$n];
-        $maxPossibleCost = 2 * max($m, $n, 1);
-        $correctnessPct = round(max(0.0, 1 - ($totalCost / $maxPossibleCost)) * 100, 1);
-
-        return [
-            'correctness_pct' => $correctnessPct,
-            'alignment_cost' => $totalCost,
-            'is_correct' => $correctnessPct >= self::TRANSCRIPTION_CORRECTNESS_THRESHOLD_PCT,
-        ];
-    }
-
-    /**
-     * Pitch/octave only - rhythm is intentionally not scored here. Transcription
-     * tests the same "did you hear the right note" skill as Free Practice
-     * (pitch), not a separate rhythmic-dictation skill.
-     */
-    private function noteMismatchCost(array $submittedNote, array $groundTruthNote): int
-    {
-        $pitchMatch = ($submittedNote['note_name'] ?? null) === ($groundTruthNote['note_name'] ?? null)
-            && ($submittedNote['octave'] ?? null) === ($groundTruthNote['octave'] ?? null);
-
-        return $pitchMatch ? 0 : 2;
-    }
-
-    /**
      * TRANSCRIPTION UNLOCK STATUS
      * Lets the client show real progress ("3 more consistent attempts needed")
      * instead of a blind locked wall. Control arm always reports unlocked.
@@ -676,6 +616,37 @@ class AuralModuleController extends Controller
         return response()->json([
             'success' => true,
             'data' => $this->adaptiveSequencing->unlockStatus($request->user()),
+        ]);
+    }
+
+    /**
+     * TRANSCRIPTION SPEED RESEARCH METRIC (Primary RQ: transcription speed) -
+     * one point per ordinary (non-baseline) transcription attempt, in
+     * chronological order, mirroring AuralController::accuracyTrend's shape
+     * for the equivalent pitch-accuracy series. The pretest value to compare
+     * this trend against lives on the user (baseline_transcription_elapsed_ms),
+     * since the baseline item is a single one-off, not a trend.
+     * GET /api/v1/aural/modules/transcription/speed-trend
+     */
+    public function transcriptionSpeedTrend(Request $request): JsonResponse
+    {
+        $attempts = AuralModuleAttempt::where('user_id', $request->user()->id)
+            ->where('module_type', 'transcription')
+            ->where('is_baseline', false)
+            ->orderBy('created_at', 'asc')
+            ->orderBy('id', 'asc')
+            ->get();
+
+        $trend = $attempts->values()->map(fn ($attempt, $index) => [
+            'attempt_number' => $index + 1,
+            'created_at' => $attempt->created_at->toIso8601String(),
+            'elapsed_ms' => $attempt->score_details['elapsed_ms'] ?? null,
+            'correctness_pct' => $attempt->score_details['correctness_pct'] ?? null,
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'data' => $trend,
         ]);
     }
 

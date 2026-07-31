@@ -19,6 +19,7 @@ class Transcription extends Model
         'generated_abc',
         'generated_musicxml',
         'generated_midi',
+        'processing_ms',
     ];
 
     /**

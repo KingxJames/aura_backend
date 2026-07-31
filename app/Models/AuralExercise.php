@@ -13,11 +13,13 @@ class AuralExercise extends Model
         'grade_id',
         'module_type',
         'payload_jsonb',
+        'is_baseline',
     ];
 
     protected $casts = [
         // Lets us read/write this column as a plain PHP array instead of a raw JSON string.
         'payload_jsonb' => 'array',
+        'is_baseline' => 'boolean',
     ];
 
     public function user(): BelongsTo

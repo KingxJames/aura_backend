@@ -16,12 +16,14 @@ class AuralModuleAttempt extends Model
         'is_correct',
         'score_details',
         'audio_path',
+        'is_baseline',
     ];
 
     protected $casts = [
         'user_response' => 'array',
         'score_details' => 'array',
         'is_correct' => 'boolean',
+        'is_baseline' => 'boolean',
     ];
 
     public function user(): BelongsTo
