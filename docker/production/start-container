@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+set -e
+
+: "${PORT:=80}"
+export PORT
+
+# Railway allows one volume per service, mounted at storage/persist. Swap
+# storage/app/public and storage/app/private for symlinks into it so uploads
+# (avatars, transcriptions, audio) survive redeploys without touching the
+# baked-in storage/app/datasets and storage/app/scripts directories.
+PERSIST_DIR=/var/www/html/storage/persist
+APP_DIR=/var/www/html/storage/app
+if [ -d "$PERSIST_DIR" ]; then
+    for name in public private; do
+        if [ ! -e "$PERSIST_DIR/$name" ]; then
+            mkdir -p "$PERSIST_DIR/$name"
+            if [ -d "$APP_DIR/$name" ] && [ ! -L "$APP_DIR/$name" ]; then
+                cp -a "$APP_DIR/$name/." "$PERSIST_DIR/$name/" 2>/dev/null || true
+            fi
+        fi
+        rm -rf "$APP_DIR/$name"
+        ln -sfn "$PERSIST_DIR/$name" "$APP_DIR/$name"
+    done
+    chown -R www:www "$PERSIST_DIR"
+fi
+
+if [ $# -gt 0 ]; then
+    exec gosu www "$@"
+fi
+
+php artisan config:cache
+php artisan route:cache
+php artisan migrate --force
+
+exec /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf

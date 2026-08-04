@@ -1,4 +1,8 @@
 *
 !private/
 !public/
+!datasets/
+!datasets/**
+!scripts/
+!scripts/**
 !.gitignore

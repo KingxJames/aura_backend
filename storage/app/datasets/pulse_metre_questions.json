@@ -1,0 +1,69 @@
+[
+  {
+    "question_number": 1,
+    "phase": "listen_mcq",
+    "filename": "q1_london_bridge.mp3",
+    "time_signature": "2/4"
+  },
+  {
+    "question_number": 2,
+    "phase": "listen_mcq",
+    "filename": "q2_my_bonnie.mp3",
+    "time_signature": "3/4"
+  },
+  {
+    "question_number": 3,
+    "phase": "listen_mcq",
+    "filename": "q3_yankee_doodle.mp3",
+    "time_signature": "2/4"
+  },
+  {
+    "question_number": 4,
+    "phase": "downbeat_tap",
+    "filename": "q4_down_in_the_valley.mp3",
+    "time_signature": "3/4",
+    "beat_timestamps_ms": [500, 1167, 1834, 2501, 3168, 3835]
+  },
+  {
+    "question_number": 5,
+    "phase": "downbeat_tap",
+    "filename": "q5_this_old_man.mp3",
+    "time_signature": "2/4",
+    "beat_timestamps_ms": [500, 1100, 1700, 2300]
+  },
+  {
+    "question_number": 6,
+    "phase": "downbeat_tap",
+    "filename": "q6_amazing_grace.mp3",
+    "time_signature": "3/4",
+    "beat_timestamps_ms": [500, 1250, 2000, 2750, 3500, 4250]
+  },
+  {
+    "question_number": 7,
+    "phase": "muted_bar_tap",
+    "filename": "q7_grand_old_duke.mp3",
+    "time_signature": "2/4",
+    "beat_timestamps_ms": [500, 1125, 1750, 2375]
+  },
+  {
+    "question_number": 8,
+    "phase": "muted_bar_tap",
+    "filename": "q8_happy_birthday.mp3",
+    "time_signature": "3/4",
+    "beat_timestamps_ms": [500, 1214, 1928, 2642, 3356, 4070]
+  },
+  {
+    "question_number": 9,
+    "phase": "muted_bar_tap",
+    "filename": "q9_skip_to_my_lou.mp3",
+    "time_signature": "2/4",
+    "beat_timestamps_ms": [500, 1056, 1612, 2168]
+  },
+  {
+    "question_number": 10,
+    "phase": "boss",
+    "filename": "q10_long_long_ago.mp3",
+    "time_signature": "3/4",
+    "beat_timestamps_ms": [500, 1167, 1834, 2501, 3168, 3835]
+  }
+]
