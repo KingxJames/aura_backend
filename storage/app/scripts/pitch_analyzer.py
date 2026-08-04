@@ -27,8 +27,15 @@ def analyze_pitch(file_path, target_note):
         
         # 4. Calculate deviation metric in Cents (100 cents = 1 semitone)
         # Using standard acoustics formula: cents = 1200 * log2(f2 / f1)
-        cents_deviation = float(1200 * np.log2(detected_hz / target_hz))
-        
+        raw_cents_deviation = float(1200 * np.log2(detected_hz / target_hz))
+
+        # Fold to the nearest octave: pYIN can lock onto a subharmonic and
+        # report a pitch exactly an octave below what was actually sung, and
+        # singers commonly match the right pitch class in a more comfortable
+        # octave anyway. Neither should register as being ~1200 cents flat.
+        octaves_off = round(raw_cents_deviation / 1200)
+        cents_deviation = raw_cents_deviation - (octaves_off * 1200)
+
         # Threshold Evaluation aligned conceptually with the Online Music Education Dataset
         # If they are within 50 cents (half a semitone) of the target note, they pass!
         is_correct = bool(abs(cents_deviation) <= 50)
