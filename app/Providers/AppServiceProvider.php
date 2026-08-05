@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\AuralAttempt;
 use App\Models\AuralModuleAttempt;
+use App\Models\TutorConversation;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\ServiceProvider;
 
@@ -31,6 +32,7 @@ class AppServiceProvider extends ServiceProvider
         Relation::morphMap([
             'aural_attempt' => AuralAttempt::class,
             'module_attempt' => AuralModuleAttempt::class,
+            'tutor_message' => TutorConversation::class,
         ]);
     }
 }

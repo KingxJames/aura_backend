@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class TutorConversation extends Model
 {
@@ -21,5 +22,10 @@ class TutorConversation extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function feedback(): MorphOne
+    {
+        return $this->morphOne(ExerciseFeedback::class, 'feedbackable');
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\AuralAttempt;
 use App\Models\AuralModuleAttempt;
+use App\Models\TutorConversation;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -15,6 +16,7 @@ class ExerciseFeedbackController extends Controller
     private const MORPH_TYPES = [
         'aural_attempt' => AuralAttempt::class,
         'module_attempt' => AuralModuleAttempt::class,
+        'tutor_message' => TutorConversation::class,
     ];
 
     /**
@@ -43,6 +45,16 @@ class ExerciseFeedbackController extends Controller
                 'success' => false,
                 'message' => 'This attempt does not belong to you.',
             ], 403);
+        }
+
+        // Tutor messages are two-sided (the student's own question is one
+        // "message" too) - only the AI's reply is something a clarity/jargon
+        // rating makes sense against.
+        if ($attempt instanceof TutorConversation && $attempt->message_type !== 'ai') {
+            return response()->json([
+                'success' => false,
+                'message' => 'Only tutor replies can be rated.',
+            ], 422);
         }
 
         // Calling updateOrCreate on the relation itself (not the ExerciseFeedback
