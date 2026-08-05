@@ -90,11 +90,7 @@ class OpusController extends Controller
         $result = $this->pitchAnalysis->analyze($absolutePath, $request->target_note);
 
         if (!$result || isset($result['success']) && !$result['success']) {
-            return response()->json([
-                'success' => false,
-                'message' => 'DSP Engine processing failure.',
-                'error' => $result['error'] ?? 'Malformed script output formatting.'
-            ], 500);
+            return $this->pitchAnalysis->failureResponse($result);
         }
 
         $passed = abs($result['cents_deviation']) <= $opusLevel->tolerance_cents;

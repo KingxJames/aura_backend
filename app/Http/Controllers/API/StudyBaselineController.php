@@ -119,11 +119,7 @@ class StudyBaselineController extends Controller
         $result = $this->pitchAnalysis->analyze($absolutePath, $targetNote);
 
         if (!$result || (isset($result['success']) && !$result['success'])) {
-            return response()->json([
-                'success' => false,
-                'message' => 'DSP Engine processing failure.',
-                'error' => $result['error'] ?? 'Malformed script output formatting.',
-            ], 500);
+            return $this->pitchAnalysis->failureResponse($result);
         }
 
         $processingMs = (int) round((microtime(true) - $processingStartedAt) * 1000);
@@ -226,7 +222,10 @@ class StudyBaselineController extends Controller
         // Elapsed time (Primary RQ: transcription speed) - measured the same
         // way as AuralModuleController::gradeTranscription(), so the baseline
         // snapshot is directly comparable to later transcription attempts.
-        $elapsedMs = $exercise->created_at->diffInMilliseconds(now());
+        // Rounded to int - Carbon 3's diffInMilliseconds() returns a float
+        // (sub-ms precision), which users.baseline_transcription_elapsed_ms
+        // (an unsigned integer column) rejects outright at save time.
+        $elapsedMs = (int) round($exercise->created_at->diffInMilliseconds(now()));
         $scoreDetails = array_merge($scoring, [
             'elapsed_ms' => $elapsedMs,
             'speed_valid' => $scoring['correctness_pct'] >= TranscriptionScoringService::CORRECTNESS_THRESHOLD_PCT,
@@ -278,9 +277,17 @@ class StudyBaselineController extends Controller
             return response()->json(['success' => false, 'message' => 'Baseline assessment is not finished yet.'], 422);
         }
 
+        $rawElapsedMs = $transcriptionAttempt->score_details['elapsed_ms'] ?? null;
+
         $user->baseline_pitch_accuracy_cents = round($pitchAttempts->avg(fn ($a) => abs($a->cents_deviation)), 1);
         $user->baseline_transcription_accuracy_pct = $transcriptionAttempt->score_details['correctness_pct'] ?? null;
-        $user->baseline_transcription_elapsed_ms = $transcriptionAttempt->score_details['elapsed_ms'] ?? null;
+        // Rounded to int - users.baseline_transcription_elapsed_ms is an
+        // unsigned integer column, and older attempts (recorded before the
+        // Carbon 3 float-precision fix in transcriptionAttempt()) may still
+        // carry a float elapsed_ms in their stored score_details.
+        $user->baseline_transcription_elapsed_ms = $rawElapsedMs !== null
+            ? (int) round($rawElapsedMs)
+            : null;
         $user->baseline_completed_at = now();
         $user->save();
 

@@ -3,22 +3,70 @@ import json
 import librosa
 import numpy as np
 
+# pYIN reports a per-frame probability that voicing is genuinely present.
+# Background noise/room hum can still produce a non-NaN f0 guess, it just
+# won't be a confident one - so a frame only counts as a real pitch reading
+# once it clears this threshold, not merely once it's non-NaN.
+#
+# Calibration note: synthetic testing (clean tone vs. tone + noise) showed
+# pYIN's own probability output collapses sharply rather than gradually once
+# noise crosses a certain point, so the exact cutoff here matters less than
+# it might for a smoother confidence signal. Validated against low-frequency
+# hum/rumble (mains hum, HVAC, mobile mic self-noise, the noise profile
+# preemphasis above specifically targets) up to the sung tone's own
+# amplitude with no false rejections. Not yet validated against real device
+# recordings in the field - revisit this value once that data exists.
+VOICED_CONFIDENCE_THRESHOLD = 0.5
+
+# Minimum fraction of analysis frames that must clear both the voiced flag
+# and the confidence threshold above for a clip to be trusted at all. Below
+# this the mic likely picked up mostly background noise/silence rather than
+# a sung note, so the clip is rejected instead of returning a pitch reading
+# that's really just measuring noise.
+MIN_CONFIDENT_VOICED_RATIO = 0.15
+
 def analyze_pitch(file_path, target_note):
     try:
         # 1. Load the raw .wav audio file mapping time-domain data arrays
         y, sr = librosa.load(file_path, sr=22050)
-        
-        # 2. Execute the pYIN algorithm to extract fundamental frequency (f0) frames
+
+        # Trim leading/trailing near-silence (button-press noise, room tone
+        # before the singer starts) so it doesn't dilute the confident-voiced
+        # ratio below or bias the analysis window toward non-singing audio.
+        y, _ = librosa.effects.trim(y, top_db=30)
+
+        if y.size == 0:
+            return {"success": False, "error": "No audio detected - the clip was silent."}
+
+        # Pre-emphasis (high-frequency boost) raises the sung pitch's energy
+        # relative to low-frequency background noise (room hum, HVAC, mobile
+        # mic self-noise), which otherwise biases pYIN toward locking onto
+        # that noise instead of the singer on noisy recordings.
+        y = librosa.effects.preemphasis(y)
+
+        # 2. Execute the pYIN algorithm to extract fundamental frequency (f0) frames.
+        # fmin/fmax (C3-C6) span bass through soprano range, so pitch tracking
+        # itself is largely timbre-agnostic - pYIN tracks periodicity, not
+        # spectral envelope, so it isn't thrown off by voice "color" the way
+        # a formant- or timbre-based method would be.
         f0, voiced_flag, voiced_probs = librosa.pyin(
             y, fmin=librosa.note_to_hz('C3'), fmax=librosa.note_to_hz('C6'), sr=sr
         )
-        
-        # Filter out silent/unvoiced frames (NaN values)
-        valid_pitches = f0[~np.isnan(f0)]
-        
-        if len(valid_pitches) == 0:
-            return {"success": False, "error": "No vocal pitch or sound detected."}
-        
+
+        # Noise gate: only trust frames that are both non-NaN AND confidently
+        # voiced, rather than every frame pYIN didn't outright fail on.
+        confident_mask = (~np.isnan(f0)) & voiced_flag & (voiced_probs >= VOICED_CONFIDENCE_THRESHOLD)
+        confident_ratio = float(np.count_nonzero(confident_mask)) / max(len(f0), 1)
+
+        if confident_ratio < MIN_CONFIDENT_VOICED_RATIO:
+            return {
+                "success": False,
+                "error": "Couldn't get a clear pitch reading - try again somewhere quieter or closer to the mic.",
+                "confidence": round(confident_ratio, 2),
+            }
+
+        valid_pitches = f0[confident_mask]
+
         # 3. Calculate the median fundamental frequency of the singing clip
         detected_hz = float(np.median(valid_pitches))
         
@@ -45,7 +93,8 @@ def analyze_pitch(file_path, target_note):
             "detected_frequency": round(detected_hz, 2),
             "target_frequency": round(target_hz, 2),
             "cents_deviation": round(cents_deviation, 1),
-            "is_correct": is_correct
+            "is_correct": is_correct,
+            "confidence": round(confident_ratio, 2)
         }
         
     except Exception as e:

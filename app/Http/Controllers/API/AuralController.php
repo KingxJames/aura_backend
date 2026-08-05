@@ -138,11 +138,7 @@ class AuralController extends Controller
         $result = $this->pitchAnalysis->analyze($absolutePath, $request->target_note);
 
         if (!$result || isset($result['success']) && !$result['success']) {
-            return response()->json([
-                'success' => false,
-                'message' => 'DSP Engine processing failure.',
-                'error' => $result['error'] ?? 'Malformed script output formatting.'
-            ], 500);
+            return $this->pitchAnalysis->failureResponse($result);
         }
 
         // 4. Generate dynamic, pedagogical feedback based on performance variance bounds
@@ -211,11 +207,7 @@ class AuralController extends Controller
         $result = $this->pitchAnalysis->analyze($absolutePath, $targetNote);
 
         if (!$result || isset($result['success']) && !$result['success']) {
-            return response()->json([
-                'success' => false,
-                'message' => 'DSP Engine processing failure.',
-                'error' => $result['error'] ?? 'Malformed script output formatting.'
-            ], 500);
+            return $this->pitchAnalysis->failureResponse($result);
         }
 
         $dev = $result['cents_deviation'];

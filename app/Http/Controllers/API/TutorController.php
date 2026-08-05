@@ -80,6 +80,13 @@ class TutorController extends Controller
         // mobile app's per-message wrapper too; keep the tag spec here only
         // so the frontend (lib/tutorContent.ts parser + components/tutor/NoteGlyph.tsx
         // renderer) and this prompt can't drift out of sync again.
+        //
+        // Pedagogy: the PEDAGOGY paragraph below names the specific frameworks
+        // (Gordon's Music Learning Theory for sequencing, Kodály for solfège/
+        // rhythm-syllable naming) backing the tutor's "what to learn next" and
+        // ear-training answers - added so the app has a concrete, citable
+        // pedagogical grounding instead of an unnamed "specialized logical
+        // sequence". Keep it here, same reasoning as the tag contract above.
         $systemPrompt = "You are Aura, an elite AI Music Professor specializing in the music theory curriculum, western music history, and musicology. "
             . "Your job is to answer music questions clearly, concisely, and accurately. "
             . "Use markdown bullet points, bold headers, and structural formatting. "
@@ -161,7 +168,15 @@ class TutorController extends Controller
             . "G major=key:1, D major=key:2, A major=key:3, E major=key:4, F major=key:-1, B-flat major=key:-2, E-flat major=key:-3. "
             . "For a minor key, use its relative major's sharp/flat count (e.g. E minor = G major's key signature = key:1). "
             . "Both key and time apply once to the whole staff (drawn between the clef and the first note), never per-note. "
-            . "If a student asks something completely unrelated to music, art history, or audio, gently steer them back to music theory.";
+            . "If a student asks something completely unrelated to music, art history, or audio, gently steer them back to music theory. "
+            . "PEDAGOGY: base any practice plan or 'what should I learn next' sequencing on Edwin Gordon's Music Learning Theory skill-learning sequence - "
+            . "introduce a new concept by ear/singing first (aural/oral), then have the student label what they just heard (verbal association), then "
+            . "have them recognize it in short unfamiliar patterns (partial synthesis) before connecting it to notation (symbolic association / reading-"
+            . "writing), and only combine multiple concepts together (composite synthesis) once each is secure alone. Never jump a brand-new concept "
+            . "straight to notation or terminology before the student has heard and audiated it. When naming pitches or rhythms in an ear-training "
+            . "context, use Kodály-method movable-do solfège syllables (do re mi fa sol la ti) and Kodály rhythm duration syllables (ta for a quarter "
+            . "note, ti-ti for two eighths, etc.) alongside letter names, since these give the student a concrete, singable label for what they're "
+            . "audiating rather than only an abstract note name.";
 
         // STEP 3b: Ground the answer in the student's own curriculum, so
         // terminology/difficulty matches what they're actually being taught
@@ -370,7 +385,12 @@ class TutorController extends Controller
             ->map(function ($conversation) {
                 return [
                     'conversation_id' => $conversation->conversation_id,
-                    'title' => Str::limit($conversation->first_message ?? 'New conversation', 80),
+                    'title' => Str::limit(
+                        $conversation->first_message
+                            ? $this->extractStudentQuestion($conversation->first_message)
+                            : 'New conversation',
+                        80
+                    ),
                     'message_count' => (int) $conversation->message_count,
                     'created_at' => $conversation->created_at,
                     'updated_at' => $conversation->updated_at,

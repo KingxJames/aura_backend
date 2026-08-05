@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Http;
 
 class PitchAnalysisService
@@ -31,5 +32,37 @@ class PitchAnalysisService
         }
 
         return $response->json();
+    }
+
+    /**
+     * Builds the error response for a failed/null analyze() result, shared
+     * across every controller that calls analyze(). Distinguishes two very
+     * different failure classes that pitch_analyzer.py can return:
+     *
+     *  - A `confidence` key present means the DSP ran fine and rejected the
+     *    *recording* itself (too much background noise, clip too quiet/short
+     *    to trust) - this is a normal outcome of imperfect mic input, not a
+     *    server error, so it's a 422 with the specific, actionable reason
+     *    (e.g. "try again somewhere quieter") surfaced as the top-level
+     *    message the client actually displays.
+     *  - No `confidence` key (or no result at all) means the script crashed,
+     *    timed out, or returned malformed output - a genuine engine failure,
+     *    so it stays a 500 with the old generic message.
+     */
+    public function failureResponse(?array $result): JsonResponse
+    {
+        if ($result && array_key_exists('confidence', $result)) {
+            return response()->json([
+                'success' => false,
+                'message' => $result['error'],
+                'confidence' => $result['confidence'],
+            ], 422);
+        }
+
+        return response()->json([
+            'success' => false,
+            'message' => 'DSP Engine processing failure.',
+            'error' => $result['error'] ?? 'Malformed script output formatting.',
+        ], 500);
     }
 }
