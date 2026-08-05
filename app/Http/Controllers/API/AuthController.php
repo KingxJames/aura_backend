@@ -367,6 +367,7 @@ class AuthController extends Controller
             'current_grade_level' => $user->current_grade_level,
             'profile_picture' => $user->profile_picture,
             'provider' => $user->provider,
+            'is_admin' => $user->is_admin,
             'created_at' => $user->created_at,
             'updated_at' => $user->updated_at,
         ];
