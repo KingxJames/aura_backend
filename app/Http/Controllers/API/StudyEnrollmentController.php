@@ -33,6 +33,7 @@ class StudyEnrollmentController extends Controller
         return response()->json([
             'success' => true,
             'enrolled' => $user->study_arm !== null,
+            'declined' => $user->study_declined_at !== null,
             'prompt_seen' => $user->study_prompt_seen_at !== null,
             'baseline_required' => $user->study_arm !== null && $user->baseline_completed_at === null,
             'baseline_completed' => $user->baseline_completed_at !== null,
@@ -86,5 +87,34 @@ class StudyEnrollmentController extends Controller
             'success' => true,
             'message' => 'Enrollment recorded.',
         ], 201);
+    }
+
+    /**
+     * Explicit decline. A real, first-class decision (not just closing the
+     * screen) - the consent gate treats "declined" the same as "enrolled"
+     * for the purpose of unblocking the rest of the app, since either one is
+     * an actual choice the user made, distinct from never having decided.
+     * POST /api/v1/study/decline
+     */
+    public function decline(Request $request): JsonResponse
+    {
+        $user = $request->user();
+
+        if ($user->study_arm !== null) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Already enrolled in the study.',
+            ], 409);
+        }
+
+        if ($user->study_declined_at === null) {
+            $user->study_declined_at = now();
+            $user->save();
+        }
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Decision recorded.',
+        ]);
     }
 }

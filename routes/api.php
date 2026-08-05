@@ -51,6 +51,7 @@ Route::middleware('auth:sanctum')->group(function () {
     // --- Research Study Enrollment ---
     Route::get('/v1/study/status', [StudyEnrollmentController::class, 'status']); // Whether the user is already enrolled + has seen the consent screen (no arm revealed)
     Route::post('/v1/study/mark-prompt-seen', [StudyEnrollmentController::class, 'markPromptSeen']); // Records that the consent screen was shown, regardless of the decision
+    Route::post('/v1/study/decline', [StudyEnrollmentController::class, 'decline']); // Explicit decision not to join - unblocks the app the same as enrolling does
     Route::post('/v1/study/enroll', [StudyEnrollmentController::class, 'enroll']); // Consent-gated study arm assignment (block-randomized)
 
     // --- Baseline (Pretest) Assessment - required before arm-specific feedback/gating activates ---
