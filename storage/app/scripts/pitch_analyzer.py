@@ -16,6 +16,14 @@ import numpy as np
 # preemphasis above specifically targets) up to the sung tone's own
 # amplitude with no false rejections. Not yet validated against real device
 # recordings in the field - revisit this value once that data exists.
+#
+# Field report (2026-08-05): a deep/bass voice was rejected here while a
+# high voice wasn't. Root cause was fmin being too high (see below), not
+# this threshold - a fundamental outside the search range reads as ~0
+# confidence regardless of audio quality, which looks identical to "too
+# noisy" from this constant's perspective. Confirmed via synthetic ~110Hz
+# tone: raising fmin's floor alone took mean confidence from ~0.01 to ~0.74
+# with no change to this threshold.
 VOICED_CONFIDENCE_THRESHOLD = 0.5
 
 # Minimum fraction of analysis frames that must clear both the voiced flag
@@ -45,12 +53,18 @@ def analyze_pitch(file_path, target_note):
         y = librosa.effects.preemphasis(y)
 
         # 2. Execute the pYIN algorithm to extract fundamental frequency (f0) frames.
-        # fmin/fmax (C3-C6) span bass through soprano range, so pitch tracking
-        # itself is largely timbre-agnostic - pYIN tracks periodicity, not
-        # spectral envelope, so it isn't thrown off by voice "color" the way
-        # a formant- or timbre-based method would be.
+        # fmin/fmax (C2-C6) span deep bass through soprano range. This floor
+        # matters more than it looks: singers commonly render a target note a
+        # comfortable octave down (see the octave-fold below), and a fundamental
+        # that lands below fmin isn't just "low confidence" - pYIN can't search
+        # there at all, so confidence collapses to ~0 regardless of audio
+        # quality. C3 (~131Hz) was too high a floor for real bass voices, whose
+        # fundamental can sit well under 130Hz; C2 (~65Hz) gives real headroom.
+        # Pitch tracking itself is largely timbre-agnostic within this range -
+        # pYIN tracks periodicity, not spectral envelope, so it isn't thrown
+        # off by voice "color" the way a formant-based method would be.
         f0, voiced_flag, voiced_probs = librosa.pyin(
-            y, fmin=librosa.note_to_hz('C3'), fmax=librosa.note_to_hz('C6'), sr=sr
+            y, fmin=librosa.note_to_hz('C2'), fmax=librosa.note_to_hz('C6'), sr=sr
         )
 
         # Noise gate: only trust frames that are both non-NaN AND confidently
