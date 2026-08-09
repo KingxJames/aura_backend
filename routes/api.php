@@ -73,6 +73,7 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/v1/study/admin/enrollment-summary', [StudyDashboardController::class, 'enrollmentSummary']); // Per-arm enrollment counts vs. target/floor
         Route::get('/v1/study/admin/attrition', [StudyDashboardController::class, 'attrition']); // Per-participant completed-session counts, flagged if at risk
         Route::get('/v1/study/admin/progress', [StudyDashboardController::class, 'progress']); // Per-participant baseline vs. current pitch + transcription accuracy
+        Route::delete('/v1/study/admin/participants/{user}', [StudyDashboardController::class, 'deleteParticipant']); // Remove a throwaway/test participant account
     });
 
     // --- Aural Analysis Engine (Aural Tab) ---

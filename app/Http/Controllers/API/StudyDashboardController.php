@@ -164,4 +164,34 @@ class StudyDashboardController extends Controller
             'data' => $data,
         ]);
     }
+
+    /**
+     * Removes a participant account entirely (their attempts, feedback,
+     * tokens, etc. cascade via FK constraints) - a research-data cleanup
+     * tool for throwaway/test accounts (e.g. QA signups), not general user
+     * management. Can't target another researcher or the caller's own
+     * account, so it can't be used to deadmin the study or lock yourself
+     * out.
+     * DELETE /api/v1/study/admin/participants/{user}
+     */
+    public function deleteParticipant(Request $request, User $user): JsonResponse
+    {
+        if ($user->id === $request->user()->id) {
+            return response()->json([
+                'success' => false,
+                'message' => "Can't delete your own account.",
+            ], 422);
+        }
+
+        if ($user->is_admin) {
+            return response()->json([
+                'success' => false,
+                'message' => "Can't delete another researcher account.",
+            ], 422);
+        }
+
+        $user->delete();
+
+        return response()->json(['success' => true]);
+    }
 }
