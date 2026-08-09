@@ -310,7 +310,18 @@ class AuralExerciseGeneratorService
         $this->assertGradeOneOnly($gradeLevel, 'Transcription');
 
         $key = self::GRADE_1_KEYS[array_rand(self::GRADE_1_KEYS)];
-        $noteSequence = $this->generateStepwiseMelody($key, beatsBudget: 4.0, maxDegreeStep: 2);
+        // Equal-duration notes (all quarter notes), not the mixed quarter/eighth
+        // rhythm generateStepwiseMelody produces - TranscriptionScoringService
+        // intentionally only grades pitch/octave, so a varied rhythm was just an
+        // extra thing to parse by ear with no scoring benefit. Note count still
+        // varies (4-6), matching the original budget-based range.
+        $noteSequence = $this->generateEqualDurationMelody(
+            $key,
+            minNotes: 4,
+            maxNotes: 6,
+            noteDuration: 1.0,
+            maxDegreeStep: 2,
+        );
 
         return [
             'module_type' => 'transcription',
@@ -348,6 +359,34 @@ class AuralExerciseGeneratorService
             // beginner-singable range (roughly a 6th either side of the tonic) -
             // a plain random walk with no bound would happily wander a full
             // octave away over just a handful of notes.
+            $step = random_int(-$maxDegreeStep, $maxDegreeStep);
+            $currentDegree = max(-4, min(4, $currentDegree + $step));
+        }
+
+        return $notes;
+    }
+
+    /**
+     * Same random-walk melodic contour as generateStepwiseMelody (never
+     * stepping more than $maxDegreeStep degrees at a time, staying within a
+     * beginner-singable range), but every note gets the same duration
+     * instead of a random quarter/eighth mix filling a beat budget.
+     */
+    private function generateEqualDurationMelody(
+        string $key,
+        int $minNotes,
+        int $maxNotes,
+        float $noteDuration,
+        int $maxDegreeStep,
+    ): array {
+        $notes = [];
+        $currentDegree = 0; // Start on the tonic.
+        $noteCount = random_int($minNotes, $maxNotes);
+
+        for ($i = 0; $i < $noteCount; $i++) {
+            $note = $this->degreeToNote($key, $currentDegree);
+            $notes[] = array_merge($note, ['duration_beats' => $noteDuration]);
+
             $step = random_int(-$maxDegreeStep, $maxDegreeStep);
             $currentDegree = max(-4, min(4, $currentDegree + $step));
         }
