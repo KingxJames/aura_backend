@@ -5,11 +5,13 @@ namespace App\Services;
 use App\Models\User;
 
 /**
- * Gordon MLT-grounded gate: Transcription (symbolic association) only unlocks
- * once a student has demonstrated audiation competence via consistent pitch
- * accuracy on the Aural tab. Experimental arm only - control arm gets fixed/
- * static sequencing (always unlocked), which is the actual "static app"
- * contrast this study is measuring against.
+ * Formerly a Gordon MLT-grounded gate: Transcription only unlocked once a
+ * student demonstrated audiation competence via consistent pitch accuracy on
+ * the Aural tab, for the experimental arm only (control arm was always
+ * unlocked). Transcription is now free practice for both arms - this no
+ * longer gates access, but still reports the experimental arm's audiation
+ * progress metrics (current_avg_cents/threshold_cents/attempts_so_far) since
+ * those remain useful research/dashboard signal independent of gating.
  */
 class AdaptiveSequencingService
 {
@@ -37,7 +39,7 @@ class AdaptiveSequencingService
 
         if ($avgAbsCents === null) {
             return [
-                'unlocked' => false,
+                'unlocked' => true,
                 'reason' => 'no_attempts_yet',
                 'current_avg_cents' => null,
                 'threshold_cents' => self::AUDIATION_MASTERY_THRESHOLD_CENTS,
@@ -49,11 +51,11 @@ class AdaptiveSequencingService
         // exist, then a fixed sliding window of the most recent N - so this is
         // meaningful from the student's very first attempt onward instead of
         // sitting blank for a week.
-        $unlocked = $avgAbsCents <= self::AUDIATION_MASTERY_THRESHOLD_CENTS;
+        $masteryMet = $avgAbsCents <= self::AUDIATION_MASTERY_THRESHOLD_CENTS;
 
         return [
-            'unlocked' => $unlocked,
-            'reason' => $unlocked ? 'mastery_threshold_met' : 'below_threshold',
+            'unlocked' => true,
+            'reason' => $masteryMet ? 'mastery_threshold_met' : 'below_threshold',
             'current_avg_cents' => $avgAbsCents,
             'threshold_cents' => self::AUDIATION_MASTERY_THRESHOLD_CENTS,
             'attempts_so_far' => min($attemptCount, PitchAccuracyService::ROLLING_WINDOW_N),
