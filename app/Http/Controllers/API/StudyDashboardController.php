@@ -66,11 +66,13 @@ class StudyDashboardController extends Controller
         $data = $users->map(function (User $user) {
             $practiceDates = $user->auralAttempts()
                 ->where('context', 'practice')
+                ->whereNotNull('created_at')
                 ->get(['created_at'])
                 ->map(fn ($attempt) => $attempt->created_at->toDateString());
 
             $transcriptionDates = AuralModuleAttempt::where('user_id', $user->id)
                 ->where('is_baseline', false)
+                ->whereNotNull('created_at')
                 ->get(['created_at'])
                 ->map(fn ($attempt) => $attempt->created_at->toDateString());
 
