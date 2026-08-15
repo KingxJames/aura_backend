@@ -64,17 +64,21 @@ class StudyDashboardController extends Controller
         $users = User::whereNotNull('study_arm')->get();
 
         $data = $users->map(function (User $user) {
+            // .pluck() (not .get()->map()) so these stay plain Support
+            // Collections - Eloquent Collection's merge() below assumes its
+            // items are Models and calls getKey() on them, which blows up
+            // once these are mapped down to bare date strings.
             $practiceDates = $user->auralAttempts()
                 ->where('context', 'practice')
                 ->whereNotNull('created_at')
-                ->get(['created_at'])
-                ->map(fn ($attempt) => $attempt->created_at->toDateString());
+                ->pluck('created_at')
+                ->map(fn ($createdAt) => $createdAt->toDateString());
 
             $transcriptionDates = AuralModuleAttempt::where('user_id', $user->id)
                 ->where('is_baseline', false)
                 ->whereNotNull('created_at')
-                ->get(['created_at'])
-                ->map(fn ($attempt) => $attempt->created_at->toDateString());
+                ->pluck('created_at')
+                ->map(fn ($createdAt) => $createdAt->toDateString());
 
             $sessionsCompleted = $practiceDates->merge($transcriptionDates)->unique()->count();
 
