@@ -44,7 +44,11 @@ def analyze_pitch(file_path, target_note):
         y, _ = librosa.effects.trim(y, top_db=30)
 
         if y.size == 0:
-            return {"success": False, "error": "No audio detected - the clip was silent."}
+            return {
+                "success": False,
+                "error": "No audio detected - the clip was silent.",
+                "confidence": 0.0,
+            }
 
         # Pre-emphasis (high-frequency boost) raises the sung pitch's energy
         # relative to low-frequency background noise (room hum, HVAC, mobile
