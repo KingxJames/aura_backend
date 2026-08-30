@@ -37,7 +37,7 @@ Route::post('/v1/auth/google', [AuthController::class, 'handleGoogleSignIn']); /
 // =========================================================================
 // 2. PROTECTED CORE APPLICATION API (Requires valid Sanctum Device Token)
 // =========================================================================
-Route::middleware('auth:sanctum')->group(function () {
+Route::middleware(['auth:sanctum', 'study.open'])->group(function () {
 
     // --- Session Termination ---
     Route::post('/v1/auth/logout', [AuthController::class, 'logout']); // Revoke token & sign out
