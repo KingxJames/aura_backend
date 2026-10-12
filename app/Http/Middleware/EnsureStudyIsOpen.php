@@ -7,16 +7,19 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Data collection for the pilot study has closed. Only admin/researcher
- * accounts may continue to authenticate against the API - every
- * participant-facing endpoint now returns 403 regardless of token
- * validity, so previously issued tokens stop working the moment this
- * deploys and no client-side change is required.
+ * When STUDY_OPEN=false, only admin/researcher accounts may use the API -
+ * every participant-facing endpoint returns 403 regardless of token
+ * validity, so previously issued tokens stop working immediately and no
+ * client-side change is required.
  */
 class EnsureStudyIsOpen
 {
     public function handle(Request $request, Closure $next): Response
     {
+        if (config('app.study_open')) {
+            return $next($request);
+        }
+
         if (!$request->user() || !$request->user()->is_admin) {
             return response()->json([
                 'success' => false,

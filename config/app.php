@@ -123,4 +123,16 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Study Open
+    |--------------------------------------------------------------------------
+    |
+    | When false, only admin/researcher accounts may use the protected API;
+    | participant requests get a 403 (see EnsureStudyIsOpen).
+    |
+    */
+
+    'study_open' => (bool) env('STUDY_OPEN', true),
+
 ];
